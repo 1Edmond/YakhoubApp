@@ -1,0 +1,70 @@
+# Flutter/Dart
+.dart_tool/
+build/
+*.lock
+.packages
+pubspec.lock
+
+# Android
+android/.gradle/
+android/app/build/
+android/build/
+android/local.properties
+android/gradle.properties
+android/*.jks
+android/*.keystore
+android/key.properties
+android/app/google-services.json
+
+# iOS
+ios/Pods/
+ios/.symlinks/
+ios/Flutter/Generated.xcconfig
+ios/Flutter/flutter_export_environment.sh
+ios/Runner/GoogleService-Info.plist
+ios/Runner/GeneratedPluginRegistrant.*
+ios/Runner/Info.plist
+*.xcworkspace
+xcuserdata/
+Podfile.lock
+
+# macOS
+macos/Flutter/GeneratedPluginRegistrant.*
+macos/Runner/GeneratedPluginRegistrant.*
+
+# Linux
+linux/flutter/ephemeral/
+linux/build/
+
+# Windows
+windows/build/
+windows/flutter/ephemeral/
+windows/runner/GeneratedPluginRegistrant.*
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Coverage
+coverage/
+*.lcov
+
+# Misc
+*.dart_tool_package_config.json
+.flutter-plugins
+.flutter-plugins-dependencies
