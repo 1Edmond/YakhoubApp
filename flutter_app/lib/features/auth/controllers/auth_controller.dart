@@ -5,33 +5,33 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_sixvalley_ecommerce/features/auth/domain/models/register_model.dart';
-import 'package:flutter_sixvalley_ecommerce/data/model/api_response.dart';
-import 'package:flutter_sixvalley_ecommerce/data/model/error_response.dart';
-import 'package:flutter_sixvalley_ecommerce/data/model/response_model.dart';
+import 'package:flutter_sixvalley_ecommerce/core/models/api_response.dart';
+import 'package:flutter_sixvalley_ecommerce/core/models/error_response.dart';
+import 'package:flutter_sixvalley_ecommerce/core/models/response_model.dart';
 import 'package:flutter_sixvalley_ecommerce/features/auth/domain/models/signup_model.dart';
 import 'package:flutter_sixvalley_ecommerce/features/auth/domain/models/social_login_model.dart';
 import 'package:flutter_sixvalley_ecommerce/features/auth/domain/models/user_log_data.dart';
 import 'package:flutter_sixvalley_ecommerce/features/auth/domain/services/auth_service_interface.dart';
 import 'package:flutter_sixvalley_ecommerce/features/auth/enums/from_page.dart';
-import 'package:flutter_sixvalley_ecommerce/features/address/controllers/address_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/ai_shopping/controllers/ai_shopping_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/cart/controllers/cart_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/home/screens/aster_theme_home_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/home/screens/home_screens.dart';
-import 'package:flutter_sixvalley_ecommerce/features/order/controllers/order_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/profile/controllers/profile_contrroller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/wishlist/controllers/wishlist_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/profile/domain/models/profile_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/splash/controllers/splash_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/splash/domain/models/config_model.dart';
-import 'package:flutter_sixvalley_ecommerce/helper/api_checker.dart';
-import 'package:flutter_sixvalley_ecommerce/helper/country_code_helper.dart';
-import 'package:flutter_sixvalley_ecommerce/helper/route_healper.dart';
-import 'package:flutter_sixvalley_ecommerce/localization/app_localization.dart';
-import 'package:flutter_sixvalley_ecommerce/localization/language_constrants.dart';
+import 'package:flutter_sixvalley_ecommerce/features/customer/address/controllers/address_controller.dart';
+import 'package:flutter_sixvalley_ecommerce/features/vault/ai_shopping/controllers/ai_shopping_controller.dart';
+import 'package:flutter_sixvalley_ecommerce/features/customer/cart/controllers/cart_controller.dart';
+import 'package:flutter_sixvalley_ecommerce/features/customer/home/screens/aster_theme_home_screen.dart';
+import 'package:flutter_sixvalley_ecommerce/features/customer/home/screens/home_screens.dart';
+import 'package:flutter_sixvalley_ecommerce/features/customer/order/controllers/order_controller.dart';
+import 'package:flutter_sixvalley_ecommerce/features/customer/profile/controllers/profile_contrroller.dart';
+import 'package:flutter_sixvalley_ecommerce/features/vault/wishlist/controllers/wishlist_controller.dart';
+import 'package:flutter_sixvalley_ecommerce/features/customer/profile/domain/models/profile_model.dart';
+import 'package:flutter_sixvalley_ecommerce/features/customer/splash/controllers/splash_controller.dart';
+import 'package:flutter_sixvalley_ecommerce/features/customer/splash/domain/models/config_model.dart';
+import 'package:flutter_sixvalley_ecommerce/core/helpers/api_checker.dart';
+import 'package:flutter_sixvalley_ecommerce/core/helpers/country_code_helper.dart';
+import 'package:flutter_sixvalley_ecommerce/core/helpers/route_healper.dart';
+import 'package:flutter_sixvalley_ecommerce/core/localization/app_localization.dart';
+import 'package:flutter_sixvalley_ecommerce/core/localization/language_constrants.dart';
 import 'package:flutter_sixvalley_ecommerce/main.dart';
-import 'package:flutter_sixvalley_ecommerce/localization/controllers/localization_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/common/basewidget/show_custom_snakbar_widget.dart';
+import 'package:flutter_sixvalley_ecommerce/core/localization/controllers/localization_controller.dart';
+import 'package:flutter_sixvalley_ecommerce/core/widgets/base/show_custom_snakbar_widget.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:provider/provider.dart';
@@ -696,7 +696,7 @@ class AuthController with ChangeNotifier {
         }
       }
     } else {
-      ApiChecker.checkApi(apiResponse, firebaseResponse: true);
+      ApiChecker.checkApi(apiResponse, );
     }
 
     _isPhoneNumberVerificationButtonLoading = false;

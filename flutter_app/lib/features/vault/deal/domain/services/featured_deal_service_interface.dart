@@ -1,0 +1,6 @@
+import 'package:flutter_sixvalley_ecommerce/features/shared/enums/data_source_enum.dart';
+import 'package:flutter_sixvalley_ecommerce/core/models/api_response.dart';
+
+abstract class FeaturedDealServiceInterface {
+  Future<ApiResponseModel<T>> getFeaturedDeal<T>({required DataSourceEnum source});
+}

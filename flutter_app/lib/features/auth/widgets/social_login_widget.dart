@@ -6,20 +6,20 @@ import 'package:flutter_sixvalley_ecommerce/features/auth/domain/models/social_l
 import 'package:flutter_sixvalley_ecommerce/features/auth/enums/from_page.dart';
 import 'package:flutter_sixvalley_ecommerce/features/auth/enums/social_login_options.dart';
 import 'package:flutter_sixvalley_ecommerce/features/auth/widgets/existing_account_bottom_sheet.dart';
-import 'package:flutter_sixvalley_ecommerce/features/profile/domain/models/profile_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/splash/domain/models/config_model.dart';
-import 'package:flutter_sixvalley_ecommerce/helper/responsive_helper.dart';
-import 'package:flutter_sixvalley_ecommerce/helper/route_healper.dart';
-import 'package:flutter_sixvalley_ecommerce/localization/language_constrants.dart';
+import 'package:flutter_sixvalley_ecommerce/features/customer/profile/domain/models/profile_model.dart';
+import 'package:flutter_sixvalley_ecommerce/features/customer/splash/domain/models/config_model.dart';
+import 'package:flutter_sixvalley_ecommerce/core/helpers/responsive_helper.dart';
+import 'package:flutter_sixvalley_ecommerce/core/helpers/route_healper.dart';
+import 'package:flutter_sixvalley_ecommerce/core/localization/language_constrants.dart';
 import 'package:flutter_sixvalley_ecommerce/main.dart';
 import 'package:flutter_sixvalley_ecommerce/features/auth/controllers/auth_controller.dart';
 import 'package:flutter_sixvalley_ecommerce/features/auth/controllers/facebook_login_controller.dart';
 import 'package:flutter_sixvalley_ecommerce/features/auth/controllers/google_login_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/splash/controllers/splash_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/utill/custom_themes.dart';
-import 'package:flutter_sixvalley_ecommerce/utill/dimensions.dart';
-import 'package:flutter_sixvalley_ecommerce/utill/images.dart';
-import 'package:flutter_sixvalley_ecommerce/common/basewidget/show_custom_snakbar_widget.dart';
+import 'package:flutter_sixvalley_ecommerce/features/customer/splash/controllers/splash_controller.dart';
+import 'package:flutter_sixvalley_ecommerce/core/constants/custom_themes.dart';
+import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
+import 'package:flutter_sixvalley_ecommerce/core/constants/images.dart';
+import 'package:flutter_sixvalley_ecommerce/core/widgets/base/show_custom_snakbar_widget.dart';
 import 'package:provider/provider.dart';
 import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 
@@ -37,6 +37,7 @@ class SocialLoginWidgetState extends State<SocialLoginWidget> {
 
   @override
   Widget build(BuildContext context) {
+    return const SizedBox.shrink(); // Hidden per requirements
     final ConfigModel? configModel = Provider.of<SplashController>(context, listen: false).configModel;
     final socialLoginConfig = configModel?.customerLogin?.socialMediaLoginOptions;
     List<String> socialLoginList = [];

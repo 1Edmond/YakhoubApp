@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/common/basewidget/custom_button_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/common/basewidget/custom_image_widget.dart';
+import 'package:flutter_sixvalley_ecommerce/core/widgets/base/custom_button_widget.dart';
+import 'package:flutter_sixvalley_ecommerce/core/widgets/base/custom_image_widget.dart';
 import 'package:flutter_sixvalley_ecommerce/features/auth/controllers/auth_controller.dart';
 import 'package:flutter_sixvalley_ecommerce/features/auth/domain/models/user_log_data.dart';
-import 'package:flutter_sixvalley_ecommerce/features/profile/domain/models/profile_model.dart';
-import 'package:flutter_sixvalley_ecommerce/helper/route_healper.dart';
-import 'package:flutter_sixvalley_ecommerce/localization/language_constrants.dart';
-import 'package:flutter_sixvalley_ecommerce/utill/custom_themes.dart';
-import 'package:flutter_sixvalley_ecommerce/utill/dimensions.dart';
+import 'package:flutter_sixvalley_ecommerce/features/customer/profile/domain/models/profile_model.dart';
+import 'package:flutter_sixvalley_ecommerce/core/helpers/route_healper.dart';
+import 'package:flutter_sixvalley_ecommerce/core/localization/language_constrants.dart';
+import 'package:flutter_sixvalley_ecommerce/core/constants/custom_themes.dart';
+import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
 import 'package:provider/provider.dart';
 
 class ExistingAccountBottomSheet extends StatefulWidget {

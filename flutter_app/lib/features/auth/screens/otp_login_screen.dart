@@ -1,22 +1,22 @@
 import 'package:country_code_picker/country_code_picker.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/common/basewidget/custom_asset_image_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/common/basewidget/custom_button_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/common/basewidget/custom_textfield_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/common/basewidget/show_custom_snakbar_widget.dart';
+import 'package:flutter_sixvalley_ecommerce/core/widgets/base/custom_asset_image_widget.dart';
+import 'package:flutter_sixvalley_ecommerce/core/widgets/base/custom_button_widget.dart';
+import 'package:flutter_sixvalley_ecommerce/core/widgets/base/custom_textfield_widget.dart';
+import 'package:flutter_sixvalley_ecommerce/core/widgets/base/show_custom_snakbar_widget.dart';
 import 'package:flutter_sixvalley_ecommerce/features/auth/controllers/auth_controller.dart';
 import 'package:flutter_sixvalley_ecommerce/features/auth/enums/from_page.dart';
 import 'package:flutter_sixvalley_ecommerce/features/auth/widgets/condition_check_box_widget.dart';
 import 'package:flutter_sixvalley_ecommerce/features/auth/widgets/social_login_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/splash/controllers/splash_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/splash/domain/models/config_model.dart';
-import 'package:flutter_sixvalley_ecommerce/helper/route_healper.dart';
-import 'package:flutter_sixvalley_ecommerce/localization/controllers/localization_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/localization/language_constrants.dart';
-import 'package:flutter_sixvalley_ecommerce/utill/custom_themes.dart';
-import 'package:flutter_sixvalley_ecommerce/utill/dimensions.dart';
-import 'package:flutter_sixvalley_ecommerce/utill/images.dart';
+import 'package:flutter_sixvalley_ecommerce/features/customer/splash/controllers/splash_controller.dart';
+import 'package:flutter_sixvalley_ecommerce/features/customer/splash/domain/models/config_model.dart';
+import 'package:flutter_sixvalley_ecommerce/core/helpers/route_healper.dart';
+import 'package:flutter_sixvalley_ecommerce/core/localization/controllers/localization_controller.dart';
+import 'package:flutter_sixvalley_ecommerce/core/localization/language_constrants.dart';
+import 'package:flutter_sixvalley_ecommerce/core/constants/custom_themes.dart';
+import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
+import 'package:flutter_sixvalley_ecommerce/core/constants/images.dart';
 import 'package:provider/provider.dart';
 
 class OtpLoginScreen extends StatefulWidget {

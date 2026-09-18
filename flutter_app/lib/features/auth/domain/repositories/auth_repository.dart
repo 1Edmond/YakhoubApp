@@ -2,13 +2,13 @@ import 'dart:developer';
 import 'dart:io';
 import 'package:dio/dio.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
-import 'package:flutter_sixvalley_ecommerce/data/datasource/remote/dio/dio_client.dart';
-import 'package:flutter_sixvalley_ecommerce/data/datasource/remote/exception/api_error_handler.dart';
-import 'package:flutter_sixvalley_ecommerce/data/model/api_response.dart';
+import 'package:flutter_sixvalley_ecommerce/core/di/data_sources/dio_client.dart';
+import 'package:flutter_sixvalley_ecommerce/core/di/data_sources/exception/api_error_handler.dart';
+import 'package:flutter_sixvalley_ecommerce/core/models/api_response.dart';
 import 'package:flutter_sixvalley_ecommerce/features/auth/controllers/auth_controller.dart';
 import 'package:flutter_sixvalley_ecommerce/features/auth/domain/repositories/auth_repository_interface.dart';
 import 'package:flutter_sixvalley_ecommerce/main.dart';
-import 'package:flutter_sixvalley_ecommerce/utill/app_constants.dart';
+import 'package:flutter_sixvalley_ecommerce/core/constants/app_constants.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -128,7 +128,7 @@ class AuthRepository implements AuthRepoInterface{
   @override
   Future<ApiResponseModel> setLanguageCode(String languageCode) async {
     try {
-      final response = await dioClient!.post(AppConstants.setCurrentLanguage,
+      final response = await dioClient!.post(AppConstants.setCurrentLanguageUri,
           data: {'current_language' : languageCode, '_method' : 'put'});
       return ApiResponseModel.withSuccess(response);
     } catch (e) {
