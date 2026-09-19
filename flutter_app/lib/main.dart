@@ -34,7 +34,7 @@ import 'package:flutter_sixvalley_ecommerce/features/shared/push_notification/no
 final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
     FlutterLocalNotificationsPlugin();
 final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
-late final AppDatabase database;
+final database = AppDatabase();
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
