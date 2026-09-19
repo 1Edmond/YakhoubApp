@@ -1520,16 +1520,16 @@ Future<void> init() async {
   sl.registerLazySingleton(() => orderEditServiceInterface);
   AddAuctionProductServiceInterface vendor_addAuctionProductServiceInterface =
       AddAuctionProductService(auctionRepoInterface: sl());
-  sl.registerLazySingleton(() => vendor_addAuctionProductServiceInterface);
+// //   sl.registerLazySingleton(() => vendor_addAuctionProductServiceInterface);
   v_auction_ai_service_interface.AuctionAiServiceInterface
       vendor_auctionAiServiceInterface =
       v_auction_ai_service.AuctionAiService(auctionAiRepositoryInterface: sl());
-  sl.registerLazySingleton(() => vendor_auctionAiServiceInterface);
+// //   sl.registerLazySingleton(() => vendor_auctionAiServiceInterface);
   v_auction_product_service_interface.AuctionProductServiceInterface
       auctionProductServiceInterface =
       v_auction_product_service.AuctionProductService(
           auctionProductRepoInterface: sl());
-  sl.registerLazySingleton(() => auctionProductServiceInterface);
+// //   sl.registerLazySingleton(() => auctionProductServiceInterface);
 
   // Repository
   sl.registerLazySingleton(() => v_auth_repository.AuthRepository(
