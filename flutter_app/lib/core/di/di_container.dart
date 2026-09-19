@@ -1394,7 +1394,7 @@ Future<void> init() async {
   v_auction_ai_repository_interface.AuctionAiRepositoryInterface
       vendor_auctionAiRepositoryInterface =
       v_auction_ai_repository.AuctionAiRepository(dioClient: sl());
-//   sl.registerLazySingleton(() => vendor_auctionAiRepositoryInterface);
+  sl.registerLazySingleton(() => vendor_auctionAiRepositoryInterface);
   v_auction_product_repository_interface.AuctionProductRepositoryInterface
       auctionProductRepositoryInterface =
       v_auction_product_repository.AuctionProductRepository(dioClient: sl());
@@ -1524,12 +1524,12 @@ Future<void> init() async {
   v_auction_ai_service_interface.AuctionAiServiceInterface
       vendor_auctionAiServiceInterface =
       v_auction_ai_service.AuctionAiService(auctionAiRepositoryInterface: sl());
-// //   sl.registerLazySingleton(() => vendor_auctionAiServiceInterface);
+  sl.registerLazySingleton(() => vendor_auctionAiServiceInterface);
   v_auction_product_service_interface.AuctionProductServiceInterface
       auctionProductServiceInterface =
       v_auction_product_service.AuctionProductService(
           auctionProductRepoInterface: sl());
-// //   sl.registerLazySingleton(() => auctionProductServiceInterface);
+  sl.registerLazySingleton(() => auctionProductServiceInterface);
 
   // Repository
   sl.registerLazySingleton(() => v_auth_repository.AuthRepository(
