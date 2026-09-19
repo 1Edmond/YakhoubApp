@@ -13,7 +13,8 @@ import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
 import 'package:flutter_sixvalley_ecommerce/core/constants/app_constants.dart';
-import 'package:flutter_sixvalley_ecommerce/core/guest/guest_mode_controller.dart' as flutter_sixvalley_ecommerce;
+import 'package:flutter_sixvalley_ecommerce/core/guest/guest_mode_controller.dart'
+    as flutter_sixvalley_ecommerce;
 import 'package:flutter_sixvalley_ecommerce/core/guest/guest_mode_toggle_overlay.dart';
 import 'core/di/di_container.dart' as di;
 import 'package:flutter_sixvalley_ecommerce/core/di/local/cache_response.dart';
@@ -30,7 +31,8 @@ import 'features/customer/profile/controllers/profile_contrroller.dart';
 import 'package:flutter_sixvalley_ecommerce/features/shared/push_notification/models/notification_body.dart';
 import 'package:flutter_sixvalley_ecommerce/features/shared/push_notification/notification_helper.dart';
 
-final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin = FlutterLocalNotificationsPlugin();
+final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
+    FlutterLocalNotificationsPlugin();
 final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 late final AppDatabase database;
 
@@ -60,13 +62,17 @@ Future<void> main() async {
   await FlutterDownloader.initialize(debug: true, ignoreSsl: true);
   await di.init();
 
-  flutterLocalNotificationsPlugin.resolvePlatformSpecificImplementation<AndroidFlutterLocalNotificationsPlugin>()?.requestNotificationsPermission();
+  flutterLocalNotificationsPlugin
+      .resolvePlatformSpecificImplementation<
+          AndroidFlutterLocalNotificationsPlugin>()
+      ?.requestNotificationsPermission();
 
   NotificationBody? body;
   String? initialRoute;
 
   try {
-    final RemoteMessage? remoteMessage = await FirebaseMessaging.instance.getInitialMessage();
+    final RemoteMessage? remoteMessage =
+        await FirebaseMessaging.instance.getInitialMessage();
     if (remoteMessage != null) {
       body = NotificationHelper.convertNotification(remoteMessage.data);
     }
@@ -80,10 +86,13 @@ Future<void> main() async {
   runApp(
     MultiProvider(providers: [
       ChangeNotifierProvider(create: (context) => di.sl<ThemeController>()),
-      ChangeNotifierProvider(create: (context) => di.sl<LocalizationController>()),
+      ChangeNotifierProvider(
+          create: (context) => di.sl<LocalizationController>()),
       ChangeNotifierProvider(create: (context) => di.sl<SplashController>()),
       ChangeNotifierProvider(create: (context) => di.sl<AuthController>()),
-      ChangeNotifierProvider(create: (context) => di.sl<flutter_sixvalley_ecommerce.GuestModeController>()),
+      ChangeNotifierProvider(
+          create: (context) =>
+              di.sl<flutter_sixvalley_ecommerce.GuestModeController>()),
       ChangeNotifierProvider(create: (context) => di.sl<ProfileController>()),
     ], child: MyApp(body: body, initialRoute: initialRoute)),
   );
@@ -138,10 +147,12 @@ class _MyAppState extends State<MyApp> {
 
   void _loadData() async {
     if (widget.initialRoute != null) {
-      final AuthController authProvider = Provider.of<AuthController>(context, listen: false);
+      final AuthController authProvider =
+          Provider.of<AuthController>(context, listen: false);
 
       if (authProvider.isLoggedIn()) {
-        await Provider.of<ProfileController>(context, listen: false).getUserInfo(context, isLoggedIn: true);
+        await Provider.of<ProfileController>(context, listen: false)
+            .getUserInfo(context, isLoggedIn: true);
       }
 
       if (mounted) {
@@ -207,8 +218,10 @@ class _MyAppState extends State<MyApp> {
           ],
           builder: (context, child) {
             return MediaQuery(
-              data: MediaQuery.of(context).copyWith(textScaler: TextScaler.noScaling),
-              child: SafeArea(top: false, child: GuestModeToggleOverlay(child: child!)),
+              data: MediaQuery.of(context)
+                  .copyWith(textScaler: TextScaler.noScaling),
+              child: SafeArea(
+                  top: false, child: GuestModeToggleOverlay(child: child!)),
             );
           },
           supportedLocales: locals,
