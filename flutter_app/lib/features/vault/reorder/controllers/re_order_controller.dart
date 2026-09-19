@@ -2,7 +2,7 @@ import 'package:flutter_sixvalley_ecommerce/core/models/api_response.dart';
 import 'package:flutter_sixvalley_ecommerce/features/customer/cart/controllers/cart_controller.dart';
 import 'package:flutter_sixvalley_ecommerce/features/vault/reorder/domain/services/re_order_service_interface.dart';
 import 'package:flutter_sixvalley_ecommerce/core/helpers/api_checker.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/route_healper.dart';
+import 'package:flutter_sixvalley_ecommerce/core/helpers/route_helper.dart';
 import 'package:flutter_sixvalley_ecommerce/main.dart';
 import 'dart:async';
 import 'package:flutter/material.dart';

@@ -8,7 +8,7 @@ import 'package:flutter_sixvalley_ecommerce/features/customer/location/controlle
 import 'package:flutter_sixvalley_ecommerce/features/customer/profile/controllers/profile_contrroller.dart';
 import 'package:flutter_sixvalley_ecommerce/features/customer/splash/domain/models/config_model.dart' as config;
 import 'package:flutter_sixvalley_ecommerce/core/helpers/country_code_helper.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/route_healper.dart';
+import 'package:flutter_sixvalley_ecommerce/core/helpers/route_helper.dart';
 import 'package:flutter_sixvalley_ecommerce/core/helpers/velidate_check.dart';
 import 'package:flutter_sixvalley_ecommerce/core/localization/language_constrants.dart';
 import 'package:flutter_sixvalley_ecommerce/main.dart';
@@ -509,7 +509,7 @@ class _AddNewAddressScreenState extends State<AddNewAddressScreen> {
                                 const SizedBox(height: Dimensions.paddingSizeSmall),
                                 InkWell(
                                   onTap: () {
-                                    showCustomSnackBarWidget("L'upload de photo est simulé.", context, isError: false);
+                                    showCustomSnackBarWidget("L'upload de photo est simul.", context, isError: false);
                                   },
                                   child: Container(
                                     height: 100,

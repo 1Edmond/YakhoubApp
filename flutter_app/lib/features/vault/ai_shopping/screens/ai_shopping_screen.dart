@@ -14,7 +14,7 @@ import 'package:flutter_sixvalley_ecommerce/features/vault/ai_shopping/widgets/a
 import 'package:flutter_sixvalley_ecommerce/features/vault/ai_shopping/widgets/ai_chat_sender_bubble_widget.dart';
 import 'package:flutter_sixvalley_ecommerce/features/vault/ai_shopping/screens/ai_sessions_screen.dart';
 import 'package:flutter_sixvalley_ecommerce/features/vault/ai_shopping/widgets/ai_product_quick_view_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/route_healper.dart';
+import 'package:flutter_sixvalley_ecommerce/core/helpers/route_helper.dart';
 import 'package:flutter_sixvalley_ecommerce/core/localization/language_constrants.dart';
 import 'package:flutter_sixvalley_ecommerce/core/constants/custom_themes.dart';
 import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';

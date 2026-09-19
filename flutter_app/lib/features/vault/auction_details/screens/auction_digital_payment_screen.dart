@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import 'package:flutter_sixvalley_ecommerce/features/vault/auction_details/controllers/participator/auction_participation_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/route_healper.dart';
+import 'package:flutter_sixvalley_ecommerce/core/helpers/route_helper.dart';
 import 'package:flutter_sixvalley_ecommerce/core/localization/language_constrants.dart';
 import 'package:flutter_sixvalley_ecommerce/main.dart';
 import 'package:flutter_sixvalley_ecommerce/core/constants/app_constants.dart';

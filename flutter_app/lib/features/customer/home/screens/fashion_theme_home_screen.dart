@@ -37,7 +37,7 @@ import 'package:flutter_sixvalley_ecommerce/features/customer/shop/widgets/more_
 import 'package:flutter_sixvalley_ecommerce/features/customer/home/widgets/top_seller_widget.dart';
 import 'package:flutter_sixvalley_ecommerce/features/customer/splash/controllers/splash_controller.dart';
 import 'package:flutter_sixvalley_ecommerce/core/helpers/responsive_helper.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/route_healper.dart';
+import 'package:flutter_sixvalley_ecommerce/core/helpers/route_helper.dart';
 import 'package:flutter_sixvalley_ecommerce/core/localization/language_constrants.dart';
 import 'package:flutter_sixvalley_ecommerce/main.dart';
 import 'package:flutter_sixvalley_ecommerce/core/theme/controllers/theme_controller.dart';

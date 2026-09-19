@@ -4,7 +4,7 @@ import 'package:flutter_sixvalley_ecommerce/core/constants/custom_themes.dart';
 import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
 import 'package:flutter_sixvalley_ecommerce/core/constants/images.dart';
 import 'package:flutter_sixvalley_ecommerce/core/widgets/base/custom_button_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/route_healper.dart';
+import 'package:flutter_sixvalley_ecommerce/core/helpers/route_helper.dart';
 
 class NotLoggedInWidget extends StatelessWidget {
   final String? message;

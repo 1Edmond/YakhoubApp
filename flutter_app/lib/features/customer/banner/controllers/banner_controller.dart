@@ -9,7 +9,7 @@ import 'package:flutter_sixvalley_ecommerce/features/customer/category/controlle
 import 'package:flutter_sixvalley_ecommerce/core/helpers/data_sync_helper.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/route_healper.dart';
+import 'package:flutter_sixvalley_ecommerce/core/helpers/route_helper.dart';
 
 class BannerController extends ChangeNotifier {
   final BannerServiceInterface? bannerServiceInterface;

@@ -5,7 +5,7 @@ import 'package:flutter_sixvalley_ecommerce/core/widgets/base/bouncy_widget.dart
 import 'package:flutter_sixvalley_ecommerce/features/customer/splash/controllers/splash_controller.dart';
 import 'package:flutter_sixvalley_ecommerce/features/customer/splash/domain/models/config_model.dart';
 import 'package:flutter_sixvalley_ecommerce/core/helpers/network_info.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/route_healper.dart';
+import 'package:flutter_sixvalley_ecommerce/core/helpers/route_helper.dart';
 import 'package:flutter_sixvalley_ecommerce/main.dart';
 import 'package:flutter_sixvalley_ecommerce/features/shared/push_notification/models/notification_body.dart';
 import 'package:flutter_sixvalley_ecommerce/features/shared/push_notification/notification_helper.dart';

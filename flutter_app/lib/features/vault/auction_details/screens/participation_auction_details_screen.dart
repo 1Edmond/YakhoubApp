@@ -43,7 +43,7 @@ import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
 import 'package:flutter_sixvalley_ecommerce/core/constants/images.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_sixvalley_ecommerce/core/widgets/base/custom_button_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/route_healper.dart';
+import 'package:flutter_sixvalley_ecommerce/core/helpers/route_helper.dart';
 import 'package:share_plus/share_plus.dart';
 
 class ParticipationAuctionDetailsScreen extends StatefulWidget {

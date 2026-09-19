@@ -5,7 +5,7 @@ import 'package:flutter_sixvalley_ecommerce/features/vault/wallet/domain/models/
 import 'package:flutter_sixvalley_ecommerce/features/vault/wallet/domain/services/wallet_service_interface.dart';
 import 'package:flutter_sixvalley_ecommerce/core/helpers/api_checker.dart';
 import 'package:flutter_sixvalley_ecommerce/core/helpers/price_converter.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/route_healper.dart';
+import 'package:flutter_sixvalley_ecommerce/core/helpers/route_helper.dart';
 import 'package:flutter_sixvalley_ecommerce/main.dart';
 import 'package:flutter_sixvalley_ecommerce/core/widgets/base/show_custom_snakbar_widget.dart';
 

@@ -80,7 +80,7 @@ class _AuctionProductDetailsWidgetState extends State<AuctionProductDetailsWidge
                             fontSize: FontSize(Dimensions.fontSizeSmall),
                             color: Theme.of(context).textTheme.bodyLarge?.color,
                             margin: Margins.zero,
-                            padding: HtmlPaddings.zero,
+                            padding: HtmlPaddings(),
                           ),
                         },
                         onAnchorTap: (url, _, __) {

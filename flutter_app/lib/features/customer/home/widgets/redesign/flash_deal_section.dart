@@ -3,7 +3,7 @@ import 'package:flutter_sixvalley_ecommerce/core/widgets/base/product_card_shimm
 import 'package:flutter_sixvalley_ecommerce/core/widgets/base/product_card_widget.dart';
 import 'package:flutter_sixvalley_ecommerce/features/vault/deal/controllers/flash_deal_controller.dart';
 import 'package:flutter_sixvalley_ecommerce/core/helpers/responsive_helper.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/route_healper.dart';
+import 'package:flutter_sixvalley_ecommerce/core/helpers/route_helper.dart';
 import 'package:flutter_sixvalley_ecommerce/core/localization/language_constrants.dart';
 import 'package:flutter_sixvalley_ecommerce/core/constants/app_constants.dart';
 import 'package:flutter_sixvalley_ecommerce/core/constants/custom_themes.dart';

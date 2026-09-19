@@ -93,8 +93,8 @@ dependencies:
   flutter_image_compress: ^2.5.1
   textfield_tags: 2.0.2
   autocomplete_textfield: ^2.0.1
-  flutter_html: ^3.0.0
-  flutter_html_table: ^3.0.0
+  flutter_html: 3.0.0-beta.2
+  flutter_html_table: 3.0.0-beta.2
   flutter_speed_dial: ^7.0.0
   barcode_widget: ^2.0.4
   barcode_scan2: ^4.7.2
@@ -136,13 +136,4 @@ flutter:
           weight: 500
         - asset: assets/fonts/ubuntu/SF-Pro-Rounded-Regular.ttf
           weight: 600
-    - family: Cairo
-      fonts:
-        - asset: assets/fonts/cairo/Cairo-Regular.ttf
-          weight: 400
-        - asset: assets/fonts/cairo/Cairo-Medium.ttf
-          weight: 500
-        - asset: assets/fonts/cairo/Cairo-SemiBold.ttf
-          weight: 600
-        - asset: assets/fonts/cairo/Cairo-Bold.ttf
-          weight: 700
+

@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_sixvalley_ecommerce/core/di/local/cache_response.dart';
 import 'package:flutter_sixvalley_ecommerce/core/models/api_response.dart';
 import 'package:flutter_sixvalley_ecommerce/features/customer/splash/domain/models/business_pages_model.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/route_healper.dart';
+import 'package:flutter_sixvalley_ecommerce/core/helpers/route_helper.dart';
 import 'package:flutter_sixvalley_ecommerce/features/customer/splash/domain/models/config_model.dart';
 import 'package:flutter_sixvalley_ecommerce/features/customer/splash/domain/services/splash_service_interface.dart';
 import 'package:flutter_sixvalley_ecommerce/core/helpers/api_checker.dart';

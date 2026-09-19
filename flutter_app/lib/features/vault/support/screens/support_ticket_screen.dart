@@ -4,7 +4,7 @@ import 'package:flutter_sixvalley_ecommerce/features/vault/support/controllers/s
 import 'package:flutter_sixvalley_ecommerce/features/vault/support/widgets/support_ticket_widget.dart';
 import 'package:flutter_sixvalley_ecommerce/features/vault/support/widgets/support_ticket_shimmer.dart';
 import 'package:flutter_sixvalley_ecommerce/features/vault/support/widgets/support_ticket_type_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/route_healper.dart';
+import 'package:flutter_sixvalley_ecommerce/core/helpers/route_helper.dart';
 import 'package:flutter_sixvalley_ecommerce/core/localization/language_constrants.dart';
 import 'package:flutter_sixvalley_ecommerce/features/auth/controllers/auth_controller.dart';
 import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';

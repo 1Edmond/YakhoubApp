@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_sixvalley_ecommerce/features/customer/address/controllers/address_controller.dart';
 import 'package:flutter_sixvalley_ecommerce/features/customer/address/widgets/address_shimmer.dart';
 import 'package:flutter_sixvalley_ecommerce/features/vault/auction_checkout/controllers/auction_checkout_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/route_healper.dart';
+import 'package:flutter_sixvalley_ecommerce/core/helpers/route_helper.dart';
 import 'package:flutter_sixvalley_ecommerce/core/localization/language_constrants.dart';
 import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
 import 'package:flutter_sixvalley_ecommerce/core/constants/images.dart';

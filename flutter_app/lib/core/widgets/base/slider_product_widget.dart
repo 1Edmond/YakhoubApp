@@ -9,7 +9,7 @@ import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
 import 'package:flutter_sixvalley_ecommerce/core/widgets/base/custom_image_widget.dart';
 import 'package:flutter_sixvalley_ecommerce/features/customer/product_details/widgets/favourite_button_widget.dart';
 import 'package:flutter_sixvalley_ecommerce/core/constants/images.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/route_healper.dart';
+import 'package:flutter_sixvalley_ecommerce/core/helpers/route_helper.dart';
 import 'package:provider/provider.dart';
 
 

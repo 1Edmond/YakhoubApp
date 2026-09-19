@@ -5,7 +5,7 @@ import 'package:flutter_sixvalley_ecommerce/features/auth/controllers/auth_contr
 import 'package:flutter_sixvalley_ecommerce/features/customer/search_product/controllers/search_product_controller.dart';
 import 'package:flutter_sixvalley_ecommerce/features/customer/shop/domain/models/shop_navigation_model.dart';
 import 'package:flutter_sixvalley_ecommerce/features/vault/wishlist/controllers/wishlist_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/route_healper.dart';
+import 'package:flutter_sixvalley_ecommerce/core/helpers/route_helper.dart';
 import 'package:flutter_sixvalley_ecommerce/core/theme/controllers/theme_controller.dart';
 import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
 import 'package:flutter_sixvalley_ecommerce/core/widgets/base/not_logged_in_bottom_sheet_widget.dart';

@@ -11,7 +11,7 @@ import 'package:flutter_sixvalley_ecommerce/features/auth/widgets/condition_chec
 import 'package:flutter_sixvalley_ecommerce/features/auth/widgets/social_login_widget.dart';
 import 'package:flutter_sixvalley_ecommerce/features/customer/splash/controllers/splash_controller.dart';
 import 'package:flutter_sixvalley_ecommerce/features/customer/splash/domain/models/config_model.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/route_healper.dart';
+import 'package:flutter_sixvalley_ecommerce/core/helpers/route_helper.dart';
 import 'package:flutter_sixvalley_ecommerce/core/localization/controllers/localization_controller.dart';
 import 'package:flutter_sixvalley_ecommerce/core/localization/language_constrants.dart';
 import 'package:flutter_sixvalley_ecommerce/core/constants/custom_themes.dart';

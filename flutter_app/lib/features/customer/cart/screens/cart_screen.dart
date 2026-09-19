@@ -8,7 +8,7 @@ import 'package:flutter_sixvalley_ecommerce/features/vault/shipping/controllers/
 import 'package:flutter_sixvalley_ecommerce/features/customer/splash/domain/models/config_model.dart';
 import 'package:flutter_sixvalley_ecommerce/core/helpers/cart_healper.dart';
 import 'package:flutter_sixvalley_ecommerce/core/helpers/price_converter.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/route_healper.dart';
+import 'package:flutter_sixvalley_ecommerce/core/helpers/route_helper.dart';
 import 'package:flutter_sixvalley_ecommerce/core/helpers/shop_helper.dart';
 import 'package:flutter_sixvalley_ecommerce/core/localization/language_constrants.dart';
 import 'package:flutter_sixvalley_ecommerce/main.dart';
@@ -245,8 +245,8 @@ class CartScreenState extends State<CartScreen> {
                           child: InkWell(
                             onTap: () {
                               showDialog(context: context, builder: (context) => AlertDialog(
-                                title: const Text("Demande de réduction"),
-                                content: const Text("Votre demande de réduction a bien été envoyée."),
+                                title: const Text("Demande de rduction"),
+                                content: const Text("Votre demande de rduction a bien t envoye."),
                                 actions: [
                                   TextButton(onPressed: () => Navigator.pop(context), child: const Text("OK"))
                                 ]
@@ -261,7 +261,7 @@ class CartScreenState extends State<CartScreen> {
                                 border: Border.all(color: Colors.orange)
                               ),
                               child: Center(
-                                child: Text("Demander une réduction", style: titilliumSemiBold.copyWith(color: Colors.orange)),
+                                child: Text("Demander une rduction", style: titilliumSemiBold.copyWith(color: Colors.orange)),
                               ),
                             ),
                           ),
@@ -489,8 +489,8 @@ class CartScreenState extends State<CartScreen> {
                           child: InkWell(
                             onTap: () {
                               showDialog(context: context, builder: (context) => AlertDialog(
-                                title: const Text("Demande de réduction"),
-                                content: const Text("Votre demande de réduction a bien été envoyée."),
+                                title: const Text("Demande de rduction"),
+                                content: const Text("Votre demande de rduction a bien t envoye."),
                                 actions: [
                                   TextButton(onPressed: () => Navigator.pop(context), child: const Text("OK"))
                                 ]
@@ -505,7 +505,7 @@ class CartScreenState extends State<CartScreen> {
                                 border: Border.all(color: Colors.orange)
                               ),
                               child: Center(
-                                child: Text("Demander une réduction", style: titilliumSemiBold.copyWith(color: Colors.orange)),
+                                child: Text("Demander une rduction", style: titilliumSemiBold.copyWith(color: Colors.orange)),
                               ),
                             ),
                           ),
@@ -805,8 +805,8 @@ class CartScreenState extends State<CartScreen> {
                           child: InkWell(
                             onTap: () {
                               showDialog(context: context, builder: (context) => AlertDialog(
-                                title: const Text("Demande de réduction"),
-                                content: const Text("Votre demande de réduction a bien été envoyée."),
+                                title: const Text("Demande de rduction"),
+                                content: const Text("Votre demande de rduction a bien t envoye."),
                                 actions: [
                                   TextButton(onPressed: () => Navigator.pop(context), child: const Text("OK"))
                                 ]
@@ -821,7 +821,7 @@ class CartScreenState extends State<CartScreen> {
                                 border: Border.all(color: Colors.orange)
                               ),
                               child: Center(
-                                child: Text("Demander une réduction", style: titilliumSemiBold.copyWith(color: Colors.orange)),
+                                child: Text("Demander une rduction", style: titilliumSemiBold.copyWith(color: Colors.orange)),
                               ),
                             ),
                           ),

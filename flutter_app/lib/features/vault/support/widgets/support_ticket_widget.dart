@@ -4,7 +4,7 @@ import 'package:flutter_sixvalley_ecommerce/core/widgets/base/custom_asset_image
 import 'package:flutter_sixvalley_ecommerce/features/vault/support/controllers/support_ticket_controller.dart';
 import 'package:flutter_sixvalley_ecommerce/features/vault/support/domain/models/support_ticket_model.dart';
 import 'package:flutter_sixvalley_ecommerce/core/helpers/date_converter.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/route_healper.dart';
+import 'package:flutter_sixvalley_ecommerce/core/helpers/route_helper.dart';
 import 'package:flutter_sixvalley_ecommerce/core/localization/language_constrants.dart';
 import 'package:flutter_sixvalley_ecommerce/core/constants/custom_themes.dart';
 import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';

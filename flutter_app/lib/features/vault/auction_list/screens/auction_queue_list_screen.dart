@@ -11,7 +11,7 @@ import 'package:flutter_sixvalley_ecommerce/features/vault/auction_list/controll
 import 'package:flutter_sixvalley_ecommerce/features/vault/auction_list/domain/models/auction_product_model.dart';
 import 'package:flutter_sixvalley_ecommerce/features/vault/auction_list/widgets/auction_queue_item_shimmer_widget.dart';
 import 'package:flutter_sixvalley_ecommerce/features/vault/auction_transaction/widgets/auction_queue_item_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/route_healper.dart';
+import 'package:flutter_sixvalley_ecommerce/core/helpers/route_helper.dart';
 import 'package:flutter_sixvalley_ecommerce/core/localization/language_constrants.dart';
 import 'package:flutter_sixvalley_ecommerce/features/customer/splash/controllers/splash_controller.dart';
 import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';

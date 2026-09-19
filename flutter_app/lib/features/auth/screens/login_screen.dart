@@ -13,7 +13,7 @@ import 'package:flutter_sixvalley_ecommerce/features/customer/home/screens/home_
 import 'package:flutter_sixvalley_ecommerce/features/customer/splash/controllers/splash_controller.dart';
 import 'package:flutter_sixvalley_ecommerce/features/customer/splash/domain/models/config_model.dart';
 import 'package:flutter_sixvalley_ecommerce/core/helpers/number_checker_helper.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/route_healper.dart';
+import 'package:flutter_sixvalley_ecommerce/core/helpers/route_helper.dart';
 import 'package:flutter_sixvalley_ecommerce/core/localization/controllers/localization_controller.dart';
 import 'package:flutter_sixvalley_ecommerce/core/localization/language_constrants.dart';
 import 'package:flutter_sixvalley_ecommerce/main.dart';

@@ -5,7 +5,7 @@ import 'package:flutter_sixvalley_ecommerce/features/customer/search_product/con
 import 'package:flutter_sixvalley_ecommerce/features/customer/shop/domain/enums/vacation_duration_type.dart';
 import 'package:flutter_sixvalley_ecommerce/features/customer/shop/domain/models/shop_navigation_model.dart';
 import 'package:flutter_sixvalley_ecommerce/features/customer/splash/controllers/splash_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/route_healper.dart';
+import 'package:flutter_sixvalley_ecommerce/core/helpers/route_helper.dart';
 import 'package:flutter_sixvalley_ecommerce/core/helpers/shop_helper.dart';
 import 'package:flutter_sixvalley_ecommerce/core/localization/controllers/localization_controller.dart';
 import 'package:flutter_sixvalley_ecommerce/core/localization/language_constrants.dart';

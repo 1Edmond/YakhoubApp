@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_sixvalley_ecommerce/core/widgets/base/custom_asset_image_widget.dart';
 import 'package:flutter_sixvalley_ecommerce/core/widgets/base/custom_image_widget.dart';
 import 'package:flutter_sixvalley_ecommerce/features/vault/auction_checkout/controllers/auction_checkout_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/route_healper.dart';
+import 'package:flutter_sixvalley_ecommerce/core/helpers/route_helper.dart';
 import 'package:flutter_sixvalley_ecommerce/features/vault/auction_details/widgets/auction_offline_payment_screen.dart';
 import 'package:flutter_sixvalley_ecommerce/features/customer/splash/controllers/splash_controller.dart';
 import 'package:flutter_sixvalley_ecommerce/features/vault/transaction/controllers/transaction_controller.dart';

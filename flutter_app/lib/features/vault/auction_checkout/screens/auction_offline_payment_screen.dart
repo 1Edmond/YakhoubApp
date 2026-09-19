@@ -13,7 +13,7 @@ import 'package:flutter_sixvalley_ecommerce/core/constants/images.dart';
 import 'package:flutter_sixvalley_ecommerce/core/widgets/base/custom_app_bar_widget.dart';
 import 'package:flutter_sixvalley_ecommerce/core/widgets/base/show_custom_snakbar_widget.dart';
 import 'package:flutter_sixvalley_ecommerce/features/customer/checkout/widgets/order_place_bottomsheet_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/route_healper.dart';
+import 'package:flutter_sixvalley_ecommerce/core/helpers/route_helper.dart';
 import 'package:flutter_sixvalley_ecommerce/main.dart';
 import 'package:flutter_sixvalley_ecommerce/core/widgets/base/custom_textfield_widget.dart';
 import 'package:flutter_sixvalley_ecommerce/features/vault/offline_payment/widgets/offline_card_widget.dart';

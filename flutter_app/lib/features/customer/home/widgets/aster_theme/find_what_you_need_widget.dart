@@ -9,7 +9,7 @@ import 'package:flutter_sixvalley_ecommerce/core/constants/custom_themes.dart';
 import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
 import 'package:flutter_sixvalley_ecommerce/core/widgets/base/custom_image_widget.dart';
 import 'package:flutter_sixvalley_ecommerce/features/customer/home/widgets/aster_theme/find_what_you_need_shimmer.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/route_healper.dart';
+import 'package:flutter_sixvalley_ecommerce/core/helpers/route_helper.dart';
 import 'package:provider/provider.dart';
 
 class FindWhatYouNeedView extends StatelessWidget {

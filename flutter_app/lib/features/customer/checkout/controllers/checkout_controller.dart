@@ -5,7 +5,7 @@ import 'package:flutter_sixvalley_ecommerce/features/customer/checkout/domain/se
 import 'package:flutter_sixvalley_ecommerce/features/vault/offline_payment/domain/models/offline_payment_model.dart';
 import 'package:flutter_sixvalley_ecommerce/features/customer/splash/controllers/splash_controller.dart';
 import 'package:flutter_sixvalley_ecommerce/core/helpers/api_checker.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/route_healper.dart';
+import 'package:flutter_sixvalley_ecommerce/core/helpers/route_helper.dart';
 import 'package:flutter_sixvalley_ecommerce/core/localization/language_constrants.dart';
 import 'package:flutter_sixvalley_ecommerce/main.dart';
 import 'dart:async';

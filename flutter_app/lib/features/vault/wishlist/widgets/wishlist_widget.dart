@@ -10,7 +10,7 @@ import 'package:flutter_sixvalley_ecommerce/core/constants/custom_themes.dart';
 import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
 import 'package:flutter_sixvalley_ecommerce/core/constants/images.dart';
 import 'package:flutter_sixvalley_ecommerce/features/vault/wishlist/widgets/remove_from_wishlist_bottom_sheet_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/route_healper.dart';
+import 'package:flutter_sixvalley_ecommerce/core/helpers/route_helper.dart';
 
 class WishListWidget extends StatelessWidget {
   final WishlistModel? wishlistModel;

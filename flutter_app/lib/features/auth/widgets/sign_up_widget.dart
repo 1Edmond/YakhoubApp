@@ -143,23 +143,23 @@ class SignUpWidgetState extends State<SignUpWidget> {
                               controller: _lastNameController,
                               validator: (value)  => ValidateCheck.validateEmptyText(value, "last_name_field_is_required"))),
 
-                      Container(margin: const EdgeInsets.only(left: Dimensions.marginSizeDefault, right: Dimensions.marginSizeDefault,
-                          Container(
-                            margin: const EdgeInsets.only(left: Dimensions.paddingSizeDefault, right: Dimensions.paddingSizeDefault, top: Dimensions.paddingSizeSmall),
-                            child: Visibility(
-                              visible: false, // Hide NNI by default per requirements
-                              child: CustomTextFieldWidget(
-                                hintText: "Numéro National d'Identité (NNI)",
-                                labelText: "NNI",
-                                focusNode: FocusNode(),
-                                nextFocus: FocusNode(),
-                                required: false,
-                                capitalization: TextCapitalization.words,
-                                prefixIcon: Images.user,
-                              ),
-                            ),
+                      // NNI Field (Hidden)
+                      Container(
+                        margin: const EdgeInsets.only(left: Dimensions.paddingSizeDefault, right: Dimensions.paddingSizeDefault, top: Dimensions.paddingSizeSmall),
+                        child: Visibility(
+                          visible: false,
+                          child: CustomTextFieldWidget(
+                            hintText: "NNI",
+                            labelText: "NNI",
+                            focusNode: FocusNode(),
+                            nextFocus: FocusNode(),
+                            required: false,
+                            capitalization: TextCapitalization.words,
+                            prefixIcon: Images.user,
                           ),
-                          top: Dimensions.marginSizeSmall),
+                        ),
+                      ),
+                      Container(margin: const EdgeInsets.only(left: Dimensions.marginSizeDefault, right: Dimensions.marginSizeDefault, top: Dimensions.marginSizeSmall),
                           child: CustomTextFieldWidget(
                               hintText: getTranslated('enter_your_email', context),
                               labelText: getTranslated('enter_your_email', context),

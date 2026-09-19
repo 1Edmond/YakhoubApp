@@ -14,7 +14,7 @@ import 'package:flutter_sixvalley_ecommerce/features/vault/auction_home/screens/
 import 'package:flutter_sixvalley_ecommerce/features/auth/controllers/auth_controller.dart';
 import 'package:flutter_sixvalley_ecommerce/features/customer/banner/controllers/banner_controller.dart';
 import 'package:flutter_sixvalley_ecommerce/features/customer/cart/controllers/cart_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/cart/screens/cart_screen.dart';
+// import 'package:flutter_sixvalley_ecommerce/features/customer/cart/screens/cart_screen.dart';
 import 'package:flutter_sixvalley_ecommerce/features/customer/category/controllers/category_controller.dart';
 import 'package:flutter_sixvalley_ecommerce/features/customer/category/screens/category_screen.dart';
 import 'package:flutter_sixvalley_ecommerce/features/shared/chat/controllers/chat_controller.dart';
@@ -131,7 +131,7 @@ class DashBoardScreenState extends State<DashBoardScreen> {
     _mainScreens = [
       homeScreen,
       const CategoryScreen(isBacButtonExist: false),
-      const CartScreen(showBackButton: false, fromDashboard: true),
+      // const CartScreen(showBackButton: false, fromDashboard: true),
       OrderScreen(
         isBacButtonExist: false,
         fromDashboard: true,

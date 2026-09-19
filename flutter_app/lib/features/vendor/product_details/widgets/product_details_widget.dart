@@ -289,7 +289,7 @@ class _ProductDetailsWidgetState extends State<ProductDetailsWidget> {
                       //                     ),
                       //                     "table": Style(
                       //                       backgroundColor: const Color.fromARGB(0x50, 0xee, 0xee, 0xee),
-                      //                       padding: HtmlPaddings.zero,
+                      //                       padding: HtmlPaddings(),
                       //                       margin: Margins.zero,
                       //                     ),
                       //                     "tr": Style(
@@ -1248,7 +1248,7 @@ class _ExpandableHtmlTextState extends State<ExpandableHtmlText> {
                 fontSize: FontSize(Dimensions.fontSizeSmall),
                 color: Theme.of(context).textTheme.bodyLarge?.color,
                 margin: Margins.zero,
-                padding: HtmlPaddings.zero,
+                padding: HtmlPaddings(),
               ),
             },
           ) : Text(

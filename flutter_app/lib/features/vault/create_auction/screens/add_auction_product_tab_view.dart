@@ -8,7 +8,7 @@ import 'package:flutter_sixvalley_ecommerce/features/vault/auction_details/contr
 import 'package:flutter_sixvalley_ecommerce/features/vault/auction_details/domain/models/creator/creator_auction_details_model.dart';
 import 'package:flutter_sixvalley_ecommerce/features/vault/create_auction/controllers/add_auction_product_contoller.dart';
 import 'package:flutter_sixvalley_ecommerce/features/vault/create_auction/controllers/add_auction_product_media_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/route_healper.dart';
+import 'package:flutter_sixvalley_ecommerce/core/helpers/route_helper.dart';
 import 'package:flutter_sixvalley_ecommerce/core/localization/language_constrants.dart';
 import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
 import 'package:provider/provider.dart';
