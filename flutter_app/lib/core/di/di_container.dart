@@ -1390,11 +1390,11 @@ Future<void> init() async {
   AddAuctionProductRepositoryInterface
       vendor_addAuctionProductRepositoryInterface =
       AddAuctionProductRepository(dioClient: sl());
-  sl.registerLazySingleton(() => vendor_addAuctionProductRepositoryInterface);
+//   sl.registerLazySingleton(() => vendor_addAuctionProductRepositoryInterface);
   v_auction_ai_repository_interface.AuctionAiRepositoryInterface
       vendor_auctionAiRepositoryInterface =
       v_auction_ai_repository.AuctionAiRepository(dioClient: sl());
-  sl.registerLazySingleton(() => vendor_auctionAiRepositoryInterface);
+//   sl.registerLazySingleton(() => vendor_auctionAiRepositoryInterface);
   v_auction_product_repository_interface.AuctionProductRepositoryInterface
       auctionProductRepositoryInterface =
       v_auction_product_repository.AuctionProductRepository(dioClient: sl());
