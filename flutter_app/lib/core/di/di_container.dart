@@ -1628,7 +1628,7 @@ Future<void> init() async {
   sl.registerFactory(() => v_add_product_controller.AddProductController(
       shopServiceInterface: sl()));
   sl.registerFactory(
-      () => v_splash_controller.SplashController(serviceInterface: sl()));
+//       () => v_splash_controller.SplashController(serviceInterface: sl()));
   sl.registerFactory(() => v_transaction_controller.TransactionController(
       transactionServiceInterface: sl()));
   sl.registerFactory(() => v_notification_controller.NotificationController(
@@ -1641,15 +1641,15 @@ Future<void> init() async {
       v_product_details_controller.ProductDetailsController(
           productDetailsServiceInterface: sl()));
   sl.registerFactory(
-      () => v_theme_controller.ThemeController(sharedPreferences: sl()));
-  sl.registerFactory(() => v_localization_controller.LocalizationController(
+//       () => v_theme_controller.ThemeController(sharedPreferences: sl()));
+//   sl.registerFactory(() => v_localization_controller.LocalizationController(
       sharedPreferences: sl()));
   sl.registerFactory(() => v_language_controller.LanguageController());
   sl.registerFactory(
       () => v_shop_controller.ShopController(shopServiceInterface: sl()));
   sl.registerFactory(
       () => v_cart_controller.CartController(cartServiceInterface: sl()));
-  sl.registerFactory(() => v_bottom_menu_controller.BottomMenuController());
+//   sl.registerFactory(() => v_bottom_menu_controller.BottomMenuController());
   sl.registerFactory(() =>
       v_location_controller.LocationController(locationServiceInterface: sl()));
   sl.registerFactory(() =>
@@ -1665,7 +1665,7 @@ Future<void> init() async {
   sl.registerFactory(() => v_barcode_scan_controller.BarcodeScanController(
       cartServiceInterface: sl()));
   sl.registerFactory(() => ShowBottomSheetController());
-  sl.registerFactory(() => v_tutorial_controller.TutorialController());
+//   sl.registerFactory(() => v_tutorial_controller.TutorialController());
   sl.registerFactory(() =>
       v_add_product_image_controller.AddProductImageController(
           shopServiceInterface: sl()));
