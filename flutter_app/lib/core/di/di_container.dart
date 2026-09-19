@@ -1640,17 +1640,17 @@ Future<void> init() async {
   sl.registerFactory(() =>
       v_product_details_controller.ProductDetailsController(
           productDetailsServiceInterface: sl()));
-  sl.registerFactory(
+//   sl.registerFactory(
 //       () => v_theme_controller.ThemeController(sharedPreferences: sl()));
-//   // sl.registerFactory(() => v_localization_controller.LocalizationController(
+//   sl.registerFactory(() => v_localization_controller.LocalizationController(
 //       sharedPreferences: sl()));
-//   sl.registerFactory(() => v_language_controller.LanguageController());
+  sl.registerFactory(() => v_language_controller.LanguageController());
   sl.registerFactory(
       () => v_shop_controller.ShopController(shopServiceInterface: sl()));
   sl.registerFactory(
       () => v_cart_controller.CartController(cartServiceInterface: sl()));
-//   // sl.registerFactory(() => v_bottom_menu_controller.BottomMenuController());
-//   sl.registerFactory(() =>
+//   sl.registerFactory(() => v_bottom_menu_controller.BottomMenuController());
+  sl.registerFactory(() =>
       v_location_controller.LocationController(locationServiceInterface: sl()));
   sl.registerFactory(() =>
       v_barcode_controller.BarcodeController(barcodeServiceInterface: sl()));
@@ -1665,8 +1665,8 @@ Future<void> init() async {
   sl.registerFactory(() => v_barcode_scan_controller.BarcodeScanController(
       cartServiceInterface: sl()));
   sl.registerFactory(() => ShowBottomSheetController());
-//   // sl.registerFactory(() => v_tutorial_controller.TutorialController());
-//   sl.registerFactory(() =>
+//   sl.registerFactory(() => v_tutorial_controller.TutorialController());
+  sl.registerFactory(() =>
       v_add_product_image_controller.AddProductImageController(
           shopServiceInterface: sl()));
   sl.registerFactory(() => v_variation_controller.VariationController(
