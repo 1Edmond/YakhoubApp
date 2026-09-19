@@ -29,6 +29,7 @@ import 'package:flutter_sixvalley_ecommerce/features/vault/coupon/domain/service
 import 'package:flutter_sixvalley_ecommerce/features/customer/profile/domain/services/profile_service_interface.dart';
 import 'package:flutter_sixvalley_ecommerce/features/vault/auction/domain/repository/customer_auction_list_repository.dart';
 import 'package:flutter_sixvalley_ecommerce/features/vault/auction_transaction/controller/auction_transaction_controller.dart';
+import 'package:flutter_sixvalley_ecommerce/core/di/data_sources/dio_client.dart' as customer_dio_client;
 import 'package:flutter_sixvalley_ecommerce/core/di/data_sources/logging_interceptor.dart' as customer_interceptor;
 import 'package:flutter_sixvalley_ecommerce/features/vault/deal/domain/repositories/featured_deal_repository.dart';
 import 'package:flutter_sixvalley_ecommerce/features/vault/vat_tax/controllers/vat_tax_controller.dart';
@@ -471,8 +472,8 @@ Future<void> init() async {
   sl.registerLazySingleton(() => Connectivity());
   sl.registerLazySingleton(() => NetworkInfo(sl()));
   sl.registerLazySingleton(() => GuestModeController());
-  sl.registerLazySingleton(() => DioClient(AppConstants.baseUrl, sl(), loggingInterceptor: sl(), sharedPreferences: sl()));
-  sl<DioClient>().dio!.interceptors.add(GuestModeInterceptor(isGuestMode: () => sl<GuestModeController>().isGuestMode));
+  sl.registerLazySingleton(() => customer_dio_client.DioClient(AppConstants.baseUrl, sl(), loggingInterceptor: sl(), sharedPreferences: sl()));
+  sl<customer_dio_client.DioClient>().dio!.interceptors.add(GuestModeInterceptor(isGuestMode: () => sl<GuestModeController>().isGuestMode));
 
 
   DataSyncRepoInterface dataSyncRepoInterface = DataSyncRepo(dioClient: sl(), sharedPreferences: sl());
