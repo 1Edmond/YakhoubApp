@@ -466,7 +466,7 @@ Future<void> init() async {
   final sharedPreferences = await SharedPreferences.getInstance();
   sl.registerLazySingleton(() => sharedPreferences);
   sl.registerLazySingleton(() => Dio());
-  sl.registerLazySingleton(() => LoggingInterceptor());
+  sl.registerLazySingleton(() => customer_interceptor.LoggingInterceptor());
   sl.registerLazySingleton(() => Connectivity());
   sl.registerLazySingleton(() => NetworkInfo(sl()));
   sl.registerLazySingleton(() => GuestModeController());
