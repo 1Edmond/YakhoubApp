@@ -1627,7 +1627,7 @@ Future<void> init() async {
       v_shipping_controller.ShippingController(shippingServiceInterface: sl()));
   sl.registerFactory(() => v_add_product_controller.AddProductController(
       shopServiceInterface: sl()));
-  sl.registerFactory(
+//   sl.registerFactory(
 //       () => v_splash_controller.SplashController(serviceInterface: sl()));
   sl.registerFactory(() => v_transaction_controller.TransactionController(
       transactionServiceInterface: sl()));
