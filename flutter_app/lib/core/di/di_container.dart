@@ -1684,23 +1684,23 @@ Future<void> init() async {
       () => v_ai_controller.AiController(aiServiceInterface: sl()));
   sl.registerFactory(() => v_order_edit_controller.OrderEditController(
       orderEditServiceInterface: sl()));
-  sl.registerFactory(() => AddAuctionProductMediaController());
+  // sl.registerFactory(() => AddAuctionProductMediaController());
   sl.registerFactory(() => v_auction_ai_controller.AuctionAiController(
       auctionAiServiceInterface: sl()));
   sl.registerFactory(() =>
       v_auction_product_controller.AuctionProductController(
           auctionProductServiceInterface: sl()));
-  sl.registerFactory(() =>
-      AddAuctionProductController(addAuctionProductServiceInterface: sl()));
+//   sl.registerFactory(() =>
+//       AddAuctionProductController(addAuctionProductServiceInterface: sl()));
 
-  AuctionTransactionRepositoryInterface auctionTransactionRepo =
-      AuctionTransactionRepository(dioClient: sl());
-  sl.registerLazySingleton(() => auctionTransactionRepo);
-  AuctionTransactionServiceInterface auctionTransactionService =
-      AuctionTransactionService(repositoryInterface: sl());
-  sl.registerLazySingleton(() => auctionTransactionService);
-  sl.registerFactory(
-      () => AuctionTransactionController(serviceInterface: sl()));
+  // AuctionTransactionRepositoryInterface auctionTransactionRepo =
+//       AuctionTransactionRepository(dioClient: sl());
+//   sl.registerLazySingleton(() => auctionTransactionRepo);
+  // AuctionTransactionServiceInterface auctionTransactionService =
+//       AuctionTransactionService(repositoryInterface: sl());
+//   sl.registerLazySingleton(() => auctionTransactionService);
+//   sl.registerFactory(
+//       () => AuctionTransactionController(serviceInterface: sl()));
 
   ThirdPartyDeliverymanRepositoryInterface thirdPartyDeliverymanRepo =
       ThirdPartyDeliverymanRepository(dioClient: sl());
