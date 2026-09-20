@@ -5,7 +5,7 @@ import 'package:flutter_sixvalley_ecommerce/features/customer/splash/domain/repo
 import 'package:flutter_sixvalley_ecommerce/core/constants/app_constants.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class SplashRepository implements SplashRepositoryInterface{
+class SplashRepository implements SplashRepositoryInterface {
   final DioClient? dioClient;
   final SharedPreferences? sharedPreferences;
   SplashRepository({required this.dioClient, required this.sharedPreferences});
@@ -23,20 +23,20 @@ class SplashRepository implements SplashRepositoryInterface{
   @override
   Future<ApiResponseModel> getBusinessPages(String type) async {
     try {
-      final response = await dioClient!.get(AppConstants.businessPagesUri+type);
+      final response =
+          await dioClient!.get(AppConstants.businessPagesUri + type);
       return ApiResponseModel.withSuccess(response);
     } catch (e) {
       return ApiResponseModel.withError(ApiErrorHandler.getMessage(e));
     }
   }
 
-
   @override
   void initSharedData() async {
     if (!sharedPreferences!.containsKey(AppConstants.intro)) {
       sharedPreferences!.setBool(AppConstants.intro, true);
     }
-    if(!sharedPreferences!.containsKey(AppConstants.currency)) {
+    if (!sharedPreferences!.containsKey(AppConstants.currency)) {
       sharedPreferences!.setString(AppConstants.currency, '');
     }
   }
@@ -90,8 +90,4 @@ class SplashRepository implements SplashRepositoryInterface{
     // TODO: implement update
     throw UnimplementedError();
   }
-
-
-
-
 }
