@@ -3,7 +3,7 @@ import 'package:flutter_sixvalley_ecommerce/core/enums/local_caches_type_enum.da
 
 class AppConstants {
   static const String baseUrl =
-      'https://1732-194-71-130-44.ngrok-free.app/admin';
+      'https://0442-194-71-130-44.ngrok-free.app/admin';
   static const String appName = 'MultiShop Tchad';
   static const String packageName = 'com.multishop.tchad';
 
