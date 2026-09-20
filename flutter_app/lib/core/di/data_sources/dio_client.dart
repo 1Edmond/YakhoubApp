@@ -50,9 +50,12 @@ class DioClient {
     countryCode = countryCode == null ? this.countryCode == 'US' ? 'en': this.countryCode!.toLowerCase(): countryCode == 'US' ? 'en' : countryCode.toLowerCase();
     this.token = token;
     this.countryCode = countryCode;
-    dio!.options.headers = {
+        dio!.options.headers = {
       'Content-Type': 'application/json; charset=UTF-8',
-      'Authorization': 'Bearer $token',
+      'Authorization': 'Bearer ',
+      'ngrok-skip-browser-warning': '69420',
+      'Connection': 'close',
+      'Accept-Encoding': 'identity',
       AppConstants.langKey: countryCode == 'US'? 'en':countryCode.toLowerCase(),
     };
   }
