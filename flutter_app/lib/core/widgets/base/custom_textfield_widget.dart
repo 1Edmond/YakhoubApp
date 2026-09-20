@@ -229,7 +229,7 @@ class _CustomTextFieldWidgetState extends State<CustomTextFieldWidget> {
             widget.showCodePicker ? Padding(
               padding:  EdgeInsets.only(left: widget.isShowBorder == true ?  10 : 0),
               child: SizedBox(
-                  width: ResponsiveHelper.isTab(context) ? 120 : 92,
+                  width: ResponsiveHelper.isTab(context) ? 120 : 110,
                   child: Row(children: [
 
                     CodePickerWidget(
