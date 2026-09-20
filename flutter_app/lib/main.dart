@@ -176,8 +176,10 @@ class _MyAppState extends State<MyApp> {
     return Consumer2<ThemeController, SplashController>(
       builder: (context, themeController, splashController, _) {
         if (splashController.configModel == null) {
-          return Theme(
-            data: themeController.darkTheme
+          return MaterialApp(
+            title: AppConstants.appName,
+            debugShowCheckedModeBanner: false,
+            theme: themeController.darkTheme
                 ? dark(
                     primaryColor: Theme.of(context).primaryColor,
                     secondaryColor: Theme.of(context).colorScheme.secondary,
@@ -186,13 +188,7 @@ class _MyAppState extends State<MyApp> {
                     primaryColor: Theme.of(context).primaryColor,
                     secondaryColor: Theme.of(context).colorScheme.secondary,
                   ),
-            child: Directionality(
-              textDirection: TextDirection.ltr,
-              child: MediaQuery(
-                data: MediaQueryData.fromView(View.of(context)),
-                child: const SplashScreen(),
-              ),
-            ),
+            home: const SplashScreen(),
           );
         }
 
