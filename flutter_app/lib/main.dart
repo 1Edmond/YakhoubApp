@@ -13,6 +13,7 @@ import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
 import 'package:flutter_sixvalley_ecommerce/core/constants/app_constants.dart';
+import 'package:flutter_sixvalley_ecommerce/core/helpers/route_helper.dart';
 import 'package:flutter_sixvalley_ecommerce/core/guest/guest_mode_controller.dart'
     as flutter_sixvalley_ecommerce;
 import 'package:flutter_sixvalley_ecommerce/core/guest/guest_mode_toggle_overlay.dart';
@@ -195,8 +196,8 @@ class _MyAppState extends State<MyApp> {
           );
         }
 
-        return MaterialApp(
-          navigatorKey: navigatorKey,
+        return MaterialApp.router(
+          routerConfig: RouterHelper.goRoutes,
           title: AppConstants.appName,
           debugShowCheckedModeBanner: false,
           theme: themeController.darkTheme
@@ -208,7 +209,6 @@ class _MyAppState extends State<MyApp> {
                   primaryColor: Theme.of(context).primaryColor,
                   secondaryColor: Theme.of(context).colorScheme.secondary,
                 ),
-          home: const SplashScreen(),
           locale: Provider.of<LocalizationController>(context).locale,
           localizationsDelegates: const [
             AppLocalization.delegate,
