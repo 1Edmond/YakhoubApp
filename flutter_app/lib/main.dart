@@ -16,7 +16,7 @@ import 'package:flutter_sixvalley_ecommerce/core/constants/app_constants.dart';
 import 'package:flutter_sixvalley_ecommerce/core/helpers/route_helper.dart';
 import 'package:flutter_sixvalley_ecommerce/core/guest/guest_mode_controller.dart'
     as flutter_sixvalley_ecommerce;
-import 'package:flutter_sixvalley_ecommerce/core/guest/guest_mode_toggle_overlay.dart';
+
 import 'core/di/di_container.dart' as di;
 import 'package:flutter_sixvalley_ecommerce/core/di/local/cache_response.dart';
 import 'core/localization/app_localization.dart';
@@ -32,7 +32,7 @@ import 'features/customer/profile/controllers/profile_contrroller.dart';
 import 'package:flutter_sixvalley_ecommerce/features/shared/push_notification/models/notification_body.dart';
 import 'package:flutter_sixvalley_ecommerce/features/shared/push_notification/notification_helper.dart';
 
-final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
+final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin = 
     FlutterLocalNotificationsPlugin();
 final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 final database = AppDatabase();
@@ -220,8 +220,7 @@ class _MyAppState extends State<MyApp> {
             return MediaQuery(
               data: MediaQuery.of(context)
                   .copyWith(textScaler: TextScaler.noScaling),
-              child: SafeArea(
-                  top: false, child: GuestModeToggleOverlay(child: child!)),
+              child: SafeArea(top: false, child: child!),
             );
           },
           supportedLocales: locals,
