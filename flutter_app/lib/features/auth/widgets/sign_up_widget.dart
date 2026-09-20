@@ -34,6 +34,7 @@ class SignUpWidgetState extends State<SignUpWidget> {
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _confirmPasswordController = TextEditingController();
   final TextEditingController _referController = TextEditingController();
+  final TextEditingController _nniController = TextEditingController();
 
   final FocusNode _fNameFocus = FocusNode();
   final FocusNode _lNameFocus = FocusNode();
@@ -42,6 +43,7 @@ class SignUpWidgetState extends State<SignUpWidget> {
   final FocusNode _passwordFocus = FocusNode();
   final FocusNode _confirmPasswordFocus = FocusNode();
   final FocusNode _referFocus = FocusNode();
+  final FocusNode _nniFocus = FocusNode();
 
   RegisterModel register = RegisterModel();
   final GlobalKey<FormState> signUpFormKey = GlobalKey<FormState>();
@@ -83,6 +85,7 @@ class SignUpWidgetState extends State<SignUpWidget> {
         _phoneController.clear();
         _confirmPasswordController.clear();
         _referController.clear();
+        _nniController.clear();
       }
     }
     else {
@@ -137,26 +140,25 @@ class SignUpWidgetState extends State<SignUpWidget> {
                               labelTextStyle: textRegular.copyWith(fontSize: Dimensions.fontSizeDefault, color: Theme.of(context).textTheme.bodyLarge!.color),
                               focusNode: _lNameFocus,
                               prefixIcon: Images.username,
-                              nextFocus: _emailFocus,
+                              nextFocus: _nniFocus,
                               required: true,
                               capitalization: TextCapitalization.words,
                               controller: _lastNameController,
                               validator: (value)  => ValidateCheck.validateEmptyText(value, "last_name_field_is_required"))),
 
-                      // NNI Field (Hidden)
+                                            // NNI Field
                       Container(
                         margin: const EdgeInsets.only(left: Dimensions.paddingSizeDefault, right: Dimensions.paddingSizeDefault, top: Dimensions.paddingSizeSmall),
-                        child: Visibility(
-                          visible: false,
-                          child: CustomTextFieldWidget(
-                            hintText: "NNI",
-                            labelText: "NNI",
-                            focusNode: FocusNode(),
-                            nextFocus: FocusNode(),
-                            required: false,
-                            capitalization: TextCapitalization.words,
-                            prefixIcon: Images.user,
-                          ),
+                        child: CustomTextFieldWidget(
+                          hintText: "NNI",
+                          labelText: "NNI",
+                          focusNode: _nniFocus,
+                          nextFocus: _emailFocus,
+                          required: true,
+                          controller: _nniController,
+                          capitalization: TextCapitalization.words,
+                          prefixIcon: Images.user,
+                          validator: (value) => ValidateCheck.validateEmptyText(value, "NNI is required"),
                         ),
                       ),
                       Container(margin: const EdgeInsets.only(left: Dimensions.marginSizeDefault, right: Dimensions.marginSizeDefault, top: Dimensions.marginSizeSmall),
@@ -265,6 +267,7 @@ class SignUpWidgetState extends State<SignUpWidget> {
                               register.lName = lastName;
                               register.email = email;
                               register.phone = phoneNumber;
+                              register.nni = _nniController.text.trim();
                               register.password = password;
                               register.referCode = _referController.text.trim();
                               authProvider.registration(register, route, config!, widget.fromPage, widget.onLoginSuccess);
@@ -304,3 +307,5 @@ class SignUpWidgetState extends State<SignUpWidget> {
     ]);
   }
 }
+
+

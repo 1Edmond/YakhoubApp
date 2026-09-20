@@ -4,11 +4,12 @@ class RegisterModel {
   String? fName;
   String? lName;
   String? phone;
+  String? nni;
   String? socialId;
   String? loginMedium;
   String? referCode;
 
-  RegisterModel({this.email, this.password, this.fName, this.lName, this.socialId,this.loginMedium, this.referCode});
+  RegisterModel({this.email, this.password, this.fName, this.lName, this.phone, this.nni, this.socialId,this.loginMedium, this.referCode});
 
   RegisterModel.fromJson(Map<String, dynamic> json) {
     email = json['email'];
@@ -16,6 +17,7 @@ class RegisterModel {
     fName = json['f_name'];
     lName = json['l_name'];
     phone = json['phone'];
+    nni = json['nni'];
     socialId = json['social_id'];
     loginMedium = json['login_medium'];
     referCode = json['referral_code'];
@@ -28,6 +30,7 @@ class RegisterModel {
     data['f_name'] = fName;
     data['l_name'] = lName;
     data['phone'] = phone;
+    data['nni'] = nni;
     data['social_id'] = socialId;
     data['login_medium'] = loginMedium;
     data['referral_code'] = referCode;

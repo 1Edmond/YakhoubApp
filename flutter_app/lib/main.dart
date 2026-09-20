@@ -33,7 +33,7 @@ import 'features/customer/profile/controllers/profile_contrroller.dart';
 import 'package:flutter_sixvalley_ecommerce/features/shared/push_notification/models/notification_body.dart';
 import 'package:flutter_sixvalley_ecommerce/features/shared/push_notification/notification_helper.dart';
 
-final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin = 
+final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
     FlutterLocalNotificationsPlugin();
 final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 final database = AppDatabase();
@@ -86,7 +86,9 @@ Future<void> main() async {
   GoRouter.optionURLReflectsImperativeAPIs = true;
 
   runApp(
-    MultiProvider(providers: di_providers.getProviders(), child: MyApp(body: body, initialRoute: initialRoute)),
+    MultiProvider(
+        providers: di_providers.getProviders(),
+        child: MyApp(body: body, initialRoute: initialRoute)),
   );
 }
 
