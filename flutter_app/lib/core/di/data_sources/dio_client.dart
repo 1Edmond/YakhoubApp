@@ -29,13 +29,16 @@ class DioClient {
     dio = dioC ?? Dio();
     dio
       ?..options.baseUrl = baseUrl
-      ..options.connectTimeout = const Duration(seconds: 60)
-      ..options.receiveTimeout = const Duration(seconds: 60)
+      ..options.connectTimeout = const Duration(seconds: 300)
+      ..options.receiveTimeout = const Duration(seconds: 300)
       ..httpClientAdapter
       ..options.headers = {
         'Content-Type': 'application/json; charset=UTF-8',
         'Authorization': 'Bearer $token',
         'Accept': 'application/json',
+        'ngrok-skip-browser-warning': '69420',
+        'Connection': 'close',
+        'Accept-Encoding': 'identity',
         AppConstants.langKey : countryCode == 'US'? 'en': countryCode!.toLowerCase(),
 
       };
