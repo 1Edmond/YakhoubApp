@@ -18,6 +18,7 @@ import 'package:flutter_sixvalley_ecommerce/core/guest/guest_mode_controller.dar
     as flutter_sixvalley_ecommerce;
 
 import 'core/di/di_container.dart' as di;
+import 'core/di/provider_setup.dart' as di_providers;
 import 'package:flutter_sixvalley_ecommerce/core/di/local/cache_response.dart';
 import 'core/localization/app_localization.dart';
 import 'core/localization/controllers/localization_controller.dart';
@@ -85,17 +86,7 @@ Future<void> main() async {
   GoRouter.optionURLReflectsImperativeAPIs = true;
 
   runApp(
-    MultiProvider(providers: [
-      ChangeNotifierProvider(create: (context) => di.sl<ThemeController>()),
-      ChangeNotifierProvider(
-          create: (context) => di.sl<LocalizationController>()),
-      ChangeNotifierProvider(create: (context) => di.sl<SplashController>()),
-      ChangeNotifierProvider(create: (context) => di.sl<AuthController>()),
-      ChangeNotifierProvider(
-          create: (context) =>
-              di.sl<flutter_sixvalley_ecommerce.GuestModeController>()),
-      ChangeNotifierProvider(create: (context) => di.sl<ProfileController>()),
-    ], child: MyApp(body: body, initialRoute: initialRoute)),
+    MultiProvider(providers: di_providers.getProviders(), child: MyApp(body: body, initialRoute: initialRoute)),
   );
 }
 
