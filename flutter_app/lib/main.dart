@@ -177,6 +177,7 @@ class _MyAppState extends State<MyApp> {
       builder: (context, themeController, splashController, _) {
         if (splashController.configModel == null) {
           return MaterialApp(
+            navigatorKey: navigatorKey,
             title: AppConstants.appName,
             debugShowCheckedModeBanner: false,
             theme: themeController.darkTheme
