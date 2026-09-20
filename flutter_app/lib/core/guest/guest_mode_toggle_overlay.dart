@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_sixvalley_ecommerce/core/guest/guest_mode_controller.dart';
+import 'package:flutter_sixvalley_ecommerce/features/customer/splash/screens/splash_screen.dart';
 
 class GuestModeToggleOverlay extends StatelessWidget {
   final Widget child;
@@ -40,6 +41,9 @@ class GuestModeToggleOverlay extends StatelessWidget {
                         value: guestModeController.isGuestMode,
                         onChanged: (value) {
                           guestModeController.setGuestMode(value);
+                          if (value) {
+                             Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (_) => const SplashScreen()));
+                          }
                         },
                         activeColor: Colors.white,
                         activeTrackColor: Colors.green[300],

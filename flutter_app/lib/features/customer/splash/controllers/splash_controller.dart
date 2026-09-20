@@ -3,6 +3,10 @@ import 'dart:convert';
 import 'package:drift/drift.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_sixvalley_ecommerce/core/guest/guest_mode_controller.dart';
+import 'package:flutter_sixvalley_ecommerce/core/guest/mock_config.dart';
+import 'package:provider/provider.dart';
+import 'package:flutter_sixvalley_ecommerce/main.dart';
 import 'package:flutter_sixvalley_ecommerce/core/di/local/cache_response.dart';
 import 'package:flutter_sixvalley_ecommerce/core/models/api_response.dart';
 import 'package:flutter_sixvalley_ecommerce/features/customer/splash/domain/models/business_pages_model.dart';
@@ -171,11 +175,24 @@ class SplashController extends ChangeNotifier {
 
       isSuccess = true;
     } else {
-      isSuccess = false;
-      if (apiResponse.response == null) {
-        _hasConnection = false;
+      bool isGuestMode = false;
+      if (Get.context != null) {
+         isGuestMode = Provider.of<GuestModeController>(Get.context!, listen: false).isGuestMode;
+      }
+      if (isGuestMode) {
+         _hasConnection = true;
+         isSuccess = true;
+         _configModel = MockConfig.mock;
+         _baseUrls = _configModel?.baseUrls;
+         _defaultCurrency = _configModel?.currencyList?.first;
+         _usdCurrency = _defaultCurrency;
       } else {
-        ApiChecker.checkApi(apiResponse);
+        isSuccess = false;
+        if (apiResponse.response == null) {
+          _hasConnection = false;
+        } else {
+          ApiChecker.checkApi(apiResponse);
+        }
       }
     }
     notifyListeners();
