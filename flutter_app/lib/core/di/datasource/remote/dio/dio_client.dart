@@ -43,6 +43,7 @@ class DioClient {
 
       };
     dio!.interceptors.add(loggingInterceptor);
+    print('===============> DIO TIMEOUT SET TO : ' + dio!.options.receiveTimeout.toString() + ' <===============');
   }
 
   void updateHeader(String? token, String? countryCode) {
