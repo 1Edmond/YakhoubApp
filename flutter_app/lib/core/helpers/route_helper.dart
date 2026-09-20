@@ -1250,7 +1250,7 @@ class RouterHelper {
         final String? referralCode = state.uri.queryParameters['referral_code'];
 
         if (state.matchedLocation == initial && isLoggedIn) {
-          return initial;
+          return null; // Fixed redirect loop
         }
 
         if (!isLoggedIn &&
