@@ -37,8 +37,8 @@ class DioClient {
         'Authorization': 'Bearer $token',
         'Accept': 'application/json',
         'ngrok-skip-browser-warning': '69420',
-        'Connection': 'close',
-        'Accept-Encoding': 'identity',
+        
+        
         AppConstants.langKey : countryCode == 'US'? 'en': countryCode!.toLowerCase(),
 
       };
@@ -55,8 +55,8 @@ class DioClient {
       'Content-Type': 'application/json; charset=UTF-8',
       'Authorization': 'Bearer $token',
       'ngrok-skip-browser-warning': '69420',
-      'Connection': 'close',
-      'Accept-Encoding': 'identity',
+      
+      
       AppConstants.langKey: countryCode == 'US'? 'en':countryCode.toLowerCase(),
     };
   }
