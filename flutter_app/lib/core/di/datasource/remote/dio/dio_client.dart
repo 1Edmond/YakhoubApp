@@ -52,7 +52,7 @@ class DioClient {
     this.countryCode = countryCode;
         dio!.options.headers = {
       'Content-Type': 'application/json; charset=UTF-8',
-      'Authorization': 'Bearer ',
+      'Authorization': 'Bearer $token',
       'ngrok-skip-browser-warning': '69420',
       'Connection': 'close',
       'Accept-Encoding': 'identity',
