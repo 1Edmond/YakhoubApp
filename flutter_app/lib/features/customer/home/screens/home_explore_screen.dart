@@ -350,8 +350,10 @@ class _HomeExploreScreenState extends State<HomeExploreScreen> with TickerProvid
                                     return Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                       children: [
                                         Expanded(
-                                          child: Column(crossAxisAlignment: CrossAxisAlignment.start, mainAxisSize: MainAxisSize.min,
-                                            children: [
+                                          child: SingleChildScrollView(
+                                            physics: const NeverScrollableScrollPhysics(),
+                                            child: Column(crossAxisAlignment: CrossAxisAlignment.start, mainAxisSize: MainAxisSize.min,
+                                              children: [
                                               Text(
                                                 firstLine,
                                                 style: titilliumRegular.copyWith(
@@ -370,7 +372,7 @@ class _HomeExploreScreenState extends State<HomeExploreScreen> with TickerProvid
                                               ),
                                             ],
                                           ),
-                                        ),
+                                        )),
                                         GestureDetector(
                                           onTap: () => RouterHelper.getMoreScreenRoute(action: RouteAction.push),
                                           child: ClipOval(
