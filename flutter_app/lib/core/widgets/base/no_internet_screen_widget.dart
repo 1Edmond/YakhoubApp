@@ -27,7 +27,7 @@ class NoInternetOrDataScreenWidget extends StatelessWidget {
     return Padding(
       padding: padding ?? EdgeInsets.all(MediaQuery.of(context).size.height * 0.025),
       child: Center(
-        child: Column(mainAxisAlignment: padding == null ? MainAxisAlignment.center  : MainAxisAlignment.start, children: [
+        child: SingleChildScrollView(child: Column(mainAxisSize: MainAxisSize.min, mainAxisAlignment: padding == null ? MainAxisAlignment.center  : MainAxisAlignment.start, children: [
           CustomAssetImageWidget(isNoInternet ? Images.noInternet :icon != null? icon! : Images.noData, height: iconSize, width: iconSize, fit: BoxFit.cover),
 
           if(isNoInternet)
@@ -76,7 +76,7 @@ class NoInternetOrDataScreenWidget extends StatelessWidget {
             )
 
         ]),
-      ),
+      )),
     );
   }
 }

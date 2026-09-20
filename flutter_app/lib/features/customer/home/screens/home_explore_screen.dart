@@ -329,7 +329,7 @@ class _HomeExploreScreenState extends State<HomeExploreScreen> with TickerProvid
                           centerTitle: false,
                           automaticallyImplyLeading: false,
                           backgroundColor: Theme.of(context).primaryColor,
-                          expandedHeight: 65,
+                          expandedHeight: 75,
                           flexibleSpace: _CustomizableSpaceBarWidget(
                             builder: (ctx, scrollingRate, child) => Opacity(
                               opacity: (1 - scrollingRate).clamp(0.0, 1.0),
