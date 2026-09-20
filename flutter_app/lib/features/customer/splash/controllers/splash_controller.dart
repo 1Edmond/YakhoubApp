@@ -175,25 +175,16 @@ class SplashController extends ChangeNotifier {
 
       isSuccess = true;
     } else {
-      bool isGuestMode = false;
+      // Automatically bypass internet check and use mock config for guest mode
       if (Get.context != null) {
-         isGuestMode = Provider.of<GuestModeController>(Get.context!, listen: false).isGuestMode;
+         Provider.of<GuestModeController>(Get.context!, listen: false).setGuestMode(true);
       }
-      if (isGuestMode) {
-         _hasConnection = true;
-         isSuccess = true;
-         _configModel = MockConfig.mock;
-         _baseUrls = _configModel?.baseUrls;
-         _defaultCurrency = _configModel?.currencyList?.first;
-         _usdCurrency = _defaultCurrency;
-      } else {
-        isSuccess = false;
-        if (apiResponse.response == null) {
-          _hasConnection = false;
-        } else {
-          ApiChecker.checkApi(apiResponse);
-        }
-      }
+      _hasConnection = true;
+      isSuccess = true;
+      _configModel = MockConfig.mock;
+      _baseUrls = _configModel?.baseUrls;
+      _defaultCurrency = _configModel?.currencyList?.first;
+      _usdCurrency = _defaultCurrency;
     }
     notifyListeners();
 
