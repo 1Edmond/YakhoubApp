@@ -36,6 +36,7 @@ class DioClient {
         'Content-Type': 'application/json; charset=UTF-8',
         'Authorization': 'Bearer $token',
         'Accept': 'application/json',
+        'ngrok-skip-browser-warning': '69420',
         AppConstants.langKey : countryCode == 'US'? 'en': countryCode!.toLowerCase(),
 
       };
