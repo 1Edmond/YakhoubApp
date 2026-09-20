@@ -175,24 +175,6 @@ class _MyAppState extends State<MyApp> {
 
     return Consumer2<ThemeController, SplashController>(
       builder: (context, themeController, splashController, _) {
-        if (splashController.configModel == null) {
-          return MaterialApp(
-            navigatorKey: navigatorKey,
-            title: AppConstants.appName,
-            debugShowCheckedModeBanner: false,
-            theme: themeController.darkTheme
-                ? dark(
-                    primaryColor: Theme.of(context).primaryColor,
-                    secondaryColor: Theme.of(context).colorScheme.secondary,
-                  )
-                : light(
-                    primaryColor: Theme.of(context).primaryColor,
-                    secondaryColor: Theme.of(context).colorScheme.secondary,
-                  ),
-            home: const SplashScreen(),
-          );
-        }
-
         return MaterialApp.router(
           routerConfig: RouterHelper.goRoutes,
           title: AppConstants.appName,
