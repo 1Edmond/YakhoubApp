@@ -150,15 +150,15 @@ class SignUpWidgetState extends State<SignUpWidget> {
                       Container(
                         margin: const EdgeInsets.only(left: Dimensions.paddingSizeDefault, right: Dimensions.paddingSizeDefault, top: Dimensions.paddingSizeSmall),
                         child: CustomTextFieldWidget(
-                          hintText: "NNI",
-                          labelText: "NNI",
+                          hintText: getTranslated('nni', context),
+                          labelText: getTranslated('nni', context),
                           focusNode: _nniFocus,
                           nextFocus: _emailFocus,
                           required: true,
                           controller: _nniController,
                           capitalization: TextCapitalization.words,
                           prefixIcon: Images.user,
-                          validator: (value) => ValidateCheck.validateEmptyText(value, "NNI is required"),
+                          validator: (value) => ValidateCheck.validateEmptyText(value, "nni_is_required"),
                         ),
                       ),
                       Container(margin: const EdgeInsets.only(left: Dimensions.marginSizeDefault, right: Dimensions.marginSizeDefault, top: Dimensions.marginSizeSmall),

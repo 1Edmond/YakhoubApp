@@ -7,8 +7,9 @@ class RegisterModel {
   String? confirmPassword;
   String? shopName;
   String? shopAddress;
+  String? nni;
   String? businessTin;
   String? tinExpireDate;
-  RegisterModel({this.fName, this.lName, this.phone, this.email, this.password, this.confirmPassword, this.shopName, this.shopAddress, this.businessTin, this.tinExpireDate});
+  RegisterModel({this.fName, this.lName, this.phone, this.email, this.password, this.confirmPassword, this.shopName, this.shopAddress, this.nni, this.businessTin, this.tinExpireDate});
 
 }

@@ -11,7 +11,8 @@ import 'package:flutter_sixvalley_ecommerce/core/constants/custom_themes.dart';
 import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
 import 'package:flutter_sixvalley_ecommerce/core/constants/images.dart';
 import 'package:provider/provider.dart';
-
+import 'package:flutter_sixvalley_ecommerce/core/widgets/base/textfeild/custom_text_feild_widget.dart';
+import 'package:flutter_sixvalley_ecommerce/features/customer/checkout/screens/door_photo_screen.dart';
 
 class ShippingDetailsWidget extends StatefulWidget {
   final bool hasPhysical;
@@ -83,7 +84,7 @@ class _ShippingDetailsWidgetState extends State<ShippingDetailsWidget> {
                     const SizedBox(height: Dimensions.paddingSizeDefault),
 
                     Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                      (shippingProvider.addressIndex != null && locationProvider.addressList != null && locationProvider.addressList!.isNotEmpty) ?
+                      (shippingProvider.addressIndex != null && Provider.of<AddressController>(context, listen: false).addressList != null && Provider.of<AddressController>(context, listen: false).addressList!.isNotEmpty) ?
                       Padding(
                         padding: EdgeInsets.symmetric(horizontal: Dimensions.paddingSizeDefault),
                         child: Column(children: [
@@ -101,7 +102,7 @@ class _ShippingDetailsWidgetState extends State<ShippingDetailsWidget> {
 
                                     Expanded(
                                       child: Text(
-                                        locationProvider.addressList![shippingProvider.addressIndex!].contactPersonName ?? '',
+                                        Provider.of<AddressController>(context, listen: false).addressList![shippingProvider.addressIndex!].contactPersonName ?? '',
                                         style: textMedium.copyWith(fontSize: Dimensions.fontSizeDefault, color: Theme.of(context).textTheme.bodyLarge?.color,  overflow: TextOverflow.ellipsis),
                                         maxLines: 1,
                                       ),
@@ -121,7 +122,7 @@ class _ShippingDetailsWidgetState extends State<ShippingDetailsWidget> {
 
                                     Expanded(
                                       child: Text(
-                                        locationProvider.addressList![shippingProvider.addressIndex!].phone ?? '',
+                                        Provider.of<AddressController>(context, listen: false).addressList![shippingProvider.addressIndex!].phone ?? '',
                                         style: textMedium.copyWith(fontSize: Dimensions.fontSizeDefault, color: Theme.of(context).textTheme.bodyLarge?.color,  overflow: TextOverflow.ellipsis),
                                         maxLines: 1,
                                       ),
@@ -146,13 +147,13 @@ class _ShippingDetailsWidgetState extends State<ShippingDetailsWidget> {
                                 SizedBox(width: Dimensions.paddingSizeSmall),
 
                                 Text(
-                                  '${locationProvider.addressList![shippingProvider.addressIndex!].addressType ?? ''}: ',
+                                  '${Provider.of<AddressController>(context, listen: false).addressList![shippingProvider.addressIndex!].addressType ?? ''}: ',
                                   style: textMedium.copyWith(fontSize: Dimensions.fontSizeDefault, color: Theme.of(context).primaryColor),
                                 ),
 
                                 Expanded(
                                   child: Text(
-                                    '${locationProvider.addressList![shippingProvider.addressIndex!].address ?? ''}: ',
+                                    '${Provider.of<AddressController>(context, listen: false).addressList![shippingProvider.addressIndex!].address ?? ''}: ',
                                     style: textMedium.copyWith(fontSize: Dimensions.fontSizeDefault, color: Theme.of(context).textTheme.bodyLarge?.color, overflow: TextOverflow.ellipsis), maxLines: 1,
                                   ),
                                 ),
@@ -177,8 +178,50 @@ class _ShippingDetailsWidgetState extends State<ShippingDetailsWidget> {
                             ),
                           ],
                         ),
+                        ),
                       ),
-
+                      if (shippingProvider.addressIndex != null && Provider.of<AddressController>(context, listen: false).addressList != null && Provider.of<AddressController>(context, listen: false).addressList!.isNotEmpty)
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: Dimensions.paddingSizeDefault),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              CustomTextFieldWidget(
+                                hintText: 'Quartier (obligatoire)',
+                                controller: shippingProvider.deliveryQuarterController,
+                                required: true,
+                              ),
+                              SizedBox(height: Dimensions.paddingSizeSmall),
+                              CustomTextFieldWidget(
+                                hintText: 'Rue (obligatoire)',
+                                controller: shippingProvider.deliveryStreetController,
+                                required: true,
+                              ),
+                              SizedBox(height: Dimensions.paddingSizeSmall),
+                              CustomTextFieldWidget(
+                                hintText: 'Indications (obligatoire)',
+                                controller: shippingProvider.deliveryDescriptionController,
+                                required: true,
+                              ),
+                              SizedBox(height: Dimensions.paddingSizeDefault),
+                              ElevatedButton.icon(
+                                onPressed: () {
+                                  context.push(RouterHelper.doorPhoto, extra: {
+                                    'onSave': (photo, position) {
+                                      shippingProvider.setDoorPhoto(photo, position);
+                                    }
+                                  });
+                                },
+                                icon: Icon(Icons.camera_alt, color: Colors.white),
+                                label: Text(shippingProvider.doorPhoto != null ? 'Photo prise avec succès' : 'Prendre photo de la porte', style: TextStyle(color: Colors.white)),
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor: shippingProvider.doorPhoto != null ? Colors.green : Theme.of(context).primaryColor,
+                                ),
+                              ),
+                              SizedBox(height: Dimensions.paddingSizeDefault),
+                            ],
+                          ),
+                        ),
                     ]),
                   ])
                 ) : const SizedBox(),
@@ -186,7 +229,7 @@ class _ShippingDetailsWidgetState extends State<ShippingDetailsWidget> {
 
 
                 isGuestMode ? (widget.hasPhysical)?
-                CreateAccountWidget(formKey: widget.passwordFormKey) : const SizedBox() : const SizedBox(),
+                CreateAccountWidget(formKey: widget.passwordFormKey) : const SizedBox(),
 
 
                 isGuestMode ? const SizedBox(height: Dimensions.paddingSizeSmall) : const SizedBox(),
@@ -273,7 +316,7 @@ class _ShippingDetailsWidgetState extends State<ShippingDetailsWidget> {
 
                       if(!shippingProvider.sameAsBilling)
                         Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                          (shippingProvider.billingAddressIndex != null && (locationProvider.addressList?.isNotEmpty ?? false)) ?
+                          (shippingProvider.billingAddressIndex != null && (Provider.of<AddressController>(context, listen: false).addressList?.isNotEmpty ?? false)) ?
                           Padding(
                             padding: EdgeInsets.symmetric(horizontal: Dimensions.paddingSizeDefault),
                             child: Column(children: [
@@ -289,7 +332,7 @@ class _ShippingDetailsWidgetState extends State<ShippingDetailsWidget> {
                                       ),
 
                                       Text(
-                                        locationProvider.addressList![shippingProvider.billingAddressIndex!].contactPersonName ?? '',
+                                        Provider.of<AddressController>(context, listen: false).addressList![shippingProvider.billingAddressIndex!].contactPersonName ?? '',
                                         style: textMedium.copyWith(fontSize: Dimensions.fontSizeDefault, color: Theme.of(context).textTheme.bodyLarge?.color),
                                       ),
                                     ],
@@ -304,7 +347,7 @@ class _ShippingDetailsWidgetState extends State<ShippingDetailsWidget> {
                                       ),
 
                                       Text(
-                                        locationProvider.addressList![shippingProvider.billingAddressIndex!].phone ?? '',
+                                        Provider.of<AddressController>(context, listen: false).addressList![shippingProvider.billingAddressIndex!].phone ?? '',
                                         style: textMedium.copyWith(fontSize: Dimensions.fontSizeDefault, color: Theme.of(context).textTheme.bodyLarge?.color),
                                       ),
                                     ],
@@ -326,13 +369,13 @@ class _ShippingDetailsWidgetState extends State<ShippingDetailsWidget> {
                                     SizedBox(width: Dimensions.paddingSizeSmall),
 
                                     Text(
-                                      '${locationProvider.addressList![shippingProvider.billingAddressIndex!].addressType ?? ''}: ',
+                                      '${Provider.of<AddressController>(context, listen: false).addressList![shippingProvider.billingAddressIndex!].addressType ?? ''}: ',
                                       style: textMedium.copyWith(fontSize: Dimensions.fontSizeDefault, color: Theme.of(context).primaryColor),
                                     ),
 
                                     Expanded(
                                       child: Text(
-                                        '${locationProvider.addressList![shippingProvider.billingAddressIndex!].address ?? ''}: ',
+                                        '${Provider.of<AddressController>(context, listen: false).addressList![shippingProvider.billingAddressIndex!].address ?? ''}: ',
                                         style: textMedium.copyWith(fontSize: Dimensions.fontSizeDefault, color: Theme.of(context).textTheme.bodyLarge?.color, overflow: TextOverflow.ellipsis), maxLines: 1,
                                       ),
                                     ),
@@ -364,11 +407,8 @@ class _ShippingDetailsWidgetState extends State<ShippingDetailsWidget> {
                   ),
 
 
-                isGuestMode ? (!widget.hasPhysical)?
-                CreateAccountWidget(formKey: widget.passwordFormKey) : const SizedBox() : const SizedBox(),
-
-
-
+                isGuestMode ? (!widget.hasPhysical ?
+                CreateAccountWidget(formKey: widget.passwordFormKey) : const SizedBox()) : const SizedBox(),
 
                 ]);
             }

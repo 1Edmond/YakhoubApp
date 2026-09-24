@@ -171,7 +171,8 @@ class CheckoutScreenState extends State<CheckoutScreen> {
                                             billingAddressId: billingAddressId,
                                             couponCode: couponCode,
                                             couponDiscount: couponCodeAmount,
-                                            paymentMethod: orderProvider.selectedDigitalPaymentMethodName);
+                                            paymentMethod: orderProvider.selectedDigitalPaymentMethodName,
+                                            paymentPhone: orderProvider.paymentPhoneController.text.trim());
 
                                       } else if (orderProvider.isCODChecked && !widget.onlyDigital){
                                         orderProvider.placeOrder(callback: _callback,

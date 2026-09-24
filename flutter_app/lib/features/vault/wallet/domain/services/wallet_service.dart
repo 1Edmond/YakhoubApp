@@ -7,8 +7,8 @@ class WalletService implements WalletServiceInterface{
   WalletService({required this.walletRepositoryInterface});
 
   @override
-  Future addFundToWallet(String amount, String paymentMethod) async{
-    return await walletRepositoryInterface.addFundToWallet(amount, paymentMethod);
+  Future addFundToWallet(String amount, String paymentMethod, {String? paymentPhone}) async{
+    return await walletRepositoryInterface.addFundToWallet(amount, paymentMethod, paymentPhone: paymentPhone);
   }
 
   @override

@@ -52,11 +52,12 @@ class WalletRepository implements WalletRepositoryInterface{
 
 
   @override
-  Future<ApiResponseModel> addFundToWallet(String amount, String paymentMethod) async {
+  Future<ApiResponseModel> addFundToWallet(String amount, String paymentMethod, {String? paymentPhone}) async {
     try {
       final response = await dioClient!.post(AppConstants.addFundToWallet,
           data: {'payment_platform': 'app',
             'payment_method' : paymentMethod,
+            'payment_phone': paymentPhone,
             'payment_request_from': 'app',
             'amount': amount,
             'current_currency_code': Provider.of<SplashController>(Get.context!, listen: false).myCurrency!.code

@@ -139,7 +139,7 @@ class _InfoFieldVIewWidgetState extends State<InfoFieldVIewWidget> {
                               hintText: getTranslated('mobile_hint', context),
                               controller: authProvider.phoneController,
                               focusNode: authProvider.phoneNode,
-                              nextNode: authProvider.passwordNode,
+                              nextNode: authProvider.nniNode,
                               isPhoneNumber: true,
                               border: false,
                               focusBorder: false,

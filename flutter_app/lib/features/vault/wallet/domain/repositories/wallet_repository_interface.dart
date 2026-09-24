@@ -4,7 +4,7 @@ abstract class WalletRepositoryInterface<T> extends RepositoryInterface{
 
   // Future<dynamic> getWalletTransactionList(int offset, String types, String startDate, String endDate, String filterByType);
 
-  Future<dynamic> addFundToWallet(String amount, String paymentMethod);
+  Future<dynamic> addFundToWallet(String amount, String paymentMethod, {String? paymentPhone});
 
   Future<dynamic> getWalletBonusBannerList();
 

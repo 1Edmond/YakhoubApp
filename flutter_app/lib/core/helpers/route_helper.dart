@@ -1,4 +1,15 @@
+
+import 'package:flutter_sixvalley_ecommerce/core/di/di_container.dart';
+import 'package:flutter_sixvalley_ecommerce/core/constants/app_constants.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:convert';
+
+import 'package:flutter_sixvalley_ecommerce/features/vendor/auth/screens/registration_screen.dart' as vendor_registration;
+import 'package:flutter_sixvalley_ecommerce/features/vendor/auth/screens/login_screen.dart' as vendor_login;
+import 'package:flutter_sixvalley_ecommerce/features/vendor/pending_approval/pending_approval_screen.dart';
+import 'package:flutter_sixvalley_ecommerce/features/vendor/dashboard/screens/dashboard_screen.dart' as vendor_dashboard;
+import 'package:flutter_sixvalley_ecommerce/features/customer/checkout/screens/door_photo_screen.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_sixvalley_ecommerce/core/enums/auction_enum.dart';
 import 'package:flutter_sixvalley_ecommerce/core/models/image_full_url.dart';
@@ -122,6 +133,12 @@ class RouterHelper {
   static const String splashScreen = '/splash';
   static const String dashboardScreen = '/dashboard';
   static const String loginScreen = '/login';
+  static const String vendorLogin = '/vendor/login';
+  static const String vendorRegister = '/vendor/register';
+  static const String vendorDashboard = '/vendor/dashboard';
+  static const String doorPhoto = '/door-photo';
+  static const String vendorPendingApproval = '/vendor/pending-approval';
+
   static const String profileScreen1 = '/profile1';
   static const String moreScreen = '/more-screen';
   static const String blogScreen = '/blog';
@@ -1239,29 +1256,57 @@ class RouterHelper {
     }
   }
 
+  
+  static bool _isVendorLoggedIn(BuildContext context) {
+    // Dans l'app vendor, l'auth controller est importé de features/vendor/auth
+    // Mais on peut vérifier les sharedPrefs directement pour éviter les conflits d'import.
+    final sharedPreferences = sl<SharedPreferences>();
+    return sharedPreferences.containsKey(AppConstants.token);
+  }
+
   static bool _isUserLoggedIn(BuildContext context) {
     final authController = Provider.of<AuthController>(context, listen: false);
     return authController.isLoggedIn();
   }
 
   static final goRoutes = GoRouter(
+      
       redirect: (BuildContext context, GoRouterState state) {
-        final isLoggedIn = _isUserLoggedIn(context);
+        final isCustomerLoggedIn = _isUserLoggedIn(context);
+        final isVendorLoggedIn = _isVendorLoggedIn(context);
         final String? referralCode = state.uri.queryParameters['referral_code'];
+        final location = state.matchedLocation;
 
-        if (state.matchedLocation == initial && isLoggedIn) {
+        // Si vendeur connecté et essaie d'aller sur splash/accueil client -> dashboard vendeur
+        if (isVendorLoggedIn && (location == initial || location == splashScreen || location == loginScreen || location == signUpAuth)) {
+            return vendorDashboard;
+        }
+
+        // Si client connecté
+        if (isCustomerLoggedIn && location == initial) {
           return null; // Fixed redirect loop
         }
 
-        if (!isLoggedIn &&
-            state.matchedLocation == initial &&
+        // Parrainage client
+        if (!isCustomerLoggedIn &&
+            location == initial &&
             referralCode != null &&
             referralCode.isNotEmpty) {
-          return '$signUpAuth?referral_code=$referralCode';
+          return '=';
         }
 
+        // Blocage croisé : Client essaie d'aller sur Vendeur
+        if (location.startsWith('/vendor') && location != vendorLogin && location != vendorRegister && !isVendorLoggedIn) {
+            return vendorLogin; // ou pending-approval
+        }
+
+        // Blocage croisé : Vendeur essaie d'aller sur Client (les routes client sont tout sauf /vendor)
+        // C'est complexe car on a beaucoup de routes, mais on peut rediriger vers Dashboard s'il est déjà connecté
+        // et qu'il essaie de se connecter.
+        
         return null;
       },
+
       navigatorKey: navigatorKey,
       initialLocation: getSplashRoute(),
       errorBuilder: (ctx, _) => _routeHandler(
@@ -2283,5 +2328,25 @@ class RouterHelper {
             );
           },
         ),
+
+        GoRoute(
+            path: vendorLogin,
+            builder: (context, state) => const vendor_login.LoginScreen()),
+        GoRoute(
+            path: vendorRegister,
+            builder: (context, state) => const vendor_registration.RegistrationScreen()),
+        GoRoute(
+            path: vendorDashboard,
+            builder: (context, state) => const vendor_dashboard.DashboardScreen()),
+        GoRoute(
+            path: vendorPendingApproval,
+            builder: (context, state) => const PendingApprovalScreen()),
+
+        GoRoute(
+            path: doorPhoto,
+            builder: (context, state) {
+              final Map<String, dynamic> extra = state.extra as Map<String, dynamic>;
+              return DoorPhotoScreen(onSave: extra['onSave']);
+            }),
       ]);
 }

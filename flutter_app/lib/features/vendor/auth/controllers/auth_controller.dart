@@ -70,6 +70,7 @@ class AuthController with ChangeNotifier {
   TextEditingController lastNameController = TextEditingController();
   TextEditingController emailController = TextEditingController();
   TextEditingController phoneController = TextEditingController();
+  TextEditingController nniController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   TextEditingController confirmPasswordController = TextEditingController();
   TextEditingController shopNameController = TextEditingController();
@@ -80,6 +81,7 @@ class AuthController with ChangeNotifier {
   FocusNode lastNameNode = FocusNode();
   FocusNode emailNode = FocusNode();
   FocusNode phoneNode = FocusNode();
+  FocusNode nniNode = FocusNode();
   FocusNode passwordNode = FocusNode();
   FocusNode confirmPasswordNode = FocusNode();
   FocusNode shopNameNode = FocusNode();
@@ -291,7 +293,8 @@ class AuthController with ChangeNotifier {
       lastNameController.clear();
       phoneController.clear();
       emailController.clear();
-      passwordController.clear();
+      nniController.clear();
+    passwordController.clear();
       confirmPasswordController.clear();
       shopNameController.clear();
       shopAddressController.clear();
@@ -323,6 +326,7 @@ class AuthController with ChangeNotifier {
     lastNameController.clear();
     phoneController.clear();
     emailController.clear();
+    nniController.clear();
     passwordController.clear();
     confirmPasswordController.clear();
     shopNameController.clear();

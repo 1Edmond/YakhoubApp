@@ -1,4 +1,4 @@
-
+import 'dart:io';
 import 'dart:convert';
 import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
@@ -28,10 +28,15 @@ class CheckoutRepository implements CheckoutRepositoryInterface{
         String? password,
         double? cashChangeAmount,
         String? currentCurrencyCode,
+        dynamic doorPhoto,
+        double? doorLatitude,
+        double? doorLongitude,
+        String? deliveryQuarter,
+        String? deliveryStreet,
+        String? deliveryDescription,
       }) async {
     try {
-      // Build query parameters map
-      final Map<String, dynamic> queryParams = {
+      final Map<String, dynamic> data = {
         'address_id': addressID,
         'coupon_code': couponCode,
         'coupon_discount': couponDiscountAmount.toString(),
@@ -43,11 +48,32 @@ class CheckoutRepository implements CheckoutRepositoryInterface{
         'password': password,
         'bring_change_amount' : cashChangeAmount,
         'current_currency_code': currentCurrencyCode,
+        'door_latitude': doorLatitude,
+        'door_longitude': doorLongitude,
+        'delivery_quarter': deliveryQuarter,
+        'delivery_street': deliveryStreet,
+        'delivery_description': deliveryDescription,
       };
+      
+      data.removeWhere((key, value) => value == null || value.toString().isEmpty);
 
-      debugPrint('----------(order_place)-----$queryParams');
+      List<MultipartWithKey> files = [];
+      if (doorPhoto != null) {
+        if (doorPhoto is File) {
+          files.add(MultipartWithKey(
+            key: 'door_photo_url',
+            multipartFile: await MultipartFile.fromFile(doorPhoto.path),
+          ));
+        }
+      }
 
-      final response = await dioClient!.get(AppConstants.orderPlaceUri, queryParameters: queryParams);
+      debugPrint('----------(order_place_multipart)-----$data');
+
+      final response = await dioClient!.postMultipart(
+        AppConstants.orderPlaceUri,
+        data: data,
+        files: files,
+      );
       return ApiResponseModel.withSuccess(response);
     } catch (e) {
       return ApiResponseModel.withError(ApiErrorHandler.getMessage(e));
@@ -122,7 +148,8 @@ class CheckoutRepository implements CheckoutRepositoryInterface{
       String? couponDiscount,
       String? paymentMethod,
       bool? isCheckCreateAccount,
-      String? password
+      String? password,
+      {String? paymentPhone}
       ) async {
 
     try {
@@ -136,6 +163,7 @@ class CheckoutRepository implements CheckoutRepositoryInterface{
         "coupon_discount": couponDiscount,
         "payment_platform" : "app",
         "payment_method" : paymentMethod,
+        "payment_phone" : paymentPhone,
         "callback" : null,
         "payment_request_from" : "app",
         'guest_id' : Provider.of<AuthController>(Get.context!, listen: false).getGuestToken(),

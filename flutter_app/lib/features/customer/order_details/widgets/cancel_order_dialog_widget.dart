@@ -8,9 +8,12 @@ import 'package:flutter_sixvalley_ecommerce/core/widgets/base/custom_button_widg
 import 'package:flutter_sixvalley_ecommerce/core/widgets/base/show_custom_snakbar_widget.dart';
 import 'package:provider/provider.dart';
 
+import 'package:flutter_sixvalley_ecommerce/features/customer/order/domain/models/order_model.dart';
+
 class CancelOrderDialogWidget extends StatefulWidget {
   final int? orderId;
-   const CancelOrderDialogWidget({super.key, required this.orderId});
+  final Orders? orderModel;
+   const CancelOrderDialogWidget({super.key, required this.orderId, this.orderModel});
 
   @override
   State<CancelOrderDialogWidget> createState() => _CancelOrderDialogWidgetState();
@@ -45,7 +48,16 @@ class _CancelOrderDialogWidgetState extends State<CancelOrderDialogWidget> {
                 textAlign: TextAlign.center,
                 style: titilliumBold.copyWith(fontSize: Dimensions.fontSizeDefault, color: Theme.of(context).textTheme.bodyLarge?.color )),
               const SizedBox(height: Dimensions.homePagePadding),
-              const SizedBox(height: Dimensions.homePagePadding),
+              
+              if(widget.orderModel?.orderStatus != 'pending')
+                Padding(
+                  padding: const EdgeInsets.only(bottom: Dimensions.homePagePadding),
+                  child: Text(
+                    "Si votre commande est déjà en cours de préparation ou expédiée, des frais d'annulation de 1000 FCFA seront déduits de votre portefeuille.",
+                    textAlign: TextAlign.center,
+                    style: titilliumRegular.copyWith(fontSize: Dimensions.fontSizeSmall, color: Theme.of(context).colorScheme.error),
+                  ),
+                ),
 
 
               Row(mainAxisAlignment: MainAxisAlignment.center, children: [
@@ -62,40 +74,17 @@ class _CancelOrderDialogWidgetState extends State<CancelOrderDialogWidget> {
                     return CustomButton(
                       buttonText:  getTranslated('YES', context)!,
                       onTap: () {
-                        showDialog(context: context, builder: (context) => AlertDialog(
-                          title: const Text("Frais d'annulation (1000 FCFA)"),
-                          content: Column(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              const Text("Veuillez payer les frais d'annulation de 1 000 FCFA pour confirmer l'annulation. Le montant de votre commande sera remboursé dans votre Wallet."),
-                              const SizedBox(height: 10),
-                              const TextField(
-                                obscureText: true,
-                                keyboardType: TextInputType.number,
-                                maxLength: 4,
-                                decoration: InputDecoration(border: OutlineInputBorder(), hintText: "Code PIN Mobile Money"),
-                              )
-                            ]
-                          ),
-                          actions: [
-                            TextButton(onPressed: () => Navigator.pop(context), child: const Text("Retour")),
-                            TextButton(onPressed: () {
-                              Navigator.pop(context);
-                              if(!orderController.isLoading){
-                                orderController.cancelOrder(context, widget.orderId).then((value) {
-                                  if (value.response!.statusCode == 200) {
-                                    orderController.getOrderList(1, orderController.selectedType);
-                                    if(context.mounted) {
-                                      Navigator.pop(context);
-                                      Navigator.pop(context);
-                                      showCustomSnackBarWidget("Paiement réussi. Commande annulée. Remboursement transféré dans votre Wallet.", context, isError: false);
-                                    }
-                                  }
-                                });
+                        if(!orderController.isLoading){
+                          orderController.cancelOrder(context, widget.orderId).then((value) {
+                            if (value.response != null && value.response!.statusCode == 200) {
+                              orderController.getOrderList(1, orderController.selectedType);
+                              if(context.mounted) {
+                                Navigator.pop(context);
+                                showCustomSnackBarWidget("Commande annulée.", context, isError: false);
                               }
-                            }, child: const Text("Payer & Annuler")),
-                          ]
-                        ));
+                            }
+                          });
+                        }
                       },
                     );
                   }

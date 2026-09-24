@@ -11,6 +11,7 @@ import 'package:flutter_sixvalley_ecommerce/core/constants/styles.dart';
 import 'package:flutter_sixvalley_ecommerce/features/vendor/order/screens/edit_address_screen.dart';
 import 'package:flutter_sixvalley_ecommerce/features/vendor/order/widgets/icon_with_text_row_widget.dart';
 import 'package:flutter_sixvalley_ecommerce/features/vendor/order_details/widgets/show_on_map_dialog_widget.dart';
+import 'package:flutter_sixvalley_ecommerce/core/widgets/base/basewidgets/custom_image_widget.dart';
 
 // class ShippingAndBillingWidget extends StatelessWidget {
 //   final Order? orderModel;
@@ -382,6 +383,34 @@ class _ShippingAndBillingWidgetState extends State<ShippingAndBillingWidget> {
                       ))
                     ]
                 ),
+                if(widget.orderModel?.shippingAddressData?.deliveryQuarter != null && widget.orderModel!.shippingAddressData!.deliveryQuarter!.isNotEmpty) ...[
+                  const SizedBox(height: Dimensions.paddingSizeSmall),
+                  Row(mainAxisAlignment: MainAxisAlignment.start, crossAxisAlignment: CrossAxisAlignment.start, children: [
+                    Icon(Icons.map, color: Theme.of(context).hintColor.withValues(alpha: 0.5), size: 25),
+                    const SizedBox(width: Dimensions.paddingSizeSmall),
+                    Expanded(child: Text('Quartier: ${widget.orderModel!.shippingAddressData!.deliveryQuarter}', style: titilliumRegular.copyWith(fontSize: Dimensions.fontSizeDefault, color: Theme.of(context).textTheme.bodyLarge?.color))),
+                  ]),
+                ],
+                if(widget.orderModel?.shippingAddressData?.deliveryStreet != null && widget.orderModel!.shippingAddressData!.deliveryStreet!.isNotEmpty) ...[
+                  const SizedBox(height: Dimensions.paddingSizeSmall),
+                  Row(mainAxisAlignment: MainAxisAlignment.start, crossAxisAlignment: CrossAxisAlignment.start, children: [
+                    Icon(Icons.add_road, color: Theme.of(context).hintColor.withValues(alpha: 0.5), size: 25),
+                    const SizedBox(width: Dimensions.paddingSizeSmall),
+                    Expanded(child: Text('Rue: ${widget.orderModel!.shippingAddressData!.deliveryStreet}', style: titilliumRegular.copyWith(fontSize: Dimensions.fontSizeDefault, color: Theme.of(context).textTheme.bodyLarge?.color))),
+                  ]),
+                ],
+                if(widget.orderModel?.shippingAddressData?.doorPhoto != null && widget.orderModel!.shippingAddressData!.doorPhoto!.isNotEmpty) ...[
+                  const SizedBox(height: Dimensions.paddingSizeSmall),
+                  Row(mainAxisAlignment: MainAxisAlignment.start, crossAxisAlignment: CrossAxisAlignment.start, children: [
+                    Icon(Icons.image, color: Theme.of(context).hintColor.withValues(alpha: 0.5), size: 25),
+                    const SizedBox(width: Dimensions.paddingSizeSmall),
+                    Expanded(child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                      Text('Photo de la porte:', style: titilliumRegular.copyWith(fontSize: Dimensions.fontSizeDefault, color: Theme.of(context).textTheme.bodyLarge?.color)),
+                      const SizedBox(height: Dimensions.paddingSizeExtraSmall),
+                      CustomImageWidget(image: '${widget.orderModel!.shippingAddressData!.doorPhoto}', height: 100, width: 100, fit: BoxFit.cover),
+                    ])),
+                  ]),
+                ],
               ]):const SizedBox(),
 
 
@@ -512,6 +541,34 @@ class _ShippingAndBillingWidgetState extends State<ShippingAndBillingWidget> {
                         )),
                       ],
                     ),
+                    if(widget.orderModel?.billingAddressData?.deliveryQuarter != null && widget.orderModel!.billingAddressData!.deliveryQuarter!.isNotEmpty) ...[
+                      const SizedBox(height: Dimensions.paddingSizeSmall),
+                      Row(mainAxisAlignment: MainAxisAlignment.start, crossAxisAlignment: CrossAxisAlignment.start, children: [
+                        Icon(Icons.map, color: Theme.of(context).hintColor.withValues(alpha: 0.5), size: 25),
+                        const SizedBox(width: Dimensions.paddingSizeSmall),
+                        Expanded(child: Text('Quartier: ${widget.orderModel!.billingAddressData!.deliveryQuarter}', style: titilliumRegular.copyWith(fontSize: Dimensions.fontSizeDefault, color: Theme.of(context).textTheme.bodyLarge?.color))),
+                      ]),
+                    ],
+                    if(widget.orderModel?.billingAddressData?.deliveryStreet != null && widget.orderModel!.billingAddressData!.deliveryStreet!.isNotEmpty) ...[
+                      const SizedBox(height: Dimensions.paddingSizeSmall),
+                      Row(mainAxisAlignment: MainAxisAlignment.start, crossAxisAlignment: CrossAxisAlignment.start, children: [
+                        Icon(Icons.add_road, color: Theme.of(context).hintColor.withValues(alpha: 0.5), size: 25),
+                        const SizedBox(width: Dimensions.paddingSizeSmall),
+                        Expanded(child: Text('Rue: ${widget.orderModel!.billingAddressData!.deliveryStreet}', style: titilliumRegular.copyWith(fontSize: Dimensions.fontSizeDefault, color: Theme.of(context).textTheme.bodyLarge?.color))),
+                      ]),
+                    ],
+                    if(widget.orderModel?.billingAddressData?.doorPhoto != null && widget.orderModel!.billingAddressData!.doorPhoto!.isNotEmpty) ...[
+                      const SizedBox(height: Dimensions.paddingSizeSmall),
+                      Row(mainAxisAlignment: MainAxisAlignment.start, crossAxisAlignment: CrossAxisAlignment.start, children: [
+                        Icon(Icons.image, color: Theme.of(context).hintColor.withValues(alpha: 0.5), size: 25),
+                        const SizedBox(width: Dimensions.paddingSizeSmall),
+                        Expanded(child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                          Text('Photo de la porte:', style: titilliumRegular.copyWith(fontSize: Dimensions.fontSizeDefault, color: Theme.of(context).textTheme.bodyLarge?.color)),
+                          const SizedBox(height: Dimensions.paddingSizeExtraSmall),
+                          CustomImageWidget(image: '${widget.orderModel!.billingAddressData!.doorPhoto}', height: 100, width: 100, fit: BoxFit.cover),
+                        ])),
+                      ]),
+                    ],
                     const SizedBox(height: Dimensions.paddingSizeSmall),
                   ]
 

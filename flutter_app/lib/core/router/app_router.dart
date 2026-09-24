@@ -14,6 +14,7 @@ import 'package:flutter_sixvalley_ecommerce/features/customer/maintenance/mainte
 import 'package:flutter_sixvalley_ecommerce/features/customer/home/screens/home_screens.dart';
 
 import 'package:flutter_sixvalley_ecommerce/features/vendor/auth/screens/registration_screen.dart' as vendor_registration;
+import 'package:flutter_sixvalley_ecommerce/features/vendor/auth/screens/login_screen.dart' as vendor_login;
 import 'package:flutter_sixvalley_ecommerce/features/vendor/pending_approval/pending_approval_screen.dart';
 
 final GoRouter appRouter = GoRouter(
@@ -22,7 +23,7 @@ final GoRouter appRouter = GoRouter(
     final auth = context.read<AuthController>();
     final location = state.matchedLocation;
     final isLoggedIn = auth.isLoggedIn();
-    final publicPaths = ['/splash', '/onboarding', '/login', '/register', '/forgot-password', '/reset-password', '/otp-login', '/vendor/register', '/maintenance'];
+    final publicPaths = ['/splash', '/onboarding', '/login', '/register', '/forgot-password', '/reset-password', '/otp-login', '/vendor/login', '/vendor/register', '/maintenance'];
     if (!isLoggedIn && !publicPaths.any((p) => location.startsWith(p))) {
       return '/login';
     }
@@ -37,6 +38,7 @@ final GoRouter appRouter = GoRouter(
     GoRoute(path: '/forgot-password', builder: (context, state) => const ForgetPasswordScreen()),
     GoRoute(path: '/reset-password', builder: (context, state) => const ResetPasswordScreen(mobileNumber: '', otp: '')),
     GoRoute(path: '/otp-login', builder: (context, state) => const OtpLoginScreen()),
+    GoRoute(path: '/vendor/login', builder: (context, state) => const vendor_login.LoginScreen()),
     GoRoute(path: '/vendor/register', builder: (context, state) => const vendor_registration.RegistrationScreen()),
     GoRoute(path: '/vendor/pending-approval', builder: (context, state) => const PendingApprovalScreen()),
     GoRoute(path: '/home', builder: (context, state) => const HomePage()),

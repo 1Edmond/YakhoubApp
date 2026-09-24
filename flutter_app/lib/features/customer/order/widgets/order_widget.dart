@@ -206,6 +206,15 @@ class _OrderWidgetState extends State<OrderWidget> {
                     ],
                   ),
 
+                  if (widget.orderModel!.orderStatus == 'canceled' && widget.orderModel!.cause != null && widget.orderModel!.cause!.isNotEmpty)
+                    Padding(
+                      padding: const EdgeInsets.only(top: Dimensions.paddingSizeExtraSmall),
+                      child: Text(
+                        widget.orderModel!.cause!,
+                        style: textRegular.copyWith(fontSize: Dimensions.fontSizeSmall, color: Theme.of(context).colorScheme.error),
+                      ),
+                    ),
+
                   Text(
                     DateConverter.localDateToIsoStringAMPMOrder(DateTime.parse(widget.orderModel!.createdAt!)),
                     style: textMedium.copyWith(fontSize: Dimensions.fontSizeSmall, color: Theme.of(context).textTheme.titleMedium?.color,),

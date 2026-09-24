@@ -17,6 +17,12 @@ class CheckoutService implements CheckoutServiceInterface{
     String? password,
     double? cashChangeAmount,
     String? currentCurrencyCode,
+    dynamic doorPhoto,
+    double? doorLatitude,
+    double? doorLongitude,
+    String? deliveryQuarter,
+    String? deliveryStreet,
+    String? deliveryDescription,
   }) async{
     return await checkoutRepositoryInterface.cashOnDeliveryPlaceOrder(
      addressID: addressID,
@@ -28,12 +34,18 @@ class CheckoutService implements CheckoutServiceInterface{
       password: password,
       cashChangeAmount: cashChangeAmount,
       currentCurrencyCode: currentCurrencyCode,
+      doorPhoto: doorPhoto,
+      doorLatitude: doorLatitude,
+      doorLongitude: doorLongitude,
+      deliveryQuarter: deliveryQuarter,
+      deliveryStreet: deliveryStreet,
+      deliveryDescription: deliveryDescription,
     );
   }
 
   @override
-  Future digitalPaymentPlaceOrder(String? orderNote, String? customerId, String? addressId, String? billingAddressId, String? couponCode, String? couponDiscount, String? paymentMethod, bool? isCheckCreateAccount, String? password) async {
-    return await checkoutRepositoryInterface.digitalPaymentPlaceOrder(orderNote, customerId, addressId, billingAddressId, couponCode, couponDiscount, paymentMethod, isCheckCreateAccount, password);
+  Future digitalPaymentPlaceOrder(String? orderNote, String? customerId, String? addressId, String? billingAddressId, String? couponCode, String? couponDiscount, String? paymentMethod, bool? isCheckCreateAccount, String? password, {String? paymentPhone}) async {
+    return await checkoutRepositoryInterface.digitalPaymentPlaceOrder(orderNote, customerId, addressId, billingAddressId, couponCode, couponDiscount, paymentMethod, isCheckCreateAccount, password, paymentPhone: paymentPhone);
   }
 
   @override

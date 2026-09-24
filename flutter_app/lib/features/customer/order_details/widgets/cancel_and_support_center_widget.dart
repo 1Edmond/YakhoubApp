@@ -76,14 +76,14 @@ class CancelAndSupportWidget extends StatelessWidget {
           child: Column(
             children: [
               (orderModel != null && (orderModel!.customerId! == int.parse(Provider.of<ProfileController>(context, listen: false).userID)) &&
-                  (orderModel!.orderStatus == 'pending') && (orderModel!.orderType != "POS")) ?
+                  (orderModel!.orderStatus == 'pending' || orderModel!.orderStatus == 'processing' || orderModel!.orderStatus == 'out_for_delivery' || orderModel!.orderStatus == 'confirmed') && (orderModel!.orderType != "POS")) ?
               CustomButton(textColor: Theme.of(context).colorScheme.error,
                 backgroundColor: Theme.of(context).colorScheme.error.withValues(alpha:0.15),
                 buttonText: getTranslated('cancel_order', context),
                 onTap: () {
                   showDialog(context: context, builder: (context) => Dialog(
                     backgroundColor: Colors.transparent,
-                    child: CancelOrderDialogWidget(orderId: orderModel!.id),
+                    child: CancelOrderDialogWidget(orderId: orderModel!.id, orderModel: orderModel),
                   ));
                 },
               ) :

@@ -6,7 +6,7 @@ import 'package:flutter_sixvalley_ecommerce/features/vendor/shop/controllers/sho
 import 'package:flutter_sixvalley_ecommerce/features/vendor/shop/domain/models/guideline_model.dart';
 import 'package:flutter_sixvalley_ecommerce/features/vendor/shop/widgets/custom_expansion_tile.dart';
 import 'package:flutter_sixvalley_ecommerce/features/vendor/localization/language_constrants.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/app_constants.dart';
+// import 'package:flutter_sixvalley_ecommerce/core/constants/app_constants.dart';
 import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
 import 'package:flutter_sixvalley_ecommerce/core/constants/images.dart';
 import 'package:flutter_sixvalley_ecommerce/core/constants/styles.dart';

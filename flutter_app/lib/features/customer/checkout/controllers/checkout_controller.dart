@@ -9,11 +9,11 @@ import 'package:flutter_sixvalley_ecommerce/core/helpers/route_helper.dart';
 import 'package:flutter_sixvalley_ecommerce/core/localization/language_constrants.dart';
 import 'package:flutter_sixvalley_ecommerce/main.dart';
 import 'dart:async';
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_sixvalley_ecommerce/core/widgets/base/show_custom_snakbar_widget.dart';
 import 'package:provider/provider.dart';
-
-
+import 'package:geolocator/geolocator.dart';
 
 class CheckoutController with ChangeNotifier {
   final CheckoutServiceInterface checkoutServiceInterface;
@@ -58,9 +58,22 @@ class CheckoutController with ChangeNotifier {
   final TextEditingController orderNoteController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController confirmPasswordController = TextEditingController();
+  final TextEditingController paymentPhoneController = TextEditingController();
   List<String> inputValueList = [];
 
 
+
+  File? doorPhoto;
+  Position? doorPosition;
+  TextEditingController deliveryQuarterController = TextEditingController();
+  TextEditingController deliveryStreetController = TextEditingController();
+  TextEditingController deliveryDescriptionController = TextEditingController();
+
+  void setDoorPhoto(File photo, Position position) {
+    doorPhoto = photo;
+    doorPosition = position;
+    notifyListeners();
+  }
 
   Future<void> placeOrder({required Function callback, String? addressID,
         String? couponCode, String? couponAmount,
@@ -90,6 +103,12 @@ class CheckoutController with ChangeNotifier {
       password: passwordController.text.trim(),
       cashChangeAmount: _cashChangesAmount,
       currentCurrencyCode: Provider.of<SplashController>(Get.context!, listen: false).myCurrency?.code,
+      doorPhoto: doorPhoto,
+      doorLatitude: doorPosition?.latitude,
+      doorLongitude: doorPosition?.longitude,
+      deliveryQuarter: deliveryQuarterController.text,
+      deliveryStreet: deliveryStreetController.text,
+      deliveryDescription: deliveryDescriptionController.text,
     );
 
     if (apiResponse.response != null && apiResponse.response!.statusCode == 200) {
@@ -262,11 +281,12 @@ class CheckoutController with ChangeNotifier {
     String? addressId, String? billingAddressId,
     String? couponCode,
     String? couponDiscount,
-    String? paymentMethod}) async {
+    String? paymentMethod,
+    String? paymentPhone}) async {
     _isLoading =true;
     notifyListeners();
 
-    ApiResponseModel apiResponse = await checkoutServiceInterface.digitalPaymentPlaceOrder(orderNote, customerId, addressId, billingAddressId, couponCode, couponDiscount, paymentMethod, _isCheckCreateAccount, passwordController.text.trim());
+    ApiResponseModel apiResponse = await checkoutServiceInterface.digitalPaymentPlaceOrder(orderNote, customerId, addressId, billingAddressId, couponCode, couponDiscount, paymentMethod, _isCheckCreateAccount, passwordController.text.trim(), paymentPhone: paymentPhone);
 
     if (apiResponse.response != null && apiResponse.response?.statusCode == 200) {
       _addressIndex = null;

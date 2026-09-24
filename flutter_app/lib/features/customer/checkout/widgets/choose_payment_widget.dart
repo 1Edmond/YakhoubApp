@@ -67,21 +67,38 @@ class ChoosePaymentWidget extends StatelessWidget {
                       SizedBox(height: Dimensions.paddingSizeDefault),
 
                       (orderProvider.paymentMethodIndex != -1)?
-                      Row(children: [
-                        SizedBox(
-                          width: 40,
-                          child: CustomImageWidget(
-                            image: '${configProvider.configModel?.paymentMethodImagePath}/${configProvider.configModel!.paymentMethods![orderProvider.paymentMethodIndex].additionalDatas!.gatewayImage??''}',
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: Dimensions.paddingSizeSmall),
-                          child: Text(
-                            configProvider.configModel!.paymentMethods![orderProvider.paymentMethodIndex].additionalDatas!.gatewayTitle??'',
-                            style: textRegular.copyWith(color: Theme.of(context).textTheme.bodyLarge?.color),
-                          ),
-                        ),
-                      ],) : orderProvider.isCODChecked?
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(children: [
+                            SizedBox(
+                              width: 40,
+                              child: CustomImageWidget(
+                                image: '${configProvider.configModel?.paymentMethodImagePath}/${configProvider.configModel!.paymentMethods![orderProvider.paymentMethodIndex].additionalDatas!.gatewayImage??''}',
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.symmetric(horizontal: Dimensions.paddingSizeSmall),
+                              child: Text(
+                                configProvider.configModel!.paymentMethods![orderProvider.paymentMethodIndex].additionalDatas!.gatewayTitle??'',
+                                style: textRegular.copyWith(color: Theme.of(context).textTheme.bodyLarge?.color),
+                              ),
+                            ),
+                          ],),
+                          if (orderProvider.selectedDigitalPaymentMethodName == 'airtel_money' || orderProvider.selectedDigitalPaymentMethodName == 'moov_money')
+                            Padding(
+                              padding: const EdgeInsets.only(top: Dimensions.paddingSizeSmall),
+                              child: TextFormField(
+                                controller: orderProvider.paymentPhoneController,
+                                keyboardType: TextInputType.phone,
+                                decoration: InputDecoration(
+                                  hintText: getTranslated('payment_phone_number', context) ?? 'Numéro de téléphone de paiement',
+                                  border: OutlineInputBorder(borderRadius: BorderRadius.circular(Dimensions.paddingSizeSmall)),
+                                ),
+                              ),
+                            ),
+                        ],
+                      ) : orderProvider.isCODChecked?
                       Text(getTranslated('cash_on_delivery', context)??'', style: textRegular.copyWith(color: Theme.of(context).textTheme.bodyLarge?.color)) :orderProvider.isOfflineChecked?
                       Text(getTranslated('offline_payment', context)??'', style: textRegular.copyWith(color: Theme.of(context).textTheme.bodyLarge?.color)) :orderProvider.isWalletChecked?
                       Text(getTranslated('wallet_payment', context)??'', style: textRegular.copyWith(color: Theme.of(context).textTheme.bodyLarge?.color)

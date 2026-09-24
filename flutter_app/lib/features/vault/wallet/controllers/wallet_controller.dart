@@ -90,10 +90,10 @@ class WalletController extends ChangeNotifier {
     _firstLoading = true;
     notifyListeners();
   }
-  Future <void> addFundToWallet(String amount, String paymentMethod) async {
+  Future <void> addFundToWallet(String amount, String paymentMethod, {String? paymentPhone}) async {
     _isConvert = true;
     notifyListeners();
-    ApiResponseModel apiResponse = await walletServiceInterface.addFundToWallet(amount, paymentMethod);
+    ApiResponseModel apiResponse = await walletServiceInterface.addFundToWallet(amount, paymentMethod, paymentPhone: paymentPhone);
     if (apiResponse.response != null && apiResponse.response!.statusCode == 200) {
       _isConvert = false;
 

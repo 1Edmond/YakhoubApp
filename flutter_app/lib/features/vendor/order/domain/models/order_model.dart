@@ -473,6 +473,12 @@ class BillingAddressData {
   String? country;
   String? latitude;
   String? longitude;
+  String? doorPhoto;
+  String? doorLatitude;
+  String? doorLongitude;
+  String? deliveryQuarter;
+  String? deliveryStreet;
+  String? deliveryDescription;
 
   BillingAddressData(
       {this.id,
@@ -488,7 +494,13 @@ class BillingAddressData {
         this.country,
         this.latitude,
         this.longitude,
-        });
+        this.doorPhoto,
+        this.doorLatitude,
+        this.doorLongitude,
+        this.deliveryQuarter,
+        this.deliveryStreet,
+        this.deliveryDescription,
+      });
 
   BillingAddressData.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -502,9 +514,14 @@ class BillingAddressData {
     createdAt = json['created_at'];
     updatedAt = json['updated_at'];
     country = json['country'];
-    latitude = json['latitude'];
-    longitude = json['longitude'];
-
+    latitude = json['latitude']?.toString();
+    longitude = json['longitude']?.toString();
+    doorPhoto = json['door_photo_url'] ?? json['door_photo'];
+    doorLatitude = json['door_latitude']?.toString();
+    doorLongitude = json['door_longitude']?.toString();
+    deliveryQuarter = json['delivery_quarter'];
+    deliveryStreet = json['delivery_street'];
+    deliveryDescription = json['delivery_description'];
   }
 
 }

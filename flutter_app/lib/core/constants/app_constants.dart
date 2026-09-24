@@ -1,4 +1,4 @@
-import 'package:flutter_sixvalley_ecommerce/core/localization/models/language_model.dart';
+﻿import 'package:flutter_sixvalley_ecommerce/core/localization/models/language_model.dart';
 import 'package:flutter_sixvalley_ecommerce/core/enums/local_caches_type_enum.dart';
 
 class AppConstants {
@@ -46,7 +46,7 @@ class AppConstants {
   static const String digitalPaymentEndpoint = 'digital-payment';
   static const String addToFundEndpoint = 'add-to-fund';
 
-  // Paliers de réduction (FCFA)
+  // Paliers de rÃ©duction (FCFA)
   static const List<int> reductionTiers = [
     250,
     500,
@@ -64,15 +64,15 @@ class AppConstants {
   // Frais d'annulation (FCFA)
   static const double cancellationFee = 1000.00;
 
-  // Langues supportées
+  // Langues supportÃ©es
   static List<LanguageModel> languages = [
     LanguageModel(
-        languageCode: 'fr', countryCode: 'TD', languageName: 'Français'),
+        languageCode: 'fr', countryCode: 'TD', languageName: 'FranÃ§ais'),
     LanguageModel(
-        languageCode: 'ar', countryCode: 'TD', languageName: 'العربية'),
+        languageCode: 'ar', countryCode: 'TD', languageName: 'Ø§Ù„Ø¹Ø±Ø¨ÙŠØ©'),
   ];
 
-  // Rôles utilisateur
+  // RÃ´les utilisateur
   static const String roleCustomer = 'customer';
   static const String roleVendor = 'vendor';
   static const String roleAdmin = 'admin';
@@ -80,6 +80,7 @@ class AppConstants {
 // Stockage
   static const String tokenKey = 'token';
   static const String userLoginToken = 'user_login_token';
+  static const String userRoleKey = 'user_role';
   static const String userKey = 'user';
   static const String languageCodeKey = 'language_code';
   static const String countryCodeKey = 'country_code';
@@ -104,7 +105,7 @@ class AppConstants {
   // Google Maps
   static const String googleMapsApiKey = 'YOUR_GOOGLE_MAPS_API_KEY';
 
-  // Airtel / Moov Money (à configurer via variables d'environnement)
+  // Airtel / Moov Money (Ã  configurer via variables d'environnement)
   static const String airtelMoneyApiKey = ''; // AIRTEL_MONEY_API_KEY
   static const String moovMoneyApiKey = ''; // MOOV_MONEY_API_KEY
 
@@ -129,7 +130,8 @@ class AppConstants {
   static const String companyName = '6Valley';
   static const bool demo = false;
   static const int imageQuality = 100;
-  static const String loginUri = '/api/v3/seller/auth/login';
+  static const String loginUri = '/api/v1/auth/login';
+  static const String sellerLoginUri = '/api/v3/seller/auth/login';
   static const String sellerUri = '/api/v3/seller/seller-info';
   static const String sellerAndBankUpdate = '/api/v3/seller/seller-update';
   static const String shopUpdate = '/api/v3/seller/shop-update';

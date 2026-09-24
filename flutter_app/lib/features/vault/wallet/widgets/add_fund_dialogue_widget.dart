@@ -159,6 +159,21 @@ class AddFundDialogueWidget extends StatelessWidget {
                                 ),
                                 const SizedBox(height: Dimensions.paddingSizeSmall),
 
+                                if (digitalPaymentProvider.selectedDigitalPaymentMethodName == 'airtel_money' || digitalPaymentProvider.selectedDigitalPaymentMethodName == 'moov_money')
+                                  Padding(
+                                    padding: const EdgeInsets.symmetric(horizontal: Dimensions.paddingSizeSmall),
+                                    child: TextFormField(
+                                      controller: digitalPaymentProvider.paymentPhoneController,
+                                      keyboardType: TextInputType.phone,
+                                      decoration: InputDecoration(
+                                        hintText: getTranslated('payment_phone_number', context) ?? 'Numéro de téléphone de paiement',
+                                        border: OutlineInputBorder(borderRadius: BorderRadius.circular(Dimensions.paddingSizeSmall)),
+                                      ),
+                                    ),
+                                  ),
+                                if (digitalPaymentProvider.selectedDigitalPaymentMethodName == 'airtel_money' || digitalPaymentProvider.selectedDigitalPaymentMethodName == 'moov_money')
+                                  const SizedBox(height: Dimensions.paddingSizeSmall),
+
                                 Padding(padding: const EdgeInsets.symmetric(horizontal: Dimensions.paddingSizeSmall),
                                   child: CustomButton(
                                     buttonText: getTranslated('add_fund', context)!,
@@ -177,8 +192,10 @@ class AddFundDialogueWidget extends StatelessWidget {
                                         Provider.of<WalletController>(context, listen: false).addFundToWallet(
                                           inputAmountController.text.trim(),
                                           digitalPaymentProvider.selectedDigitalPaymentMethodName,
+                                          paymentPhone: digitalPaymentProvider.paymentPhoneController.text.trim()
                                         ).then((response){
                                           inputAmountController.clear();
+                                          digitalPaymentProvider.paymentPhoneController.clear();
                                           Navigator.pop(Get.context!);
                                         });
                                       }

@@ -9,7 +9,7 @@ import 'package:flutter_sixvalley_ecommerce/core/di/model/response/base/api_resp
 import 'package:flutter_sixvalley_ecommerce/features/vendor/product/domain/models/product_model.dart';
 import 'package:flutter_sixvalley_ecommerce/features/vendor/product_details/domain/services/product_details_service_interface.dart';
 import 'package:flutter_sixvalley_ecommerce/core/helpers/api_checker.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/product_helper.dart';
+// import 'package:flutter_sixvalley_ecommerce/core/helpers/product_helper.dart';
 import 'package:flutter_sixvalley_ecommerce/features/vendor/localization/language_constrants.dart';
 import 'package:flutter_sixvalley_ecommerce/main.dart';
 

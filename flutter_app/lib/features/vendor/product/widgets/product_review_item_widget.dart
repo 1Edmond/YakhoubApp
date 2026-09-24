@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 import 'package:provider/provider.dart';
 import 'package:readmore/readmore.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/basewidgets/image_diaglog_widget.dart';
+// import 'package:flutter_sixvalley_ecommerce/core/widgets/base/basewidgets/image_diaglog_widget.dart';
 import 'package:flutter_sixvalley_ecommerce/features/vendor/review/controllers/product_review_controller.dart';
 import 'package:flutter_sixvalley_ecommerce/features/vendor/review/domain/models/review_model.dart';
 import 'package:flutter_sixvalley_ecommerce/features/vendor/review/screens/review_reply_widget.dart';

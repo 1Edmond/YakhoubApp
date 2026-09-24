@@ -38,7 +38,7 @@ import 'package:flutter_sixvalley_ecommerce/core/di/data_sources/logging_interce
     as customer_interceptor;
 import 'package:flutter_sixvalley_ecommerce/features/vault/deal/domain/repositories/featured_deal_repository.dart';
 import 'package:flutter_sixvalley_ecommerce/features/vault/vat_tax/controllers/vat_tax_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/transaction/domain/service/transaction_service_interface.dart';
+// import 'package:flutter_sixvalley_ecommerce/features/vault/transaction/domain/service/transaction_service_interface.dart';
 import 'package:flutter_sixvalley_ecommerce/features/customer/product/controllers/product_controller.dart';
 import 'package:flutter_sixvalley_ecommerce/features/vault/auction/domain/service/customer_auction_list_service.dart';
 import 'package:flutter_sixvalley_ecommerce/features/vault/contact_us/domain/repository/contact_us_repository.dart';
@@ -598,10 +598,8 @@ import 'package:flutter_sixvalley_ecommerce/features/vendor/emergency_contract/c
     as v_emergency_contact_controller;
 import 'package:flutter_sixvalley_ecommerce/features/vendor/language/controllers/language_controller.dart'
     as v_language_controller;
-import 'package:flutter_sixvalley_ecommerce/core/localization/controllers/localization_controller.dart'
-    as v_localization_controller;
-import 'package:flutter_sixvalley_ecommerce/features/vendor/dashboard/controllers/bottom_menu_controller.dart'
-    as v_bottom_menu_controller;
+// import 'package:flutter_sixvalley_ecommerce/core/localization/controllers/localization_controller.dart'
+// import 'package:flutter_sixvalley_ecommerce/features/vendor/dashboard/controllers/bottom_menu_controller.dart'
 import 'package:flutter_sixvalley_ecommerce/features/vendor/order/controllers/location_controller.dart'
     as v_location_controller;
 import 'package:flutter_sixvalley_ecommerce/features/vendor/order/controllers/order_controller.dart'
@@ -620,18 +618,15 @@ import 'package:flutter_sixvalley_ecommerce/features/vendor/shipping/controllers
     as v_shipping_controller;
 import 'package:flutter_sixvalley_ecommerce/features/vendor/shop/controllers/shop_controller.dart'
     as v_shop_controller;
-import 'package:flutter_sixvalley_ecommerce/features/vendor/splash/controllers/splash_controller.dart'
-    as v_splash_controller;
-import 'package:flutter_sixvalley_ecommerce/core/theme/controllers/theme_controller.dart'
-    as v_theme_controller;
+// import 'package:flutter_sixvalley_ecommerce/features/vendor/splash/controllers/splash_controller.dart'
+// import 'package:flutter_sixvalley_ecommerce/core/theme/controllers/theme_controller.dart'
 import 'package:flutter_sixvalley_ecommerce/features/vendor/bank_info/controllers/bank_info_controller.dart'
     as v_bank_info_controller;
 import 'package:flutter_sixvalley_ecommerce/features/vendor/transaction/controllers/transaction_controller.dart'
     as v_transaction_controller;
 import 'package:flutter_sixvalley_ecommerce/core/constants/app_constants.dart'
     as v_app_constants;
-import 'package:flutter_sixvalley_ecommerce/common/controller/tutorial_controller.dart'
-    as v_tutorial_controller;
+// import 'package:flutter_sixvalley_ecommerce/common/controller/tutorial_controller.dart'
 
 final sl = GetIt.instance;
 

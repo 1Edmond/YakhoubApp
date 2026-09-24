@@ -20,7 +20,7 @@ class AuthRepository implements AuthRepositoryInterface{
   @override
   Future<ApiResponse> login({String? emailAddress, String? password}) async {
     try {
-      Response response = await dioClient!.post(AppConstants.loginUri,
+      Response response = await dioClient!.post(AppConstants.sellerLoginUri,
         data: {"email": emailAddress, "password": password},
       );
       return ApiResponse.withSuccess(response);
@@ -197,6 +197,7 @@ class AuthRepository implements AuthRepositoryInterface{
       'f_name': registerModel.fName!,
       'l_name': registerModel.lName!,
       'phone': registerModel.phone!,
+      'nni': registerModel.nni ?? '',
       'email': registerModel.email!,
       'password': registerModel.password!,
       'confirm_password': registerModel.confirmPassword!,
