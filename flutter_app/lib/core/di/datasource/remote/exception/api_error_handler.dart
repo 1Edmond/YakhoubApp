@@ -1,9 +1,9 @@
 
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flutter_sixvalley_ecommerce/core/models/error_response.dart';
-import 'package:flutter_sixvalley_ecommerce/features/auth/controllers/auth_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/main.dart';
+import 'package:multishop_tchad/core/models/error_response.dart';
+import 'package:multishop_tchad/features/auth/controllers/auth_controller.dart';
+import 'package:multishop_tchad/main.dart';
 import 'package:provider/provider.dart';
 
 class ApiErrorHandler {
@@ -37,8 +37,8 @@ class ApiErrorHandler {
                   }
 
                   if (kDebugMode) {
-                    print("=================403=============>>$errorDescription");
-                    print("=================403=============>>${error.response!.data}");
+                    // print("=================403=============>>$errorDescription");
+                    // print("=================403=============>>${error.response!.data}");
                   }
 
                   break;
@@ -71,7 +71,7 @@ class ApiErrorHandler {
                   break;
                 case 500:
                   if (kDebugMode) {
-                    print("-----------500------------->>${error.response!.data}");
+                    // print("-----------500------------->>${error.response!.data}");
                   }
                   errorDescription = 'Internal server error';
                 case 503:
@@ -79,7 +79,7 @@ class ApiErrorHandler {
                     errorDescription = error.response!.data['message'];
                   }
                 case 429:
-                  print("-----------429------------->>${error.response!.data}");
+                  // print("-----------429------------->>${error.response!.data}");
                   errorDescription = error.response!.statusMessage;
                   break;
                 default:
@@ -91,16 +91,13 @@ class ApiErrorHandler {
               }
               break;
             case DioExceptionType.badCertificate:
-              // TODO: Handle this case.
               break;
             case DioExceptionType.connectionError:
-              // TODO: Handle this case.
               break;
             case DioExceptionType.unknown:
               errorDescription = "Request to API call limit excited ";
               break;
             case DioExceptionType.transformTimeout:
-              // TODO: Handle this case.
               errorDescription = "Connection timeout with API server";
               break;
           }

@@ -11,17 +11,17 @@ import 'package:path/path.dart' as path show join;
 import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/basewidgets/custom_snackbar_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/di/model/response/base/api_response.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/order/controllers/order_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/order/domain/models/order_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/order_details/domain/models/order_details_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/order_details/domain/models/order_setup_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/order_details/domain/services/order_details_service_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/api_checker.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/localization/language_constrants.dart';
-import 'package:flutter_sixvalley_ecommerce/main.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/images.dart';
+import 'package:multishop_tchad/core/widgets/base/basewidgets/custom_snackbar_widget.dart';
+import 'package:multishop_tchad/core/di/model/response/base/api_response.dart';
+import 'package:multishop_tchad/features/vendor/order/controllers/order_controller.dart';
+import 'package:multishop_tchad/features/vendor/order/domain/models/order_model.dart';
+import 'package:multishop_tchad/features/vendor/order_details/domain/models/order_details_model.dart';
+import 'package:multishop_tchad/features/vendor/order_details/domain/models/order_setup_model.dart';
+import 'package:multishop_tchad/features/vendor/order_details/domain/services/order_details_service_interface.dart';
+import 'package:multishop_tchad/core/helpers/api_checker.dart';
+import 'package:multishop_tchad/features/vendor/localization/language_constrants.dart';
+import 'package:multishop_tchad/main.dart';
+import 'package:multishop_tchad/core/constants/images.dart';
 
 class OrderDetailsController extends ChangeNotifier{
   final OrderDetailsServiceInterface orderDetailsServiceInterface;

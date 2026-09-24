@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/auction/controllers/auction_product_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/core/theme/controllers/theme_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/styles.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/custom_image_widget.dart';
+import 'package:multishop_tchad/features/vendor/auction/controllers/auction_product_controller.dart';
+import 'package:multishop_tchad/core/theme/controllers/theme_controller.dart';
+import 'package:multishop_tchad/core/constants/styles.dart';
+import 'package:multishop_tchad/core/constants/dimensions.dart';
+import 'package:multishop_tchad/core/widgets/base/custom_image_widget.dart';
 import 'package:provider/provider.dart';
 
 class CustomCheckBoxWidget extends StatelessWidget {

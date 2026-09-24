@@ -3,15 +3,15 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:webview_flutter/webview_flutter.dart';
-import 'package:flutter_sixvalley_ecommerce/features/auth/controllers/auth_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/checkout/controllers/checkout_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/checkout/widgets/order_place_bottomsheet_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/route_helper.dart';
-import 'package:flutter_sixvalley_ecommerce/core/localization/language_constrants.dart';
-import 'package:flutter_sixvalley_ecommerce/main.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/app_constants.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/animated_custom_dialog_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/checkout/widgets/order_place_dialog_widget.dart';
+import 'package:multishop_tchad/features/auth/controllers/auth_controller.dart';
+import 'package:multishop_tchad/features/customer/checkout/controllers/checkout_controller.dart';
+import 'package:multishop_tchad/features/customer/checkout/widgets/order_place_bottomsheet_widget.dart';
+import 'package:multishop_tchad/core/helpers/route_helper.dart';
+import 'package:multishop_tchad/core/localization/language_constrants.dart';
+import 'package:multishop_tchad/main.dart';
+import 'package:multishop_tchad/core/constants/app_constants.dart';
+import 'package:multishop_tchad/core/widgets/base/animated_custom_dialog_widget.dart';
+import 'package:multishop_tchad/features/customer/checkout/widgets/order_place_dialog_widget.dart';
 import 'package:provider/provider.dart';
 
 class DigitalPaymentScreen extends StatefulWidget {

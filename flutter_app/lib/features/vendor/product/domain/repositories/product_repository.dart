@@ -2,13 +2,13 @@ import 'dart:convert';
 import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:flutter_sixvalley_ecommerce/core/di/datasource/remote/dio/dio_client.dart';
-import 'package:flutter_sixvalley_ecommerce/core/di/datasource/remote/exception/api_error_handler.dart';
-import 'package:flutter_sixvalley_ecommerce/core/di/model/response/base/api_response.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/product/domain/models/filter_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/product/domain/repositories/product_repository_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/date_converter.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/app_constants.dart';
+import 'package:multishop_tchad/core/di/datasource/remote/dio/dio_client.dart';
+import 'package:multishop_tchad/core/di/datasource/remote/exception/api_error_handler.dart';
+import 'package:multishop_tchad/core/di/model/response/base/api_response.dart';
+import 'package:multishop_tchad/features/vendor/product/domain/models/filter_model.dart';
+import 'package:multishop_tchad/features/vendor/product/domain/repositories/product_repository_interface.dart';
+import 'package:multishop_tchad/core/helpers/date_converter.dart';
+import 'package:multishop_tchad/core/constants/app_constants.dart';
 
 
 class ProductRepository implements ProductRepositoryInterface{
@@ -120,7 +120,6 @@ class ProductRepository implements ProductRepositoryInterface{
 
   @override
   Future add(value) {
-    // TODO: implement add
     throw UnimplementedError();
   }
 
@@ -138,19 +137,16 @@ class ProductRepository implements ProductRepositoryInterface{
 
   @override
   Future get(String id) {
-    // TODO: implement get
     throw UnimplementedError();
   }
 
   @override
   Future getList({int? offset = 1}) {
-    // TODO: implement getList
     throw UnimplementedError();
   }
 
   @override
   Future update(Map<String, dynamic> body, int id) {
-    // TODO: implement update
     throw UnimplementedError();
   }
 

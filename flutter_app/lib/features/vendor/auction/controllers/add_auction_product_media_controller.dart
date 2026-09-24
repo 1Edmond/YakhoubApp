@@ -5,15 +5,15 @@ import 'package:file_picker/file_picker.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/custom_snackbar_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/chat/domain/models/media_file_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/splash/controllers/splash_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/image_size_checker.dart';
-import 'package:flutter_sixvalley_ecommerce/core/localization/language_constrants.dart';
-import 'package:flutter_sixvalley_ecommerce/main.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/app_constants.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/auction/domain/models/auction_product_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/auction/controllers/add_auction_product_contoller.dart';
+import 'package:multishop_tchad/core/widgets/base/custom_snackbar_widget.dart';
+import 'package:multishop_tchad/features/vendor/chat/domain/models/media_file_model.dart';
+import 'package:multishop_tchad/features/vendor/splash/controllers/splash_controller.dart';
+import 'package:multishop_tchad/core/helpers/image_size_checker.dart';
+import 'package:multishop_tchad/core/localization/language_constrants.dart';
+import 'package:multishop_tchad/main.dart';
+import 'package:multishop_tchad/core/constants/app_constants.dart';
+import 'package:multishop_tchad/features/vendor/auction/domain/models/auction_product_model.dart';
+import 'package:multishop_tchad/features/vendor/auction/controllers/add_auction_product_contoller.dart';
 
 class AddAuctionProductMediaController extends ChangeNotifier {
 

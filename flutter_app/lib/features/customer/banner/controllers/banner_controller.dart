@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/features/shared/enums/data_source_enum.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/banner/domain/models/banner_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/banner/domain/services/banner_service_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/product/domain/models/product_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/shop/controllers/shop_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/brand/controllers/brand_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/category/controllers/category_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/data_sync_helper.dart';
+import 'package:multishop_tchad/features/shared/enums/data_source_enum.dart';
+import 'package:multishop_tchad/features/customer/banner/domain/models/banner_model.dart';
+import 'package:multishop_tchad/features/customer/banner/domain/services/banner_service_interface.dart';
+import 'package:multishop_tchad/features/customer/product/domain/models/product_model.dart';
+import 'package:multishop_tchad/features/customer/shop/controllers/shop_controller.dart';
+import 'package:multishop_tchad/features/customer/brand/controllers/brand_controller.dart';
+import 'package:multishop_tchad/features/customer/category/controllers/category_controller.dart';
+import 'package:multishop_tchad/core/helpers/data_sync_helper.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/route_helper.dart';
+import 'package:multishop_tchad/core/helpers/route_helper.dart';
 
 class BannerController extends ChangeNotifier {
   final BannerServiceInterface? bannerServiceInterface;

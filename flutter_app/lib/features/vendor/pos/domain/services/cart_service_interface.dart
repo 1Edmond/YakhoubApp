@@ -1,8 +1,8 @@
 
 
-import 'package:flutter_sixvalley_ecommerce/features/vendor/pos/domain/models/customer_body.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/pos/domain/models/place_order_body.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/pos/domain/models/temporary_cart_for_customer_model.dart';
+import 'package:multishop_tchad/features/vendor/pos/domain/models/customer_body.dart';
+import 'package:multishop_tchad/features/vendor/pos/domain/models/place_order_body.dart';
+import 'package:multishop_tchad/features/vendor/pos/domain/models/temporary_cart_for_customer_model.dart';
 
 abstract class CartServiceInterface{
   Future<dynamic> getCouponDiscount(String couponCode, int? userId, double orderAmount);

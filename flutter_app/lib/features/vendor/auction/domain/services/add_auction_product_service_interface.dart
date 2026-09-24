@@ -1,5 +1,5 @@
 import 'package:image_picker/image_picker.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/auction/domain/models/add_auction_product_model.dart';
+import 'package:multishop_tchad/features/vendor/auction/domain/models/add_auction_product_model.dart';
 
 abstract class AddAuctionProductServiceInterface {
 

@@ -1,4 +1,4 @@
-// import 'package:flutter_sixvalley_ecommerce/features/vendor/addProduct/domain/models/edt_product_model.dart';
+// import 'package:multishop_tchad/features/vendor/addProduct/domain/models/edt_product_model.dart';
 
 import '../../../product/domain/models/product_model.dart';
 

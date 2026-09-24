@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/core/models/api_response.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/auction_home/domain/models/auction_product_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/auction_search/domain/models/auction_filter_param_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/auction_search/domain/models/auction_popular_tag_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/auction_search/domain/services/auction_search_service_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/search_product/domain/models/suggestion_product_model.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/api_checker.dart';
+import 'package:multishop_tchad/core/models/api_response.dart';
+import 'package:multishop_tchad/features/vault/auction_home/domain/models/auction_product_model.dart';
+import 'package:multishop_tchad/features/vault/auction_search/domain/models/auction_filter_param_model.dart';
+import 'package:multishop_tchad/features/vault/auction_search/domain/models/auction_popular_tag_model.dart';
+import 'package:multishop_tchad/features/vault/auction_search/domain/services/auction_search_service_interface.dart';
+import 'package:multishop_tchad/features/customer/search_product/domain/models/suggestion_product_model.dart';
+import 'package:multishop_tchad/core/helpers/api_checker.dart';
 
 class AuctionSearchController extends ChangeNotifier {
   final AuctionSearchServiceInterface? auctionSearchServiceInterface;

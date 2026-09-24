@@ -1,10 +1,10 @@
 
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/product_card_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/product/controllers/product_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/product/domain/models/product_model.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/responsive_helper.dart';
+import 'package:multishop_tchad/core/widgets/base/product_card_widget.dart';
+import 'package:multishop_tchad/features/customer/product/controllers/product_controller.dart';
+import 'package:multishop_tchad/features/customer/product/domain/models/product_model.dart';
+import 'package:multishop_tchad/core/helpers/responsive_helper.dart';
 import 'package:provider/provider.dart';
 
 class JustForYouView extends StatefulWidget {

@@ -1,12 +1,12 @@
 import 'package:dio/dio.dart';
-import 'package:flutter_sixvalley_ecommerce/core/di/data_sources/dio_client.dart';
-import 'package:flutter_sixvalley_ecommerce/core/di/data_sources/remote/exception/api_error_handler.dart';
-import 'package:flutter_sixvalley_ecommerce/core/models/api_response.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/auction_details/domain/models/participator/auction_bid_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/auction_details/domain/models/participator/auction_entry_fee_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/auction_details/domain/models/participator/auction_save_request_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/auction_details/domain/repositories/participator/auction_participation_repository_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/app_constants.dart';
+import 'package:multishop_tchad/core/di/data_sources/dio_client.dart';
+import 'package:multishop_tchad/core/di/data_sources/remote/exception/api_error_handler.dart';
+import 'package:multishop_tchad/core/models/api_response.dart';
+import 'package:multishop_tchad/features/vault/auction_details/domain/models/participator/auction_bid_model.dart';
+import 'package:multishop_tchad/features/vault/auction_details/domain/models/participator/auction_entry_fee_model.dart';
+import 'package:multishop_tchad/features/vault/auction_details/domain/models/participator/auction_save_request_model.dart';
+import 'package:multishop_tchad/features/vault/auction_details/domain/repositories/participator/auction_participation_repository_interface.dart';
+import 'package:multishop_tchad/core/constants/app_constants.dart';
 
 
 class AuctionParticipationRepository implements AuctionParticipationRepositoryInterface {

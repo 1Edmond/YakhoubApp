@@ -1,7 +1,7 @@
 
-import 'package:flutter_sixvalley_ecommerce/features/customer/address/domain/models/address_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/address/domain/models/label_model.dart';
-// import 'package:flutter_sixvalley_ecommerce/core/interfaces/repo_interface.dart';
+import 'package:multishop_tchad/features/customer/address/domain/models/address_model.dart';
+import 'package:multishop_tchad/features/customer/address/domain/models/label_model.dart';
+// import 'package:multishop_tchad/core/interfaces/repo_interface.dart';
 
 abstract class AddressRepoInterface<T> {
 

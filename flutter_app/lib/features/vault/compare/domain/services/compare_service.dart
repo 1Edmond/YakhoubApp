@@ -1,5 +1,5 @@
-import 'package:flutter_sixvalley_ecommerce/features/vault/compare/domain/repositories/compare_repository_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/compare/domain/services/compare_service_interface.dart';
+import 'package:multishop_tchad/features/vault/compare/domain/repositories/compare_repository_interface.dart';
+import 'package:multishop_tchad/features/vault/compare/domain/services/compare_service_interface.dart';
 
 class CompareService implements CompareServiceInterface{
   CompareRepositoryInterface compareRepositoryInterface;

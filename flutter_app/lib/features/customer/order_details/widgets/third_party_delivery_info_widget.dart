@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/order/domain/models/order_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/order_details/domain/models/order_details_model.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/price_converter.dart';
-import 'package:flutter_sixvalley_ecommerce/core/localization/language_constrants.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/custom_themes.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
+import 'package:multishop_tchad/features/customer/order/domain/models/order_model.dart';
+import 'package:multishop_tchad/features/customer/order_details/domain/models/order_details_model.dart';
+import 'package:multishop_tchad/core/helpers/price_converter.dart';
+import 'package:multishop_tchad/core/localization/language_constrants.dart';
+import 'package:multishop_tchad/core/constants/custom_themes.dart';
+import 'package:multishop_tchad/core/constants/dimensions.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class ThirdPartyDeliveryInfoWidget extends StatelessWidget {

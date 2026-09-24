@@ -1,5 +1,5 @@
-import 'package:flutter_sixvalley_ecommerce/core/models/image_full_url.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/addProduct/domain/models/image_model.dart';
+import 'package:multishop_tchad/core/models/image_full_url.dart';
+import 'package:multishop_tchad/features/vendor/addProduct/domain/models/image_model.dart';
 
 class ProductImagesModel {
   List<ImagesStorage>? imagesStorage;

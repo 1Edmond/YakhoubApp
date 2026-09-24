@@ -1,6 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/images.dart';
+import 'package:multishop_tchad/core/constants/images.dart';
 
 
 class CustomImageWidget extends StatelessWidget {

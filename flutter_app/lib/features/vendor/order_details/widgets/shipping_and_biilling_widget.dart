@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/order/domain/models/order_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/order_details/controllers/order_details_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/splash/controllers/splash_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/localization/language_constrants.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/theme/controllers/theme_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/images.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/styles.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/order/screens/edit_address_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/order/widgets/icon_with_text_row_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/order_details/widgets/show_on_map_dialog_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/basewidgets/custom_image_widget.dart';
+import 'package:multishop_tchad/features/vendor/order/domain/models/order_model.dart';
+import 'package:multishop_tchad/features/vendor/order_details/controllers/order_details_controller.dart';
+import 'package:multishop_tchad/features/vendor/splash/controllers/splash_controller.dart';
+import 'package:multishop_tchad/features/vendor/localization/language_constrants.dart';
+import 'package:multishop_tchad/features/vendor/theme/controllers/theme_controller.dart';
+import 'package:multishop_tchad/core/constants/dimensions.dart';
+import 'package:multishop_tchad/core/constants/images.dart';
+import 'package:multishop_tchad/core/constants/styles.dart';
+import 'package:multishop_tchad/features/vendor/order/screens/edit_address_screen.dart';
+import 'package:multishop_tchad/features/vendor/order/widgets/icon_with_text_row_widget.dart';
+import 'package:multishop_tchad/features/vendor/order_details/widgets/show_on_map_dialog_widget.dart';
+import 'package:multishop_tchad/core/widgets/base/basewidgets/custom_image_widget.dart';
 
 // class ShippingAndBillingWidget extends StatelessWidget {
 //   final Order? orderModel;

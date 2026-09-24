@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/features/shared/enums/auction_approval_status_enum.dart';
-import 'package:flutter_sixvalley_ecommerce/core/models/api_response.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/auction_list/domain/services/auction_product_queue_service_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/auction_list/domain/models/auction_product_model.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/api_checker.dart';
+import 'package:multishop_tchad/features/shared/enums/auction_approval_status_enum.dart';
+import 'package:multishop_tchad/core/models/api_response.dart';
+import 'package:multishop_tchad/features/vault/auction_list/domain/services/auction_product_queue_service_interface.dart';
+import 'package:multishop_tchad/features/vault/auction_list/domain/models/auction_product_model.dart';
+import 'package:multishop_tchad/core/helpers/api_checker.dart';
 
 class AuctionProductQueueController extends ChangeNotifier {
   final AuctionProductQueueServiceInterface auctionProductQueueServiceInterface;

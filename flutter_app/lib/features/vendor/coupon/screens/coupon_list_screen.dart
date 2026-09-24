@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/custom_dialog_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/coupon/widgets/coupon_details_dialog_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/localization/language_constrants.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/coupon/controllers/coupon_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/vendor_custom_app_bar_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/no_data_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/vendor_paginated_list_view_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/coupon/screens/add_new_coupon_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/coupon/widgets/coupon_card_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/order/screens/order_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
+import 'package:multishop_tchad/core/widgets/base/custom_dialog_widget.dart';
+import 'package:multishop_tchad/features/vendor/coupon/widgets/coupon_details_dialog_widget.dart';
+import 'package:multishop_tchad/core/localization/language_constrants.dart';
+import 'package:multishop_tchad/features/vendor/coupon/controllers/coupon_controller.dart';
+import 'package:multishop_tchad/core/widgets/base/vendor_custom_app_bar_widget.dart';
+import 'package:multishop_tchad/core/widgets/base/no_data_screen.dart';
+import 'package:multishop_tchad/core/widgets/base/vendor_paginated_list_view_widget.dart';
+import 'package:multishop_tchad/features/vendor/coupon/screens/add_new_coupon_screen.dart';
+import 'package:multishop_tchad/features/vendor/coupon/widgets/coupon_card_widget.dart';
+import 'package:multishop_tchad/features/vendor/order/screens/order_screen.dart';
+import 'package:multishop_tchad/core/constants/dimensions.dart';
 
 
 

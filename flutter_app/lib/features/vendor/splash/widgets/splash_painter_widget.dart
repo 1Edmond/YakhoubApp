@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/color_helper.dart';
-import 'package:flutter_sixvalley_ecommerce/main.dart';
+import 'package:multishop_tchad/core/helpers/color_helper.dart';
+import 'package:multishop_tchad/main.dart';
 
 class SplashPainterWidget extends CustomPainter {
   @override

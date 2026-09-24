@@ -7,17 +7,17 @@ import 'package:dio/dio.dart';
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter_sixvalley_ecommerce/core/di/datasource/remote/dio/dio_client.dart';
-import 'package:flutter_sixvalley_ecommerce/core/di/datasource/remote/exception/api_error_handler.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/addProduct/domain/models/add_product_model.dart';
-import 'package:flutter_sixvalley_ecommerce/core/di/model/response/base/api_response.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/addProduct/domain/models/image_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/product/domain/models/product_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/addProduct/domain/repository/add_product_repository_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/main.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/auth/controllers/auth_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/splash/controllers/splash_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/app_constants.dart';
+import 'package:multishop_tchad/core/di/datasource/remote/dio/dio_client.dart';
+import 'package:multishop_tchad/core/di/datasource/remote/exception/api_error_handler.dart';
+import 'package:multishop_tchad/features/vendor/addProduct/domain/models/add_product_model.dart';
+import 'package:multishop_tchad/core/di/model/response/base/api_response.dart';
+import 'package:multishop_tchad/features/vendor/addProduct/domain/models/image_model.dart';
+import 'package:multishop_tchad/features/vendor/product/domain/models/product_model.dart';
+import 'package:multishop_tchad/features/vendor/addProduct/domain/repository/add_product_repository_interface.dart';
+import 'package:multishop_tchad/main.dart';
+import 'package:multishop_tchad/features/vendor/auth/controllers/auth_controller.dart';
+import 'package:multishop_tchad/features/vendor/splash/controllers/splash_controller.dart';
+import 'package:multishop_tchad/core/constants/app_constants.dart';
 
 
 class AddProductRepository implements AddProductRepositoryInterface{
@@ -520,31 +520,26 @@ class AddProductRepository implements AddProductRepositoryInterface{
 
   @override
   Future add(value) {
-    // TODO: implement add
     throw UnimplementedError();
   }
 
   @override
   Future delete(int id) {
-    // TODO: implement delete
     throw UnimplementedError();
   }
 
   @override
   Future get(String id) {
-    // TODO: implement get
     throw UnimplementedError();
   }
 
   @override
   Future getList({int? offset = 1}) {
-    // TODO: implement getList
     throw UnimplementedError();
   }
 
   @override
   Future update(Map<String, dynamic> body, int id) {
-    // TODO: implement update
     throw UnimplementedError();
   }
 }

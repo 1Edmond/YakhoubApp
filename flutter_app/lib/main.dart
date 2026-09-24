@@ -12,26 +12,26 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
-import 'package:flutter_sixvalley_ecommerce/core/constants/app_constants.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/route_helper.dart';
-// import 'package:flutter_sixvalley_ecommerce/core/guest/guest_mode_controller.dart'
-//    as flutter_sixvalley_ecommerce;
+import 'package:multishop_tchad/core/constants/app_constants.dart';
+import 'package:multishop_tchad/core/helpers/route_helper.dart';
+// import 'package:multishop_tchad/core/guest/guest_mode_controller.dart'
+//    as multishop_tchad;
 
 import 'core/di/di_container.dart' as di;
 import 'core/di/provider_setup.dart' as di_providers;
-import 'package:flutter_sixvalley_ecommerce/core/di/local/cache_response.dart';
+import 'package:multishop_tchad/core/di/local/cache_response.dart';
 import 'core/localization/app_localization.dart';
 import 'core/localization/controllers/localization_controller.dart';
-// import 'package:flutter_sixvalley_ecommerce/core/router/app_router.dart';
-import 'package:flutter_sixvalley_ecommerce/core/theme/controllers/theme_controller.dart';
+// import 'package:multishop_tchad/core/router/app_router.dart';
+import 'package:multishop_tchad/core/theme/controllers/theme_controller.dart';
 import 'core/theme/dark_theme.dart';
 import 'core/theme/light_theme.dart';
-import 'package:flutter_sixvalley_ecommerce/features/auth/controllers/auth_controller.dart';
+import 'package:multishop_tchad/features/auth/controllers/auth_controller.dart';
 // import 'features/customer/screens/splash_screen.dart';
 import 'features/customer/splash/controllers/splash_controller.dart';
 import 'features/customer/profile/controllers/profile_contrroller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/shared/push_notification/models/notification_body.dart';
-import 'package:flutter_sixvalley_ecommerce/features/shared/push_notification/notification_helper.dart';
+import 'package:multishop_tchad/features/shared/push_notification/models/notification_body.dart';
+import 'package:multishop_tchad/features/shared/push_notification/notification_helper.dart';
 
 final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
     FlutterLocalNotificationsPlugin();

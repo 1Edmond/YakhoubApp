@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/features/shared/chat/controllers/chat_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/order/domain/models/order_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/order_details/controllers/order_details_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/route_helper.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/shop_helper.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/images.dart';
+import 'package:multishop_tchad/features/shared/chat/controllers/chat_controller.dart';
+import 'package:multishop_tchad/features/customer/order/domain/models/order_model.dart';
+import 'package:multishop_tchad/features/customer/order_details/controllers/order_details_controller.dart';
+import 'package:multishop_tchad/core/helpers/route_helper.dart';
+import 'package:multishop_tchad/core/helpers/shop_helper.dart';
+import 'package:multishop_tchad/core/constants/dimensions.dart';
+import 'package:multishop_tchad/core/constants/images.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 

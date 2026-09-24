@@ -1,6 +1,6 @@
-import 'package:flutter_sixvalley_ecommerce/features/vendor/product_details/enums/preview_type.dart';
+import 'package:multishop_tchad/features/vendor/product_details/enums/preview_type.dart';
 import 'dart:math' as math;
-import 'package:flutter_sixvalley_ecommerce/features/customer/product_details/domain/models/product_details_model.dart';
+import 'package:multishop_tchad/features/customer/product_details/domain/models/product_details_model.dart';
 import 'package:html/parser.dart';
 import 'package:html/dom.dart';
 

@@ -1,1 +1,1 @@
-export 'package:flutter_sixvalley_ecommerce/core/di/services/data_sync_service_interface.dart';
+export 'package:multishop_tchad/core/di/services/data_sync_service_interface.dart';

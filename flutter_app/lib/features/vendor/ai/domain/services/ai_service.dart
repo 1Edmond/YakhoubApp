@@ -1,5 +1,5 @@
-import 'package:flutter_sixvalley_ecommerce/features/vendor/ai/domain/repositories/ai_repository_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/ai/domain/services/ai_service_interface.dart';
+import 'package:multishop_tchad/features/vendor/ai/domain/repositories/ai_repository_interface.dart';
+import 'package:multishop_tchad/features/vendor/ai/domain/services/ai_service_interface.dart';
 import 'package:image_picker/image_picker.dart';
 
 

@@ -1,8 +1,8 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/core/localization/language_constrants.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/styles.dart';
+import 'package:multishop_tchad/core/localization/language_constrants.dart';
+import 'package:multishop_tchad/core/constants/dimensions.dart';
+import 'package:multishop_tchad/core/constants/styles.dart';
 import 'package:textfield_tags/textfield_tags.dart';
 
 class AuctionTagWidget extends StatefulWidget {

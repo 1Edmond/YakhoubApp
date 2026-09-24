@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/custom_snackbar_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/models/response/base/api_response.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/clearance_sale/domain/models/chearance_slale_add_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/clearance_sale/domain/models/clearance_config_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/clearance_sale/domain/models/clearnace_sale_product_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/clearance_sale/domain/services/clearance_sale_service_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/clearance_sale/widgets/show_custom_time_picker.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/product/domain/models/product_model.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/api_checker.dart';
-import 'package:flutter_sixvalley_ecommerce/core/localization/language_constrants.dart';
-import 'package:flutter_sixvalley_ecommerce/main.dart';
+import 'package:multishop_tchad/core/widgets/base/custom_snackbar_widget.dart';
+import 'package:multishop_tchad/core/models/response/base/api_response.dart';
+import 'package:multishop_tchad/features/vendor/clearance_sale/domain/models/chearance_slale_add_model.dart';
+import 'package:multishop_tchad/features/vendor/clearance_sale/domain/models/clearance_config_model.dart';
+import 'package:multishop_tchad/features/vendor/clearance_sale/domain/models/clearnace_sale_product_model.dart';
+import 'package:multishop_tchad/features/vendor/clearance_sale/domain/services/clearance_sale_service_interface.dart';
+import 'package:multishop_tchad/features/vendor/clearance_sale/widgets/show_custom_time_picker.dart';
+import 'package:multishop_tchad/features/vendor/product/domain/models/product_model.dart';
+import 'package:multishop_tchad/core/helpers/api_checker.dart';
+import 'package:multishop_tchad/core/localization/language_constrants.dart';
+import 'package:multishop_tchad/main.dart';
 
 class ClearanceSaleController extends ChangeNotifier {
   final ClearanceSaleServiceInterface chatServiceInterface;

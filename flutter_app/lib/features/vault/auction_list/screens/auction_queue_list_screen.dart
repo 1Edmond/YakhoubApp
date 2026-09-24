@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/custom_app_bar_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/no_internet_screen_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/paginated_list_view_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/confirmation_dialog_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/shared/enums/auction_approval_status_enum.dart';
-import 'package:flutter_sixvalley_ecommerce/features/shared/enums/user_created_auction_enum.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/create_auction/controllers/add_auction_product_contoller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/auction/widgets/auction_tab_bar_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/auction_list/controllers/auction_product_queue_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/auction_list/domain/models/auction_product_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/auction_list/widgets/auction_queue_item_shimmer_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/auction_transaction/widgets/auction_queue_item_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/route_helper.dart';
-import 'package:flutter_sixvalley_ecommerce/core/localization/language_constrants.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/splash/controllers/splash_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/images.dart';
+import 'package:multishop_tchad/core/widgets/base/custom_app_bar_widget.dart';
+import 'package:multishop_tchad/core/widgets/base/no_internet_screen_widget.dart';
+import 'package:multishop_tchad/core/widgets/base/paginated_list_view_widget.dart';
+import 'package:multishop_tchad/core/widgets/base/confirmation_dialog_widget.dart';
+import 'package:multishop_tchad/features/shared/enums/auction_approval_status_enum.dart';
+import 'package:multishop_tchad/features/shared/enums/user_created_auction_enum.dart';
+import 'package:multishop_tchad/features/vault/create_auction/controllers/add_auction_product_contoller.dart';
+import 'package:multishop_tchad/features/vault/auction/widgets/auction_tab_bar_widget.dart';
+import 'package:multishop_tchad/features/vault/auction_list/controllers/auction_product_queue_controller.dart';
+import 'package:multishop_tchad/features/vault/auction_list/domain/models/auction_product_model.dart';
+import 'package:multishop_tchad/features/vault/auction_list/widgets/auction_queue_item_shimmer_widget.dart';
+import 'package:multishop_tchad/features/vault/auction_transaction/widgets/auction_queue_item_widget.dart';
+import 'package:multishop_tchad/core/helpers/route_helper.dart';
+import 'package:multishop_tchad/core/localization/language_constrants.dart';
+import 'package:multishop_tchad/features/customer/splash/controllers/splash_controller.dart';
+import 'package:multishop_tchad/core/constants/dimensions.dart';
+import 'package:multishop_tchad/core/constants/images.dart';
 import 'package:provider/provider.dart';
 import 'package:shimmer/shimmer.dart';
 
@@ -79,7 +79,6 @@ class _AuctionQueueListScreenState extends State<AuctionQueueListScreen> {
       canPop: false,
       onPopInvokedWithResult: (didPop, _) async {
         if (widget.fromNotification!) {
-          /// TODO: Navigation
         } else {
           if (!didPop) {
             Navigator.of(context).pop();

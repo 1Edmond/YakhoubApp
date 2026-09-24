@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_sixvalley_ecommerce/core/models/image_full_url.dart';
+import 'package:multishop_tchad/core/models/image_full_url.dart';
 
 class CategoryModel {
   int? _id;

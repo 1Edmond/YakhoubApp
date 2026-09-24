@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/auth/widgets/pass_view.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/localization/language_constrants.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/auth/controllers/auth_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/main.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/images.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/styles.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/vendor_custom_button_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/basewidgets/custom_snackbar_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/basewidgets/textfeild/custom_pass_textfeild_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/auth/screens/auth_screen.dart';
+import 'package:multishop_tchad/features/vendor/auth/widgets/pass_view.dart';
+import 'package:multishop_tchad/features/vendor/localization/language_constrants.dart';
+import 'package:multishop_tchad/features/vendor/auth/controllers/auth_controller.dart';
+import 'package:multishop_tchad/main.dart';
+import 'package:multishop_tchad/core/constants/dimensions.dart';
+import 'package:multishop_tchad/core/constants/images.dart';
+import 'package:multishop_tchad/core/constants/styles.dart';
+import 'package:multishop_tchad/core/widgets/base/vendor_custom_button_widget.dart';
+import 'package:multishop_tchad/core/widgets/base/basewidgets/custom_snackbar_widget.dart';
+import 'package:multishop_tchad/core/widgets/base/basewidgets/textfeild/custom_pass_textfeild_widget.dart';
+import 'package:multishop_tchad/features/vendor/auth/screens/auth_screen.dart';
 
 class ResetPasswordWidget extends StatefulWidget {
   final String mobileNumber;

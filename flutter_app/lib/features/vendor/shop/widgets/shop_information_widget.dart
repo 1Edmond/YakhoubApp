@@ -1,19 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/localization/language_constrants.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/profile/controllers/profile_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/shop/controllers/shop_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/images.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/styles.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/basewidgets/custom_image_widget.dart';
+import 'package:multishop_tchad/features/vendor/localization/language_constrants.dart';
+import 'package:multishop_tchad/features/vendor/profile/controllers/profile_controller.dart';
+import 'package:multishop_tchad/features/vendor/shop/controllers/shop_controller.dart';
+import 'package:multishop_tchad/core/constants/dimensions.dart';
+import 'package:multishop_tchad/core/constants/images.dart';
+import 'package:multishop_tchad/core/constants/styles.dart';
+import 'package:multishop_tchad/core/widgets/base/basewidgets/custom_image_widget.dart';
 
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/basewidgets/custom_loader_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/shop/screens/shop_update_screen.dart';
+import 'package:multishop_tchad/core/widgets/base/basewidgets/custom_loader_widget.dart';
+import 'package:multishop_tchad/features/vendor/shop/screens/shop_update_screen.dart';
 
 
-// todo: Delete this widget
 
 
 class ShopInformationWidget extends StatelessWidget {

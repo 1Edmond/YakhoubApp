@@ -1,7 +1,7 @@
-import 'package:flutter_sixvalley_ecommerce/features/shared/enums/data_source_enum.dart';
-import 'package:flutter_sixvalley_ecommerce/core/models/api_response.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/banner/domain/repositories/banner_repository_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/banner/domain/services/banner_service_interface.dart';
+import 'package:multishop_tchad/features/shared/enums/data_source_enum.dart';
+import 'package:multishop_tchad/core/models/api_response.dart';
+import 'package:multishop_tchad/features/customer/banner/domain/repositories/banner_repository_interface.dart';
+import 'package:multishop_tchad/features/customer/banner/domain/services/banner_service_interface.dart';
 
 class BannerService implements BannerServiceInterface{
   BannerRepositoryInterface bannerRepositoryInterface;

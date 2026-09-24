@@ -1,9 +1,9 @@
 
-import 'package:flutter_sixvalley_ecommerce/core/models/api_response.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/address/domain/models/address_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/address/domain/models/label_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/address/domain/repositories/address_repository_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/address/domain/services/address_service_interface.dart';
+import 'package:multishop_tchad/core/models/api_response.dart';
+import 'package:multishop_tchad/features/customer/address/domain/models/address_model.dart';
+import 'package:multishop_tchad/features/customer/address/domain/models/label_model.dart';
+import 'package:multishop_tchad/features/customer/address/domain/repositories/address_repository_interface.dart';
+import 'package:multishop_tchad/features/customer/address/domain/services/address_service_interface.dart';
 
  class AddressService implements AddressServiceInterface{
   final AddressRepoInterface addressRepoInterface;

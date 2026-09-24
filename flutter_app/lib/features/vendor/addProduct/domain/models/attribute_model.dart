@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/addProduct/domain/models/attr.dart';
+import 'package:multishop_tchad/features/vendor/addProduct/domain/models/attr.dart';
 
 class AttributeModel {
   Attr attribute;

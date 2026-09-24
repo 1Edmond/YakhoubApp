@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/app_constants.dart';
+import 'package:multishop_tchad/core/constants/app_constants.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 class GoogleSignInController with ChangeNotifier {

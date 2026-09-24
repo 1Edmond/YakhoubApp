@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/custom_asset_image_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/custom_image_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/auction_checkout/controllers/auction_checkout_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/route_helper.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/auction_details/widgets/auction_offline_payment_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/splash/controllers/splash_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/transaction/controllers/transaction_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/wallet/controllers/wallet_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/price_converter.dart';
-import 'package:flutter_sixvalley_ecommerce/core/localization/language_constrants.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/custom_themes.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/images.dart';
+import 'package:multishop_tchad/core/widgets/base/custom_asset_image_widget.dart';
+import 'package:multishop_tchad/core/widgets/base/custom_image_widget.dart';
+import 'package:multishop_tchad/features/vault/auction_checkout/controllers/auction_checkout_controller.dart';
+import 'package:multishop_tchad/core/helpers/route_helper.dart';
+import 'package:multishop_tchad/features/vault/auction_details/widgets/auction_offline_payment_screen.dart';
+import 'package:multishop_tchad/features/customer/splash/controllers/splash_controller.dart';
+import 'package:multishop_tchad/features/vault/transaction/controllers/transaction_controller.dart';
+import 'package:multishop_tchad/features/vault/wallet/controllers/wallet_controller.dart';
+import 'package:multishop_tchad/core/helpers/price_converter.dart';
+import 'package:multishop_tchad/core/localization/language_constrants.dart';
+import 'package:multishop_tchad/core/constants/custom_themes.dart';
+import 'package:multishop_tchad/core/constants/dimensions.dart';
+import 'package:multishop_tchad/core/constants/images.dart';
 import 'package:provider/provider.dart';
 
 class AuctionAdminCommissionBottomSheetWidget extends StatefulWidget {

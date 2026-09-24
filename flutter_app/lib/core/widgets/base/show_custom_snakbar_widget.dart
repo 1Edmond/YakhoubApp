@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/custom_toast.dart';
-import 'package:flutter_sixvalley_ecommerce/main.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
+import 'package:multishop_tchad/core/widgets/base/custom_toast.dart';
+import 'package:multishop_tchad/main.dart';
+import 'package:multishop_tchad/core/constants/dimensions.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
  void showCustomSnackBar(String? message, BuildContext context, {bool isError = true, bool isToaster = false}) {

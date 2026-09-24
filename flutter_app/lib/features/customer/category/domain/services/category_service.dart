@@ -1,7 +1,7 @@
-import 'package:flutter_sixvalley_ecommerce/features/shared/enums/data_source_enum.dart';
-import 'package:flutter_sixvalley_ecommerce/core/models/api_response.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/category/domain/repositories/category_repo_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/category/domain/services/category_service_interface.dart';
+import 'package:multishop_tchad/features/shared/enums/data_source_enum.dart';
+import 'package:multishop_tchad/core/models/api_response.dart';
+import 'package:multishop_tchad/features/customer/category/domain/repositories/category_repo_interface.dart';
+import 'package:multishop_tchad/features/customer/category/domain/services/category_service_interface.dart';
 
 class CategoryService implements CategoryServiceInterface{
   CategoryRepoInterface categoryRepoInterface;

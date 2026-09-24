@@ -1,6 +1,6 @@
-import 'package:flutter_sixvalley_ecommerce/core/models/api_response.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/auction_search/domain/repositories/auction_search_repo_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/auction_search/domain/services/auction_search_service_interface.dart';
+import 'package:multishop_tchad/core/models/api_response.dart';
+import 'package:multishop_tchad/features/vault/auction_search/domain/repositories/auction_search_repo_interface.dart';
+import 'package:multishop_tchad/features/vault/auction_search/domain/services/auction_search_service_interface.dart';
 
 class AuctionSearchService implements AuctionSearchServiceInterface {
   AuctionSearchRepoInterface auctionSearchRepoInterface;

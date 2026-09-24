@@ -1,8 +1,9 @@
+
+import 'package:multishop_tchad/features/shared/push_notification/models/notification_body.dart';
 import 'package:flutter/foundation.dart';
 // import 'dart:io';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
-import 'package:flutter_sixvalley_ecommerce/features/shared/push_notification/models/notification_body.dart';
 
 final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin = FlutterLocalNotificationsPlugin();
 

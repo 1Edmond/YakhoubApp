@@ -139,7 +139,7 @@ ThemeData light({
     ),
     chipTheme: ChipThemeData(
       backgroundColor: Colors.grey[100],
-      selectedColor: primaryColor.withOpacity(0.1),
+      selectedColor: primaryColor.withValues(alpha: 0.1),
       labelStyle: TextStyle(
         color: Colors.grey[700],
         fontFamily: 'SF-Pro-Rounded-Regular',

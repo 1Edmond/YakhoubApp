@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/ai_shopping/domain/models/ai_shopping_product_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/ai_shopping/widgets/ai_shopping_product_card_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/custom_themes.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
+import 'package:multishop_tchad/features/vault/ai_shopping/domain/models/ai_shopping_product_model.dart';
+import 'package:multishop_tchad/features/vault/ai_shopping/widgets/ai_shopping_product_card_widget.dart';
+import 'package:multishop_tchad/core/constants/custom_themes.dart';
+import 'package:multishop_tchad/core/constants/dimensions.dart';
 
 class AiChatReceiverBubble extends StatelessWidget {
   final String? boldTitle;

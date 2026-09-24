@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/product_card_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/product/domain/models/home_category_product_model.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/responsive_helper.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/title_row_widget.dart';
+import 'package:multishop_tchad/core/widgets/base/product_card_widget.dart';
+import 'package:multishop_tchad/features/customer/product/domain/models/home_category_product_model.dart';
+import 'package:multishop_tchad/core/helpers/responsive_helper.dart';
+import 'package:multishop_tchad/core/constants/dimensions.dart';
+import 'package:multishop_tchad/core/widgets/base/title_row_widget.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/route_helper.dart';
+import 'package:multishop_tchad/core/helpers/route_helper.dart';
 
 class HomeCategoryProductItemWidget extends StatelessWidget {
   final HomeCategoryProduct homeCategoryProduct;

@@ -1,7 +1,7 @@
 
-import 'package:flutter_sixvalley_ecommerce/core/di/model/response/base/api_response.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/product/domain/models/filter_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/interface/repository_interface.dart';
+import 'package:multishop_tchad/core/di/model/response/base/api_response.dart';
+import 'package:multishop_tchad/features/vendor/product/domain/models/filter_model.dart';
+import 'package:multishop_tchad/features/vendor/interface/repository_interface.dart';
 
 abstract class ProductRepositoryInterface implements RepositoryInterface{
   Future<ApiResponse> getSellerProductList({

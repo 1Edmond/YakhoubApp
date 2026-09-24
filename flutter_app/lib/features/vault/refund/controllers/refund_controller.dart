@@ -1,15 +1,15 @@
 import 'dart:io';
-import 'package:flutter_sixvalley_ecommerce/core/models/api_response.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/order_details/controllers/order_details_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/refund/domain/models/refund_info_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/refund/domain/models/refund_result_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/refund/domain/services/refund_service_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/image_size_checker.dart';
-import 'package:flutter_sixvalley_ecommerce/core/localization/language_constrants.dart';
-import 'package:flutter_sixvalley_ecommerce/main.dart';
+import 'package:multishop_tchad/core/models/api_response.dart';
+import 'package:multishop_tchad/features/customer/order_details/controllers/order_details_controller.dart';
+import 'package:multishop_tchad/features/vault/refund/domain/models/refund_info_model.dart';
+import 'package:multishop_tchad/features/vault/refund/domain/models/refund_result_model.dart';
+import 'package:multishop_tchad/features/vault/refund/domain/services/refund_service_interface.dart';
+import 'package:multishop_tchad/core/helpers/image_size_checker.dart';
+import 'package:multishop_tchad/core/localization/language_constrants.dart';
+import 'package:multishop_tchad/main.dart';
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/show_custom_snakbar_widget.dart';
+import 'package:multishop_tchad/core/widgets/base/show_custom_snakbar_widget.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:http/http.dart' as http;
 import 'package:provider/provider.dart';
@@ -49,13 +49,13 @@ class RefundController with ChangeNotifier {
       _imageFile = null;
       refundImage = [];
     } else {
-      final _imageFile = await ImageValidationHelper.validateAndPickImage(
+      final imageFile = await ImageValidationHelper.validateAndPickImage(
         source: ImageSource.gallery,
         context: Get.context!,
       );
 
-      if (_imageFile != null && File(_imageFile.path).existsSync()) {
-         refundImage.add(_imageFile);
+      if (imageFile != null && File(imageFile.path).existsSync()) {
+         refundImage.add(imageFile);
       }
     }
     notifyListeners();

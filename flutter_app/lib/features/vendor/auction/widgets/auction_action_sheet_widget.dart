@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/custom_asset_image_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/localization/language_constrants.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/images.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/styles.dart';
+import 'package:multishop_tchad/core/widgets/base/custom_asset_image_widget.dart';
+import 'package:multishop_tchad/core/localization/language_constrants.dart';
+import 'package:multishop_tchad/core/constants/dimensions.dart';
+import 'package:multishop_tchad/core/constants/images.dart';
+import 'package:multishop_tchad/core/constants/styles.dart';
 
 enum AuctionDialogType { turnOff, turnOn, edit, delete, cancel }
 

@@ -1,12 +1,12 @@
 // import 'package:flutter/foundation.dart';
 // import 'package:flutter/material.dart';
-// import 'package:flutter_sixvalley_ecommerce/features/vault/loyaltyPoint/controllers/loyalty_point_controller.dart';
-// import 'package:flutter_sixvalley_ecommerce/features/vault/loyaltyPoint/domain/models/loyalty_point_model.dart';
-// import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
-// import 'package:flutter_sixvalley_ecommerce/core/constants/images.dart';
-// import 'package:flutter_sixvalley_ecommerce/core/widgets/base/no_internet_screen_widget.dart';
-// import 'package:flutter_sixvalley_ecommerce/core/widgets/base/product_shimmer_widget.dart';
-// import 'package:flutter_sixvalley_ecommerce/features/vault/loyaltyPoint/widget/loyalty_point_widget.dart';
+// import 'package:multishop_tchad/features/vault/loyaltyPoint/controllers/loyalty_point_controller.dart';
+// import 'package:multishop_tchad/features/vault/loyaltyPoint/domain/models/loyalty_point_model.dart';
+// import 'package:multishop_tchad/core/constants/dimensions.dart';
+// import 'package:multishop_tchad/core/constants/images.dart';
+// import 'package:multishop_tchad/core/widgets/base/no_internet_screen_widget.dart';
+// import 'package:multishop_tchad/core/widgets/base/product_shimmer_widget.dart';
+// import 'package:multishop_tchad/features/vault/loyaltyPoint/widget/loyalty_point_widget.dart';
 // import 'package:provider/provider.dart';
 //
 // class LoyaltyPointListViewWidget extends StatelessWidget {

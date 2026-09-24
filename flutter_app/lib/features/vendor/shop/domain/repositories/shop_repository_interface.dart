@@ -4,11 +4,11 @@ import 'dart:io';
 
 import 'package:http/http.dart' as http;
 import 'package:image_picker/image_picker.dart';
-import 'package:flutter_sixvalley_ecommerce/core/di/model/response/base/api_response.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/shop/domain/models/shop_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/shop/domain/models/vacation_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/shop/domain/models/withdrawal_method_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/interface/repository_interface.dart';
+import 'package:multishop_tchad/core/di/model/response/base/api_response.dart';
+import 'package:multishop_tchad/features/vendor/shop/domain/models/shop_model.dart';
+import 'package:multishop_tchad/features/vendor/shop/domain/models/vacation_model.dart';
+import 'package:multishop_tchad/features/vendor/shop/domain/models/withdrawal_method_model.dart';
+import 'package:multishop_tchad/features/vendor/interface/repository_interface.dart';
 
 abstract class ShopRepositoryInterface implements RepositoryInterface{
   Future<ApiResponse> getShop();

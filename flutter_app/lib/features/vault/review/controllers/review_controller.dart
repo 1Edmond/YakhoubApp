@@ -1,16 +1,16 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/core/models/api_response.dart';
-import 'package:flutter_sixvalley_ecommerce/core/models/response_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/order_details/controllers/order_details_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/review/domain/models/review_body.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/review/domain/models/review_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/review/domain/models/review_response_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/review/domain/services/review_service_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/api_checker.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/image_size_checker.dart';
-import 'package:flutter_sixvalley_ecommerce/core/localization/language_constrants.dart';
-import 'package:flutter_sixvalley_ecommerce/main.dart';
+import 'package:multishop_tchad/core/models/api_response.dart';
+import 'package:multishop_tchad/core/models/response_model.dart';
+import 'package:multishop_tchad/features/customer/order_details/controllers/order_details_controller.dart';
+import 'package:multishop_tchad/features/vault/review/domain/models/review_body.dart';
+import 'package:multishop_tchad/features/vault/review/domain/models/review_model.dart';
+import 'package:multishop_tchad/features/vault/review/domain/models/review_response_model.dart';
+import 'package:multishop_tchad/features/vault/review/domain/services/review_service_interface.dart';
+import 'package:multishop_tchad/core/helpers/api_checker.dart';
+import 'package:multishop_tchad/core/helpers/image_size_checker.dart';
+import 'package:multishop_tchad/core/localization/language_constrants.dart';
+import 'package:multishop_tchad/main.dart';
 import 'package:http/http.dart' as http;
 import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
@@ -209,16 +209,16 @@ class ReviewController extends ChangeNotifier {
       _refundImage = [];
       reviewImages = [];
     }else {
-      final _imageFile = await ImageValidationHelper.validateAndPickImage(
+      final imageFile = await ImageValidationHelper.validateAndPickImage(
         source: ImageSource.gallery,
         context: Get.context!,
       );
 
-      if (_imageFile != null) {
+      if (imageFile != null) {
         if (fromReview) {
-          reviewImages.add(File(_imageFile.path));
+          reviewImages.add(File(imageFile.path));
         }else{
-          _refundImage.add(_imageFile);
+          _refundImage.add(imageFile);
         }
       }
     }

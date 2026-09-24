@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/location/controllers/location_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/location/widgets/location_search_dialog_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/splash/controllers/splash_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/core/localization/language_constrants.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/custom_button_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/custom_app_bar_widget.dart';
+import 'package:multishop_tchad/features/customer/location/controllers/location_controller.dart';
+import 'package:multishop_tchad/features/customer/location/widgets/location_search_dialog_widget.dart';
+import 'package:multishop_tchad/features/customer/splash/controllers/splash_controller.dart';
+import 'package:multishop_tchad/core/localization/language_constrants.dart';
+import 'package:multishop_tchad/core/constants/dimensions.dart';
+import 'package:multishop_tchad/core/widgets/base/custom_button_widget.dart';
+import 'package:multishop_tchad/core/widgets/base/custom_app_bar_widget.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:provider/provider.dart';
 

@@ -1,6 +1,6 @@
-import 'package:flutter_sixvalley_ecommerce/features/vault/transaction/domain/models/commission_pay_request_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/transaction/domain/repository/transaction_repository_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/transaction/domain/service/transaction_service_interface.dart';
+import 'package:multishop_tchad/features/vault/transaction/domain/models/commission_pay_request_model.dart';
+import 'package:multishop_tchad/features/vault/transaction/domain/repository/transaction_repository_interface.dart';
+import 'package:multishop_tchad/features/vault/transaction/domain/service/transaction_service_interface.dart';
 
 class TransactionService implements TransactionServiceInterface {
   final TransactionRepositoryInterface transactionRepositoryInterface;

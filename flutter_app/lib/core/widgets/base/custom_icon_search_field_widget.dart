@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/custom_asset_image_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/custom_themes.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/images.dart';
+import 'package:multishop_tchad/core/widgets/base/custom_asset_image_widget.dart';
+import 'package:multishop_tchad/core/constants/custom_themes.dart';
+import 'package:multishop_tchad/core/constants/dimensions.dart';
+import 'package:multishop_tchad/core/constants/images.dart';
 
 class CustomIconSearchFieldWidget extends StatefulWidget {
   final TextEditingController? controller;

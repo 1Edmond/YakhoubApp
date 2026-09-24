@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/more/widgets/custom_expansion_tile.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/splash/controllers/splash_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/custom_themes.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
+import 'package:multishop_tchad/features/customer/more/widgets/custom_expansion_tile.dart';
+import 'package:multishop_tchad/features/customer/splash/controllers/splash_controller.dart';
+import 'package:multishop_tchad/core/constants/custom_themes.dart';
+import 'package:multishop_tchad/core/constants/dimensions.dart';
 
 class FaqExpansionTileWidget extends StatefulWidget {
   final int index;
@@ -21,7 +21,6 @@ class _FaqExpansionTileWidgetState extends State<FaqExpansionTileWidget> {
 
   @override
   void initState() {
-    // TODO: implement initState
     index = widget.index;
     faq = widget.faq;
     super.initState();

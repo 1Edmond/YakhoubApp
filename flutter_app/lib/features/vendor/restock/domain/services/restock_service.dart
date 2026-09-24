@@ -1,6 +1,6 @@
-import 'package:flutter_sixvalley_ecommerce/features/vendor/product/domain/models/product_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/restock/domain/repositories/restock_repository_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/restock/domain/services/restock_service_interface.dart';
+import 'package:multishop_tchad/features/vendor/product/domain/models/product_model.dart';
+import 'package:multishop_tchad/features/vendor/restock/domain/repositories/restock_repository_interface.dart';
+import 'package:multishop_tchad/features/vendor/restock/domain/services/restock_service_interface.dart';
 
 class RestockService implements RestockServiceInterface{
   RestockRepositoryInterface restockRepositoryInterface;

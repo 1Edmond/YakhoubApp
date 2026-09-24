@@ -5,15 +5,15 @@ import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/basewidgets/custom_image_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/chat/domain/models/message_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/chat/screens/media_viewer_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/chat/controllers/chat_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/localization/controllers/localization_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/theme/controllers/theme_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/images.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/styles.dart';
+import 'package:multishop_tchad/core/widgets/base/basewidgets/custom_image_widget.dart';
+import 'package:multishop_tchad/features/vendor/chat/domain/models/message_model.dart';
+import 'package:multishop_tchad/features/vendor/chat/screens/media_viewer_screen.dart';
+import 'package:multishop_tchad/features/vendor/chat/controllers/chat_controller.dart';
+import 'package:multishop_tchad/features/vendor/localization/controllers/localization_controller.dart';
+import 'package:multishop_tchad/features/vendor/theme/controllers/theme_controller.dart';
+import 'package:multishop_tchad/core/constants/dimensions.dart';
+import 'package:multishop_tchad/core/constants/images.dart';
+import 'package:multishop_tchad/core/constants/styles.dart';
 
 class MessageBubbleWidget extends StatelessWidget {
   final Message message;

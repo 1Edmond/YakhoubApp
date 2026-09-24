@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/basewidgets/custom_asset_image_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/notification/controllers/notification_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/notification/domain/models/auction_notification_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/notification/widgets/auction_notification_bottom_sheet_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/date_converter.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/images.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/styles.dart';
+import 'package:multishop_tchad/core/widgets/base/basewidgets/custom_asset_image_widget.dart';
+import 'package:multishop_tchad/features/vendor/notification/controllers/notification_controller.dart';
+import 'package:multishop_tchad/features/vendor/notification/domain/models/auction_notification_model.dart';
+import 'package:multishop_tchad/features/vendor/notification/widgets/auction_notification_bottom_sheet_widget.dart';
+import 'package:multishop_tchad/core/helpers/date_converter.dart';
+import 'package:multishop_tchad/core/constants/dimensions.dart';
+import 'package:multishop_tchad/core/constants/images.dart';
+import 'package:multishop_tchad/core/constants/styles.dart';
 
 class AuctionNotificationItemWidget extends StatelessWidget {
   final AuctionNotificationItem item;

@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/custom_snackbar_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/addProduct/controllers/add_product_tax_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/addProduct/domain/models/tax_vat_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/auction/controllers/auction_ai_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/auction/domain/models/auction_product_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/auction/widgets/add_auction_info_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/localization/language_constrants.dart';
-import 'package:flutter_sixvalley_ecommerce/core/localization/controllers/localization_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/splash/controllers/splash_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/styles.dart';
+import 'package:multishop_tchad/core/widgets/base/custom_snackbar_widget.dart';
+import 'package:multishop_tchad/features/vendor/addProduct/controllers/add_product_tax_controller.dart';
+import 'package:multishop_tchad/features/vendor/addProduct/domain/models/tax_vat_model.dart';
+import 'package:multishop_tchad/features/vendor/auction/controllers/auction_ai_controller.dart';
+import 'package:multishop_tchad/features/vendor/auction/domain/models/auction_product_model.dart';
+import 'package:multishop_tchad/features/vendor/auction/widgets/add_auction_info_widget.dart';
+import 'package:multishop_tchad/core/localization/language_constrants.dart';
+import 'package:multishop_tchad/core/localization/controllers/localization_controller.dart';
+import 'package:multishop_tchad/features/vendor/splash/controllers/splash_controller.dart';
+import 'package:multishop_tchad/core/constants/dimensions.dart';
+import 'package:multishop_tchad/core/constants/styles.dart';
 import 'package:textfield_tags/textfield_tags.dart';
 
 class AuctionInfoScreen extends StatefulWidget {

@@ -1,5 +1,5 @@
-import 'package:flutter_sixvalley_ecommerce/features/vendor/refund/domain/repositories/refund_repository_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/refund/domain/services/refund_service_interface.dart';
+import 'package:multishop_tchad/features/vendor/refund/domain/repositories/refund_repository_interface.dart';
+import 'package:multishop_tchad/features/vendor/refund/domain/services/refund_service_interface.dart';
 
 class RefundService implements RefundServiceInterface{
   final RefundRepositoryInterface refundRepoInterface;

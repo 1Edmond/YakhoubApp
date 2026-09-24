@@ -3,17 +3,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/delivery_man/domain/model/top_delivery_man.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/color_helper.dart';
-import 'package:flutter_sixvalley_ecommerce/core/localization/language_constrants.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/delivery_man/controllers/delivery_man_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/core/localization/controllers/localization_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/core/theme/controllers/theme_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/styles.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/custom_image_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/delivery_man/screens/delivery_man_details_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/delivery_man/screens/add_new_delivery_man_screen.dart';
+import 'package:multishop_tchad/features/vendor/delivery_man/domain/model/top_delivery_man.dart';
+import 'package:multishop_tchad/core/helpers/color_helper.dart';
+import 'package:multishop_tchad/core/localization/language_constrants.dart';
+import 'package:multishop_tchad/features/vendor/delivery_man/controllers/delivery_man_controller.dart';
+import 'package:multishop_tchad/core/localization/controllers/localization_controller.dart';
+import 'package:multishop_tchad/core/theme/controllers/theme_controller.dart';
+import 'package:multishop_tchad/core/constants/dimensions.dart';
+import 'package:multishop_tchad/core/constants/styles.dart';
+import 'package:multishop_tchad/core/widgets/base/custom_image_widget.dart';
+import 'package:multishop_tchad/features/vendor/delivery_man/screens/delivery_man_details_screen.dart';
+import 'package:multishop_tchad/features/vendor/delivery_man/screens/add_new_delivery_man_screen.dart';
 
 
 class DeliveryManCardWidget extends StatelessWidget {

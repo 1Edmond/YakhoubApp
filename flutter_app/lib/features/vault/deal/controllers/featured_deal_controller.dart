@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/deal/domain/services/featured_deal_service_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/product/domain/models/product_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/shared/enums/data_source_enum.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/data_sync_helper.dart';
+import 'package:multishop_tchad/features/vault/deal/domain/services/featured_deal_service_interface.dart';
+import 'package:multishop_tchad/features/customer/product/domain/models/product_model.dart';
+import 'package:multishop_tchad/features/shared/enums/data_source_enum.dart';
+import 'package:multishop_tchad/core/helpers/data_sync_helper.dart';
 
 class FeaturedDealController extends ChangeNotifier {
   final FeaturedDealServiceInterface featuredDealServiceInterface;

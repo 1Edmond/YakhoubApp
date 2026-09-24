@@ -1,16 +1,16 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/clearance_sale/widgets/clearance_sale_shop_list_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/product/controllers/seller_product_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/shop/domain/models/shop_navigation_model.dart';
-import 'package:flutter_sixvalley_ecommerce/core/localization/language_constrants.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/coupon/controllers/coupon_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/custom_themes.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/title_row_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/shop/widgets/shop_coupon_item_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/shop/widgets/shop_featured_product_list_view.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/shop/widgets/shop_recommanded_product_list.dart';
+import 'package:multishop_tchad/features/vault/clearance_sale/widgets/clearance_sale_shop_list_widget.dart';
+import 'package:multishop_tchad/features/customer/product/controllers/seller_product_controller.dart';
+import 'package:multishop_tchad/features/customer/shop/domain/models/shop_navigation_model.dart';
+import 'package:multishop_tchad/core/localization/language_constrants.dart';
+import 'package:multishop_tchad/features/customer/coupon/controllers/coupon_controller.dart';
+import 'package:multishop_tchad/core/constants/custom_themes.dart';
+import 'package:multishop_tchad/core/constants/dimensions.dart';
+import 'package:multishop_tchad/core/widgets/base/title_row_widget.dart';
+import 'package:multishop_tchad/features/customer/shop/widgets/shop_coupon_item_widget.dart';
+import 'package:multishop_tchad/features/customer/shop/widgets/shop_featured_product_list_view.dart';
+import 'package:multishop_tchad/features/customer/shop/widgets/shop_recommanded_product_list.dart';
 import 'package:provider/provider.dart';
 import 'package:shimmer/shimmer.dart';
 

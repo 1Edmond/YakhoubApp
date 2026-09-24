@@ -1,23 +1,23 @@
 import 'dart:io';
 import 'package:flutter_downloader/flutter_downloader.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/show_custom_snakbar_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/models/api_response.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/checkout/controllers/checkout_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/offline_payment/domain/models/offline_payment_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/order/domain/models/order_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/order_details/domain/models/order_details_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/order_details/domain/models/track_order_details_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/order_details/domain/services/order_details_service_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/review/controllers/review_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/splash/controllers/splash_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/api_checker.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/route_helper.dart';
-import 'package:flutter_sixvalley_ecommerce/core/localization/language_constrants.dart';
-import 'package:flutter_sixvalley_ecommerce/main.dart';
+import 'package:multishop_tchad/core/widgets/base/show_custom_snakbar_widget.dart';
+import 'package:multishop_tchad/core/models/api_response.dart';
+import 'package:multishop_tchad/features/customer/checkout/controllers/checkout_controller.dart';
+import 'package:multishop_tchad/features/vault/offline_payment/domain/models/offline_payment_model.dart';
+import 'package:multishop_tchad/features/customer/order/domain/models/order_model.dart';
+import 'package:multishop_tchad/features/customer/order_details/domain/models/order_details_model.dart';
+import 'package:multishop_tchad/features/customer/order_details/domain/models/track_order_details_model.dart';
+import 'package:multishop_tchad/features/customer/order_details/domain/services/order_details_service_interface.dart';
+import 'package:multishop_tchad/features/vault/review/controllers/review_controller.dart';
+import 'package:multishop_tchad/features/customer/splash/controllers/splash_controller.dart';
+import 'package:multishop_tchad/core/helpers/api_checker.dart';
+import 'package:multishop_tchad/core/helpers/route_helper.dart';
+import 'package:multishop_tchad/core/localization/language_constrants.dart';
+import 'package:multishop_tchad/main.dart';
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/features/auth/controllers/auth_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/app_constants.dart';
+import 'package:multishop_tchad/features/auth/controllers/auth_controller.dart';
+import 'package:multishop_tchad/core/constants/app_constants.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:open_file/open_file.dart';
 import 'package:open_file_manager/open_file_manager.dart';
@@ -76,7 +76,7 @@ class OrderDetailsController with ChangeNotifier {
   // }
 
   Future <ApiResponseModel> getOrderDetails(String orderID) async {
-    print("---->>Getting order details for orderID: $orderID");
+    // print("---->>Getting order details for orderID: $orderID");
     _orderDetails = null;
     ApiResponseModel apiResponse = await orderDetailsServiceInterface.getOrderDetails(orderID);
     if (apiResponse.response != null && apiResponse.response!.statusCode == 200) {

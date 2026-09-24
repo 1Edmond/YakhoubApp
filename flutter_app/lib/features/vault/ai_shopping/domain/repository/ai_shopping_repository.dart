@@ -1,12 +1,12 @@
 import 'dart:io';
 
 import 'package:dio/dio.dart';
-import 'package:flutter_sixvalley_ecommerce/core/di/data_sources/dio_client.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/ai_shopping/domain/models/ai_shopping_cart_selection_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/ai_shopping/domain/models/ai_shopping_send_message_response_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/ai_shopping/domain/models/ai_shopping_session_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/ai_shopping/domain/repository/ai_shopping_repository_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/app_constants.dart';
+import 'package:multishop_tchad/core/di/data_sources/dio_client.dart';
+import 'package:multishop_tchad/features/vault/ai_shopping/domain/models/ai_shopping_cart_selection_model.dart';
+import 'package:multishop_tchad/features/vault/ai_shopping/domain/models/ai_shopping_send_message_response_model.dart';
+import 'package:multishop_tchad/features/vault/ai_shopping/domain/models/ai_shopping_session_model.dart';
+import 'package:multishop_tchad/features/vault/ai_shopping/domain/repository/ai_shopping_repository_interface.dart';
+import 'package:multishop_tchad/core/constants/app_constants.dart';
 
 class AiShoppingRepository implements AiShoppingRepositoryInterface {
   final DioClient? dioClient;

@@ -1,4 +1,4 @@
-// import 'package:flutter_sixvalley_ecommerce/core/constants/app_constants.dart';
+// import 'package:multishop_tchad/core/constants/app_constants.dart';
 
 class MockData {
   static const Map<String, dynamic> loginResponse = {

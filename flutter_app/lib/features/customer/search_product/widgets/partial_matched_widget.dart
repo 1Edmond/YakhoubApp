@@ -1,14 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/core/localization/language_constrants.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/search_product/controllers/search_product_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/search_product/domain/models/suggestion_product_model.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/route_helper.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/custom_themes.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/images.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/show_custom_snakbar_widget.dart';
+import 'package:multishop_tchad/core/localization/language_constrants.dart';
+import 'package:multishop_tchad/features/customer/search_product/controllers/search_product_controller.dart';
+import 'package:multishop_tchad/features/customer/search_product/domain/models/suggestion_product_model.dart';
+import 'package:multishop_tchad/core/helpers/route_helper.dart';
+import 'package:multishop_tchad/core/constants/custom_themes.dart';
+import 'package:multishop_tchad/core/constants/dimensions.dart';
+import 'package:multishop_tchad/core/constants/images.dart';
+import 'package:multishop_tchad/core/widgets/base/show_custom_snakbar_widget.dart';
 import 'package:provider/provider.dart';
 import 'package:substring_highlight/substring_highlight.dart';
 
@@ -66,7 +66,7 @@ class _SearchSuggestionState extends State<SearchSuggestion> {
                                   ?.firstWhere((product) => product.name == option.toString(),
                                   orElse: () => Products());
 
-                              print("--1234-->>${selectedProduct?.slug}");
+                              // print("--1234-->>${selectedProduct?.slug}");
                               if(selectedProduct?.slug != null){
                                 searchProvider.searchFocusNode.unfocus();
                                 RouterHelper.getProductDetailsRoute(
@@ -98,7 +98,7 @@ class _SearchSuggestionState extends State<SearchSuggestion> {
                 },
                 onSelected: (selectedString) {
                   if (kDebugMode) {
-                    print(selectedString);
+                    // print(selectedString);
                   }
                 },
                 fieldViewBuilder: (context, controller, focusNode, onEditingComplete) {

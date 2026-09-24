@@ -1,4 +1,4 @@
-import 'package:flutter_sixvalley_ecommerce/features/vault/support/domain/models/support_ticket_body.dart';
+import 'package:multishop_tchad/features/vault/support/domain/models/support_ticket_body.dart';
 import 'package:image_picker/image_picker.dart';
 
 abstract class SupportTicketServiceInterface{

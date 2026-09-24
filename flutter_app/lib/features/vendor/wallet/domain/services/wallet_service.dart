@@ -1,9 +1,9 @@
 
 
-import 'package:flutter_sixvalley_ecommerce/core/models/response/base/api_response.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/wallet/domain/repositories/wallet_repository_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/wallet/domain/services/wallet_service_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/api_checker.dart';
+import 'package:multishop_tchad/core/models/response/base/api_response.dart';
+import 'package:multishop_tchad/features/vendor/wallet/domain/repositories/wallet_repository_interface.dart';
+import 'package:multishop_tchad/features/vendor/wallet/domain/services/wallet_service_interface.dart';
+import 'package:multishop_tchad/core/helpers/api_checker.dart';
 
 class WalletService implements WalletServiceInterface{
   final WalletRepositoryInterface walletRepoInterface;

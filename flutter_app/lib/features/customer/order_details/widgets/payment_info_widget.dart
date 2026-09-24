@@ -1,10 +1,10 @@
 
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/order_details/controllers/order_details_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/core/localization/language_constrants.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/custom_themes.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/checkout/widgets/shipping_details_widget.dart';
+import 'package:multishop_tchad/features/customer/order_details/controllers/order_details_controller.dart';
+import 'package:multishop_tchad/core/localization/language_constrants.dart';
+import 'package:multishop_tchad/core/constants/custom_themes.dart';
+import 'package:multishop_tchad/core/constants/dimensions.dart';
+import 'package:multishop_tchad/features/customer/checkout/widgets/shipping_details_widget.dart';
 
 class PaymentInfoWidget extends StatelessWidget {
   final OrderDetailsController? order;

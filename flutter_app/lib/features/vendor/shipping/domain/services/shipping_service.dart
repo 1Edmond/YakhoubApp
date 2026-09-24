@@ -1,6 +1,6 @@
-import 'package:flutter_sixvalley_ecommerce/features/vendor/shipping/domain/models/shipping_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/shipping/domain/repositories/shipping_repository_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/shipping/domain/services/shipping_service_interface.dart';
+import 'package:multishop_tchad/features/vendor/shipping/domain/models/shipping_model.dart';
+import 'package:multishop_tchad/features/vendor/shipping/domain/repositories/shipping_repository_interface.dart';
+import 'package:multishop_tchad/features/vendor/shipping/domain/services/shipping_service_interface.dart';
 
 class ShippingService implements ShippingServiceInterface{
   final ShippingRepositoryInterface shippingRepoInterface;

@@ -1,1 +1,1 @@
-export 'package:flutter_sixvalley_ecommerce/features/customer/banner/screens/offers_product_list_screen.dart';
+export 'package:multishop_tchad/features/customer/banner/screens/offers_product_list_screen.dart';

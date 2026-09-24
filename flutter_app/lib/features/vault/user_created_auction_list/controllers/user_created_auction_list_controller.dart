@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/core/models/api_response.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/user_created_auction_list/domain/enum/user_created_auction_status_enum.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/user_created_auction_list/domain/models/user_created_auction_list_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/user_created_auction_list/domain/services/user_created_auction_list_service_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/api_checker.dart';
+import 'package:multishop_tchad/core/models/api_response.dart';
+import 'package:multishop_tchad/features/vault/user_created_auction_list/domain/enum/user_created_auction_status_enum.dart';
+import 'package:multishop_tchad/features/vault/user_created_auction_list/domain/models/user_created_auction_list_model.dart';
+import 'package:multishop_tchad/features/vault/user_created_auction_list/domain/services/user_created_auction_list_service_interface.dart';
+import 'package:multishop_tchad/core/helpers/api_checker.dart';
 
 class UserCreatedAuctionListController extends ChangeNotifier {
   final UserCreatedAuctionListServiceInterface userCreatedAuctionListServiceInterface;

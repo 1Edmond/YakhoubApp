@@ -1,4 +1,4 @@
-import 'package:flutter_sixvalley_ecommerce/features/vendor/auction/domain/models/auction_product_details_model.dart';
+import 'package:multishop_tchad/features/vendor/auction/domain/models/auction_product_details_model.dart';
 
 class AuctionBidListModel {
   int? totalSize;

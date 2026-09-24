@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/basewidgets/no_data_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/paginated_list_view_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/product/domain/models/product_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/review/controllers/product_review_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/review/domain/models/product_review_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/localization/language_constrants.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/styles.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/rating_bar_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/product/widgets/product_review_item_widget.dart';
+import 'package:multishop_tchad/core/widgets/base/basewidgets/no_data_screen.dart';
+import 'package:multishop_tchad/core/widgets/base/paginated_list_view_widget.dart';
+import 'package:multishop_tchad/features/vendor/product/domain/models/product_model.dart';
+import 'package:multishop_tchad/features/vendor/review/controllers/product_review_controller.dart';
+import 'package:multishop_tchad/features/vendor/review/domain/models/product_review_model.dart';
+import 'package:multishop_tchad/features/vendor/localization/language_constrants.dart';
+import 'package:multishop_tchad/core/constants/dimensions.dart';
+import 'package:multishop_tchad/core/constants/styles.dart';
+import 'package:multishop_tchad/core/widgets/base/rating_bar_widget.dart';
+import 'package:multishop_tchad/features/vendor/product/widgets/product_review_item_widget.dart';
 
 class ProductReviewWidget extends StatefulWidget {
   final Product? productModel;

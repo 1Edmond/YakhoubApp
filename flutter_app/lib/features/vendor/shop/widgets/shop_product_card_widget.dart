@@ -1,31 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/addProduct/screens/add_product_tab_view_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/barcode/controllers/barcode_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/product/domain/models/filter_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/product/domain/models/product_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/product_details/enums/preview_type.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/product_details/widgets/audio_preview.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/product_details/widgets/download_preview_file.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/product_details/widgets/image_preview.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/product_details/widgets/pdf_preview_flutter.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/product_details/widgets/video_preview.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/price_converter.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/product_helper.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/localization/language_constrants.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/localization/controllers/localization_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/product/controllers/product_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/profile/controllers/profile_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/images.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/styles.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/basewidgets/confirmation_dialog_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/basewidgets/custom_image_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/product_details/screens/product_details_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/barcode/screens/bar_code_generator_screen.dart';
+import 'package:multishop_tchad/features/vendor/addProduct/screens/add_product_tab_view_screen.dart';
+import 'package:multishop_tchad/features/vendor/barcode/controllers/barcode_controller.dart';
+import 'package:multishop_tchad/features/vendor/product/domain/models/filter_model.dart';
+import 'package:multishop_tchad/features/vendor/product/domain/models/product_model.dart';
+import 'package:multishop_tchad/features/vendor/product_details/enums/preview_type.dart';
+import 'package:multishop_tchad/features/vendor/product_details/widgets/audio_preview.dart';
+import 'package:multishop_tchad/features/vendor/product_details/widgets/download_preview_file.dart';
+import 'package:multishop_tchad/features/vendor/product_details/widgets/image_preview.dart';
+import 'package:multishop_tchad/features/vendor/product_details/widgets/pdf_preview_flutter.dart';
+import 'package:multishop_tchad/features/vendor/product_details/widgets/video_preview.dart';
+import 'package:multishop_tchad/core/helpers/price_converter.dart';
+import 'package:multishop_tchad/core/helpers/product_helper.dart';
+import 'package:multishop_tchad/features/vendor/localization/language_constrants.dart';
+import 'package:multishop_tchad/features/vendor/localization/controllers/localization_controller.dart';
+import 'package:multishop_tchad/features/vendor/product/controllers/product_controller.dart';
+import 'package:multishop_tchad/features/vendor/profile/controllers/profile_controller.dart';
+import 'package:multishop_tchad/core/constants/dimensions.dart';
+import 'package:multishop_tchad/core/constants/images.dart';
+import 'package:multishop_tchad/core/constants/styles.dart';
+import 'package:multishop_tchad/core/widgets/base/basewidgets/confirmation_dialog_widget.dart';
+import 'package:multishop_tchad/core/widgets/base/basewidgets/custom_image_widget.dart';
+import 'package:multishop_tchad/features/vendor/product_details/screens/product_details_screen.dart';
+import 'package:multishop_tchad/features/vendor/barcode/screens/bar_code_generator_screen.dart';
 
-import 'package:flutter_sixvalley_ecommerce/main.dart';
+import 'package:multishop_tchad/main.dart';
 
 
 class ShopProductWidget extends StatefulWidget {

@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:just_the_tooltip/just_the_tooltip.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/vendor_custom_app_bar_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/vendor_custom_button_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/custom_snackbar_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/textfeild/custom_text_feild_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/third_party_deliveryman/controllers/third_party_deliveryman_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/third_party_deliveryman/domain/models/courier_enabled_provider_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/third_party_deliveryman/domain/models/courier_location_option_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/third_party_deliveryman/domain/models/courier_provider_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/third_party_deliveryman/widgets/send_to_courier_confirmation_dialog.dart';
-import 'package:flutter_sixvalley_ecommerce/core/localization/language_constrants.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/styles.dart';
+import 'package:multishop_tchad/core/widgets/base/vendor_custom_app_bar_widget.dart';
+import 'package:multishop_tchad/core/widgets/base/vendor_custom_button_widget.dart';
+import 'package:multishop_tchad/core/widgets/base/custom_snackbar_widget.dart';
+import 'package:multishop_tchad/core/widgets/base/textfeild/custom_text_feild_widget.dart';
+import 'package:multishop_tchad/features/vendor/third_party_deliveryman/controllers/third_party_deliveryman_controller.dart';
+import 'package:multishop_tchad/features/vendor/third_party_deliveryman/domain/models/courier_enabled_provider_model.dart';
+import 'package:multishop_tchad/features/vendor/third_party_deliveryman/domain/models/courier_location_option_model.dart';
+import 'package:multishop_tchad/features/vendor/third_party_deliveryman/domain/models/courier_provider_model.dart';
+import 'package:multishop_tchad/features/vendor/third_party_deliveryman/widgets/send_to_courier_confirmation_dialog.dart';
+import 'package:multishop_tchad/core/localization/language_constrants.dart';
+import 'package:multishop_tchad/core/constants/dimensions.dart';
+import 'package:multishop_tchad/core/constants/styles.dart';
 
 // A first booking (POST /courier/dispatch), a revise of an already-booked
 // order's details (POST /courier/revise - no carrier call), or a switch to

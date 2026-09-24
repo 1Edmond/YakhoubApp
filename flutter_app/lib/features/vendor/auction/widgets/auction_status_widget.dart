@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/auction/domain/enum/auction_status.dart';
-import 'package:flutter_sixvalley_ecommerce/core/localization/language_constrants.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/styles.dart';
+import 'package:multishop_tchad/features/vendor/auction/domain/enum/auction_status.dart';
+import 'package:multishop_tchad/core/localization/language_constrants.dart';
+import 'package:multishop_tchad/core/constants/dimensions.dart';
+import 'package:multishop_tchad/core/constants/styles.dart';
 
 class AuctionStatusWidget extends StatelessWidget {
   final String auctionId;
@@ -66,7 +66,6 @@ Color _getAuctionStatusColor(AuctionStatus status, BuildContext context) {
     case AuctionStatus.canceled:
       return colors.tertiary;
     case AuctionStatus.recreated:
-      // TODO: Handle this case.
       throw UnimplementedError();
   }
 }

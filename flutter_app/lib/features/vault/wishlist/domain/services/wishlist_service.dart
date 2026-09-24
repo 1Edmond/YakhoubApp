@@ -1,5 +1,5 @@
-import 'package:flutter_sixvalley_ecommerce/features/vault/wishlist/domain/repositories/wishlist_repository_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/wishlist/domain/services/wishlist_service_interface.dart';
+import 'package:multishop_tchad/features/vault/wishlist/domain/repositories/wishlist_repository_interface.dart';
+import 'package:multishop_tchad/features/vault/wishlist/domain/services/wishlist_service_interface.dart';
 
 class WishListService implements WishlistServiceInterface{
   WishListRepositoryInterface wishListRepositoryInterface;

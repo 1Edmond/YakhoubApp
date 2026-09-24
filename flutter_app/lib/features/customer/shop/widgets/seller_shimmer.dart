@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/store_card_shimmer_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
+import 'package:multishop_tchad/core/widgets/base/store_card_shimmer_widget.dart';
+import 'package:multishop_tchad/core/constants/dimensions.dart';
 import 'package:shimmer/shimmer.dart';
 
 class SellerShimmer extends StatelessWidget {

@@ -1,1 +1,1 @@
-export 'package:flutter_sixvalley_ecommerce/features/auth/controllers/auth_controller.dart';
+export 'package:multishop_tchad/features/auth/controllers/auth_controller.dart';

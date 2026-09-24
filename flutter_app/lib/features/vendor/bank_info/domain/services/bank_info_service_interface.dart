@@ -1,5 +1,5 @@
-import 'package:flutter_sixvalley_ecommerce/features/vendor/profile/domain/models/profile_body.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/profile/domain/models/profile_info.dart';
+import 'package:multishop_tchad/features/vendor/profile/domain/models/profile_body.dart';
+import 'package:multishop_tchad/features/vendor/profile/domain/models/profile_info.dart';
 
 abstract class BankInfoServiceInterface {
   Future<dynamic> getBankList();

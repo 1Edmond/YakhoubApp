@@ -1,5 +1,5 @@
-import 'package:flutter_sixvalley_ecommerce/features/vault/wallet/domain/repositories/wallet_repository_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/wallet/domain/services/wallet_service_interface.dart';
+import 'package:multishop_tchad/features/vault/wallet/domain/repositories/wallet_repository_interface.dart';
+import 'package:multishop_tchad/features/vault/wallet/domain/services/wallet_service_interface.dart';
 
 class WalletService implements WalletServiceInterface{
   WalletRepositoryInterface walletRepositoryInterface;

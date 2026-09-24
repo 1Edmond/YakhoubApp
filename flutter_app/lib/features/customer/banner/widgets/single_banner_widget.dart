@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/banner/controllers/banner_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/banner/domain/models/banner_model.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/custom_image_widget.dart';
+import 'package:multishop_tchad/features/customer/banner/controllers/banner_controller.dart';
+import 'package:multishop_tchad/features/customer/banner/domain/models/banner_model.dart';
+import 'package:multishop_tchad/core/widgets/base/custom_image_widget.dart';
 import 'package:provider/provider.dart';
 
 

@@ -1,4 +1,4 @@
-import 'package:flutter_sixvalley_ecommerce/features/vendor/order/domain/models/order_model.dart';
+import 'package:multishop_tchad/features/vendor/order/domain/models/order_model.dart';
 
 class DeliveryManOrderHistoryModel {
   int? totalSize;

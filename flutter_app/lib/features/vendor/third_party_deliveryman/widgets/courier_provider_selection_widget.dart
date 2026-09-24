@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/custom_asset_image_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/vendor_custom_button_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/custom_snackbar_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/order/domain/models/order_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/order_details/controllers/order_details_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/order_details/domain/models/order_details_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/order_details/widgets/third_party_delivery_info_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/splash/controllers/splash_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/third_party_deliveryman/controllers/third_party_deliveryman_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/third_party_deliveryman/domain/models/courier_enabled_provider_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/third_party_deliveryman/screens/send_to_courier_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/third_party_deliveryman/widgets/send_to_courier_confirmation_dialog.dart';
-import 'package:flutter_sixvalley_ecommerce/core/localization/language_constrants.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/images.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/styles.dart';
+import 'package:multishop_tchad/core/widgets/base/custom_asset_image_widget.dart';
+import 'package:multishop_tchad/core/widgets/base/vendor_custom_button_widget.dart';
+import 'package:multishop_tchad/core/widgets/base/custom_snackbar_widget.dart';
+import 'package:multishop_tchad/features/vendor/order/domain/models/order_model.dart';
+import 'package:multishop_tchad/features/vendor/order_details/controllers/order_details_controller.dart';
+import 'package:multishop_tchad/features/vendor/order_details/domain/models/order_details_model.dart';
+import 'package:multishop_tchad/features/vendor/order_details/widgets/third_party_delivery_info_widget.dart';
+import 'package:multishop_tchad/features/vendor/splash/controllers/splash_controller.dart';
+import 'package:multishop_tchad/features/vendor/third_party_deliveryman/controllers/third_party_deliveryman_controller.dart';
+import 'package:multishop_tchad/features/vendor/third_party_deliveryman/domain/models/courier_enabled_provider_model.dart';
+import 'package:multishop_tchad/features/vendor/third_party_deliveryman/screens/send_to_courier_screen.dart';
+import 'package:multishop_tchad/features/vendor/third_party_deliveryman/widgets/send_to_courier_confirmation_dialog.dart';
+import 'package:multishop_tchad/core/localization/language_constrants.dart';
+import 'package:multishop_tchad/core/constants/dimensions.dart';
+import 'package:multishop_tchad/core/constants/images.dart';
+import 'package:multishop_tchad/core/constants/styles.dart';
 
 class CourierProviderSelectionWidget extends StatefulWidget {
   final Order? orderModel;

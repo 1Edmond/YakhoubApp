@@ -1,5 +1,5 @@
-import 'package:flutter_sixvalley_ecommerce/core/models/image_full_url.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/chat/domain/models/chat_model.dart';
+import 'package:multishop_tchad/core/models/image_full_url.dart';
+import 'package:multishop_tchad/features/vendor/chat/domain/models/chat_model.dart';
 
 class RefundModel {
   int? id;

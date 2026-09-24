@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/textfeild/custom_pass_textfeild_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/textfeild/custom_text_feild_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/third_party_deliveryman/domain/models/courier_provider_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/third_party_deliveryman/widgets/courier_option_picker_bottom_sheet.dart';
-import 'package:flutter_sixvalley_ecommerce/core/localization/language_constrants.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/styles.dart';
+import 'package:multishop_tchad/core/widgets/base/textfeild/custom_pass_textfeild_widget.dart';
+import 'package:multishop_tchad/core/widgets/base/textfeild/custom_text_feild_widget.dart';
+import 'package:multishop_tchad/features/vendor/third_party_deliveryman/domain/models/courier_provider_model.dart';
+import 'package:multishop_tchad/features/vendor/third_party_deliveryman/widgets/courier_option_picker_bottom_sheet.dart';
+import 'package:multishop_tchad/core/localization/language_constrants.dart';
+import 'package:multishop_tchad/core/constants/dimensions.dart';
+import 'package:multishop_tchad/core/constants/styles.dart';
 
 class CourierCredentialFieldWidget extends StatefulWidget {
   final CourierFieldModel field;

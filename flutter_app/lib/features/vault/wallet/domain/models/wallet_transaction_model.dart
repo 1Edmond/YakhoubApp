@@ -1,4 +1,4 @@
-import 'package:flutter_sixvalley_ecommerce/core/helpers/date_converter.dart';
+import 'package:multishop_tchad/core/helpers/date_converter.dart';
 
 class WalletTransactionModel {
   int? limit;

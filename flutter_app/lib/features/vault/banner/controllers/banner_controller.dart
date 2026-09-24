@@ -1,1 +1,1 @@
-export 'package:flutter_sixvalley_ecommerce/features/customer/banner/controllers/banner_controller.dart';
+export 'package:multishop_tchad/features/customer/banner/controllers/banner_controller.dart';

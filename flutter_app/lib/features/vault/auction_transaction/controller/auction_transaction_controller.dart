@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/core/models/api_response.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/auction_transaction/domain/models/auction_sales_report_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/auction_transaction/domain/models/auction_transaction_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/auction_transaction/domain/service/auction_transaction_service_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/api_checker.dart';
+import 'package:multishop_tchad/core/models/api_response.dart';
+import 'package:multishop_tchad/features/vault/auction_transaction/domain/models/auction_sales_report_model.dart';
+import 'package:multishop_tchad/features/vault/auction_transaction/domain/models/auction_transaction_model.dart';
+import 'package:multishop_tchad/features/vault/auction_transaction/domain/service/auction_transaction_service_interface.dart';
+import 'package:multishop_tchad/core/helpers/api_checker.dart';
 
 enum AuctionReportDateType { allTime, today, week, month, year, custom }
 

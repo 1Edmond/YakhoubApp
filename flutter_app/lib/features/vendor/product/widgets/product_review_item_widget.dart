@@ -1,20 +1,20 @@
-import 'package:flutter_sixvalley_ecommerce/features/vendor/refund/widgets/image_diaglog_widget.dart';
+import 'package:multishop_tchad/features/vendor/refund/widgets/image_diaglog_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 import 'package:provider/provider.dart';
 import 'package:readmore/readmore.dart';
-// import 'package:flutter_sixvalley_ecommerce/core/widgets/base/basewidgets/image_diaglog_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/review/controllers/product_review_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/review/domain/models/review_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/review/screens/review_reply_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/date_converter.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/localization/language_constrants.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/splash/controllers/splash_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/images.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/styles.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/basewidgets/custom_image_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/basewidgets/rating_bar_widget.dart';
+// import 'package:multishop_tchad/core/widgets/base/basewidgets/image_diaglog_widget.dart';
+import 'package:multishop_tchad/features/vendor/review/controllers/product_review_controller.dart';
+import 'package:multishop_tchad/features/vendor/review/domain/models/review_model.dart';
+import 'package:multishop_tchad/features/vendor/review/screens/review_reply_widget.dart';
+import 'package:multishop_tchad/core/helpers/date_converter.dart';
+import 'package:multishop_tchad/features/vendor/localization/language_constrants.dart';
+import 'package:multishop_tchad/features/vendor/splash/controllers/splash_controller.dart';
+import 'package:multishop_tchad/core/constants/dimensions.dart';
+import 'package:multishop_tchad/core/constants/images.dart';
+import 'package:multishop_tchad/core/constants/styles.dart';
+import 'package:multishop_tchad/core/widgets/base/basewidgets/custom_image_widget.dart';
+import 'package:multishop_tchad/core/widgets/base/basewidgets/rating_bar_widget.dart';
 
 class ProductReviewItemWidget extends StatelessWidget {
   final ReviewModel reviewModel;

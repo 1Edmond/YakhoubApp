@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/auction_search/widgets/auction_search_suggestion_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
+import 'package:multishop_tchad/features/vault/auction_search/widgets/auction_search_suggestion_widget.dart';
+import 'package:multishop_tchad/core/constants/dimensions.dart';
 
 class AuctionSearchAppBar extends StatelessWidget implements PreferredSizeWidget {
   final Function()? onBackPressed;

@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/vendor_custom_app_bar_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/profile/controllers/profile_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/splash/controllers/splash_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/vat_management/screens/vat_report_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/vat_management/widgets/management_card_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/localization/language_constrants.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/images.dart';
+import 'package:multishop_tchad/core/widgets/base/vendor_custom_app_bar_widget.dart';
+import 'package:multishop_tchad/features/vendor/profile/controllers/profile_controller.dart';
+import 'package:multishop_tchad/features/vendor/splash/controllers/splash_controller.dart';
+import 'package:multishop_tchad/features/vendor/vat_management/screens/vat_report_screen.dart';
+import 'package:multishop_tchad/features/vendor/vat_management/widgets/management_card_widget.dart';
+import 'package:multishop_tchad/core/localization/language_constrants.dart';
+import 'package:multishop_tchad/core/constants/dimensions.dart';
+import 'package:multishop_tchad/core/constants/images.dart';
 
 class VatManagementScreen extends StatefulWidget {
   const VatManagementScreen({super.key});

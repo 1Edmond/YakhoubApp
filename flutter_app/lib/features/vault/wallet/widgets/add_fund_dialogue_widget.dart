@@ -1,17 +1,17 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/checkout/controllers/checkout_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/splash/controllers/splash_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/wallet/controllers/wallet_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/price_converter.dart';
-import 'package:flutter_sixvalley_ecommerce/core/localization/language_constrants.dart';
-import 'package:flutter_sixvalley_ecommerce/main.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/custom_themes.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/custom_button_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/show_custom_snakbar_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/checkout/widgets/custom_check_box_widget.dart';
+import 'package:multishop_tchad/features/customer/checkout/controllers/checkout_controller.dart';
+import 'package:multishop_tchad/features/customer/splash/controllers/splash_controller.dart';
+import 'package:multishop_tchad/features/vault/wallet/controllers/wallet_controller.dart';
+import 'package:multishop_tchad/core/helpers/price_converter.dart';
+import 'package:multishop_tchad/core/localization/language_constrants.dart';
+import 'package:multishop_tchad/main.dart';
+import 'package:multishop_tchad/core/constants/custom_themes.dart';
+import 'package:multishop_tchad/core/constants/dimensions.dart';
+import 'package:multishop_tchad/core/widgets/base/custom_button_widget.dart';
+import 'package:multishop_tchad/core/widgets/base/show_custom_snakbar_widget.dart';
+import 'package:multishop_tchad/features/customer/checkout/widgets/custom_check_box_widget.dart';
 import 'package:provider/provider.dart';
 
 

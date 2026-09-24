@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/core/models/api_response.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/product/domain/repositories/product_repository_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/product/domain/services/product_service_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/product/enums/product_type.dart';
+import 'package:multishop_tchad/core/models/api_response.dart';
+import 'package:multishop_tchad/features/customer/product/domain/repositories/product_repository_interface.dart';
+import 'package:multishop_tchad/features/customer/product/domain/services/product_service_interface.dart';
+import 'package:multishop_tchad/features/customer/product/enums/product_type.dart';
 
-import 'package:flutter_sixvalley_ecommerce/core/enums/data_source_enum.dart';
+import 'package:multishop_tchad/core/enums/data_source_enum.dart';
 
 class ProductService implements ProductServiceInterface{
   ProductRepositoryInterface productRepositoryInterface;

@@ -1,9 +1,9 @@
 import 'package:flutter/foundation.dart';
-import 'package:flutter_sixvalley_ecommerce/core/di/datasource/remote/dio/dio_client.dart';
-import 'package:flutter_sixvalley_ecommerce/core/di/datasource/remote/exception/api_error_handler.dart';
-import 'package:flutter_sixvalley_ecommerce/core/models/response/base/api_response.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/shipping/domain/repositories/shipping_repository_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/app_constants.dart';
+import 'package:multishop_tchad/core/di/datasource/remote/dio/dio_client.dart';
+import 'package:multishop_tchad/core/di/datasource/remote/exception/api_error_handler.dart';
+import 'package:multishop_tchad/core/models/response/base/api_response.dart';
+import 'package:multishop_tchad/features/vendor/shipping/domain/repositories/shipping_repository_interface.dart';
+import 'package:multishop_tchad/core/constants/app_constants.dart';
 
 class ShippingRepository implements ShippingRepositoryInterface{
   final DioClient? dioClient;
@@ -131,19 +131,16 @@ class ShippingRepository implements ShippingRepositoryInterface{
 
   @override
   Future get(String id) {
-    // TODO: implement get
     throw UnimplementedError();
   }
 
   @override
   Future getList({int? offset = 1}) {
-    // TODO: implement getList
     throw UnimplementedError();
   }
 
   @override
   Future update(Map<String, dynamic> body, int id) {
-    // TODO: implement update
     throw UnimplementedError();
   }
 }

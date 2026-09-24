@@ -1,8 +1,8 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/responsive_helper.dart';
-import 'package:flutter_sixvalley_ecommerce/core/theme/controllers/theme_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
+import 'package:multishop_tchad/core/helpers/responsive_helper.dart';
+import 'package:multishop_tchad/core/theme/controllers/theme_controller.dart';
+import 'package:multishop_tchad/core/constants/dimensions.dart';
 import 'package:provider/provider.dart';
 import 'package:shimmer/shimmer.dart';
 

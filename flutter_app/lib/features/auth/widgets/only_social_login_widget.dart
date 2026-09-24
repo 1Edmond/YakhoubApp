@@ -1,21 +1,21 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/custom_asset_image_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/show_custom_snakbar_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/auth/controllers/auth_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/auth/controllers/google_login_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/auth/widgets/existing_account_bottom_sheet.dart';
-import 'package:flutter_sixvalley_ecommerce/features/auth/widgets/social_login_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/profile/domain/models/profile_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/splash/domain/models/config_model.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/responsive_helper.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/route_helper.dart';
-import 'package:flutter_sixvalley_ecommerce/core/localization/language_constrants.dart';
-import 'package:flutter_sixvalley_ecommerce/main.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/app_constants.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/custom_themes.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/images.dart';
+import 'package:multishop_tchad/core/widgets/base/custom_asset_image_widget.dart';
+import 'package:multishop_tchad/core/widgets/base/show_custom_snakbar_widget.dart';
+import 'package:multishop_tchad/features/auth/controllers/auth_controller.dart';
+import 'package:multishop_tchad/features/auth/controllers/google_login_controller.dart';
+import 'package:multishop_tchad/features/auth/widgets/existing_account_bottom_sheet.dart';
+import 'package:multishop_tchad/features/auth/widgets/social_login_widget.dart';
+import 'package:multishop_tchad/features/customer/profile/domain/models/profile_model.dart';
+import 'package:multishop_tchad/features/customer/splash/domain/models/config_model.dart';
+import 'package:multishop_tchad/core/helpers/responsive_helper.dart';
+import 'package:multishop_tchad/core/helpers/route_helper.dart';
+import 'package:multishop_tchad/core/localization/language_constrants.dart';
+import 'package:multishop_tchad/main.dart';
+import 'package:multishop_tchad/core/constants/app_constants.dart';
+import 'package:multishop_tchad/core/constants/custom_themes.dart';
+import 'package:multishop_tchad/core/constants/dimensions.dart';
+import 'package:multishop_tchad/core/constants/images.dart';
 import 'package:provider/provider.dart';
 
 

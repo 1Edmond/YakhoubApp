@@ -1,9 +1,9 @@
 
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/address/domain/models/address_model.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/custom_themes.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/images.dart';
+import 'package:multishop_tchad/features/customer/address/domain/models/address_model.dart';
+import 'package:multishop_tchad/core/constants/custom_themes.dart';
+import 'package:multishop_tchad/core/constants/dimensions.dart';
+import 'package:multishop_tchad/core/constants/images.dart';
 
 class AddressTypeWidget extends StatelessWidget {
   final AddressModel? address;

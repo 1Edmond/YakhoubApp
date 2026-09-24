@@ -1,7 +1,7 @@
 
 
-import 'package:flutter_sixvalley_ecommerce/core/models/image_full_url.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/shop/domain/models/seller_model.dart';
+import 'package:multishop_tchad/core/models/image_full_url.dart';
+import 'package:multishop_tchad/features/customer/shop/domain/models/seller_model.dart';
 
 class OrderModel {
   int? totalSize;

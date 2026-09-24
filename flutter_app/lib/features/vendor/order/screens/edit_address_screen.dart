@@ -2,18 +2,18 @@ import 'package:country_code_picker/country_code_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/auth/widgets/code_picker_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/splash/controllers/splash_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/country_code_helper.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/localization/language_constrants.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/order/controllers/location_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/order/controllers/order_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/styles.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/vendor_custom_app_bar_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/vendor_custom_button_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/basewidgets/textfeild/custom_text_feild_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/order/screens/select_location_screen.dart';
+import 'package:multishop_tchad/features/vendor/auth/widgets/code_picker_widget.dart';
+import 'package:multishop_tchad/features/vendor/splash/controllers/splash_controller.dart';
+import 'package:multishop_tchad/core/helpers/country_code_helper.dart';
+import 'package:multishop_tchad/features/vendor/localization/language_constrants.dart';
+import 'package:multishop_tchad/features/vendor/order/controllers/location_controller.dart';
+import 'package:multishop_tchad/features/vendor/order/controllers/order_controller.dart';
+import 'package:multishop_tchad/core/constants/dimensions.dart';
+import 'package:multishop_tchad/core/constants/styles.dart';
+import 'package:multishop_tchad/core/widgets/base/vendor_custom_app_bar_widget.dart';
+import 'package:multishop_tchad/core/widgets/base/vendor_custom_button_widget.dart';
+import 'package:multishop_tchad/core/widgets/base/basewidgets/textfeild/custom_text_feild_widget.dart';
+import 'package:multishop_tchad/features/vendor/order/screens/select_location_screen.dart';
 
 
 class EditAddressScreen extends StatefulWidget {

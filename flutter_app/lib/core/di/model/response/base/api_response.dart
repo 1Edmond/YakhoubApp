@@ -1,1 +1,1 @@
-export 'package:flutter_sixvalley_ecommerce/core/models/api_response.dart';
+export 'package:multishop_tchad/core/models/api_response.dart';

@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/custom_asset_image_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/refund/domain/models/refund_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/refund/widgets/refund_attachment_list_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/date_converter.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/price_converter.dart';
-import 'package:flutter_sixvalley_ecommerce/core/localization/language_constrants.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/images.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/styles.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/custom_image_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/refund/screens/refund_details_screen.dart';
+import 'package:multishop_tchad/core/widgets/base/custom_asset_image_widget.dart';
+import 'package:multishop_tchad/features/vendor/refund/domain/models/refund_model.dart';
+import 'package:multishop_tchad/features/vendor/refund/widgets/refund_attachment_list_widget.dart';
+import 'package:multishop_tchad/core/helpers/date_converter.dart';
+import 'package:multishop_tchad/core/helpers/price_converter.dart';
+import 'package:multishop_tchad/core/localization/language_constrants.dart';
+import 'package:multishop_tchad/core/constants/dimensions.dart';
+import 'package:multishop_tchad/core/constants/images.dart';
+import 'package:multishop_tchad/core/constants/styles.dart';
+import 'package:multishop_tchad/core/widgets/base/custom_image_widget.dart';
+import 'package:multishop_tchad/features/vendor/refund/screens/refund_details_screen.dart';
 
 class RefundWidget extends StatelessWidget {
   final RefundModel? refundModel;

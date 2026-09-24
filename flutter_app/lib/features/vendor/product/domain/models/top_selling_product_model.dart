@@ -1,4 +1,4 @@
-import 'package:flutter_sixvalley_ecommerce/features/vendor/product/domain/models/product_model.dart';
+import 'package:multishop_tchad/features/vendor/product/domain/models/product_model.dart';
 
 class TopSellingProductModel {
   int? totalSize;

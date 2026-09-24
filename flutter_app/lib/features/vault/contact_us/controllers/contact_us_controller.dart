@@ -1,11 +1,11 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/show_custom_snakbar_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/models/api_response.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/contact_us/domain/models/contact_us_body.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/contact_us/domain/services/contact_us_service_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/api_checker.dart';
-import 'package:flutter_sixvalley_ecommerce/core/localization/language_constrants.dart';
-import 'package:flutter_sixvalley_ecommerce/main.dart';
+import 'package:multishop_tchad/core/widgets/base/show_custom_snakbar_widget.dart';
+import 'package:multishop_tchad/core/models/api_response.dart';
+import 'package:multishop_tchad/features/vault/contact_us/domain/models/contact_us_body.dart';
+import 'package:multishop_tchad/features/vault/contact_us/domain/services/contact_us_service_interface.dart';
+import 'package:multishop_tchad/core/helpers/api_checker.dart';
+import 'package:multishop_tchad/core/localization/language_constrants.dart';
+import 'package:multishop_tchad/main.dart';
 
 class ContactUsController extends ChangeNotifier{
   ContactUsServiceInterface contactUsServiceInterface;

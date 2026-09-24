@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/core/localization/models/language_model.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/app_constants.dart';
+import 'package:multishop_tchad/core/localization/models/language_model.dart';
+import 'package:multishop_tchad/core/constants/app_constants.dart';
 
 class LanguageController with ChangeNotifier {
   int _selectIndex = 0;

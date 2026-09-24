@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/core/models/api_response.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/auction_details/domain/enum/creator/auction_delivery_status_enum.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/auction_details/domain/models/creator/creator_auction_details_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/auction_details/domain/models/participator/auction_bid_list_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/auction_details/domain/services/creator/creator_auction_details_service_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/api_checker.dart';
+import 'package:multishop_tchad/core/models/api_response.dart';
+import 'package:multishop_tchad/features/vault/auction_details/domain/enum/creator/auction_delivery_status_enum.dart';
+import 'package:multishop_tchad/features/vault/auction_details/domain/models/creator/creator_auction_details_model.dart';
+import 'package:multishop_tchad/features/vault/auction_details/domain/models/participator/auction_bid_list_model.dart';
+import 'package:multishop_tchad/features/vault/auction_details/domain/services/creator/creator_auction_details_service_interface.dart';
+import 'package:multishop_tchad/core/helpers/api_checker.dart';
 
 class CreatorAuctionDetailsController extends ChangeNotifier {
   final CreatorAuctionDetailsServiceInterface serviceInterface;

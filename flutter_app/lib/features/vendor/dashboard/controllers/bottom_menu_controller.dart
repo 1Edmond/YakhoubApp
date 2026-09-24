@@ -1,8 +1,8 @@
 
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/order/screens/order_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/pos/screens/pos_product_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/pos/screens/pos_screen.dart';
+import 'package:multishop_tchad/features/vendor/order/screens/order_screen.dart';
+import 'package:multishop_tchad/features/vendor/pos/screens/pos_product_screen.dart';
+import 'package:multishop_tchad/features/vendor/pos/screens/pos_screen.dart';
 
 
 class BottomMenuController extends ChangeNotifier{

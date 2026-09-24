@@ -1,8 +1,8 @@
-import 'package:flutter_sixvalley_ecommerce/core/di/model/response/base/api_response.dart';
-import 'package:flutter_sixvalley_ecommerce/core/models/response_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/notification/domain/repositories/notification_repository_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/notification/domain/services/notification_service_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/api_checker.dart';
+import 'package:multishop_tchad/core/di/model/response/base/api_response.dart';
+import 'package:multishop_tchad/core/models/response_model.dart';
+import 'package:multishop_tchad/features/vendor/notification/domain/repositories/notification_repository_interface.dart';
+import 'package:multishop_tchad/features/vendor/notification/domain/services/notification_service_interface.dart';
+import 'package:multishop_tchad/core/helpers/api_checker.dart';
 
 class NotificationService implements NotificationServiceInterface{
   final NotificationRepositoryInterface notificationRepoInterface;

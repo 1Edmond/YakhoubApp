@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/addProduct/domain/models/add_product_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/product/domain/models/product_model.dart';
+import 'package:multishop_tchad/features/vendor/addProduct/domain/models/add_product_model.dart';
+import 'package:multishop_tchad/features/vendor/product/domain/models/product_model.dart';
 
 class ProductGeneralInfoData {
   final String? categoryId;

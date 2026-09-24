@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/custom_snackbar_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/models/response/base/api_response.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/profile/controllers/profile_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/profile/domain/models/withdraw_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/shop/controllers/shop_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/shop/domain/models/payment_information_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/transaction/controllers/transaction_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/wallet/domain/services/wallet_service_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/api_checker.dart';
-import 'package:flutter_sixvalley_ecommerce/core/localization/language_constrants.dart';
-import 'package:flutter_sixvalley_ecommerce/main.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
+import 'package:multishop_tchad/core/widgets/base/custom_snackbar_widget.dart';
+import 'package:multishop_tchad/core/models/response/base/api_response.dart';
+import 'package:multishop_tchad/features/vendor/profile/controllers/profile_controller.dart';
+import 'package:multishop_tchad/features/vendor/profile/domain/models/withdraw_model.dart';
+import 'package:multishop_tchad/features/vendor/shop/controllers/shop_controller.dart';
+import 'package:multishop_tchad/features/vendor/shop/domain/models/payment_information_model.dart';
+import 'package:multishop_tchad/features/vendor/transaction/controllers/transaction_controller.dart';
+import 'package:multishop_tchad/features/vendor/wallet/domain/services/wallet_service_interface.dart';
+import 'package:multishop_tchad/core/helpers/api_checker.dart';
+import 'package:multishop_tchad/core/localization/language_constrants.dart';
+import 'package:multishop_tchad/main.dart';
+import 'package:multishop_tchad/core/constants/dimensions.dart';
 
 class WalletController with ChangeNotifier{
 

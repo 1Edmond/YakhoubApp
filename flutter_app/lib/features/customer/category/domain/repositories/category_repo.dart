@@ -1,10 +1,10 @@
-import 'package:flutter_sixvalley_ecommerce/features/shared/enums/data_source_enum.dart';
-import 'package:flutter_sixvalley_ecommerce/core/di/data_sources/dio_client.dart';
-import 'package:flutter_sixvalley_ecommerce/core/di/data_sources/exception/api_error_handler.dart';
-import 'package:flutter_sixvalley_ecommerce/core/models/api_response.dart';
-import 'package:flutter_sixvalley_ecommerce/core/di/services/data_sync_service.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/category/domain/repositories/category_repo_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/app_constants.dart';
+import 'package:multishop_tchad/features/shared/enums/data_source_enum.dart';
+import 'package:multishop_tchad/core/di/data_sources/dio_client.dart';
+import 'package:multishop_tchad/core/di/data_sources/exception/api_error_handler.dart';
+import 'package:multishop_tchad/core/models/api_response.dart';
+import 'package:multishop_tchad/core/di/services/data_sync_service.dart';
+import 'package:multishop_tchad/features/customer/category/domain/repositories/category_repo_interface.dart';
+import 'package:multishop_tchad/core/constants/app_constants.dart';
 
 class CategoryRepository extends DataSyncService implements CategoryRepoInterface {
   final DioClient? dioClient;
@@ -33,19 +33,16 @@ class CategoryRepository extends DataSyncService implements CategoryRepoInterfac
 
   @override
   Future add(value) {
-    // TODO: implement add
     throw UnimplementedError();
   }
 
   @override
   Future delete(int id) {
-    // TODO: implement delete
     throw UnimplementedError();
   }
 
   @override
   Future get(String id) {
-    // TODO: implement get
     throw UnimplementedError();
   }
 
@@ -53,7 +50,6 @@ class CategoryRepository extends DataSyncService implements CategoryRepoInterfac
 
   @override
   Future update(Map<String, dynamic> body, int id) {
-    // TODO: implement update
     throw UnimplementedError();
   }
 

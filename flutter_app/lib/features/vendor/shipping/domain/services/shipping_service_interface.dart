@@ -1,4 +1,4 @@
-import 'package:flutter_sixvalley_ecommerce/features/vendor/shipping/domain/models/shipping_model.dart';
+import 'package:multishop_tchad/features/vendor/shipping/domain/models/shipping_model.dart';
 
 abstract class ShippingServiceInterface {
   Future<dynamic> getShipping();

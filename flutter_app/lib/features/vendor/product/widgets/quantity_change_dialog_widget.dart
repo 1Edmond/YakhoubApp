@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/addProduct/controllers/variation_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/product/domain/models/product_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/localization/language_constrants.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/localization/controllers/localization_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/addProduct/controllers/add_product_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/splash/controllers/splash_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/main.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/images.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/styles.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/basewidgets/attribute_view_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/vendor_custom_button_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/basewidgets/textfeild/custom_text_feild_widget.dart';
+import 'package:multishop_tchad/features/vendor/addProduct/controllers/variation_controller.dart';
+import 'package:multishop_tchad/features/vendor/product/domain/models/product_model.dart';
+import 'package:multishop_tchad/features/vendor/localization/language_constrants.dart';
+import 'package:multishop_tchad/features/vendor/localization/controllers/localization_controller.dart';
+import 'package:multishop_tchad/features/vendor/addProduct/controllers/add_product_controller.dart';
+import 'package:multishop_tchad/features/vendor/splash/controllers/splash_controller.dart';
+import 'package:multishop_tchad/main.dart';
+import 'package:multishop_tchad/core/constants/dimensions.dart';
+import 'package:multishop_tchad/core/constants/images.dart';
+import 'package:multishop_tchad/core/constants/styles.dart';
+import 'package:multishop_tchad/core/widgets/base/basewidgets/attribute_view_widget.dart';
+import 'package:multishop_tchad/core/widgets/base/vendor_custom_button_widget.dart';
+import 'package:multishop_tchad/core/widgets/base/basewidgets/textfeild/custom_text_feild_widget.dart';
 
 
 class QuantityUpdateDialogWidget extends StatefulWidget {

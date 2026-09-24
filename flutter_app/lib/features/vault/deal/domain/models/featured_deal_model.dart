@@ -1,5 +1,5 @@
 
-import 'package:flutter_sixvalley_ecommerce/features/customer/product/domain/models/product_model.dart';
+import 'package:multishop_tchad/features/customer/product/domain/models/product_model.dart';
 
 
 class FeaturedDealModel {

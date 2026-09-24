@@ -1,14 +1,14 @@
 import 'dart:io';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/product_card_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/clearance_sale/widgets/clearance_title_row_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/product/controllers/product_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/responsive_helper.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/home/widgets/aster_theme/find_what_you_need_shimmer.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/route_helper.dart';
-import 'package:flutter_sixvalley_ecommerce/core/localization/language_constrants.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
+import 'package:multishop_tchad/core/widgets/base/product_card_widget.dart';
+import 'package:multishop_tchad/features/vault/clearance_sale/widgets/clearance_title_row_widget.dart';
+import 'package:multishop_tchad/features/customer/product/controllers/product_controller.dart';
+import 'package:multishop_tchad/core/helpers/responsive_helper.dart';
+import 'package:multishop_tchad/features/customer/home/widgets/aster_theme/find_what_you_need_shimmer.dart';
+import 'package:multishop_tchad/core/helpers/route_helper.dart';
+import 'package:multishop_tchad/core/localization/language_constrants.dart';
+import 'package:multishop_tchad/core/constants/dimensions.dart';
 import 'package:provider/provider.dart';
 
 class ClearanceListWidget extends StatelessWidget {

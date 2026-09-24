@@ -1,4 +1,4 @@
-import 'package:flutter_sixvalley_ecommerce/features/vendor/review/domain/models/review_model.dart';
+import 'package:multishop_tchad/features/vendor/review/domain/models/review_model.dart';
 
 class RattingModel {
   int? totalSize;

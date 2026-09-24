@@ -1,7 +1,7 @@
-import 'package:flutter_sixvalley_ecommerce/core/models/api_response.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/shop/domain/repositories/shop_repository_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/shop/domain/services/shop_service_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/features/shared/enums/data_source_enum.dart';
+import 'package:multishop_tchad/core/models/api_response.dart';
+import 'package:multishop_tchad/features/customer/shop/domain/repositories/shop_repository_interface.dart';
+import 'package:multishop_tchad/features/customer/shop/domain/services/shop_service_interface.dart';
+import 'package:multishop_tchad/features/shared/enums/data_source_enum.dart';
 
 class ShopService implements ShopServiceInterface {
   final ShopRepositoryInterface shopRepositoryInterface;

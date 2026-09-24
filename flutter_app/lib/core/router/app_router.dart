@@ -2,20 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
-import 'package:flutter_sixvalley_ecommerce/features/auth/controllers/auth_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/auth/screens/auth_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/auth/screens/forget_password_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/auth/screens/login_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/auth/screens/otp_login_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/auth/screens/reset_password_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/splash/screens/splash_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/onboarding/screens/onboarding_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/maintenance/maintenance_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/home/screens/home_screens.dart';
+import 'package:multishop_tchad/features/auth/controllers/auth_controller.dart';
+import 'package:multishop_tchad/features/auth/screens/auth_screen.dart';
+import 'package:multishop_tchad/features/auth/screens/forget_password_screen.dart';
+import 'package:multishop_tchad/features/auth/screens/login_screen.dart';
+import 'package:multishop_tchad/features/auth/screens/otp_login_screen.dart';
+import 'package:multishop_tchad/features/auth/screens/reset_password_screen.dart';
+import 'package:multishop_tchad/features/customer/splash/screens/splash_screen.dart';
+import 'package:multishop_tchad/features/customer/onboarding/screens/onboarding_screen.dart';
+import 'package:multishop_tchad/features/customer/maintenance/maintenance_screen.dart';
+import 'package:multishop_tchad/features/customer/home/screens/home_screens.dart';
 
-import 'package:flutter_sixvalley_ecommerce/features/vendor/auth/screens/registration_screen.dart' as vendor_registration;
-import 'package:flutter_sixvalley_ecommerce/features/vendor/auth/screens/login_screen.dart' as vendor_login;
-import 'package:flutter_sixvalley_ecommerce/features/vendor/pending_approval/pending_approval_screen.dart';
+import 'package:multishop_tchad/features/vendor/auth/screens/registration_screen.dart' as vendor_registration;
+import 'package:multishop_tchad/features/vendor/auth/screens/login_screen.dart' as vendor_login;
+import 'package:multishop_tchad/features/vendor/pending_approval/pending_approval_screen.dart';
 
 final GoRouter appRouter = GoRouter(
   initialLocation: '/splash',

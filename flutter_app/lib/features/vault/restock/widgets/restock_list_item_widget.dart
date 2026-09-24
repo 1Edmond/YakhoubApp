@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/custom_image_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/custom_loader_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/restock/controllers/restock_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/restock/domain/models/restock_product_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/product/domain/models/product_model.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/price_converter.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/route_helper.dart';
-import 'package:flutter_sixvalley_ecommerce/core/localization/language_constrants.dart';
-import 'package:flutter_sixvalley_ecommerce/main.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/custom_themes.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
+import 'package:multishop_tchad/core/widgets/base/custom_image_widget.dart';
+import 'package:multishop_tchad/core/widgets/base/custom_loader_widget.dart';
+import 'package:multishop_tchad/features/vault/restock/controllers/restock_controller.dart';
+import 'package:multishop_tchad/features/vault/restock/domain/models/restock_product_model.dart';
+import 'package:multishop_tchad/features/customer/product/domain/models/product_model.dart';
+import 'package:multishop_tchad/core/helpers/price_converter.dart';
+import 'package:multishop_tchad/core/helpers/route_helper.dart';
+import 'package:multishop_tchad/core/localization/language_constrants.dart';
+import 'package:multishop_tchad/main.dart';
+import 'package:multishop_tchad/core/constants/custom_themes.dart';
+import 'package:multishop_tchad/core/constants/dimensions.dart';
 import 'package:provider/provider.dart';
 
 class RestockListItemWidget extends StatelessWidget {

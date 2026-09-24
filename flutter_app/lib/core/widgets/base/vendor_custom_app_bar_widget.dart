@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/pos/controllers/cart_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/delivery_man/controllers/delivery_man_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/dashboard/controllers/bottom_menu_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/product_details/controllers/product_details_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/review/controllers/product_review_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/core/theme/controllers/theme_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/utill/dimensions.dart';
-import 'package:flutter_sixvalley_ecommerce/utill/images.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/custom_themes.dart';
+import 'package:multishop_tchad/features/vendor/pos/controllers/cart_controller.dart';
+import 'package:multishop_tchad/features/vendor/delivery_man/controllers/delivery_man_controller.dart';
+import 'package:multishop_tchad/features/vendor/dashboard/controllers/bottom_menu_controller.dart';
+import 'package:multishop_tchad/features/vendor/product_details/controllers/product_details_controller.dart';
+import 'package:multishop_tchad/features/vendor/review/controllers/product_review_controller.dart';
+import 'package:multishop_tchad/core/theme/controllers/theme_controller.dart';
+import 'package:multishop_tchad/utill/dimensions.dart';
+import 'package:multishop_tchad/utill/images.dart';
+import 'package:multishop_tchad/core/constants/custom_themes.dart';
 
 class CustomAppBarWidget extends StatelessWidget implements PreferredSizeWidget {
   final String? title;

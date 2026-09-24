@@ -1,4 +1,4 @@
-import 'package:flutter_sixvalley_ecommerce/features/vendor/pos/domain/models/cart_model.dart';
+import 'package:multishop_tchad/features/vendor/pos/domain/models/cart_model.dart';
 
 class TemporaryCartListModel {
   List<CartModel>? cart;

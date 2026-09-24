@@ -1,6 +1,6 @@
-import 'package:flutter_sixvalley_ecommerce/core/models/response/base/api_response.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/auction/domain/models/add_auction_product_model.dart';
-import 'package:flutter_sixvalley_ecommerce/core/interfaces/repo_interface.dart';
+import 'package:multishop_tchad/core/models/response/base/api_response.dart';
+import 'package:multishop_tchad/features/vendor/auction/domain/models/add_auction_product_model.dart';
+import 'package:multishop_tchad/core/interfaces/repo_interface.dart';
 import 'package:image_picker/image_picker.dart';
 
 abstract class AddAuctionProductRepositoryInterface implements RepositoryInterface {

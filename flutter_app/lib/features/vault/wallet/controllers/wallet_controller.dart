@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/core/models/api_response.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/wallet/domain/models/wallet_transaction_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/wallet/domain/models/wallet_bonus_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/wallet/domain/services/wallet_service_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/api_checker.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/price_converter.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/route_helper.dart';
-import 'package:flutter_sixvalley_ecommerce/main.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/show_custom_snakbar_widget.dart';
+import 'package:multishop_tchad/core/models/api_response.dart';
+import 'package:multishop_tchad/features/vault/wallet/domain/models/wallet_transaction_model.dart';
+import 'package:multishop_tchad/features/vault/wallet/domain/models/wallet_bonus_model.dart';
+import 'package:multishop_tchad/features/vault/wallet/domain/services/wallet_service_interface.dart';
+import 'package:multishop_tchad/core/helpers/api_checker.dart';
+import 'package:multishop_tchad/core/helpers/price_converter.dart';
+import 'package:multishop_tchad/core/helpers/route_helper.dart';
+import 'package:multishop_tchad/main.dart';
+import 'package:multishop_tchad/core/widgets/base/show_custom_snakbar_widget.dart';
 
 class WalletController extends ChangeNotifier {
   final WalletServiceInterface walletServiceInterface;

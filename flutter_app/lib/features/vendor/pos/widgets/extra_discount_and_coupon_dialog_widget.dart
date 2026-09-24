@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/custom_snackbar_widget.dart' show SnackBarType, showCustomSnackBarWidget;
-import 'package:flutter_sixvalley_ecommerce/features/vendor/pos/controllers/coupon_discount_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/core/localization/language_constrants.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/pos/controllers/cart_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/main.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/styles.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/vendor_custom_button_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/custom_field_with_title_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/textfeild/custom_text_feild_widget.dart';
+import 'package:multishop_tchad/core/widgets/base/custom_snackbar_widget.dart' show SnackBarType, showCustomSnackBarWidget;
+import 'package:multishop_tchad/features/vendor/pos/controllers/coupon_discount_controller.dart';
+import 'package:multishop_tchad/core/localization/language_constrants.dart';
+import 'package:multishop_tchad/features/vendor/pos/controllers/cart_controller.dart';
+import 'package:multishop_tchad/main.dart';
+import 'package:multishop_tchad/core/constants/dimensions.dart';
+import 'package:multishop_tchad/core/constants/styles.dart';
+import 'package:multishop_tchad/core/widgets/base/vendor_custom_button_widget.dart';
+import 'package:multishop_tchad/core/widgets/base/custom_field_with_title_widget.dart';
+import 'package:multishop_tchad/core/widgets/base/textfeild/custom_text_feild_widget.dart';
 
 class ExtraDiscountAndCouponDialogWidget extends StatelessWidget {
   final double payable;

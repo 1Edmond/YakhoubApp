@@ -1,4 +1,4 @@
-import 'package:flutter_sixvalley_ecommerce/features/vendor/coupon/domain/models/coupon_model.dart';
+import 'package:multishop_tchad/features/vendor/coupon/domain/models/coupon_model.dart';
 
 abstract class CouponServiceInterface {
   Future<dynamic> getCouponList(int offset);

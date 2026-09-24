@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/product/controllers/product_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/product/domain/models/filter_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/profile/controllers/profile_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/review/controllers/product_review_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/vendor_paginated_list_view_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/styles.dart';
+import 'package:multishop_tchad/features/vendor/product/controllers/product_controller.dart';
+import 'package:multishop_tchad/features/vendor/product/domain/models/filter_model.dart';
+import 'package:multishop_tchad/features/vendor/profile/controllers/profile_controller.dart';
+import 'package:multishop_tchad/features/vendor/review/controllers/product_review_controller.dart';
+import 'package:multishop_tchad/core/constants/dimensions.dart';
+import 'package:multishop_tchad/core/widgets/base/vendor_paginated_list_view_widget.dart';
+import 'package:multishop_tchad/core/constants/styles.dart';
 
 class ReviewProductFilterWidget extends StatefulWidget {
   const ReviewProductFilterWidget({super.key});

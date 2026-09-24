@@ -1,5 +1,5 @@
-import 'package:flutter_sixvalley_ecommerce/features/vault/shipping/domain/repositories/shipping_repository_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/shipping/domain/services/shipping_service_interface.dart';
+import 'package:multishop_tchad/features/vault/shipping/domain/repositories/shipping_repository_interface.dart';
+import 'package:multishop_tchad/features/vault/shipping/domain/services/shipping_service_interface.dart';
 
 class ShippingService implements ShippingServiceInterface{
   ShippingRepositoryInterface shippingRepositoryInterface;

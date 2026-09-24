@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/custom_textfield_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/dropdown_decorator_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/auction_ai/controllers/auction_ai_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/splash/controllers/splash_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/core/localization/language_constrants.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/custom_themes.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
+import 'package:multishop_tchad/core/widgets/base/custom_textfield_widget.dart';
+import 'package:multishop_tchad/core/widgets/base/dropdown_decorator_widget.dart';
+import 'package:multishop_tchad/features/vault/auction_ai/controllers/auction_ai_controller.dart';
+import 'package:multishop_tchad/features/customer/splash/controllers/splash_controller.dart';
+import 'package:multishop_tchad/core/localization/language_constrants.dart';
+import 'package:multishop_tchad/core/constants/custom_themes.dart';
+import 'package:multishop_tchad/core/constants/dimensions.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 import 'package:provider/provider.dart';
 import 'package:shimmer/shimmer.dart';
@@ -294,7 +294,7 @@ class SeoToggleSection extends StatelessWidget {
   final ValueChanged<bool>? onSwitchChanged;
   final Widget child;
 
-  const SeoToggleSection({
+  const SeoToggleSection({super.key, 
     required this.title,
     required this.subtitle,
     required this.switchValue,

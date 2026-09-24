@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/location/controllers/location_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/location/domain/models/prediction_model.dart' as prediction_model;
-import 'package:flutter_sixvalley_ecommerce/core/localization/language_constrants.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
+import 'package:multishop_tchad/features/customer/location/controllers/location_controller.dart';
+import 'package:multishop_tchad/features/customer/location/domain/models/prediction_model.dart' as prediction_model;
+import 'package:multishop_tchad/core/localization/language_constrants.dart';
+import 'package:multishop_tchad/core/constants/dimensions.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_typeahead/flutter_typeahead.dart';

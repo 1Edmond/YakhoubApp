@@ -1,1 +1,1 @@
-export 'package:flutter_sixvalley_ecommerce/core/di/reposotories/data_sync_repo_interface.dart';
+export 'package:multishop_tchad/core/di/reposotories/data_sync_repo_interface.dart';

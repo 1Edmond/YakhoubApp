@@ -1,4 +1,4 @@
-import 'package:flutter_sixvalley_ecommerce/features/vendor/shop/domain/models/payment_information_model.dart';
+import 'package:multishop_tchad/features/vendor/shop/domain/models/payment_information_model.dart';
 
 class WithdrawModel {
   int? id;

@@ -1,1 +1,1 @@
-export 'package:flutter_sixvalley_ecommerce/features/customer/splash/controllers/splash_controller.dart';
+export 'package:multishop_tchad/features/customer/splash/controllers/splash_controller.dart';

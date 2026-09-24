@@ -4,18 +4,18 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/basewidgets/custom_snackbar_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/models/image_full_url.dart';
-import 'package:flutter_sixvalley_ecommerce/core/di/model/response/base/api_response.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/addProduct/controllers/variation_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/addProduct/domain/models/image_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/addProduct/domain/models/product_image_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/addProduct/domain/services/add_product_service_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/product/domain/models/product_model.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/api_checker.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/image_size_checker.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/localization/language_constrants.dart';
-import 'package:flutter_sixvalley_ecommerce/main.dart';
+import 'package:multishop_tchad/core/widgets/base/basewidgets/custom_snackbar_widget.dart';
+import 'package:multishop_tchad/core/models/image_full_url.dart';
+import 'package:multishop_tchad/core/di/model/response/base/api_response.dart';
+import 'package:multishop_tchad/features/vendor/addProduct/controllers/variation_controller.dart';
+import 'package:multishop_tchad/features/vendor/addProduct/domain/models/image_model.dart';
+import 'package:multishop_tchad/features/vendor/addProduct/domain/models/product_image_model.dart';
+import 'package:multishop_tchad/features/vendor/addProduct/domain/services/add_product_service_interface.dart';
+import 'package:multishop_tchad/features/vendor/product/domain/models/product_model.dart';
+import 'package:multishop_tchad/core/helpers/api_checker.dart';
+import 'package:multishop_tchad/core/helpers/image_size_checker.dart';
+import 'package:multishop_tchad/features/vendor/localization/language_constrants.dart';
+import 'package:multishop_tchad/main.dart';
 
 
 class AddProductImageController extends ChangeNotifier {

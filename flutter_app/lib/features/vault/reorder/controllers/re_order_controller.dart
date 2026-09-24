@@ -1,12 +1,12 @@
-import 'package:flutter_sixvalley_ecommerce/core/models/api_response.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/cart/controllers/cart_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/reorder/domain/services/re_order_service_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/api_checker.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/route_helper.dart';
-import 'package:flutter_sixvalley_ecommerce/main.dart';
+import 'package:multishop_tchad/core/models/api_response.dart';
+import 'package:multishop_tchad/features/customer/cart/controllers/cart_controller.dart';
+import 'package:multishop_tchad/features/vault/reorder/domain/services/re_order_service_interface.dart';
+import 'package:multishop_tchad/core/helpers/api_checker.dart';
+import 'package:multishop_tchad/core/helpers/route_helper.dart';
+import 'package:multishop_tchad/main.dart';
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/show_custom_snakbar_widget.dart';
+import 'package:multishop_tchad/core/widgets/base/show_custom_snakbar_widget.dart';
 import 'package:provider/provider.dart';
 
 

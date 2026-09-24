@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/custom_asset_image_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/custom_image_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/auction_details/controllers/participator/participation_auction_details_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/profile/controllers/profile_contrroller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/auction_details/widgets/bidding_list_shimmer_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/date_converter.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/price_converter.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/responsive_helper.dart';
-import 'package:flutter_sixvalley_ecommerce/core/localization/language_constrants.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/custom_themes.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/images.dart';
+import 'package:multishop_tchad/core/widgets/base/custom_asset_image_widget.dart';
+import 'package:multishop_tchad/core/widgets/base/custom_image_widget.dart';
+import 'package:multishop_tchad/features/vault/auction_details/controllers/participator/participation_auction_details_controller.dart';
+import 'package:multishop_tchad/features/customer/profile/controllers/profile_contrroller.dart';
+import 'package:multishop_tchad/features/vault/auction_details/widgets/bidding_list_shimmer_widget.dart';
+import 'package:multishop_tchad/core/helpers/date_converter.dart';
+import 'package:multishop_tchad/core/helpers/price_converter.dart';
+import 'package:multishop_tchad/core/helpers/responsive_helper.dart';
+import 'package:multishop_tchad/core/localization/language_constrants.dart';
+import 'package:multishop_tchad/core/constants/custom_themes.dart';
+import 'package:multishop_tchad/core/constants/dimensions.dart';
+import 'package:multishop_tchad/core/constants/images.dart';
 import 'package:provider/provider.dart';
 
 class ParticipantBidListItem {
@@ -72,7 +72,7 @@ class _ParticipantBiddingListWidgetState extends State<ParticipantBiddingListWid
   Widget build(BuildContext context) {
     return Consumer<ParticipationAuctionDetailsController>(
       builder: (context, detailsController, _) {
-        print('myBidsOnly: ${detailsController.allBids}');
+        // print('myBidsOnly: ${detailsController.allBids}');
         final bids = detailsController.allBids;
         final hasMore = detailsController.hasMoreBids;
         final isCollapsed = detailsController.isCollapsed;

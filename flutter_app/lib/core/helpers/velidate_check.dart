@@ -1,6 +1,6 @@
-import 'package:flutter_sixvalley_ecommerce/core/helpers/phone_verification_helper.dart';
-import 'package:flutter_sixvalley_ecommerce/core/localization/language_constrants.dart';
-import 'package:flutter_sixvalley_ecommerce/main.dart';
+import 'package:multishop_tchad/core/helpers/phone_verification_helper.dart';
+import 'package:multishop_tchad/core/localization/language_constrants.dart';
+import 'package:multishop_tchad/main.dart';
 
 class ValidateCheck{
   static String? validateEmail(String? value) {

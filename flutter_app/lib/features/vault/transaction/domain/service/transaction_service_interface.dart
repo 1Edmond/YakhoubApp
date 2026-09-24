@@ -1,4 +1,4 @@
-import 'package:flutter_sixvalley_ecommerce/features/vault/transaction/domain/models/commission_pay_request_model.dart';
+import 'package:multishop_tchad/features/vault/transaction/domain/models/commission_pay_request_model.dart';
 
 abstract class TransactionServiceInterface {
   Future<dynamic> getWithdrawMethodList();

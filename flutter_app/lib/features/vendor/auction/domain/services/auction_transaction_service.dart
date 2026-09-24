@@ -1,5 +1,5 @@
-import 'package:flutter_sixvalley_ecommerce/features/vendor/auction/domain/repository/auction_transaction_repository_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/auction/domain/services/auction_transaction_service_interface.dart';
+import 'package:multishop_tchad/features/vendor/auction/domain/repository/auction_transaction_repository_interface.dart';
+import 'package:multishop_tchad/features/vendor/auction/domain/services/auction_transaction_service_interface.dart';
 
 class AuctionTransactionService implements AuctionTransactionServiceInterface {
   final AuctionTransactionRepositoryInterface repositoryInterface;

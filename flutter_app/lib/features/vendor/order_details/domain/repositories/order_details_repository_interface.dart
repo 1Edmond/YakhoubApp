@@ -1,7 +1,7 @@
 import 'dart:io';
-import 'package:flutter_sixvalley_ecommerce/core/di/model/response/base/api_response.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/order_details/domain/models/order_setup_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/interface/repository_interface.dart';
+import 'package:multishop_tchad/core/di/model/response/base/api_response.dart';
+import 'package:multishop_tchad/features/vendor/order_details/domain/models/order_setup_model.dart';
+import 'package:multishop_tchad/features/vendor/interface/repository_interface.dart';
 
 abstract class OrderDetailsRepositoryInterface implements RepositoryInterface{
   Future<ApiResponse> setUpOrder(OrderSetupModel orderSetUpModel);

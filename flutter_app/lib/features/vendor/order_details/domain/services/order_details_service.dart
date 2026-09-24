@@ -1,8 +1,8 @@
 import 'dart:io';
 
-import 'package:flutter_sixvalley_ecommerce/features/vendor/order_details/domain/models/order_setup_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/order_details/domain/repositories/order_details_repository_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/order_details/domain/services/order_details_service_interface.dart';
+import 'package:multishop_tchad/features/vendor/order_details/domain/models/order_setup_model.dart';
+import 'package:multishop_tchad/features/vendor/order_details/domain/repositories/order_details_repository_interface.dart';
+import 'package:multishop_tchad/features/vendor/order_details/domain/services/order_details_service_interface.dart';
 
 class OrderDetailsService implements OrderDetailsServiceInterface {
   final OrderDetailsRepositoryInterface orderDetailsRepositoryInterface;

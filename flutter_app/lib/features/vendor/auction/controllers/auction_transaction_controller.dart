@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:flutter_sixvalley_ecommerce/core/models/response/base/api_response.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/auction/domain/models/auction_transaction_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/auction/domain/services/auction_transaction_service_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/api_checker.dart';
+import 'package:multishop_tchad/core/models/response/base/api_response.dart';
+import 'package:multishop_tchad/features/vendor/auction/domain/models/auction_transaction_model.dart';
+import 'package:multishop_tchad/features/vendor/auction/domain/services/auction_transaction_service_interface.dart';
+import 'package:multishop_tchad/core/helpers/api_checker.dart';
 
 class AuctionTransactionController extends ChangeNotifier {
   final AuctionTransactionServiceInterface serviceInterface;

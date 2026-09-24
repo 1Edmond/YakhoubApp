@@ -1,1 +1,1 @@
-export 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
+export 'package:multishop_tchad/core/constants/dimensions.dart';

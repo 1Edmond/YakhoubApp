@@ -1,18 +1,17 @@
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/product/domain/models/product_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/localization/language_constrants.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/localization/controllers/localization_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/product/controllers/product_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/images.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/basewidgets/no_data_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/product/widgets/stockout_product_card_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/basewidgets/title_row_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/refund/screens/refund_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/product/screens/stock_out_product_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/product/widgets/stockout_product_card_widget.dart';
+import 'package:multishop_tchad/features/vendor/product/domain/models/product_model.dart';
+import 'package:multishop_tchad/features/vendor/localization/language_constrants.dart';
+import 'package:multishop_tchad/features/vendor/localization/controllers/localization_controller.dart';
+import 'package:multishop_tchad/features/vendor/product/controllers/product_controller.dart';
+import 'package:multishop_tchad/core/constants/dimensions.dart';
+import 'package:multishop_tchad/core/constants/images.dart';
+import 'package:multishop_tchad/core/widgets/base/basewidgets/no_data_screen.dart';
+import 'package:multishop_tchad/features/vendor/product/widgets/stockout_product_card_widget.dart';
+import 'package:multishop_tchad/core/widgets/base/basewidgets/title_row_widget.dart';
+import 'package:multishop_tchad/features/vendor/refund/screens/refund_screen.dart';
+import 'package:multishop_tchad/features/vendor/product/screens/stock_out_product_screen.dart';
 
 
 class StockOutProductView extends StatelessWidget {

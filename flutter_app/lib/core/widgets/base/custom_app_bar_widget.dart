@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/main.dart';
-import 'package:flutter_sixvalley_ecommerce/utill/custom_themes.dart';
-import 'package:flutter_sixvalley_ecommerce/utill/dimensions.dart';
-import 'package:flutter_sixvalley_ecommerce/utill/images.dart';
+import 'package:multishop_tchad/main.dart';
+import 'package:multishop_tchad/utill/custom_themes.dart';
+import 'package:multishop_tchad/utill/dimensions.dart';
+import 'package:multishop_tchad/utill/images.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String? title;

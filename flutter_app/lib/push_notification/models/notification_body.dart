@@ -1,1 +1,1 @@
-export 'package:flutter_sixvalley_ecommerce/features/shared/push_notification/models/notification_body.dart';
+export 'package:multishop_tchad/features/shared/push_notification/models/notification_body.dart';

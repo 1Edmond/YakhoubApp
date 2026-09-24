@@ -1,29 +1,29 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/custom_asset_image_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/product/controllers/seller_product_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/search_product/controllers/search_product_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/shop/domain/enums/vacation_duration_type.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/shop/domain/models/shop_navigation_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/splash/controllers/splash_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/route_helper.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/shop_helper.dart';
-import 'package:flutter_sixvalley_ecommerce/core/localization/controllers/localization_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/core/localization/language_constrants.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/brand/controllers/brand_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/category/controllers/category_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/coupon/controllers/coupon_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/shop/controllers/shop_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/main.dart';
-import 'package:flutter_sixvalley_ecommerce/core/theme/controllers/theme_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/custom_themes.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/images.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/product_filter_dialog_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/search_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/home/screens/home_screens.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/shop/screens/overview_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/shop/widgets/shop_info_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/shop/widgets/shop_product_view_list.dart';
+import 'package:multishop_tchad/core/widgets/base/custom_asset_image_widget.dart';
+import 'package:multishop_tchad/features/customer/product/controllers/seller_product_controller.dart';
+import 'package:multishop_tchad/features/customer/search_product/controllers/search_product_controller.dart';
+import 'package:multishop_tchad/features/customer/shop/domain/enums/vacation_duration_type.dart';
+import 'package:multishop_tchad/features/customer/shop/domain/models/shop_navigation_model.dart';
+import 'package:multishop_tchad/features/customer/splash/controllers/splash_controller.dart';
+import 'package:multishop_tchad/core/helpers/route_helper.dart';
+import 'package:multishop_tchad/core/helpers/shop_helper.dart';
+import 'package:multishop_tchad/core/localization/controllers/localization_controller.dart';
+import 'package:multishop_tchad/core/localization/language_constrants.dart';
+import 'package:multishop_tchad/features/customer/brand/controllers/brand_controller.dart';
+import 'package:multishop_tchad/features/customer/category/controllers/category_controller.dart';
+import 'package:multishop_tchad/features/customer/coupon/controllers/coupon_controller.dart';
+import 'package:multishop_tchad/features/customer/shop/controllers/shop_controller.dart';
+import 'package:multishop_tchad/main.dart';
+import 'package:multishop_tchad/core/theme/controllers/theme_controller.dart';
+import 'package:multishop_tchad/core/constants/custom_themes.dart';
+import 'package:multishop_tchad/core/constants/dimensions.dart';
+import 'package:multishop_tchad/core/constants/images.dart';
+import 'package:multishop_tchad/core/widgets/base/product_filter_dialog_widget.dart';
+import 'package:multishop_tchad/core/widgets/base/search_widget.dart';
+import 'package:multishop_tchad/features/customer/home/screens/home_screens.dart';
+import 'package:multishop_tchad/features/customer/shop/screens/overview_screen.dart';
+import 'package:multishop_tchad/features/customer/shop/widgets/shop_info_widget.dart';
+import 'package:multishop_tchad/features/customer/shop/widgets/shop_product_view_list.dart';
 import 'package:provider/provider.dart';
 
 class TopSellerProductScreen extends StatefulWidget {
@@ -82,8 +82,8 @@ class _TopSellerProductScreenState extends State<TopSellerProductScreen> with Ti
   void initState() {
     super.initState();
 
-    print("--------->>${widget.totalReview}");
-    print("--------->>${widget.rating}");
+    // print("--------->>${widget.totalReview}");
+    // print("--------->>${widget.rating}");
 
 
     vacationIsOn = ShopHelper.isVacationActive(
@@ -138,8 +138,8 @@ class _TopSellerProductScreenState extends State<TopSellerProductScreen> with Ti
           builder: (context, sellerProvider, _) {
 
 
-            print("=====1324=====>>${sellerProvider.sellerInfoModel?.totalReview ?? 0}");
-            print("=====1324=====>>${sellerProvider.sellerInfoModel?.avgRating ?? 0}");
+            // print("=====1324=====>>${sellerProvider.sellerInfoModel?.totalReview ?? 0}");
+            // print("=====1324=====>>${sellerProvider.sellerInfoModel?.avgRating ?? 0}");
 
 
             vacationIsOn = ShopHelper.isVacationActive(

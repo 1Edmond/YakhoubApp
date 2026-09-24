@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/paginated_list_view_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/address/widgets/address_shimmer.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/product/domain/models/product_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/restock/controllers/restock_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/restock/domain/models/restock_product_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/restock/widgets/delete_restock_confirm_bottom_sheet.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/restock/widgets/restock_list_item_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/localization/language_constrants.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/custom_themes.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/images.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/custom_app_bar_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/no_internet_screen_widget.dart';
+import 'package:multishop_tchad/core/widgets/base/paginated_list_view_widget.dart';
+import 'package:multishop_tchad/features/customer/address/widgets/address_shimmer.dart';
+import 'package:multishop_tchad/features/customer/product/domain/models/product_model.dart';
+import 'package:multishop_tchad/features/vault/restock/controllers/restock_controller.dart';
+import 'package:multishop_tchad/features/vault/restock/domain/models/restock_product_model.dart';
+import 'package:multishop_tchad/features/vault/restock/widgets/delete_restock_confirm_bottom_sheet.dart';
+import 'package:multishop_tchad/features/vault/restock/widgets/restock_list_item_widget.dart';
+import 'package:multishop_tchad/core/localization/language_constrants.dart';
+import 'package:multishop_tchad/core/constants/custom_themes.dart';
+import 'package:multishop_tchad/core/constants/dimensions.dart';
+import 'package:multishop_tchad/core/constants/images.dart';
+import 'package:multishop_tchad/core/widgets/base/custom_app_bar_widget.dart';
+import 'package:multishop_tchad/core/widgets/base/no_internet_screen_widget.dart';
 import 'package:provider/provider.dart';
 
 class RestockListScreen extends StatefulWidget {

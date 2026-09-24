@@ -3,14 +3,14 @@ import 'dart:convert';
 
 import 'package:drift/drift.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/core/di/local/cache_response.dart';
-import 'package:flutter_sixvalley_ecommerce/core/models/api_response.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/deal/domain/models/flash_deal_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/deal/domain/services/flash_deal_service_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/product/domain/models/product_model.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/api_checker.dart';
-import 'package:flutter_sixvalley_ecommerce/main.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/app_constants.dart';
+import 'package:multishop_tchad/core/di/local/cache_response.dart';
+import 'package:multishop_tchad/core/models/api_response.dart';
+import 'package:multishop_tchad/features/vault/deal/domain/models/flash_deal_model.dart';
+import 'package:multishop_tchad/features/vault/deal/domain/services/flash_deal_service_interface.dart';
+import 'package:multishop_tchad/features/customer/product/domain/models/product_model.dart';
+import 'package:multishop_tchad/core/helpers/api_checker.dart';
+import 'package:multishop_tchad/main.dart';
+import 'package:multishop_tchad/core/constants/app_constants.dart';
 import 'package:intl/intl.dart';
 
 class FlashDealController extends ChangeNotifier {
@@ -80,7 +80,7 @@ class FlashDealController extends ChangeNotifier {
       if (apiResponse.response != null && apiResponse.response!.statusCode == 200) {
         _flashDeal = FlashDealModel.fromJson(apiResponse.response!.data);
 
-        print("----12234----00>>${apiResponse.response!.data}");
+        // print("----12234----00>>${apiResponse.response!.data}");
 
         if(localData != null) {
           await database.updateCacheResponse(AppConstants.flashDealUri, CacheResponseCompanion(

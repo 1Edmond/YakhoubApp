@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/product/domain/models/product_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/product/screens/top_selling_product_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/localization/language_constrants.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/product/controllers/product_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/theme/controllers/theme_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/basewidgets/no_data_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/basewidgets/title_row_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/product/screens/product_list_view_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/product/widgets/top_most_product_card_widget.dart';
+import 'package:multishop_tchad/features/vendor/product/domain/models/product_model.dart';
+import 'package:multishop_tchad/features/vendor/product/screens/top_selling_product_screen.dart';
+import 'package:multishop_tchad/features/vendor/localization/language_constrants.dart';
+import 'package:multishop_tchad/features/vendor/product/controllers/product_controller.dart';
+import 'package:multishop_tchad/features/vendor/theme/controllers/theme_controller.dart';
+import 'package:multishop_tchad/core/constants/dimensions.dart';
+import 'package:multishop_tchad/core/widgets/base/basewidgets/no_data_screen.dart';
+import 'package:multishop_tchad/core/widgets/base/basewidgets/title_row_widget.dart';
+import 'package:multishop_tchad/features/vendor/product/screens/product_list_view_screen.dart';
+import 'package:multishop_tchad/features/vendor/product/widgets/top_most_product_card_widget.dart';
 
 class MostPopularProductScreen extends StatelessWidget {
   final bool isMain;

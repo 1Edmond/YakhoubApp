@@ -1,1 +1,1 @@
-export 'package:flutter_sixvalley_ecommerce/features/shared/chat/screens/inbox_screen.dart';
+export 'package:multishop_tchad/features/shared/chat/screens/inbox_screen.dart';

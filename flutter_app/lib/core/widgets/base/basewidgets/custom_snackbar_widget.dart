@@ -1,10 +1,10 @@
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/show_custom_snakbar_widget.dart';
-export 'package:flutter_sixvalley_ecommerce/core/widgets/base/show_custom_snakbar_widget.dart';
+import 'package:multishop_tchad/core/widgets/base/show_custom_snakbar_widget.dart';
+export 'package:multishop_tchad/core/widgets/base/show_custom_snakbar_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:flutter_sixvalley_ecommerce/main.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/custom_toast.dart';
+import 'package:multishop_tchad/main.dart';
+import 'package:multishop_tchad/core/constants/dimensions.dart';
+import 'package:multishop_tchad/core/widgets/base/custom_toast.dart';
 
 
 void showCustomSnackBarWidget(String? message, BuildContext? context, {bool isError = true, bool isToaster = false, SnackBarType sanckBarType = SnackBarType.success}) {

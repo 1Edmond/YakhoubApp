@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/custom_app_bar_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/no_internet_screen_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/paginated_list_view_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/shared/enums/auction_enum.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/auction/controllers/customer_auction_list_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/auction/domain/models/saved_auction_list_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/auction/widgets/auction_list_screen_shimmer.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/auction/widgets/auction_save_card_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/date_converter.dart';
-import 'package:flutter_sixvalley_ecommerce/core/localization/language_constrants.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
+import 'package:multishop_tchad/core/widgets/base/custom_app_bar_widget.dart';
+import 'package:multishop_tchad/core/widgets/base/no_internet_screen_widget.dart';
+import 'package:multishop_tchad/core/widgets/base/paginated_list_view_widget.dart';
+import 'package:multishop_tchad/features/shared/enums/auction_enum.dart';
+import 'package:multishop_tchad/features/vault/auction/controllers/customer_auction_list_controller.dart';
+import 'package:multishop_tchad/features/vault/auction/domain/models/saved_auction_list_model.dart';
+import 'package:multishop_tchad/features/vault/auction/widgets/auction_list_screen_shimmer.dart';
+import 'package:multishop_tchad/features/vault/auction/widgets/auction_save_card_widget.dart';
+import 'package:multishop_tchad/core/helpers/date_converter.dart';
+import 'package:multishop_tchad/core/localization/language_constrants.dart';
+import 'package:multishop_tchad/core/constants/dimensions.dart';
 import 'package:provider/provider.dart';
 
 class AuctionSaveListScreen extends StatefulWidget {

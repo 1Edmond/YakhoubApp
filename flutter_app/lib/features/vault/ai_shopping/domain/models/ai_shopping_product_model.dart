@@ -1,8 +1,8 @@
-import 'package:flutter_sixvalley_ecommerce/features/vault/ai_shopping/domain/models/ai_shopping_choice_option_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/ai_shopping/domain/models/ai_shopping_color_image_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/ai_shopping/domain/models/ai_shopping_color_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/ai_shopping/domain/models/ai_shopping_digital_variation_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/ai_shopping/domain/models/ai_shopping_variation_model.dart';
+import 'package:multishop_tchad/features/vault/ai_shopping/domain/models/ai_shopping_choice_option_model.dart';
+import 'package:multishop_tchad/features/vault/ai_shopping/domain/models/ai_shopping_color_image_model.dart';
+import 'package:multishop_tchad/features/vault/ai_shopping/domain/models/ai_shopping_color_model.dart';
+import 'package:multishop_tchad/features/vault/ai_shopping/domain/models/ai_shopping_digital_variation_model.dart';
+import 'package:multishop_tchad/features/vault/ai_shopping/domain/models/ai_shopping_variation_model.dart';
 
 class AiShoppingProductModel {
   final int id;

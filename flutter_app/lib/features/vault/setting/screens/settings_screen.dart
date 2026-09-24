@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/setting/widgets/select_language_bottom_sheet_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/splash/controllers/splash_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/core/localization/language_constrants.dart';
-import 'package:flutter_sixvalley_ecommerce/core/theme/controllers/theme_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/custom_themes.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/images.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/custom_expanded_app_bar_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/setting/widgets/select_currency_bottom_sheet_widget.dart';
+import 'package:multishop_tchad/features/vault/setting/widgets/select_language_bottom_sheet_widget.dart';
+import 'package:multishop_tchad/features/customer/splash/controllers/splash_controller.dart';
+import 'package:multishop_tchad/core/localization/language_constrants.dart';
+import 'package:multishop_tchad/core/theme/controllers/theme_controller.dart';
+import 'package:multishop_tchad/core/constants/custom_themes.dart';
+import 'package:multishop_tchad/core/constants/dimensions.dart';
+import 'package:multishop_tchad/core/constants/images.dart';
+import 'package:multishop_tchad/core/widgets/base/custom_expanded_app_bar_widget.dart';
+import 'package:multishop_tchad/features/vault/setting/widgets/select_currency_bottom_sheet_widget.dart';
 import 'package:provider/provider.dart';
 
 class SettingsScreen extends StatelessWidget {

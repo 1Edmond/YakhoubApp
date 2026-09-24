@@ -1,11 +1,11 @@
 import 'dart:io';
 import 'package:flutter/foundation.dart';
-import 'package:flutter_sixvalley_ecommerce/core/di/data_sources/dio_client.dart';
-import 'package:flutter_sixvalley_ecommerce/core/di/data_sources/exception/api_error_handler.dart';
-import 'package:flutter_sixvalley_ecommerce/core/models/api_response.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/profile/domain/models/profile_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/profile/domain/repositories/profile_repository_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/app_constants.dart';
+import 'package:multishop_tchad/core/di/data_sources/dio_client.dart';
+import 'package:multishop_tchad/core/di/data_sources/exception/api_error_handler.dart';
+import 'package:multishop_tchad/core/models/api_response.dart';
+import 'package:multishop_tchad/features/customer/profile/domain/models/profile_model.dart';
+import 'package:multishop_tchad/features/customer/profile/domain/repositories/profile_repository_interface.dart';
+import 'package:multishop_tchad/core/constants/app_constants.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
 
@@ -67,26 +67,22 @@ class ProfileRepository implements ProfileRepositoryInterface{
 
   @override
   Future add(value) {
-    // TODO: implement add
     throw UnimplementedError();
   }
 
 
   @override
   Future get(String id) {
-    // TODO: implement get
     throw UnimplementedError();
   }
 
   @override
   Future getList({int? offset = 1}) {
-    // TODO: implement getList
     throw UnimplementedError();
   }
 
   @override
   Future update(Map<String, dynamic> body, int id) {
-    // TODO: implement update
     throw UnimplementedError();
   }
 

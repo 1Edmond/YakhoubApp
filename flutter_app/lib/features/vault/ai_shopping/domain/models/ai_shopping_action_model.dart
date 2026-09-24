@@ -1,5 +1,5 @@
-import 'package:flutter_sixvalley_ecommerce/features/vault/ai_shopping/domain/models/ai_shopping_preselect_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/ai_shopping/domain/models/ai_shopping_shop_minimum_model.dart';
+import 'package:multishop_tchad/features/vault/ai_shopping/domain/models/ai_shopping_preselect_model.dart';
+import 'package:multishop_tchad/features/vault/ai_shopping/domain/models/ai_shopping_shop_minimum_model.dart';
 
 enum AiShoppingActionType {
   selectVariation,

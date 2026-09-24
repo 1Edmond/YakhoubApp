@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/addProduct/controllers/add_product_controller.dart';
+import 'package:multishop_tchad/features/vendor/addProduct/controllers/add_product_controller.dart';
 
 
 class SelectAuthorPublishing extends StatelessWidget {

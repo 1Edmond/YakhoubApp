@@ -1,1 +1,1 @@
-export 'package:flutter_sixvalley_ecommerce/core/constants/app_constants.dart';
+export 'package:multishop_tchad/core/constants/app_constants.dart';

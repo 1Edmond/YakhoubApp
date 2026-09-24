@@ -1,6 +1,6 @@
 import 'dart:io';
-import 'package:flutter_sixvalley_ecommerce/features/vault/review/domain/models/review_body.dart';
-// import 'package:flutter_sixvalley_ecommerce/core/interfaces/repo_interface.dart';
+import 'package:multishop_tchad/features/vault/review/domain/models/review_body.dart';
+// import 'package:multishop_tchad/core/interfaces/repo_interface.dart';
 
 abstract class ReviewRepositoryInterface {
   Future<dynamic> submitReview(ReviewBody reviewBody, List<File> files, bool update);

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/core/models/response/base/api_response.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/splash/domain/repositories/splash_repository_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/splash/domain/services/splash_service_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/api_checker.dart';
+import 'package:multishop_tchad/core/models/response/base/api_response.dart';
+import 'package:multishop_tchad/features/vendor/splash/domain/repositories/splash_repository_interface.dart';
+import 'package:multishop_tchad/features/vendor/splash/domain/services/splash_service_interface.dart';
+import 'package:multishop_tchad/core/helpers/api_checker.dart';
 
 class SplashService implements SplashServiceInterface{
   final SplashRepositoryInterface splashRepoInterface;

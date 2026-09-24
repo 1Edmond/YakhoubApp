@@ -1,17 +1,17 @@
 import 'package:country_code_picker/country_code_picker.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/contact_us/controllers/contact_us_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/contact_us/domain/models/contact_us_body.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/velidate_check.dart';
-import 'package:flutter_sixvalley_ecommerce/core/localization/language_constrants.dart';
-import 'package:flutter_sixvalley_ecommerce/features/auth/controllers/auth_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/splash/controllers/splash_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/main.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/images.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/custom_app_bar_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/custom_button_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/custom_textfield_widget.dart';
+import 'package:multishop_tchad/features/vault/contact_us/controllers/contact_us_controller.dart';
+import 'package:multishop_tchad/features/vault/contact_us/domain/models/contact_us_body.dart';
+import 'package:multishop_tchad/core/helpers/velidate_check.dart';
+import 'package:multishop_tchad/core/localization/language_constrants.dart';
+import 'package:multishop_tchad/features/auth/controllers/auth_controller.dart';
+import 'package:multishop_tchad/features/customer/splash/controllers/splash_controller.dart';
+import 'package:multishop_tchad/main.dart';
+import 'package:multishop_tchad/core/constants/dimensions.dart';
+import 'package:multishop_tchad/core/constants/images.dart';
+import 'package:multishop_tchad/core/widgets/base/custom_app_bar_widget.dart';
+import 'package:multishop_tchad/core/widgets/base/custom_button_widget.dart';
+import 'package:multishop_tchad/core/widgets/base/custom_textfield_widget.dart';
 import 'package:provider/provider.dart';
 
 class ContactUsScreen extends StatefulWidget {

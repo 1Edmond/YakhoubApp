@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/basewidgets/custom_snackbar_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/auction_category/controllers/auction_category_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/auction_search/domain/models/auction_filter_param_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/brand/controllers/brand_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/price_converter.dart';
-import 'package:flutter_sixvalley_ecommerce/core/localization/language_constrants.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/custom_themes.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
+import 'package:multishop_tchad/core/widgets/base/basewidgets/custom_snackbar_widget.dart';
+import 'package:multishop_tchad/features/vault/auction_category/controllers/auction_category_controller.dart';
+import 'package:multishop_tchad/features/vault/auction_search/domain/models/auction_filter_param_model.dart';
+import 'package:multishop_tchad/features/customer/brand/controllers/brand_controller.dart';
+import 'package:multishop_tchad/core/helpers/price_converter.dart';
+import 'package:multishop_tchad/core/localization/language_constrants.dart';
+import 'package:multishop_tchad/core/constants/custom_themes.dart';
+import 'package:multishop_tchad/core/constants/dimensions.dart';
 import 'package:provider/provider.dart';
 
 class AuctionFilterBottomSheet extends StatefulWidget {
@@ -60,8 +60,8 @@ class _AuctionFilterBottomSheetState extends State<AuctionFilterBottomSheet> {
   bool _showAllBrands = false;
   static const int _initialCategoryCount = 5;
   static const int _initialBrandCount = 5;
-  static double get _entryFeeMax => AuctionFilterParamModel.kEntryFeeMax;
-  static double get _priceMax => AuctionFilterParamModel.kPriceMax;
+  static double get _entryFeeMax => 1000000.0;
+  static double get _priceMax => 1000000.0;
 
   static RangeValues _safeRange(double? min, double? max, double fullMax) {
     final double start = (min != null && min >= 1.0) ? min : 1.0;

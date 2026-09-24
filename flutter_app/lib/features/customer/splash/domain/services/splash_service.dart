@@ -1,5 +1,5 @@
-import 'package:flutter_sixvalley_ecommerce/features/customer/splash/domain/repositories/splash_repository_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/splash/domain/services/splash_service_interface.dart';
+import 'package:multishop_tchad/features/customer/splash/domain/repositories/splash_repository_interface.dart';
+import 'package:multishop_tchad/features/customer/splash/domain/services/splash_service_interface.dart';
 
 class SplashService implements SplashServiceInterface{
   SplashRepositoryInterface splashRepositoryInterface;

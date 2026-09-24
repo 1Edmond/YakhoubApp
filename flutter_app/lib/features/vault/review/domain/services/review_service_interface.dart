@@ -1,5 +1,5 @@
 import 'dart:io';
-import 'package:flutter_sixvalley_ecommerce/features/vault/review/domain/models/review_body.dart';
+import 'package:multishop_tchad/features/vault/review/domain/models/review_body.dart';
 
 abstract class ReviewServiceInterface{
 

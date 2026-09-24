@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/show_custom_snakbar_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/auction_ai/controllers/auction_ai_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/auction_details/domain/models/creator/creator_auction_details_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/create_auction/controllers/add_auction_product_contoller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/create_auction/controllers/add_auction_product_media_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/create_auction/widgets/ai_button_widgets.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/create_auction/widgets/product_seo_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/create_auction/widgets/seo_setup_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/splash/controllers/splash_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/core/localization/language_constrants.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
+import 'package:multishop_tchad/core/widgets/base/show_custom_snakbar_widget.dart';
+import 'package:multishop_tchad/features/vault/auction_ai/controllers/auction_ai_controller.dart';
+import 'package:multishop_tchad/features/vault/auction_details/domain/models/creator/creator_auction_details_model.dart';
+import 'package:multishop_tchad/features/vault/create_auction/controllers/add_auction_product_contoller.dart';
+import 'package:multishop_tchad/features/vault/create_auction/controllers/add_auction_product_media_controller.dart';
+import 'package:multishop_tchad/features/vault/create_auction/widgets/ai_button_widgets.dart';
+import 'package:multishop_tchad/features/vault/create_auction/widgets/product_seo_widget.dart';
+import 'package:multishop_tchad/features/vault/create_auction/widgets/seo_setup_widget.dart';
+import 'package:multishop_tchad/features/customer/splash/controllers/splash_controller.dart';
+import 'package:multishop_tchad/core/localization/language_constrants.dart';
+import 'package:multishop_tchad/core/constants/dimensions.dart';
 import 'package:provider/provider.dart';
 
 class AddAuctionProductSeoScreen extends StatefulWidget {

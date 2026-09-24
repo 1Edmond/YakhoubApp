@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/product/domain/models/product_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/product/controllers/product_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/vendor_paginated_list_view_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/pos/widgets/pos_product_card_widget.dart';
+import 'package:multishop_tchad/features/vendor/product/domain/models/product_model.dart';
+import 'package:multishop_tchad/features/vendor/product/controllers/product_controller.dart';
+import 'package:multishop_tchad/core/widgets/base/vendor_paginated_list_view_widget.dart';
+import 'package:multishop_tchad/features/vendor/pos/widgets/pos_product_card_widget.dart';
 
 class PosProductListWidget extends StatelessWidget {
   final List<Product>? productList;

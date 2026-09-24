@@ -2,16 +2,16 @@ import 'dart:io';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/basewidgets/custom_asset_image_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/basewidgets/custom_image_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/addProduct/controllers/add_product_image_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/addProduct/controllers/variation_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/product/domain/models/product_model.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/color_helper.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/localization/language_constrants.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/images.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/styles.dart';
+import 'package:multishop_tchad/core/widgets/base/basewidgets/custom_asset_image_widget.dart';
+import 'package:multishop_tchad/core/widgets/base/basewidgets/custom_image_widget.dart';
+import 'package:multishop_tchad/features/vendor/addProduct/controllers/add_product_image_controller.dart';
+import 'package:multishop_tchad/features/vendor/addProduct/controllers/variation_controller.dart';
+import 'package:multishop_tchad/features/vendor/product/domain/models/product_model.dart';
+import 'package:multishop_tchad/core/helpers/color_helper.dart';
+import 'package:multishop_tchad/features/vendor/localization/language_constrants.dart';
+import 'package:multishop_tchad/core/constants/dimensions.dart';
+import 'package:multishop_tchad/core/constants/images.dart';
+import 'package:multishop_tchad/core/constants/styles.dart';
 
 class ColorVariationImageWidget extends StatefulWidget {
   final Product? product;
@@ -24,7 +24,7 @@ class ColorVariationImageWidget extends StatefulWidget {
 class _ColorVariationImageWidgetState extends State<ColorVariationImageWidget> {
   @override
   Widget build(BuildContext context) {
-    bool _update = widget.product != null;
+    bool update = widget.product != null;
     return Consumer<VariationController>(
       builder: (context, variationController, child){
 
@@ -97,7 +97,7 @@ class _ColorVariationImageWidgetState extends State<ColorVariationImageWidget> {
                             child: (addProductImageController.imagesWithColor[index].color != null && addProductImageController.imagesWithColor[index].image == null) ?
                             GestureDetector(
                               onTap: () async {
-                                addProductImageController.pickImage(false, false, false, index, update: _update);
+                                addProductImageController.pickImage(false, false, false, index, update: update);
                               },
                               child: Stack(children: [
                                 DottedBorder(
@@ -108,7 +108,7 @@ class _ColorVariationImageWidgetState extends State<ColorVariationImageWidget> {
                                   ),
                                   child:  ClipRRect(
                                     borderRadius: BorderRadius.circular(Dimensions.paddingSizeSmall),
-                                    child: (_update) ? (addProductImageController.imagesWithColor[index].colorImage?.imageName?.path != null && addProductImageController.imagesWithColor[index].colorImage?.imageName?.path != '') ?
+                                    child: (update) ? (addProductImageController.imagesWithColor[index].colorImage?.imageName?.path != null && addProductImageController.imagesWithColor[index].colorImage?.imageName?.path != '') ?
                                     CustomImageWidget(
                                       placeholder: Images.placeholderImage,
                                       image: addProductImageController.imagesWithColor[index].colorImage?.imageName?.path ?? "",

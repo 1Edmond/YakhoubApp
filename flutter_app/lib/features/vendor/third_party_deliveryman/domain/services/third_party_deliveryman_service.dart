@@ -1,5 +1,5 @@
-import 'package:flutter_sixvalley_ecommerce/features/vendor/third_party_deliveryman/domain/repositories/third_party_deliveryman_repository_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/third_party_deliveryman/domain/services/third_party_deliveryman_service_interface.dart';
+import 'package:multishop_tchad/features/vendor/third_party_deliveryman/domain/repositories/third_party_deliveryman_repository_interface.dart';
+import 'package:multishop_tchad/features/vendor/third_party_deliveryman/domain/services/third_party_deliveryman_service_interface.dart';
 
 class ThirdPartyDeliverymanService implements ThirdPartyDeliverymanServiceInterface {
   final ThirdPartyDeliverymanRepositoryInterface repositoryInterface;

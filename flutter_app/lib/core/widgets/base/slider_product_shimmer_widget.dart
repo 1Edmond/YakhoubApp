@@ -1,7 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/product_shimmer_item_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/responsive_helper.dart';
+import 'package:multishop_tchad/core/widgets/base/product_shimmer_item_widget.dart';
+import 'package:multishop_tchad/core/helpers/responsive_helper.dart';
 
 class SliderProductShimmerWidget extends StatelessWidget {
   const SliderProductShimmerWidget({super.key});

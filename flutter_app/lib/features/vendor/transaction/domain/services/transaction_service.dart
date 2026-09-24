@@ -1,6 +1,6 @@
 
-import 'package:flutter_sixvalley_ecommerce/features/vendor/transaction/domain/repositories/transaction_repository_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/transaction/domain/services/transaction_service_interface.dart';
+import 'package:multishop_tchad/features/vendor/transaction/domain/repositories/transaction_repository_interface.dart';
+import 'package:multishop_tchad/features/vendor/transaction/domain/services/transaction_service_interface.dart';
 
 class TransactionService implements TransactionServiceInterface{
   final TransactionRepositoryInterface transactionRepoInterface;

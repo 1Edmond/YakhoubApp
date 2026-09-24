@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/main.dart';
+import 'package:multishop_tchad/main.dart';
 
 class SplashShapeWidget extends CustomPainter {
   @override

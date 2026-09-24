@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/vendor_custom_button_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/custom_snackbar_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/clearance_sale/controllers/clearance_sale_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/clearance_sale/domain/models/chearance_slale_add_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/clearance_sale/widgets/clearance_add_list_item.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/clearance_sale/widgets/clearance_search_suggestion_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/profile/controllers/profile_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/core/localization/language_constrants.dart';
-import 'package:flutter_sixvalley_ecommerce/core/theme/controllers/theme_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/styles.dart';
+import 'package:multishop_tchad/core/widgets/base/vendor_custom_button_widget.dart';
+import 'package:multishop_tchad/core/widgets/base/custom_snackbar_widget.dart';
+import 'package:multishop_tchad/features/vendor/clearance_sale/controllers/clearance_sale_controller.dart';
+import 'package:multishop_tchad/features/vendor/clearance_sale/domain/models/chearance_slale_add_model.dart';
+import 'package:multishop_tchad/features/vendor/clearance_sale/widgets/clearance_add_list_item.dart';
+import 'package:multishop_tchad/features/vendor/clearance_sale/widgets/clearance_search_suggestion_widget.dart';
+import 'package:multishop_tchad/features/vendor/profile/controllers/profile_controller.dart';
+import 'package:multishop_tchad/core/localization/language_constrants.dart';
+import 'package:multishop_tchad/core/theme/controllers/theme_controller.dart';
+import 'package:multishop_tchad/core/constants/dimensions.dart';
+import 'package:multishop_tchad/core/constants/styles.dart';
 
 class ClearanceSearchProductScreen extends StatefulWidget {
   const ClearanceSearchProductScreen({super.key});

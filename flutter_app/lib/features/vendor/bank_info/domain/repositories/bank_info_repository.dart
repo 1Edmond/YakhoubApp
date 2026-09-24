@@ -1,11 +1,11 @@
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:flutter_sixvalley_ecommerce/core/di/datasource/remote/dio/dio_client.dart';
-import 'package:flutter_sixvalley_ecommerce/core/di/datasource/remote/exception/api_error_handler.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/profile/domain/models/profile_body.dart';
-import 'package:flutter_sixvalley_ecommerce/core/di/model/response/base/api_response.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/bank_info/domain/repositories/bank_info_repository_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/profile/domain/models/profile_info.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/app_constants.dart';
+import 'package:multishop_tchad/core/di/datasource/remote/dio/dio_client.dart';
+import 'package:multishop_tchad/core/di/datasource/remote/exception/api_error_handler.dart';
+import 'package:multishop_tchad/features/vendor/profile/domain/models/profile_body.dart';
+import 'package:multishop_tchad/core/di/model/response/base/api_response.dart';
+import 'package:multishop_tchad/features/vendor/bank_info/domain/repositories/bank_info_repository_interface.dart';
+import 'package:multishop_tchad/features/vendor/profile/domain/models/profile_info.dart';
+import 'package:multishop_tchad/core/constants/app_constants.dart';
 import 'package:http/http.dart' as http;
 
 class BankInfoRepository implements BankInfoRepositoryInterface{
@@ -57,19 +57,16 @@ class BankInfoRepository implements BankInfoRepositoryInterface{
 
   @override
   Future add(value) {
-    // TODO: implement add
     throw UnimplementedError();
   }
 
   @override
   Future delete(int id) {
-    // TODO: implement delete
     throw UnimplementedError();
   }
 
   @override
   Future get(String id) {
-    // TODO: implement get
     throw UnimplementedError();
   }
 
@@ -85,7 +82,6 @@ class BankInfoRepository implements BankInfoRepositoryInterface{
 
   @override
   Future update(Map<String, dynamic> body, int id) {
-    // TODO: implement update
     throw UnimplementedError();
   }
 }

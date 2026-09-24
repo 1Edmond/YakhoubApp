@@ -1,4 +1,4 @@
-import 'package:flutter_sixvalley_ecommerce/features/vault/ai_shopping/domain/models/ai_shopping_history_message_model.dart';
+import 'package:multishop_tchad/features/vault/ai_shopping/domain/models/ai_shopping_history_message_model.dart';
 
 class AiShoppingSessionModel {
   final int id;

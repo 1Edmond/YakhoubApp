@@ -1,4 +1,4 @@
-import 'package:flutter_sixvalley_ecommerce/features/vendor/product/domain/models/filter_model.dart';
+import 'package:multishop_tchad/features/vendor/product/domain/models/filter_model.dart';
 
 abstract class ProductServiceInterface {
   Future<dynamic> getSellerProductList({

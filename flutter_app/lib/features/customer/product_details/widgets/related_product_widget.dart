@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/product/controllers/product_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/product/widgets/latest_product/latest_product_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/product_shimmer_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
+import 'package:multishop_tchad/features/customer/product/controllers/product_controller.dart';
+import 'package:multishop_tchad/features/customer/product/widgets/latest_product/latest_product_widget.dart';
+import 'package:multishop_tchad/core/widgets/base/product_shimmer_widget.dart';
+import 'package:multishop_tchad/core/constants/dimensions.dart';
 import 'package:provider/provider.dart';
 
 class RelatedProductWidget extends StatelessWidget {

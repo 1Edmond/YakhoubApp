@@ -1,4 +1,4 @@
-import 'package:flutter_sixvalley_ecommerce/features/vendor/addProduct/domain/models/tax_vat_model.dart';
+import 'package:multishop_tchad/features/vendor/addProduct/domain/models/tax_vat_model.dart';
 
 class PricingModel {
   bool? success;

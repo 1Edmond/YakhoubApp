@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter_sixvalley_ecommerce/core/guest/guest_mode_controller.dart';
+import 'package:multishop_tchad/core/guest/guest_mode_controller.dart';
 
 class GuestModeToggleOverlay extends StatelessWidget {
   final Widget child;
@@ -41,7 +41,7 @@ class GuestModeToggleOverlay extends StatelessWidget {
                         onChanged: (value) {
                           guestModeController.setGuestMode(value);
                         },
-                        activeColor: Colors.white,
+                        activeThumbColor: Colors.white,
                         activeTrackColor: Colors.green[300],
                       ),
                     ],

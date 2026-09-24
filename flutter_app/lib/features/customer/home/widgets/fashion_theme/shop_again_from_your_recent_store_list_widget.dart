@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/home/widgets/shop_again_from_recent_store_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/product/controllers/seller_product_controller.dart';
+import 'package:multishop_tchad/features/customer/home/widgets/shop_again_from_recent_store_widget.dart';
+import 'package:multishop_tchad/features/customer/product/controllers/seller_product_controller.dart';
 import 'package:provider/provider.dart';
 
 class ShopAgainFromYourRecentStore extends StatelessWidget {

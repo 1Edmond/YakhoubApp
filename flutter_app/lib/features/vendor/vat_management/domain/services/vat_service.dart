@@ -1,5 +1,5 @@
-import 'package:flutter_sixvalley_ecommerce/features/vendor/vat_management/domain/repositories/vat_repository_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/vat_management/domain/services/vat_service_interface.dart';
+import 'package:multishop_tchad/features/vendor/vat_management/domain/repositories/vat_repository_interface.dart';
+import 'package:multishop_tchad/features/vendor/vat_management/domain/services/vat_service_interface.dart';
 
 class VatService implements VatServiceInterface {
   final VatRepositoryInterface vatRepoInterface;

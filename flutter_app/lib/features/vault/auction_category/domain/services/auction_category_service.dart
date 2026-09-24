@@ -1,7 +1,7 @@
-import 'package:flutter_sixvalley_ecommerce/features/shared/enums/data_source_enum.dart';
-import 'package:flutter_sixvalley_ecommerce/core/models/api_response.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/auction_category/domain/repositories/auction_category_repo_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/auction_category/domain/services/auction_category_service_interface.dart';
+import 'package:multishop_tchad/features/shared/enums/data_source_enum.dart';
+import 'package:multishop_tchad/core/models/api_response.dart';
+import 'package:multishop_tchad/features/vault/auction_category/domain/repositories/auction_category_repo_interface.dart';
+import 'package:multishop_tchad/features/vault/auction_category/domain/services/auction_category_service_interface.dart';
 
 class AuctionCategoryService implements AuctionCategoryServiceInterface {
   AuctionCategoryRepoInterface auctionCategoryRepoInterface;

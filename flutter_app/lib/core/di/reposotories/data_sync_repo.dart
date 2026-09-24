@@ -1,16 +1,16 @@
 import 'dart:convert';
 import 'package:drift/drift.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flutter_sixvalley_ecommerce/core/enums/data_source_enum.dart';
-import 'package:flutter_sixvalley_ecommerce/core/enums/local_caches_type_enum.dart';
-import 'package:flutter_sixvalley_ecommerce/core/di/data_sources/dio/dio_client.dart';
-import 'package:flutter_sixvalley_ecommerce/core/di/data_sources/exception/api_error_handler.dart';
-import 'package:flutter_sixvalley_ecommerce/core/di/local/cache_response.dart';
-import 'package:flutter_sixvalley_ecommerce/core/models/api_response.dart';
-import 'package:flutter_sixvalley_ecommerce/data/reposotories/data_sync_repo_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/db_helper.dart';
-import 'package:flutter_sixvalley_ecommerce/main.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/app_constants.dart';
+import 'package:multishop_tchad/core/enums/data_source_enum.dart';
+import 'package:multishop_tchad/core/enums/local_caches_type_enum.dart';
+import 'package:multishop_tchad/core/di/data_sources/dio/dio_client.dart';
+import 'package:multishop_tchad/core/di/data_sources/exception/api_error_handler.dart';
+import 'package:multishop_tchad/core/di/local/cache_response.dart';
+import 'package:multishop_tchad/core/models/api_response.dart';
+import 'package:multishop_tchad/data/reposotories/data_sync_repo_interface.dart';
+import 'package:multishop_tchad/core/helpers/db_helper.dart';
+import 'package:multishop_tchad/main.dart';
+import 'package:multishop_tchad/core/constants/app_constants.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 
@@ -94,31 +94,26 @@ class DataSyncRepo implements DataSyncRepoInterface{
 
   @override
   Future add(value) {
-    // TODO: implement add
     throw UnimplementedError();
   }
 
   @override
   Future delete(int id) {
-    // TODO: implement delete
     throw UnimplementedError();
   }
 
   @override
   Future get(String id) {
-    // TODO: implement get
     throw UnimplementedError();
   }
 
   @override
   Future getList({int? offset = 1}) {
-    // TODO: implement getList
     throw UnimplementedError();
   }
 
   @override
   Future update(Map<String, dynamic> body, int id) {
-    // TODO: implement update
     throw UnimplementedError();
   }
 }

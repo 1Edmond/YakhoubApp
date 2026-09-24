@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/custom_loader_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/delivery_man/controllers/delivery_man_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/delivery_man/domain/model/delivery_man_withdraw_model.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/no_data_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/delivery_man/screens/withdraw/withdraw_card.dart';
+import 'package:multishop_tchad/core/widgets/base/custom_loader_widget.dart';
+import 'package:multishop_tchad/features/vendor/delivery_man/controllers/delivery_man_controller.dart';
+import 'package:multishop_tchad/features/vendor/delivery_man/domain/model/delivery_man_withdraw_model.dart';
+import 'package:multishop_tchad/core/constants/dimensions.dart';
+import 'package:multishop_tchad/core/widgets/base/no_data_screen.dart';
+import 'package:multishop_tchad/features/vendor/delivery_man/screens/withdraw/withdraw_card.dart';
 
 
 

@@ -1,7 +1,7 @@
 import 'dart:io';
-import 'package:flutter_sixvalley_ecommerce/features/vault/review/domain/models/review_body.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/review/domain/repositories/review_repository_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/review/domain/services/review_service_interface.dart';
+import 'package:multishop_tchad/features/vault/review/domain/models/review_body.dart';
+import 'package:multishop_tchad/features/vault/review/domain/repositories/review_repository_interface.dart';
+import 'package:multishop_tchad/features/vault/review/domain/services/review_service_interface.dart';
 
 class ReviewService implements ReviewServiceInterface{
   ReviewRepositoryInterface reviewRepositoryInterface;

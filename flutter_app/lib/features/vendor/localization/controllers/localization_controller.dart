@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/auth/controllers/auth_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/core/localization/models/language_model.dart';
-import 'package:flutter_sixvalley_ecommerce/main.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/app_constants.dart';
+import 'package:multishop_tchad/features/vendor/auth/controllers/auth_controller.dart';
+import 'package:multishop_tchad/core/localization/models/language_model.dart';
+import 'package:multishop_tchad/main.dart';
+import 'package:multishop_tchad/core/constants/app_constants.dart';
 
 class LocalizationController extends ChangeNotifier {
   final SharedPreferences? sharedPreferences;

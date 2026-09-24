@@ -1,10 +1,10 @@
 
 
-import 'package:flutter_sixvalley_ecommerce/features/vendor/pos/domain/models/customer_body.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/pos/domain/models/place_order_body.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/pos/domain/models/temporary_cart_for_customer_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/pos/domain/repository/cart_repository_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/pos/domain/services/cart_service_interface.dart';
+import 'package:multishop_tchad/features/vendor/pos/domain/models/customer_body.dart';
+import 'package:multishop_tchad/features/vendor/pos/domain/models/place_order_body.dart';
+import 'package:multishop_tchad/features/vendor/pos/domain/models/temporary_cart_for_customer_model.dart';
+import 'package:multishop_tchad/features/vendor/pos/domain/repository/cart_repository_interface.dart';
+import 'package:multishop_tchad/features/vendor/pos/domain/services/cart_service_interface.dart';
 
 class CartService implements CartServiceInterface{
   final CartRepositoryInterface cartRepositoryInterface;

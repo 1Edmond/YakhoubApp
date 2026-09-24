@@ -8,23 +8,23 @@ import 'package:image_picker/image_picker.dart';
 import 'package:open_file/open_file.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/basewidgets/custom_snackbar_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/chat/domain/models/media_file_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/chat/domain/models/message_body.dart';
-import 'package:flutter_sixvalley_ecommerce/core/di/model/response/base/api_response.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/chat/domain/models/chat_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/chat/domain/models/message_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/chat/domain/services/chat_service_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/splash/controllers/splash_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/splash/domain/models/config_model.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/api_checker.dart';
+import 'package:multishop_tchad/core/widgets/base/basewidgets/custom_snackbar_widget.dart';
+import 'package:multishop_tchad/features/vendor/chat/domain/models/media_file_model.dart';
+import 'package:multishop_tchad/features/vendor/chat/domain/models/message_body.dart';
+import 'package:multishop_tchad/core/di/model/response/base/api_response.dart';
+import 'package:multishop_tchad/features/vendor/chat/domain/models/chat_model.dart';
+import 'package:multishop_tchad/features/vendor/chat/domain/models/message_model.dart';
+import 'package:multishop_tchad/features/vendor/chat/domain/services/chat_service_interface.dart';
+import 'package:multishop_tchad/features/vendor/splash/controllers/splash_controller.dart';
+import 'package:multishop_tchad/features/vendor/splash/domain/models/config_model.dart';
+import 'package:multishop_tchad/core/helpers/api_checker.dart';
 import 'dart:async';
 import 'package:http/http.dart' as http;
-import 'package:flutter_sixvalley_ecommerce/core/helpers/date_converter.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/image_size_checker.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/localization/language_constrants.dart';
-import 'package:flutter_sixvalley_ecommerce/main.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/app_constants.dart';
+import 'package:multishop_tchad/core/helpers/date_converter.dart';
+import 'package:multishop_tchad/core/helpers/image_size_checker.dart';
+import 'package:multishop_tchad/features/vendor/localization/language_constrants.dart';
+import 'package:multishop_tchad/main.dart';
+import 'package:multishop_tchad/core/constants/app_constants.dart';
 
 enum SenderType {
   customer,

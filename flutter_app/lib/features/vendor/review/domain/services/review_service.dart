@@ -1,7 +1,7 @@
 
 
-import 'package:flutter_sixvalley_ecommerce/features/vendor/review/domain/repositories/product_review_repository_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/review/domain/services/review_service_interface.dart';
+import 'package:multishop_tchad/features/vendor/review/domain/repositories/product_review_repository_interface.dart';
+import 'package:multishop_tchad/features/vendor/review/domain/services/review_service_interface.dart';
 
 class ReviewService implements ReviewServiceInterface{
   final ProductReviewRepositoryInterface productReviewRepoInterface;

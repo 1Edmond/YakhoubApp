@@ -2,19 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 import 'package:provider/provider.dart';
 import 'package:shimmer/shimmer.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/basewidgets/custom_asset_image_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/vendor_custom_button_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/vendor_paginated_list_view_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/basewidgets/textfeild/guideline_warning_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/shop/controllers/shop_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/shop/screens/add_payment_info_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/shop/widgets/status_change_botomsheet_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/localization/language_constrants.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/images.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/styles.dart';
+import 'package:multishop_tchad/core/widgets/base/basewidgets/custom_asset_image_widget.dart';
+import 'package:multishop_tchad/core/widgets/base/vendor_custom_button_widget.dart';
+import 'package:multishop_tchad/core/widgets/base/vendor_paginated_list_view_widget.dart';
+import 'package:multishop_tchad/core/widgets/base/basewidgets/textfeild/guideline_warning_widget.dart';
+import 'package:multishop_tchad/features/vendor/shop/controllers/shop_controller.dart';
+import 'package:multishop_tchad/features/vendor/shop/screens/add_payment_info_screen.dart';
+import 'package:multishop_tchad/features/vendor/shop/widgets/status_change_botomsheet_widget.dart';
+import 'package:multishop_tchad/features/vendor/localization/language_constrants.dart';
+import 'package:multishop_tchad/core/constants/dimensions.dart';
+import 'package:multishop_tchad/core/constants/images.dart';
+import 'package:multishop_tchad/core/constants/styles.dart';
 
-import 'package:flutter_sixvalley_ecommerce/main.dart' show Get;
+import 'package:multishop_tchad/main.dart' show Get;
 
 class PaymentInfoScreen extends StatefulWidget {
   const PaymentInfoScreen({super.key});

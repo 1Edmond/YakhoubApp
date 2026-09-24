@@ -1,5 +1,5 @@
-import 'package:flutter_sixvalley_ecommerce/features/vault/user_created_auction_list/domain/repository/user_created_auction_list_repository_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/user_created_auction_list/domain/services/user_created_auction_list_service_interface.dart';
+import 'package:multishop_tchad/features/vault/user_created_auction_list/domain/repository/user_created_auction_list_repository_interface.dart';
+import 'package:multishop_tchad/features/vault/user_created_auction_list/domain/services/user_created_auction_list_service_interface.dart';
 
 class UserCreatedAuctionListService implements UserCreatedAuctionListServiceInterface {
   final UserCreatedAuctionListRepositoryInterface userCreatedAuctionListRepositoryInterface;

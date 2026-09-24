@@ -1,18 +1,18 @@
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/delivery_man/domain/model/top_delivery_man.dart';
-import 'package:flutter_sixvalley_ecommerce/core/localization/language_constrants.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/auth/controllers/auth_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/delivery_man/controllers/delivery_man_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/styles.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/vendor_custom_app_bar_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/delivery_man/screens/collect_cash_from_delivery_man_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/delivery_man/widgets/delivery_man_earning_list_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/delivery_man/screens/delivery_man_order_history_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/delivery_man/widgets/delivery_man_review_list_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/delivery_man/screens/delivery_man_overview_screen.dart';
+import 'package:multishop_tchad/features/vendor/delivery_man/domain/model/top_delivery_man.dart';
+import 'package:multishop_tchad/core/localization/language_constrants.dart';
+import 'package:multishop_tchad/features/vendor/auth/controllers/auth_controller.dart';
+import 'package:multishop_tchad/features/vendor/delivery_man/controllers/delivery_man_controller.dart';
+import 'package:multishop_tchad/core/constants/dimensions.dart';
+import 'package:multishop_tchad/core/constants/styles.dart';
+import 'package:multishop_tchad/core/widgets/base/vendor_custom_app_bar_widget.dart';
+import 'package:multishop_tchad/features/vendor/delivery_man/screens/collect_cash_from_delivery_man_screen.dart';
+import 'package:multishop_tchad/features/vendor/delivery_man/widgets/delivery_man_earning_list_widget.dart';
+import 'package:multishop_tchad/features/vendor/delivery_man/screens/delivery_man_order_history_screen.dart';
+import 'package:multishop_tchad/features/vendor/delivery_man/widgets/delivery_man_review_list_widget.dart';
+import 'package:multishop_tchad/features/vendor/delivery_man/screens/delivery_man_overview_screen.dart';
 
 
 class DeliveryManDetailsScreen extends StatefulWidget {

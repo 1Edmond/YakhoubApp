@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/core/models/api_response.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/auction_dashboard_summary/domain/models/auction_dashboard_summary_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/auction_dashboard_summary/domain/services/auction_dashboard_summary_service_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/api_checker.dart';
+import 'package:multishop_tchad/core/models/api_response.dart';
+import 'package:multishop_tchad/features/vault/auction_dashboard_summary/domain/models/auction_dashboard_summary_model.dart';
+import 'package:multishop_tchad/features/vault/auction_dashboard_summary/domain/services/auction_dashboard_summary_service_interface.dart';
+import 'package:multishop_tchad/core/helpers/api_checker.dart';
 
 class AuctionDashboardSummaryController extends ChangeNotifier {
   final AuctionDashboardSummaryServiceInterface serviceInterface;

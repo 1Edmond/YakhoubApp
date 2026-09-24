@@ -1,4 +1,4 @@
-import 'package:flutter_sixvalley_ecommerce/features/vault/auction_details/domain/enum/creator/auction_delivery_status_enum.dart';
+import 'package:multishop_tchad/features/vault/auction_details/domain/enum/creator/auction_delivery_status_enum.dart';
 
 abstract class CreatorAuctionDetailsServiceInterface {
   Future<dynamic> getAuctionDetails(String slug);

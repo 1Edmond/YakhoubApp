@@ -1,20 +1,20 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/basewidgets/custom_asset_image_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/vendor_custom_button_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/order_details/domain/models/order_details_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/order_edit/controllers/order_edit_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/order_edit/domain/models/order_edit_cart_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/order_edit/widgets/cart_item_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/order_edit/widgets/edit_product_search_suggestion.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/price_converter.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/localization/language_constrants.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/theme/controllers/theme_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/images.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/styles.dart';
-import 'package:flutter_sixvalley_ecommerce/main.dart';
+import 'package:multishop_tchad/core/widgets/base/basewidgets/custom_asset_image_widget.dart';
+import 'package:multishop_tchad/core/widgets/base/vendor_custom_button_widget.dart';
+import 'package:multishop_tchad/features/vendor/order_details/domain/models/order_details_model.dart';
+import 'package:multishop_tchad/features/vendor/order_edit/controllers/order_edit_controller.dart';
+import 'package:multishop_tchad/features/vendor/order_edit/domain/models/order_edit_cart_model.dart';
+import 'package:multishop_tchad/features/vendor/order_edit/widgets/cart_item_widget.dart';
+import 'package:multishop_tchad/features/vendor/order_edit/widgets/edit_product_search_suggestion.dart';
+import 'package:multishop_tchad/core/helpers/price_converter.dart';
+import 'package:multishop_tchad/features/vendor/localization/language_constrants.dart';
+import 'package:multishop_tchad/features/vendor/theme/controllers/theme_controller.dart';
+import 'package:multishop_tchad/core/constants/dimensions.dart';
+import 'package:multishop_tchad/core/constants/images.dart';
+import 'package:multishop_tchad/core/constants/styles.dart';
+import 'package:multishop_tchad/main.dart';
 
 class EditProductScreen extends StatefulWidget {
   final List<OrderDetailsModel> orderDetails;

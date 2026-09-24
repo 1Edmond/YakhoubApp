@@ -1,1 +1,1 @@
-export 'package:flutter_sixvalley_ecommerce/features/customer/address/controllers/address_controller.dart';
+export 'package:multishop_tchad/features/customer/address/controllers/address_controller.dart';

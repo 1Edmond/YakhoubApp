@@ -1,8 +1,8 @@
-import 'package:flutter_sixvalley_ecommerce/core/models/api_response.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/auction_details/domain/models/participator/auction_bid_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/auction_details/domain/models/participator/auction_entry_fee_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/auction_details/domain/models/participator/auction_save_request_model.dart';
-import 'package:flutter_sixvalley_ecommerce/core/interfaces/repo_interface.dart';
+import 'package:multishop_tchad/core/models/api_response.dart';
+import 'package:multishop_tchad/features/vault/auction_details/domain/models/participator/auction_bid_model.dart';
+import 'package:multishop_tchad/features/vault/auction_details/domain/models/participator/auction_entry_fee_model.dart';
+import 'package:multishop_tchad/features/vault/auction_details/domain/models/participator/auction_save_request_model.dart';
+import 'package:multishop_tchad/core/interfaces/repo_interface.dart';
 
 abstract class AuctionParticipationRepositoryInterface implements RepositoryInterface {
 

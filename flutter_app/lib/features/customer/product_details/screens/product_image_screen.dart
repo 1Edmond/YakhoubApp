@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/core/models/image_full_url.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/product_details/controllers/product_details_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/custom_app_bar_widget.dart';
+import 'package:multishop_tchad/core/models/image_full_url.dart';
+import 'package:multishop_tchad/features/customer/product_details/controllers/product_details_controller.dart';
+import 'package:multishop_tchad/core/widgets/base/custom_app_bar_widget.dart';
 import 'package:photo_view/photo_view.dart';
 import 'package:photo_view/photo_view_gallery.dart';
 import 'package:provider/provider.dart';

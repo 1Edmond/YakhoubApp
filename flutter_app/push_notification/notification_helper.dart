@@ -1,3 +1,9 @@
+
+import 'package:multishop_tchad/core/helpers/route_helper.dart';
+import 'package:multishop_tchad/core/constants/app_constants.dart';
+import 'package:multishop_tchad/features/customer/splash/controllers/splash_controller.dart';
+import 'package:multishop_tchad/features/shared/push_notification/models/notification_body.dart';
+import 'package:multishop_tchad/main.dart';
 import 'dart:convert';
 import 'dart:developer';
 import 'dart:io';
@@ -5,18 +11,15 @@ import 'package:flutter/foundation.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
-import 'package:flutter_sixvalley_ecommerce/common/basewidget/demo_reset_dialog_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/address/controllers/address_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/auth/controllers/auth_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/restock/controllers/restock_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/restock/widgets/restock_bottom_sheet.dart';
-import 'package:flutter_sixvalley_ecommerce/features/splash/controllers/splash_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/splash/domain/models/config_model.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/route_helper.dart';
-import 'package:flutter_sixvalley_ecommerce/main.dart';
-import 'package:flutter_sixvalley_ecommerce/push_notification/models/notification_body.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/app_constants.dart';
-import 'package:flutter_sixvalley_ecommerce/features/chat/screens/inbox_screen.dart';
+import 'package:multishop_tchad/common/basewidget/demo_reset_dialog_widget.dart';
+import 'package:multishop_tchad/features/address/controllers/address_controller.dart';
+import 'package:multishop_tchad/features/auth/controllers/auth_controller.dart';
+import 'package:multishop_tchad/features/restock/controllers/restock_controller.dart';
+import 'package:multishop_tchad/features/restock/widgets/restock_bottom_sheet.dart';
+import 'package:multishop_tchad/features/splash/controllers/splash_controller.dart';
+import 'package:multishop_tchad/features/splash/domain/models/config_model.dart';
+import 'package:multishop_tchad/push_notification/models/notification_body.dart';
+import 'package:multishop_tchad/features/chat/screens/inbox_screen.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:http/http.dart' as http;
 import 'package:provider/provider.dart';
@@ -57,7 +60,7 @@ class NotificationHelper {
                     action: RouteAction.pushReplacement,
                     isBackButtonExist: true);
               } else if (payload.type == 'chatting') {
-                Navigator.of(Get.context!).pushReplacement(MaterialPageRoute(
+                Navigator.of(navigatorKey.currentContext!).pushReplacement(MaterialPageRoute(
                     builder: (BuildContext context) => InboxScreen(
                         isBackButtonExist: true,
                         initIndex:
@@ -87,9 +90,9 @@ class NotificationHelper {
             "onMessage: ${message.notification?.title}/${message.notification?.body}/${message.notification?.titleLocKey}");
         print("onMessage type: ${message.data['type']}/${message.data}");
         if (message.data['type'] == "block") {
-          Provider.of<AuthController>(Get.context!, listen: false)
+          Provider.of<AuthController>(navigatorKey.currentContext!, listen: false)
               .clearSharedData();
-          Provider.of<AddressController>(Get.context!, listen: false)
+          Provider.of<AddressController>(navigatorKey.currentContext!, listen: false)
               .getAddressList();
           RouterHelper.getLoginRoute(
               action: RouteAction.pushNamedAndRemoveUntil);
@@ -98,19 +101,19 @@ class NotificationHelper {
 
       if (message.data['type'] == 'maintenance_mode') {
         final SplashController splashProvider =
-            Provider.of<SplashController>(Get.context!, listen: false);
-        await splashProvider.initConfig(Get.context!, null, null);
+            Provider.of<SplashController>(navigatorKey.currentContext!, listen: false);
+        await splashProvider.initConfig(navigatorKey.currentContext!, null, null);
 
         ConfigModel? config =
-            Provider.of<SplashController>(Get.context!, listen: false)
+            Provider.of<SplashController>(navigatorKey.currentContext!, listen: false)
                 .configModel;
 
         bool isMaintenanceRoute =
-            Provider.of<SplashController>(Get.context!, listen: false)
+            Provider.of<SplashController>(navigatorKey.currentContext!, listen: false)
                 .isMaintenanceModeScreen();
 
         debugPrint(
-            "--------(NOTIFICATION HELPER)-----------${Provider.of<SplashController>(Get.context!, listen: false).isMaintenanceModeScreen()}-------");
+            "--------(NOTIFICATION HELPER)-----------${Provider.of<SplashController>(navigatorKey.currentContext!, listen: false).isMaintenanceModeScreen()}-------");
 
         if (config?.maintenanceModeData?.maintenanceStatus == 1 &&
             (config?.maintenanceModeData?.selectedMaintenanceSystem
@@ -130,22 +133,22 @@ class NotificationHelper {
       }
 
       if (message.data['type'] == 'product_restock_update' &&
-          !Provider.of<RestockController>(Get.context!, listen: false)
+          !Provider.of<RestockController>(navigatorKey.currentContext!, listen: false)
               .isBottomSheetOpen) {
         NotificationBody notificationBody = convertNotification(message.data);
-        Provider.of<RestockController>(Get.context!, listen: false)
+        Provider.of<RestockController>(navigatorKey.currentContext!, listen: false)
             .setBottomSheetOpen(true);
         final result = await showModalBottomSheet(
-          context: Get.context!,
+          context: navigatorKey.currentContext!,
           isScrollControlled: true,
           backgroundColor:
-              Theme.of(Get.context!).primaryColor.withValues(alpha: 0),
+              Theme.of(navigatorKey.currentContext!).primaryColor.withValues(alpha: 0),
           builder: (con) =>
               RestockSheetWidget(notificationBody: notificationBody),
         );
 
         if (result == null) {
-          Provider.of<RestockController>(Get.context!, listen: false)
+          Provider.of<RestockController>(navigatorKey.currentContext!, listen: false)
               .setBottomSheetOpen(false);
         } else {}
       }
@@ -158,7 +161,7 @@ class NotificationHelper {
       }
       if (message.data['type'] == 'demo_reset') {
         showDialog(
-            context: Get.context!,
+            context: navigatorKey.currentContext!,
             builder: (context) => const Dialog(
                 backgroundColor: Colors.transparent,
                 child: DemoResetDialogWidget()));
@@ -178,7 +181,7 @@ class NotificationHelper {
             RouterHelper.getNotificationRoute(
                 action: RouteAction.pushReplacement, fromNotification: true);
           } else if (notificationBody.type == 'chatting') {
-            Navigator.of(Get.context!).pushReplacement(MaterialPageRoute(
+            Navigator.of(navigatorKey.currentContext!).pushReplacement(MaterialPageRoute(
                 builder: (BuildContext context) => InboxScreen(
                     isBackButtonExist: true,
                     fromNotification: true,
@@ -201,19 +204,19 @@ class NotificationHelper {
 
       if (message.data['type'] == 'maintenance_mode') {
         final SplashController splashProvider =
-            Provider.of<SplashController>(Get.context!, listen: false);
-        await splashProvider.initConfig(Get.context!, null, null);
+            Provider.of<SplashController>(navigatorKey.currentContext!, listen: false);
+        await splashProvider.initConfig(navigatorKey.currentContext!, null, null);
 
         ConfigModel? config =
-            Provider.of<SplashController>(Get.context!, listen: false)
+            Provider.of<SplashController>(navigatorKey.currentContext!, listen: false)
                 .configModel;
 
         bool isMaintenanceRoute =
-            Provider.of<SplashController>(Get.context!, listen: false)
+            Provider.of<SplashController>(navigatorKey.currentContext!, listen: false)
                 .isMaintenanceModeScreen();
 
         debugPrint(
-            "--------(NOTIFICATION HELPER)-----------${Provider.of<SplashController>(Get.context!, listen: false).isMaintenanceModeScreen()}-------");
+            "--------(NOTIFICATION HELPER)-----------${Provider.of<SplashController>(navigatorKey.currentContext!, listen: false).isMaintenanceModeScreen()}-------");
 
         if (config?.maintenanceModeData?.maintenanceStatus == 1 &&
             (config?.maintenanceModeData?.selectedMaintenanceSystem

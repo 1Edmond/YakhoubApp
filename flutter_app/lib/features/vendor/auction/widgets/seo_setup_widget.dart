@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_switch/flutter_switch.dart' show FlutterSwitch;
 import 'package:provider/provider.dart';
 import 'package:shimmer/shimmer.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/dropdown_decorator_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/textfeild/custom_text_feild_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/auction/controllers/auction_ai_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/splash/controllers/splash_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/core/localization/language_constrants.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/styles.dart';
+import 'package:multishop_tchad/core/widgets/base/dropdown_decorator_widget.dart';
+import 'package:multishop_tchad/core/widgets/base/textfeild/custom_text_feild_widget.dart';
+import 'package:multishop_tchad/features/vendor/auction/controllers/auction_ai_controller.dart';
+import 'package:multishop_tchad/features/vendor/splash/controllers/splash_controller.dart';
+import 'package:multishop_tchad/core/localization/language_constrants.dart';
+import 'package:multishop_tchad/core/constants/dimensions.dart';
+import 'package:multishop_tchad/core/constants/styles.dart';
 
 enum MetaImagePreview {
   large('2', 'Large'),

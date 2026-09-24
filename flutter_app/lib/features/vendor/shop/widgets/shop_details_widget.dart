@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/vendor_custom_button_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/basewidgets/textfeild/guideline_warning_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/addProduct/screens/add_product_tab_view_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/shop/controllers/shop_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/shop/screens/vacation_mode_setup_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/shop/widgets/shop_card_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/shop/widgets/status_change_botomsheet_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/date_converter.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/localization/language_constrants.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/styles.dart';
+import 'package:multishop_tchad/core/widgets/base/vendor_custom_button_widget.dart';
+import 'package:multishop_tchad/core/widgets/base/basewidgets/textfeild/guideline_warning_widget.dart';
+import 'package:multishop_tchad/features/vendor/addProduct/screens/add_product_tab_view_screen.dart';
+import 'package:multishop_tchad/features/vendor/shop/controllers/shop_controller.dart';
+import 'package:multishop_tchad/features/vendor/shop/screens/vacation_mode_setup_screen.dart';
+import 'package:multishop_tchad/features/vendor/shop/widgets/shop_card_widget.dart';
+import 'package:multishop_tchad/features/vendor/shop/widgets/status_change_botomsheet_widget.dart';
+import 'package:multishop_tchad/core/helpers/date_converter.dart';
+import 'package:multishop_tchad/features/vendor/localization/language_constrants.dart';
+import 'package:multishop_tchad/core/constants/dimensions.dart';
+import 'package:multishop_tchad/core/constants/styles.dart';
 
 
 class ShopDetailsWidget extends StatefulWidget {

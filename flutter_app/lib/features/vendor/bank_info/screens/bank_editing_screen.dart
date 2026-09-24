@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/vendor_custom_button_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/basewidgets/textfeild/custom_text_feild_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/profile/domain/models/profile_body.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/profile/domain/models/profile_info.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/localization/language_constrants.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/auth/controllers/auth_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/bank_info/controllers/bank_info_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/profile/controllers/profile_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/main.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/styles.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/vendor_custom_app_bar_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/basewidgets/custom_snackbar_widget.dart';
+import 'package:multishop_tchad/core/widgets/base/vendor_custom_button_widget.dart';
+import 'package:multishop_tchad/core/widgets/base/basewidgets/textfeild/custom_text_feild_widget.dart';
+import 'package:multishop_tchad/features/vendor/profile/domain/models/profile_body.dart';
+import 'package:multishop_tchad/features/vendor/profile/domain/models/profile_info.dart';
+import 'package:multishop_tchad/features/vendor/localization/language_constrants.dart';
+import 'package:multishop_tchad/features/vendor/auth/controllers/auth_controller.dart';
+import 'package:multishop_tchad/features/vendor/bank_info/controllers/bank_info_controller.dart';
+import 'package:multishop_tchad/features/vendor/profile/controllers/profile_controller.dart';
+import 'package:multishop_tchad/main.dart';
+import 'package:multishop_tchad/core/constants/dimensions.dart';
+import 'package:multishop_tchad/core/constants/styles.dart';
+import 'package:multishop_tchad/core/widgets/base/vendor_custom_app_bar_widget.dart';
+import 'package:multishop_tchad/core/widgets/base/basewidgets/custom_snackbar_widget.dart';
 
 class BankEditingScreen extends StatefulWidget {
 

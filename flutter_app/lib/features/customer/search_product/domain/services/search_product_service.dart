@@ -1,5 +1,5 @@
-import 'package:flutter_sixvalley_ecommerce/features/customer/search_product/domain/repositories/search_product_repository_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/search_product/domain/services/search_product_service_interface.dart';
+import 'package:multishop_tchad/features/customer/search_product/domain/repositories/search_product_repository_interface.dart';
+import 'package:multishop_tchad/features/customer/search_product/domain/services/search_product_service_interface.dart';
 
 class SearchProductService implements SearchProductServiceInterface{
   SearchProductRepositoryInterface searchProductRepositoryInterface;

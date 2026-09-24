@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/vendor_custom_app_bar_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/addProduct/domain/models/add_product_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/addProduct/domain/models/edt_product_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/addProduct/domain/models/product_general_info_data_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/addProduct/screens/add_product_next_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/addProduct/screens/add_product_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/addProduct/screens/add_product_seo_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/addProduct/widgets/add_product_tabbar_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/ai/widgets/genertate_count_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/product/domain/models/product_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/localization/language_constrants.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
+import 'package:multishop_tchad/core/widgets/base/vendor_custom_app_bar_widget.dart';
+import 'package:multishop_tchad/features/vendor/addProduct/domain/models/add_product_model.dart';
+import 'package:multishop_tchad/features/vendor/addProduct/domain/models/edt_product_model.dart';
+import 'package:multishop_tchad/features/vendor/addProduct/domain/models/product_general_info_data_model.dart';
+import 'package:multishop_tchad/features/vendor/addProduct/screens/add_product_next_screen.dart';
+import 'package:multishop_tchad/features/vendor/addProduct/screens/add_product_screen.dart';
+import 'package:multishop_tchad/features/vendor/addProduct/screens/add_product_seo_screen.dart';
+import 'package:multishop_tchad/features/vendor/addProduct/widgets/add_product_tabbar_widget.dart';
+import 'package:multishop_tchad/features/vendor/ai/widgets/genertate_count_widget.dart';
+import 'package:multishop_tchad/features/vendor/product/domain/models/product_model.dart';
+import 'package:multishop_tchad/features/vendor/localization/language_constrants.dart';
+import 'package:multishop_tchad/core/constants/dimensions.dart';
 
 class AddProductTabView extends StatefulWidget {
   final Product? product;

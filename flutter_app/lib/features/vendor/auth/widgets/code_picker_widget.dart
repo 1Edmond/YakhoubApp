@@ -4,7 +4,7 @@ library;
 import 'package:collection/collection.dart';
 import 'package:country_code_picker/country_code_picker.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/styles.dart';
+import 'package:multishop_tchad/core/constants/styles.dart';
 
 class CodePickerWidget extends StatefulWidget {
   final ValueChanged<CountryCode>? onChanged;

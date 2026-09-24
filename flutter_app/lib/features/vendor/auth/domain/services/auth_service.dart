@@ -1,14 +1,14 @@
 import 'package:flutter/foundation.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/basewidgets/custom_snackbar_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/di/model/response/base/api_response.dart';
-import 'package:flutter_sixvalley_ecommerce/core/di/model/response/base/error_response.dart';
-import 'package:flutter_sixvalley_ecommerce/core/models/response_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/auth/domain/models/register_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/auth/domain/repositories/auth_repository_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/auth/domain/services/auth_service_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/localization/language_constrants.dart';
-import 'package:flutter_sixvalley_ecommerce/main.dart';
+import 'package:multishop_tchad/core/widgets/base/basewidgets/custom_snackbar_widget.dart';
+import 'package:multishop_tchad/core/di/model/response/base/api_response.dart';
+import 'package:multishop_tchad/core/di/model/response/base/error_response.dart';
+import 'package:multishop_tchad/core/models/response_model.dart';
+import 'package:multishop_tchad/features/vendor/auth/domain/models/register_model.dart';
+import 'package:multishop_tchad/features/vendor/auth/domain/repositories/auth_repository_interface.dart';
+import 'package:multishop_tchad/features/vendor/auth/domain/services/auth_service_interface.dart';
+import 'package:multishop_tchad/features/vendor/localization/language_constrants.dart';
+import 'package:multishop_tchad/main.dart';
 
 class AuthService implements AuthServiceInterface{
   final AuthRepositoryInterface authRepoInterface;

@@ -1,120 +1,120 @@
 
-import 'package:flutter_sixvalley_ecommerce/core/di/di_container.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/app_constants.dart';
+import 'package:multishop_tchad/core/di/di_container.dart';
+import 'package:multishop_tchad/core/constants/app_constants.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:convert';
 
-import 'package:flutter_sixvalley_ecommerce/features/vendor/auth/screens/registration_screen.dart' as vendor_registration;
-import 'package:flutter_sixvalley_ecommerce/features/vendor/auth/screens/login_screen.dart' as vendor_login;
-import 'package:flutter_sixvalley_ecommerce/features/vendor/pending_approval/pending_approval_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/dashboard/screens/dashboard_screen.dart' as vendor_dashboard;
-import 'package:flutter_sixvalley_ecommerce/features/customer/checkout/screens/door_photo_screen.dart';
+import 'package:multishop_tchad/features/vendor/auth/screens/registration_screen.dart' as vendor_registration;
+import 'package:multishop_tchad/features/vendor/auth/screens/login_screen.dart' as vendor_login;
+import 'package:multishop_tchad/features/vendor/pending_approval/pending_approval_screen.dart';
+import 'package:multishop_tchad/features/vendor/dashboard/screens/dashboard_screen.dart' as vendor_dashboard;
+import 'package:multishop_tchad/features/customer/checkout/screens/door_photo_screen.dart';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/core/enums/auction_enum.dart';
-import 'package:flutter_sixvalley_ecommerce/core/models/image_full_url.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/address/domain/models/address_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/address/screens/address_list_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/address/screens/add_new_address_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/address/screens/saved_address_list_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/address/screens/saved_billing_address_list_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/auction/screens/auction_save_list_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/auction_transaction/screens/auction_transaction_list_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/auction/screens/my_auction_activity_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/auction/screens/my_bids_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/auction_details/domain/models/creator/creator_auction_details_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/auction_details/screens/creator_auction_details_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/auction_details/screens/participation_auction_details_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/auction_checkout/screens/auction_checkout_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/auction_checkout/screens/auction_saved_address_list_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/auction_checkout/screens/auction_saved_billing_address_list_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/auction_checkout/screens/auction_offline_payment_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/ai_shopping/screens/ai_shopping_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/auction_home/domain/auction_enum.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/auction_home/screens/auction_home_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/auction_home/screens/view_all_auction_product_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/auction_list/screens/auction_queue_list_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/auction_transaction/screens/auction_sales_report_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/auction_search/screens/auction_search_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/auth/controllers/auth_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/auth/enums/from_page.dart';
-import 'package:flutter_sixvalley_ecommerce/features/auth/screens/otp_login_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/auth/screens/otp_registration_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/auth/screens/otp_verification_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/banner/screens/offers_product_list_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/brand/screens/brands_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/cart/domain/models/cart_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/category/domain/models/category_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/category/screens/category_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/shared/chat/domain/models/message_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/shared/chat/screens/media_viewer_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/checkout/screens/checkout_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/checkout/screens/digital_payment_order_place_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/auction_details/screens/auction_digital_payment_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/clearance_sale/screens/clearance_sale_all_product_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/clearance_sale/screens/clearance_sale_shop_all_product_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/compare/screens/compare_product_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/contact_us/screens/contact_us_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/coupon/screens/coupon_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/create_auction/screens/add_auction_product_tab_view.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/deal/screens/featured_deal_screen_view.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/deal/screens/flash_deal_screen_view.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/home/screens/view_all_product_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/location/screens/select_location_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/loyaltyPoint/screens/loyalty_point_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/more/screens/faq_screen_view.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/more/screens/more_screen_view_new.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/offline_payment/screens/offline_payment_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/order/screens/order_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/order_details/screens/order_details_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/product/enums/product_type.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/product_details/screens/product_image_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/product_details/screens/specification_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/refer_and_earn/screens/refer_and_earn_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/restock/screens/restock_list_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/review/domain/models/review_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/review/screens/review_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/search_product/screens/search_product_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/setting/screens/settings_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/shared/notification/screens/notification_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/more/screens/html_screen_view.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/order_details/screens/guest_track_order_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/shop/domain/enums/vacation_duration_type.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/shop/screens/all_shop_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/shop/screens/overview_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/splash/controllers/splash_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/splash/domain/models/business_pages_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/splash/domain/models/config_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/support/domain/models/support_ticket_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/support/screens/add_ticket_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/support/screens/support_conversation_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/support/screens/support_ticket_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/support/widgets/support_ticket_type_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/tracking/screens/tracking_result_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/update/screen/update_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/user_created_auction_list/domain/enum/creator_auction_details_route_action.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/user_created_auction_list/screens/user_created_auction_list_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/wallet/screens/add_fund_to_wallet_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/wallet/screens/wallet_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/wishlist/screens/wishlist_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/main.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/home/screens/dashboard_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/maintenance/maintenance_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/splash/screens/splash_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/auth/screens/login_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/profile/screens/profile_screen1.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/blog/screens/blog_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/product/screens/brand_and_category_product_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/product_details/screens/product_details_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/shop/screens/shop_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/onboarding/screens/onboarding_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/auth/screens/auth_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/auth/screens/forget_password_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/auth/screens/reset_password_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/cart/screens/cart_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/shared/chat/screens/chat_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/shared/chat/screens/inbox_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/order_details/widgets/order_offline_payment_screen.dart'
+import 'package:multishop_tchad/core/enums/auction_enum.dart';
+import 'package:multishop_tchad/core/models/image_full_url.dart';
+import 'package:multishop_tchad/features/customer/address/domain/models/address_model.dart';
+import 'package:multishop_tchad/features/customer/address/screens/address_list_screen.dart';
+import 'package:multishop_tchad/features/customer/address/screens/add_new_address_screen.dart';
+import 'package:multishop_tchad/features/customer/address/screens/saved_address_list_screen.dart';
+import 'package:multishop_tchad/features/customer/address/screens/saved_billing_address_list_screen.dart';
+import 'package:multishop_tchad/features/vault/auction/screens/auction_save_list_screen.dart';
+import 'package:multishop_tchad/features/vault/auction_transaction/screens/auction_transaction_list_screen.dart';
+import 'package:multishop_tchad/features/vault/auction/screens/my_auction_activity_screen.dart';
+import 'package:multishop_tchad/features/vault/auction/screens/my_bids_screen.dart';
+import 'package:multishop_tchad/features/vault/auction_details/domain/models/creator/creator_auction_details_model.dart';
+import 'package:multishop_tchad/features/vault/auction_details/screens/creator_auction_details_screen.dart';
+import 'package:multishop_tchad/features/vault/auction_details/screens/participation_auction_details_screen.dart';
+import 'package:multishop_tchad/features/vault/auction_checkout/screens/auction_checkout_screen.dart';
+import 'package:multishop_tchad/features/vault/auction_checkout/screens/auction_saved_address_list_screen.dart';
+import 'package:multishop_tchad/features/vault/auction_checkout/screens/auction_saved_billing_address_list_screen.dart';
+import 'package:multishop_tchad/features/vault/auction_checkout/screens/auction_offline_payment_screen.dart';
+import 'package:multishop_tchad/features/vault/ai_shopping/screens/ai_shopping_screen.dart';
+import 'package:multishop_tchad/features/vault/auction_home/domain/auction_enum.dart';
+import 'package:multishop_tchad/features/vault/auction_home/screens/auction_home_screen.dart';
+import 'package:multishop_tchad/features/vault/auction_home/screens/view_all_auction_product_screen.dart';
+import 'package:multishop_tchad/features/vault/auction_list/screens/auction_queue_list_screen.dart';
+import 'package:multishop_tchad/features/vault/auction_transaction/screens/auction_sales_report_screen.dart';
+import 'package:multishop_tchad/features/vault/auction_search/screens/auction_search_screen.dart';
+import 'package:multishop_tchad/features/auth/controllers/auth_controller.dart';
+import 'package:multishop_tchad/features/auth/enums/from_page.dart';
+import 'package:multishop_tchad/features/auth/screens/otp_login_screen.dart';
+import 'package:multishop_tchad/features/auth/screens/otp_registration_screen.dart';
+import 'package:multishop_tchad/features/auth/screens/otp_verification_screen.dart';
+import 'package:multishop_tchad/features/vault/banner/screens/offers_product_list_screen.dart';
+import 'package:multishop_tchad/features/customer/brand/screens/brands_screen.dart';
+import 'package:multishop_tchad/features/customer/cart/domain/models/cart_model.dart';
+import 'package:multishop_tchad/features/customer/category/domain/models/category_model.dart';
+import 'package:multishop_tchad/features/customer/category/screens/category_screen.dart';
+import 'package:multishop_tchad/features/shared/chat/domain/models/message_model.dart';
+import 'package:multishop_tchad/features/shared/chat/screens/media_viewer_screen.dart';
+import 'package:multishop_tchad/features/customer/checkout/screens/checkout_screen.dart';
+import 'package:multishop_tchad/features/customer/checkout/screens/digital_payment_order_place_screen.dart';
+import 'package:multishop_tchad/features/vault/auction_details/screens/auction_digital_payment_screen.dart';
+import 'package:multishop_tchad/features/vault/clearance_sale/screens/clearance_sale_all_product_screen.dart';
+import 'package:multishop_tchad/features/vault/clearance_sale/screens/clearance_sale_shop_all_product_screen.dart';
+import 'package:multishop_tchad/features/vault/compare/screens/compare_product_screen.dart';
+import 'package:multishop_tchad/features/vault/contact_us/screens/contact_us_screen.dart';
+import 'package:multishop_tchad/features/vault/coupon/screens/coupon_screen.dart';
+import 'package:multishop_tchad/features/vault/create_auction/screens/add_auction_product_tab_view.dart';
+import 'package:multishop_tchad/features/vault/deal/screens/featured_deal_screen_view.dart';
+import 'package:multishop_tchad/features/vault/deal/screens/flash_deal_screen_view.dart';
+import 'package:multishop_tchad/features/customer/home/screens/view_all_product_screen.dart';
+import 'package:multishop_tchad/features/customer/location/screens/select_location_screen.dart';
+import 'package:multishop_tchad/features/vault/loyaltyPoint/screens/loyalty_point_screen.dart';
+import 'package:multishop_tchad/features/customer/more/screens/faq_screen_view.dart';
+import 'package:multishop_tchad/features/customer/more/screens/more_screen_view_new.dart';
+import 'package:multishop_tchad/features/vault/offline_payment/screens/offline_payment_screen.dart';
+import 'package:multishop_tchad/features/customer/order/screens/order_screen.dart';
+import 'package:multishop_tchad/features/customer/order_details/screens/order_details_screen.dart';
+import 'package:multishop_tchad/features/customer/product/enums/product_type.dart';
+import 'package:multishop_tchad/features/customer/product_details/screens/product_image_screen.dart';
+import 'package:multishop_tchad/features/customer/product_details/screens/specification_screen.dart';
+import 'package:multishop_tchad/features/vault/refer_and_earn/screens/refer_and_earn_screen.dart';
+import 'package:multishop_tchad/features/vault/restock/screens/restock_list_screen.dart';
+import 'package:multishop_tchad/features/vault/review/domain/models/review_model.dart';
+import 'package:multishop_tchad/features/vault/review/screens/review_screen.dart';
+import 'package:multishop_tchad/features/customer/search_product/screens/search_product_screen.dart';
+import 'package:multishop_tchad/features/vault/setting/screens/settings_screen.dart';
+import 'package:multishop_tchad/features/shared/notification/screens/notification_screen.dart';
+import 'package:multishop_tchad/features/customer/more/screens/html_screen_view.dart';
+import 'package:multishop_tchad/features/customer/order_details/screens/guest_track_order_screen.dart';
+import 'package:multishop_tchad/features/customer/shop/domain/enums/vacation_duration_type.dart';
+import 'package:multishop_tchad/features/customer/shop/screens/all_shop_screen.dart';
+import 'package:multishop_tchad/features/customer/shop/screens/overview_screen.dart';
+import 'package:multishop_tchad/features/customer/splash/controllers/splash_controller.dart';
+import 'package:multishop_tchad/features/customer/splash/domain/models/business_pages_model.dart';
+import 'package:multishop_tchad/features/customer/splash/domain/models/config_model.dart';
+import 'package:multishop_tchad/features/vault/support/domain/models/support_ticket_model.dart';
+import 'package:multishop_tchad/features/vault/support/screens/add_ticket_screen.dart';
+import 'package:multishop_tchad/features/vault/support/screens/support_conversation_screen.dart';
+import 'package:multishop_tchad/features/vault/support/screens/support_ticket_screen.dart';
+import 'package:multishop_tchad/features/vault/support/widgets/support_ticket_type_widget.dart';
+import 'package:multishop_tchad/features/vault/tracking/screens/tracking_result_screen.dart';
+import 'package:multishop_tchad/features/vault/update/screen/update_screen.dart';
+import 'package:multishop_tchad/features/vault/user_created_auction_list/domain/enum/creator_auction_details_route_action.dart';
+import 'package:multishop_tchad/features/vault/user_created_auction_list/screens/user_created_auction_list_screen.dart';
+import 'package:multishop_tchad/features/vault/wallet/screens/add_fund_to_wallet_screen.dart';
+import 'package:multishop_tchad/features/vault/wallet/screens/wallet_screen.dart';
+import 'package:multishop_tchad/features/vault/wishlist/screens/wishlist_screen.dart';
+import 'package:multishop_tchad/main.dart';
+import 'package:multishop_tchad/features/customer/home/screens/dashboard_screen.dart';
+import 'package:multishop_tchad/features/customer/maintenance/maintenance_screen.dart';
+import 'package:multishop_tchad/features/customer/splash/screens/splash_screen.dart';
+import 'package:multishop_tchad/features/auth/screens/login_screen.dart';
+import 'package:multishop_tchad/features/customer/profile/screens/profile_screen1.dart';
+import 'package:multishop_tchad/features/vault/blog/screens/blog_screen.dart';
+import 'package:multishop_tchad/features/customer/product/screens/brand_and_category_product_screen.dart';
+import 'package:multishop_tchad/features/customer/product_details/screens/product_details_screen.dart';
+import 'package:multishop_tchad/features/customer/shop/screens/shop_screen.dart';
+import 'package:multishop_tchad/features/customer/onboarding/screens/onboarding_screen.dart';
+import 'package:multishop_tchad/features/auth/screens/auth_screen.dart';
+import 'package:multishop_tchad/features/auth/screens/forget_password_screen.dart';
+import 'package:multishop_tchad/features/auth/screens/reset_password_screen.dart';
+import 'package:multishop_tchad/features/customer/cart/screens/cart_screen.dart';
+import 'package:multishop_tchad/features/shared/chat/screens/chat_screen.dart';
+import 'package:multishop_tchad/features/shared/chat/screens/inbox_screen.dart';
+import 'package:multishop_tchad/features/customer/order_details/widgets/order_offline_payment_screen.dart'
     as order_offline;
 import 'package:go_router/go_router.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -275,16 +275,17 @@ class RouterHelper {
     bool? isBilling,
     AddressModel? address,
   }) {
-    String? _address = address != null
+    String? address0 = address != null
         ? base64Url.encode(utf8.encode(jsonEncode(address.toJson())))
         : null;
 
     final params = <String, String>{};
-    if (isEnableUpdate != null)
+    if (isEnableUpdate != null) {
       params['isEnableUpdate'] = isEnableUpdate.toString();
+    }
     if (fromCheckout != null) params['fromCheckout'] = fromCheckout.toString();
     if (isBilling != null) params['isBilling'] = isBilling.toString();
-    if (address != null) params['address'] = _address!;
+    if (address != null) params['address'] = address0!;
 
     final query = params.entries.map((e) => '${e.key}=${e.value}').join('&');
 
@@ -375,10 +376,10 @@ class RouterHelper {
       bool? isInsideSubSubCategory,
       CategoryModel? categoryModel,
       bool? isAllProduct}) {
-    String? _subCategory = subCategory != null
+    String? subCategory0 = subCategory != null
         ? base64Url.encode(utf8.encode(jsonEncode(subCategory.toJson())))
         : null;
-    String? _category = categoryModel != null
+    String? category = categoryModel != null
         ? base64Url.encode(utf8.encode(jsonEncode(categoryModel.toJson())))
         : null;
 
@@ -387,10 +388,11 @@ class RouterHelper {
     if (id != null) params['id'] = id.toString();
     if (name != null) params['name'] = Uri.encodeComponent(name);
     if (image != null) params['image'] = Uri.encodeComponent(image);
-    if (subCategory != null) params['subCategory'] = _subCategory!;
-    if (isInsideSubSubCategory != null)
+    if (subCategory != null) params['subCategory'] = subCategory0!;
+    if (isInsideSubSubCategory != null) {
       params['isInsideSubSubCategory'] = isInsideSubSubCategory.toString();
-    if (categoryModel != null) params['categoryModel'] = _category!;
+    }
+    if (categoryModel != null) params['categoryModel'] = category!;
     if (isAllProduct != null) params['isAllProduct'] = isAllProduct.toString();
     final query = params.entries.map((e) => '${e.key}=${e.value}').join('&');
     return _navigateRoute(
@@ -408,12 +410,15 @@ class RouterHelper {
     final params = <String, String>{};
     if (productId != null) params['id'] = productId.toString();
     if (slug != null) params['slug'] = Uri.encodeComponent(slug);
-    if (isFromWishList != null)
+    if (isFromWishList != null) {
       params['isFromWishList'] = isFromWishList.toString();
-    if (isNotification != null)
+    }
+    if (isNotification != null) {
       params['isNotification'] = isNotification.toString();
-    if (fromFlashDeals != null)
+    }
+    if (fromFlashDeals != null) {
       params['fromFlashDeals'] = fromFlashDeals.toString();
+    }
     final query = params.entries.map((e) => '${e.key}=${e.value}').join('&');
     return _navigateRoute(
         '$productDetailsScreen${query.isNotEmpty ? '?$query' : ''}',
@@ -439,16 +444,21 @@ class RouterHelper {
   }) {
     final params = <String, String>{};
     if (sellerId != null) params['sellerId'] = sellerId.toString();
-    if (temporaryClose != null)
+    if (temporaryClose != null) {
       params['temporaryClose'] = temporaryClose.toString();
-    if (vacationStatus != null)
+    }
+    if (vacationStatus != null) {
       params['vacationStatus'] = vacationStatus.toString();
-    if (vacationEndDate != null)
+    }
+    if (vacationEndDate != null) {
       params['vacationEndDate'] = vacationEndDate.toIso8601String();
-    if (vacationStartDate != null)
+    }
+    if (vacationStartDate != null) {
       params['vacationStartDate'] = vacationStartDate.toIso8601String();
-    if (vacationDurationType != null)
+    }
+    if (vacationDurationType != null) {
       params['vacationDurationType'] = vacationDurationType.toString();
+    }
     if (name != null) params['name'] = Uri.encodeComponent(name);
     if (banner != null) params['banner'] = Uri.encodeComponent(banner);
     if (image != null) params['image'] = Uri.encodeComponent(image);
@@ -468,11 +478,13 @@ class RouterHelper {
       Color? indicatorColor,
       Color? selectedIndicatorColor}) {
     final params = <String, String>{};
-    if (indicatorColor != null)
+    if (indicatorColor != null) {
       params['indicatorColor'] = indicatorColor.toARGB32().toRadixString(16);
-    if (selectedIndicatorColor != null)
+    }
+    if (selectedIndicatorColor != null) {
       params['selectedIndicatorColor'] =
           selectedIndicatorColor.toARGB32().toRadixString(16);
+    }
     final query = params.isNotEmpty
         ? '?${params.entries.map((e) => '${e.key}=${e.value}').join('&')}'
         : '';
@@ -532,8 +544,9 @@ class RouterHelper {
       'userInput': Uri.encodeComponent(userInput),
     };
     if (userName != null) params['userName'] = Uri.encodeComponent(userName);
-    if (toNavigateScreen != null)
+    if (toNavigateScreen != null) {
       params['toNavigateScreen'] = toNavigateScreen.toString();
+    }
     final query = params.entries.map((e) => '${e.key}=${e.value}').join('&');
     return _navigateRoute(
       '$otpRegistrationScreen?$query',
@@ -560,8 +573,9 @@ class RouterHelper {
     if (userInput != null) params['userInput'] = Uri.encodeComponent(userInput);
     if (session != null) params['session'] = Uri.encodeComponent(session);
     if (orderId != null) params['orderId'] = orderId.toString();
-    if (toNavigateScreen != null)
+    if (toNavigateScreen != null) {
       params['toNavigateScreen'] = toNavigateScreen.toString();
+    }
     final query = params.entries.map((e) => '${e.key}=${e.value}').join('&');
     return _navigateRoute(
       '$verificationScreen?$query',
@@ -601,8 +615,9 @@ class RouterHelper {
     final params = <String, String>{};
     if (fromCheckout != null) params['fromCheckout'] = fromCheckout.toString();
     if (sellerId != null) params['sellerId'] = sellerId.toString();
-    if (showBackButton != null)
+    if (showBackButton != null) {
       params['showBackButton'] = showBackButton.toString();
+    }
     final query = params.entries.map((e) => '${e.key}=${e.value}').join('&');
     return _navigateRoute('$cartScreen${query.isNotEmpty ? '?$query' : ''}',
         route: action);
@@ -626,10 +641,12 @@ class RouterHelper {
     if (image != null) params['image'] = Uri.encodeComponent(image);
     if (phone != null) params['phone'] = Uri.encodeComponent(phone);
     if (userType != null) params['userType'] = userType.toString();
-    if (isShopOnVacation != null)
+    if (isShopOnVacation != null) {
       params['isShopOnVacation'] = isShopOnVacation.toString();
-    if (isShopTemporaryClosed != null)
+    }
+    if (isShopTemporaryClosed != null) {
       params['isShopTemporaryClosed'] = isShopTemporaryClosed.toString();
+    }
 
     final query = params.isNotEmpty
         ? '?${params.entries.map((e) => '${e.key}=${e.value}').join('&')}'
@@ -644,10 +661,12 @@ class RouterHelper {
     int? initIndex,
   }) {
     final params = <String, String>{};
-    if (isBackButtonExist != null)
+    if (isBackButtonExist != null) {
       params['isBackButtonExist'] = isBackButtonExist.toString();
-    if (fromNotification != null)
+    }
+    if (fromNotification != null) {
       params['fromNotification'] = fromNotification.toString();
+    }
     if (initIndex != null) params['initIndex'] = initIndex.toString();
 
     final query = params.isNotEmpty
@@ -814,8 +833,9 @@ class RouterHelper {
   static String getNotificationRoute(
       {RouteAction? action, bool fromNotification = false}) {
     final params = <String, String>{};
-    if (fromNotification)
+    if (fromNotification) {
       params['fromNotification'] = fromNotification.toString();
+    }
     final query = params.isNotEmpty
         ? '?${params.entries.map((e) => '${e.key}=${e.value}').join('&')}'
         : '';
@@ -912,13 +932,13 @@ class RouterHelper {
     RouteAction? action,
     List<ReviewModel>? reviewList,
   }) {
-    String? _reviews = reviewList != null
+    String? reviews = reviewList != null
         ? base64Url.encode(
             utf8.encode(jsonEncode(reviewList.map((e) => e.toJson()).toList())))
         : null;
 
     final params = <String, String>{};
-    if (_reviews != null) params['reviews'] = _reviews;
+    if (reviews != null) params['reviews'] = reviews;
 
     final query = params.entries.map((e) => '${e.key}=${e.value}').join('&');
     return _navigateRoute('$reviewScreen${query.isNotEmpty ? '?$query' : ''}',
@@ -1004,8 +1024,9 @@ class RouterHelper {
 
   static String getWalletRoute({RouteAction? action, bool? isBackButtonExist}) {
     final params = <String, String>{};
-    if (isBackButtonExist != null)
+    if (isBackButtonExist != null) {
       params['isBackButtonExist'] = isBackButtonExist.toString();
+    }
 
     final query = params.entries.map((e) => '${e.key}=${e.value}').join('&');
     return _navigateRoute('$walletScreen${query.isNotEmpty ? '?$query' : ''}',
@@ -1422,9 +1443,9 @@ class RouterHelper {
             final qp = state.uri.queryParameters;
             AddressModel? address;
             if (qp['address'] != null) {
-              String _address = utf8.decode(base64Url.decode(
+              String decodedAddress = utf8.decode(base64Url.decode(
                   '${state.uri.queryParameters['address']?.replaceAll(' ', '+')}'));
-              address = AddressModel.fromJson(jsonDecode(_address));
+              address = AddressModel.fromJson(jsonDecode(decodedAddress));
             }
             return AddNewAddressScreen(
               isEnableUpdate: qp['isEnableUpdate'] == 'true',

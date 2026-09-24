@@ -1,4 +1,4 @@
-import 'package:flutter_sixvalley_ecommerce/features/vault/review/domain/models/review_model.dart';
+import 'package:multishop_tchad/features/vault/review/domain/models/review_model.dart';
 
 class ReviewResponseModel {
   int? totalSize;

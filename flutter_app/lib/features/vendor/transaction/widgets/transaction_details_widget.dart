@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/bottom_sheet_topbar_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/widgets/custom_edit_dialog_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/transaction/domain/models/transaction_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/transaction/widgets/transaction_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/wallet/controllers/wallet_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/date_converter.dart';
-import 'package:flutter_sixvalley_ecommerce/core/localization/language_constrants.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/styles.dart';
+import 'package:multishop_tchad/core/widgets/base/bottom_sheet_topbar_widget.dart';
+import 'package:multishop_tchad/features/vault/widgets/custom_edit_dialog_widget.dart';
+import 'package:multishop_tchad/features/vendor/transaction/domain/models/transaction_model.dart';
+import 'package:multishop_tchad/features/vendor/transaction/widgets/transaction_widget.dart';
+import 'package:multishop_tchad/features/vendor/wallet/controllers/wallet_controller.dart';
+import 'package:multishop_tchad/core/helpers/date_converter.dart';
+import 'package:multishop_tchad/core/localization/language_constrants.dart';
+import 'package:multishop_tchad/core/constants/dimensions.dart';
+import 'package:multishop_tchad/core/constants/styles.dart';
 
 class TransactionDetailsWidget extends StatelessWidget {
   final TransactionModel transactionModel;
@@ -220,7 +220,7 @@ class TransactionDetailsWidget extends StatelessWidget {
 
 class _FieldTile extends StatelessWidget {
   final String field;
-  const _FieldTile({super.key, required this.field,});
+  const _FieldTile({required this.field,});
 
   @override
   Widget build(BuildContext context) {
@@ -228,7 +228,7 @@ class _FieldTile extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text.rich(TextSpan(
-            text: "$field",
+            text: field,
             style: robotoRegular.copyWith(
               fontSize: Dimensions.fontSizeDefault,
               color: Theme.of(context).textTheme.headlineLarge?.color,
@@ -250,7 +250,7 @@ class _FieldTile extends StatelessWidget {
 
 class _ValueTile extends StatelessWidget {
   final String value;
-  const _ValueTile({super.key, required this.value});
+  const _ValueTile({required this.value});
 
   @override
   Widget build(BuildContext context) {

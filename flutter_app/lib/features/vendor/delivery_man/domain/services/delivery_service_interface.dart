@@ -1,5 +1,5 @@
 import 'package:image_picker/image_picker.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/delivery_man/domain/model/delivery_man_body.dart';
+import 'package:multishop_tchad/features/vendor/delivery_man/domain/model/delivery_man_body.dart';
 
 abstract class DeliveryServiceInterface {
   Future<dynamic> getDeliveryManList();

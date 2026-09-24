@@ -1,8 +1,8 @@
 // import 'dart:convert';
 import 'package:dio/dio.dart';
-import 'package:flutter_sixvalley_ecommerce/core/guest/mock_data.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/app_constants.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/utill/app_constants.dart' as v_app_constants;
+import 'package:multishop_tchad/core/guest/mock_data.dart';
+import 'package:multishop_tchad/core/constants/app_constants.dart';
+import 'package:multishop_tchad/features/vendor/utill/app_constants.dart' as v_app_constants;
 
 class GuestModeInterceptor extends Interceptor {
   final bool Function() isGuestMode;

@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/vendor_custom_app_bar_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/vendor_custom_button_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/custom_snackbar_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/third_party_deliveryman/controllers/third_party_deliveryman_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/third_party_deliveryman/domain/models/courier_provider_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/third_party_deliveryman/widgets/courier_credential_field_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/third_party_deliveryman/widgets/courier_option_picker_bottom_sheet.dart';
-import 'package:flutter_sixvalley_ecommerce/core/localization/language_constrants.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/styles.dart';
+import 'package:multishop_tchad/core/widgets/base/vendor_custom_app_bar_widget.dart';
+import 'package:multishop_tchad/core/widgets/base/vendor_custom_button_widget.dart';
+import 'package:multishop_tchad/core/widgets/base/custom_snackbar_widget.dart';
+import 'package:multishop_tchad/features/vendor/third_party_deliveryman/controllers/third_party_deliveryman_controller.dart';
+import 'package:multishop_tchad/features/vendor/third_party_deliveryman/domain/models/courier_provider_model.dart';
+import 'package:multishop_tchad/features/vendor/third_party_deliveryman/widgets/courier_credential_field_widget.dart';
+import 'package:multishop_tchad/features/vendor/third_party_deliveryman/widgets/courier_option_picker_bottom_sheet.dart';
+import 'package:multishop_tchad/core/localization/language_constrants.dart';
+import 'package:multishop_tchad/core/constants/dimensions.dart';
+import 'package:multishop_tchad/core/constants/styles.dart';
 
 class CourierProviderConfigScreen extends StatefulWidget {
   final CourierProviderModel provider;

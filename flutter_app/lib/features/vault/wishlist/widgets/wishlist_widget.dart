@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/custom_asset_image_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/custom_directionality_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/custom_image_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/discount_tag_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/wishlist/domain/models/wishlist_model.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/price_converter.dart';
-import 'package:flutter_sixvalley_ecommerce/core/localization/language_constrants.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/custom_themes.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/images.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/wishlist/widgets/remove_from_wishlist_bottom_sheet_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/route_helper.dart';
+import 'package:multishop_tchad/core/widgets/base/custom_asset_image_widget.dart';
+import 'package:multishop_tchad/core/widgets/base/custom_directionality_widget.dart';
+import 'package:multishop_tchad/core/widgets/base/custom_image_widget.dart';
+import 'package:multishop_tchad/core/widgets/base/discount_tag_widget.dart';
+import 'package:multishop_tchad/features/vault/wishlist/domain/models/wishlist_model.dart';
+import 'package:multishop_tchad/core/helpers/price_converter.dart';
+import 'package:multishop_tchad/core/localization/language_constrants.dart';
+import 'package:multishop_tchad/core/constants/custom_themes.dart';
+import 'package:multishop_tchad/core/constants/dimensions.dart';
+import 'package:multishop_tchad/core/constants/images.dart';
+import 'package:multishop_tchad/features/vault/wishlist/widgets/remove_from_wishlist_bottom_sheet_widget.dart';
+import 'package:multishop_tchad/core/helpers/route_helper.dart';
 
 class WishListWidget extends StatelessWidget {
   final WishlistModel? wishlistModel;

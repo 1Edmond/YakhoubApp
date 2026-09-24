@@ -1,49 +1,49 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/custom_app_bar_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/custom_asset_image_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/no_internet_screen_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/not_logged_in_bottom_sheet_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/shared/enums/auction_enum.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/auction_details/controllers/participator/auction_participation_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/auction_details/controllers/participator/participation_auction_details_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/auction_details/domain/models/participator/participation_auction_details_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/auction_details/widgets/auction_experied_banner_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/auction_details/widgets/auction_finalizing_banner_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/auction_details/widgets/auction_participant_address_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/auction_details/widgets/auction_participant_billing_info_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/auction_details/widgets/auction_payment_info_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/auction_details/widgets/auction_product_horizontal_list_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/auction_details/widgets/auction_product_image_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/auction_details/widgets/auction_stat_info_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/auction_details/widgets/auction_bid_action_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/auction_details/widgets/auction_track_order_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/auction_details/widgets/auction_winner_banner_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/auction_details/widgets/auction_countdown_timer_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/auction_details/widgets/auction_feature_tags_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/auction_details/widgets/auction_insights_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/auction_details/widgets/auction_person_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/auction_details/widgets/auction_product_details_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/auction_details/widgets/participate_offline_payment_deatils_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/auction_details/widgets/auction_product_info_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/auction_details/widgets/participant_bidding_list_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/auction_details/widgets/participation_auction_deatils_screen_shimmer.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/auction_details/widgets/product_image_viewer_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/auction_home/domain/auction_enum.dart';
-import 'package:flutter_sixvalley_ecommerce/features/auth/controllers/auth_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/shared/chat/controllers/chat_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/profile/controllers/profile_contrroller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/splash/controllers/splash_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/wallet/controllers/wallet_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/date_converter.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/price_converter.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/product_helper.dart';
-import 'package:flutter_sixvalley_ecommerce/core/localization/language_constrants.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/custom_themes.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/images.dart';
+import 'package:multishop_tchad/core/widgets/base/custom_app_bar_widget.dart';
+import 'package:multishop_tchad/core/widgets/base/custom_asset_image_widget.dart';
+import 'package:multishop_tchad/core/widgets/base/no_internet_screen_widget.dart';
+import 'package:multishop_tchad/core/widgets/base/not_logged_in_bottom_sheet_widget.dart';
+import 'package:multishop_tchad/features/shared/enums/auction_enum.dart';
+import 'package:multishop_tchad/features/vault/auction_details/controllers/participator/auction_participation_controller.dart';
+import 'package:multishop_tchad/features/vault/auction_details/controllers/participator/participation_auction_details_controller.dart';
+import 'package:multishop_tchad/features/vault/auction_details/domain/models/participator/participation_auction_details_model.dart';
+import 'package:multishop_tchad/features/vault/auction_details/widgets/auction_experied_banner_widget.dart';
+import 'package:multishop_tchad/features/vault/auction_details/widgets/auction_finalizing_banner_widget.dart';
+import 'package:multishop_tchad/features/vault/auction_details/widgets/auction_participant_address_widget.dart';
+import 'package:multishop_tchad/features/vault/auction_details/widgets/auction_participant_billing_info_widget.dart';
+import 'package:multishop_tchad/features/vault/auction_details/widgets/auction_payment_info_widget.dart';
+import 'package:multishop_tchad/features/vault/auction_details/widgets/auction_product_horizontal_list_widget.dart';
+import 'package:multishop_tchad/features/vault/auction_details/widgets/auction_product_image_widget.dart';
+import 'package:multishop_tchad/features/vault/auction_details/widgets/auction_stat_info_widget.dart';
+import 'package:multishop_tchad/features/vault/auction_details/widgets/auction_bid_action_widget.dart';
+import 'package:multishop_tchad/features/vault/auction_details/widgets/auction_track_order_widget.dart';
+import 'package:multishop_tchad/features/vault/auction_details/widgets/auction_winner_banner_widget.dart';
+import 'package:multishop_tchad/features/vault/auction_details/widgets/auction_countdown_timer_widget.dart';
+import 'package:multishop_tchad/features/vault/auction_details/widgets/auction_feature_tags_widget.dart';
+import 'package:multishop_tchad/features/vault/auction_details/widgets/auction_insights_widget.dart';
+import 'package:multishop_tchad/features/vault/auction_details/widgets/auction_person_widget.dart';
+import 'package:multishop_tchad/features/vault/auction_details/widgets/auction_product_details_widget.dart';
+import 'package:multishop_tchad/features/vault/auction_details/widgets/participate_offline_payment_deatils_widget.dart';
+import 'package:multishop_tchad/features/vault/auction_details/widgets/auction_product_info_widget.dart';
+import 'package:multishop_tchad/features/vault/auction_details/widgets/participant_bidding_list_widget.dart';
+import 'package:multishop_tchad/features/vault/auction_details/widgets/participation_auction_deatils_screen_shimmer.dart';
+import 'package:multishop_tchad/features/vault/auction_details/widgets/product_image_viewer_widget.dart';
+import 'package:multishop_tchad/features/vault/auction_home/domain/auction_enum.dart';
+import 'package:multishop_tchad/features/auth/controllers/auth_controller.dart';
+import 'package:multishop_tchad/features/shared/chat/controllers/chat_controller.dart';
+import 'package:multishop_tchad/features/customer/profile/controllers/profile_contrroller.dart';
+import 'package:multishop_tchad/features/customer/splash/controllers/splash_controller.dart';
+import 'package:multishop_tchad/features/vault/wallet/controllers/wallet_controller.dart';
+import 'package:multishop_tchad/core/helpers/date_converter.dart';
+import 'package:multishop_tchad/core/helpers/price_converter.dart';
+import 'package:multishop_tchad/core/helpers/product_helper.dart';
+import 'package:multishop_tchad/core/localization/language_constrants.dart';
+import 'package:multishop_tchad/core/constants/custom_themes.dart';
+import 'package:multishop_tchad/core/constants/dimensions.dart';
+import 'package:multishop_tchad/core/constants/images.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/custom_button_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/route_helper.dart';
+import 'package:multishop_tchad/core/widgets/base/custom_button_widget.dart';
+import 'package:multishop_tchad/core/helpers/route_helper.dart';
 import 'package:share_plus/share_plus.dart';
 
 class ParticipationAuctionDetailsScreen extends StatefulWidget {
@@ -155,7 +155,6 @@ class _ParticipationAuctionDetailsScreenState extends State<ParticipationAuction
           ? DateTime.tryParse(product?.endTime ?? '')
           : null;
 
-        // TODO: remove ready to delivery
         final bool isWonOrReadyToClaim = (product?.myAuctionStatus?.isWon == true || product?.auctionStatus?.isClaimed == true) &&  product?.myBid?.claimStartTime != null;
 
         final claimLimit = splashController.configModel?.auctionWinnerClaimTimeLimit;
@@ -308,7 +307,6 @@ class _ParticipationAuctionDetailsScreenState extends State<ParticipationAuction
 
 
 
-            // TODO: add auction ready to delivery status
             bottomNavigationBar: (controller.isLoading || product == null || product.myAuctionStatus?.isLost == true
               || product.myAuctionStatus?.isClaimExpiredLost == true  || product.myAuctionStatus?.isClaimed == true
               || product.auctionOwnerStatus == 'unsold' || product.myAuctionStatus?.isFinalizing == true

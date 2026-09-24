@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/vendor_custom_app_bar_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/auction/controllers/auction_product_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/auction/screens/addAuctionProduct/add_auction_product_tab_view.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/auction/screens/auction_list_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/auction/screens/auction_request_list_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/auction/screens/auction_sales_report_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/auction/screens/auction_tax_report_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/auction/screens/auction_transaction_list_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/auction/widgets/auction_menu_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/splash/controllers/splash_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/core/localization/language_constrants.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/images.dart';
+import 'package:multishop_tchad/core/widgets/base/vendor_custom_app_bar_widget.dart';
+import 'package:multishop_tchad/features/vendor/auction/controllers/auction_product_controller.dart';
+import 'package:multishop_tchad/features/vendor/auction/screens/addAuctionProduct/add_auction_product_tab_view.dart';
+import 'package:multishop_tchad/features/vendor/auction/screens/auction_list_screen.dart';
+import 'package:multishop_tchad/features/vendor/auction/screens/auction_request_list_screen.dart';
+import 'package:multishop_tchad/features/vendor/auction/screens/auction_sales_report_screen.dart';
+import 'package:multishop_tchad/features/vendor/auction/screens/auction_tax_report_screen.dart';
+import 'package:multishop_tchad/features/vendor/auction/screens/auction_transaction_list_screen.dart';
+import 'package:multishop_tchad/features/vendor/auction/widgets/auction_menu_widget.dart';
+import 'package:multishop_tchad/features/vendor/splash/controllers/splash_controller.dart';
+import 'package:multishop_tchad/core/localization/language_constrants.dart';
+import 'package:multishop_tchad/core/constants/dimensions.dart';
+import 'package:multishop_tchad/core/constants/images.dart';
 
 class AuctionMenuScreen extends StatefulWidget {
   const AuctionMenuScreen({super.key});

@@ -1,1 +1,1 @@
-export 'package:flutter_sixvalley_ecommerce/features/vault/restock/controllers/restock_controller.dart';
+export 'package:multishop_tchad/features/vault/restock/controllers/restock_controller.dart';

@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter_sixvalley_ecommerce/core/localization/language_constrants.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/emergency_contract/controllers/emergency_contact_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/images.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/vendor_custom_app_bar_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/custom_delegate_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/custom_search_field_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/emergency_contract/widgets/add_emergency_contact_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/emergency_contract/widgets/emergency_contact_list_widget.dart';
+import 'package:multishop_tchad/core/localization/language_constrants.dart';
+import 'package:multishop_tchad/features/vendor/emergency_contract/controllers/emergency_contact_controller.dart';
+import 'package:multishop_tchad/core/constants/dimensions.dart';
+import 'package:multishop_tchad/core/constants/images.dart';
+import 'package:multishop_tchad/core/widgets/base/vendor_custom_app_bar_widget.dart';
+import 'package:multishop_tchad/core/widgets/base/custom_delegate_widget.dart';
+import 'package:multishop_tchad/core/widgets/base/custom_search_field_widget.dart';
+import 'package:multishop_tchad/features/vendor/emergency_contract/widgets/add_emergency_contact_widget.dart';
+import 'package:multishop_tchad/features/vendor/emergency_contract/widgets/emergency_contact_list_widget.dart';
 
 class EmergencyContactScreen extends StatefulWidget {
   const EmergencyContactScreen({super.key});

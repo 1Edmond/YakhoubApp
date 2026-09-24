@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/delivery_man/controllers/delivery_man_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/no_data_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/order_shimmer_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/vendor_paginated_list_view_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/delivery_man/domain/model/top_delivery_man.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/delivery_man/widgets/earning_card_widget.dart';
+import 'package:multishop_tchad/features/vendor/delivery_man/controllers/delivery_man_controller.dart';
+import 'package:multishop_tchad/core/widgets/base/no_data_screen.dart';
+import 'package:multishop_tchad/core/widgets/base/order_shimmer_widget.dart';
+import 'package:multishop_tchad/core/widgets/base/vendor_paginated_list_view_widget.dart';
+import 'package:multishop_tchad/features/vendor/delivery_man/domain/model/top_delivery_man.dart';
+import 'package:multishop_tchad/features/vendor/delivery_man/widgets/earning_card_widget.dart';
 
 
 class DeliverymanEarningListViewWidget extends StatefulWidget {

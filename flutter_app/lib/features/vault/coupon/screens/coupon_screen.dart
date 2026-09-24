@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/profile/controllers/profile_contrroller.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/route_helper.dart';
-import 'package:flutter_sixvalley_ecommerce/core/localization/language_constrants.dart';
-import 'package:flutter_sixvalley_ecommerce/features/auth/controllers/auth_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/coupon/controllers/coupon_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/images.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/custom_app_bar_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/no_internet_screen_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/not_loggedin_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/coupon/widgets/coupon_item_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/order/widgets/order_shimmer_widget.dart';
+import 'package:multishop_tchad/features/customer/profile/controllers/profile_contrroller.dart';
+import 'package:multishop_tchad/core/helpers/route_helper.dart';
+import 'package:multishop_tchad/core/localization/language_constrants.dart';
+import 'package:multishop_tchad/features/auth/controllers/auth_controller.dart';
+import 'package:multishop_tchad/features/vault/coupon/controllers/coupon_controller.dart';
+import 'package:multishop_tchad/core/constants/dimensions.dart';
+import 'package:multishop_tchad/core/constants/images.dart';
+import 'package:multishop_tchad/core/widgets/base/custom_app_bar_widget.dart';
+import 'package:multishop_tchad/core/widgets/base/no_internet_screen_widget.dart';
+import 'package:multishop_tchad/core/widgets/base/not_loggedin_widget.dart';
+import 'package:multishop_tchad/features/vault/coupon/widgets/coupon_item_widget.dart';
+import 'package:multishop_tchad/features/customer/order/widgets/order_shimmer_widget.dart';
 import 'package:provider/provider.dart';
 
 class CouponList extends StatefulWidget {

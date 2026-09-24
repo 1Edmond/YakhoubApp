@@ -6,11 +6,11 @@ class NextButton extends StatelessWidget {
   final bool isLoading;
 
   const NextButton({
-    Key? key,
+    super.key,
     this.onTap,
     this.isLastTab = false,
     this.isLoading = false,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +19,7 @@ class NextButton extends StatelessWidget {
 }
 
 class AiLoadingState extends StatelessWidget {
-  const AiLoadingState({Key? key}) : super(key: key);
+  const AiLoadingState({super.key});
   @override
   Widget build(BuildContext context) { return Container(); }
 }

@@ -1,6 +1,6 @@
-import 'package:flutter_sixvalley_ecommerce/features/vault/create_auction/domain/models/add_auction_product_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/create_auction/domain/repository/add_auction_product_repository_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/create_auction/domain/services/add_auction_product_service_interface.dart';
+import 'package:multishop_tchad/features/vault/create_auction/domain/models/add_auction_product_model.dart';
+import 'package:multishop_tchad/features/vault/create_auction/domain/repository/add_auction_product_repository_interface.dart';
+import 'package:multishop_tchad/features/vault/create_auction/domain/services/add_auction_product_service_interface.dart';
 import 'package:image_picker/image_picker.dart';
 
 

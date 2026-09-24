@@ -1,9 +1,9 @@
 import 'dart:convert';
-import 'package:flutter_sixvalley_ecommerce/features/shared/enums/user_created_auction_enum.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/auction_list/domain/models/auction_product_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/brand/domain/models/brand_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/category/domain/models/category_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/vat_tax/domain/models/vat_tax_type_model.dart';
+import 'package:multishop_tchad/features/shared/enums/user_created_auction_enum.dart';
+import 'package:multishop_tchad/features/vault/auction_list/domain/models/auction_product_model.dart';
+import 'package:multishop_tchad/features/customer/brand/domain/models/brand_model.dart';
+import 'package:multishop_tchad/features/customer/category/domain/models/category_model.dart';
+import 'package:multishop_tchad/features/vault/vat_tax/domain/models/vat_tax_type_model.dart';
 
 class CreatorAuctionDetailsModel {
   CreatorAuctionProduct? product;

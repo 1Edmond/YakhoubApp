@@ -1,7 +1,7 @@
 
 
-import 'package:flutter_sixvalley_ecommerce/features/vendor/barcode/domain/repositories/barcode_reposity_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/barcode/domain/services/barcode_service_interface.dart';
+import 'package:multishop_tchad/features/vendor/barcode/domain/repositories/barcode_reposity_interface.dart';
+import 'package:multishop_tchad/features/vendor/barcode/domain/services/barcode_service_interface.dart';
 
 class BarcodeService implements BarcodeServiceInterface{
   final BarcodeRepositoryInterface barcodeRepositoryInterface;

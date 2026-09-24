@@ -1,5 +1,5 @@
-import 'package:flutter_sixvalley_ecommerce/features/vault/ai_shopping/domain/models/ai_shopping_action_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/ai_shopping/domain/models/ai_shopping_product_model.dart';
+import 'package:multishop_tchad/features/vault/ai_shopping/domain/models/ai_shopping_action_model.dart';
+import 'package:multishop_tchad/features/vault/ai_shopping/domain/models/ai_shopping_product_model.dart';
 
 class AiShoppingSendMessageResponse {
   final bool status;

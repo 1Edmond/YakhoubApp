@@ -1,6 +1,6 @@
-import 'package:flutter_sixvalley_ecommerce/features/shared/enums/data_source_enum.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/brand/domain/repositories/brand_repo_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/brand/domain/services/brand_service_interface.dart';
+import 'package:multishop_tchad/features/shared/enums/data_source_enum.dart';
+import 'package:multishop_tchad/features/customer/brand/domain/repositories/brand_repo_interface.dart';
+import 'package:multishop_tchad/features/customer/brand/domain/services/brand_service_interface.dart';
 
 class BrandService implements BrandServiceInterface {
   BrandRepoInterface brandRepoInterface;

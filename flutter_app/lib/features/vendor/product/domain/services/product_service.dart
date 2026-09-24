@@ -1,7 +1,7 @@
 
-import 'package:flutter_sixvalley_ecommerce/features/vendor/product/domain/models/filter_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/product/domain/repositories/product_repository_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/product/domain/services/product_service_interface.dart';
+import 'package:multishop_tchad/features/vendor/product/domain/models/filter_model.dart';
+import 'package:multishop_tchad/features/vendor/product/domain/repositories/product_repository_interface.dart';
+import 'package:multishop_tchad/features/vendor/product/domain/services/product_service_interface.dart';
 
 class ProductService implements ProductServiceInterface{
   final ProductRepositoryInterface productRepoInterface;

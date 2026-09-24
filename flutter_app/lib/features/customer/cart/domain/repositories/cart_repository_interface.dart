@@ -1,8 +1,8 @@
-import 'package:flutter_sixvalley_ecommerce/features/customer/cart/domain/models/cart_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/product/domain/models/product_model.dart';
-import 'package:flutter_sixvalley_ecommerce/core/interfaces/repo_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/features/shared/enums/data_source_enum.dart';
-import 'package:flutter_sixvalley_ecommerce/core/models/api_response.dart';
+import 'package:multishop_tchad/features/customer/cart/domain/models/cart_model.dart';
+import 'package:multishop_tchad/features/customer/product/domain/models/product_model.dart';
+import 'package:multishop_tchad/core/interfaces/repo_interface.dart';
+import 'package:multishop_tchad/features/shared/enums/data_source_enum.dart';
+import 'package:multishop_tchad/core/models/api_response.dart';
 
 abstract class CartRepositoryInterface implements RepositoryInterface{
 

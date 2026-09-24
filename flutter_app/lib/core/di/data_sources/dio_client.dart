@@ -2,7 +2,7 @@ import 'dart:io';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'logging_interceptor.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/app_constants.dart';
+import 'package:multishop_tchad/core/constants/app_constants.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:path/path.dart' as path;
@@ -24,7 +24,7 @@ class DioClient {
     token = sharedPreferences.getString(AppConstants.userLoginToken);
     countryCode = sharedPreferences.getString(AppConstants.countryCodeKey) ?? AppConstants.languages[0].countryCode;
     if (kDebugMode) {
-      print("NNNN $token");
+      // print("NNNN $token");
     }
     dio = dioC ?? Dio();
     dio
@@ -43,7 +43,7 @@ class DioClient {
 
       };
     dio!.interceptors.add(loggingInterceptor);
-    print('===============> DIO TIMEOUT SET TO : ' + dio!.options.receiveTimeout.toString() + ' <===============');
+    // print('===============> DIO TIMEOUT SET TO : ${dio!.options.receiveTimeout} <===============');
   }
 
   void updateHeader(String? token, String? countryCode) {

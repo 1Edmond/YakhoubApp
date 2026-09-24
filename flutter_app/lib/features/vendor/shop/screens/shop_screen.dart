@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/dashboard/screens/dashboard_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/shop/screens/other_setup_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/shop/screens/payment_info_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/shop/widgets/my_shop_appbar.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/shop/widgets/shop_details_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/localization/language_constrants.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/profile/controllers/profile_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/shop/controllers/shop_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/splash/controllers/splash_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/styles.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/basewidgets/custom_loader_widget.dart';
+import 'package:multishop_tchad/features/vendor/dashboard/screens/dashboard_screen.dart';
+import 'package:multishop_tchad/features/vendor/shop/screens/other_setup_screen.dart';
+import 'package:multishop_tchad/features/vendor/shop/screens/payment_info_screen.dart';
+import 'package:multishop_tchad/features/vendor/shop/widgets/my_shop_appbar.dart';
+import 'package:multishop_tchad/features/vendor/shop/widgets/shop_details_widget.dart';
+import 'package:multishop_tchad/features/vendor/localization/language_constrants.dart';
+import 'package:multishop_tchad/features/vendor/profile/controllers/profile_controller.dart';
+import 'package:multishop_tchad/features/vendor/shop/controllers/shop_controller.dart';
+import 'package:multishop_tchad/features/vendor/splash/controllers/splash_controller.dart';
+import 'package:multishop_tchad/core/constants/dimensions.dart';
+import 'package:multishop_tchad/core/constants/styles.dart';
+import 'package:multishop_tchad/core/widgets/base/basewidgets/custom_loader_widget.dart';
 
-import 'package:flutter_sixvalley_ecommerce/main.dart';
+import 'package:multishop_tchad/main.dart';
 
 class ShopScreen extends StatefulWidget {
   final int? tabIndex;

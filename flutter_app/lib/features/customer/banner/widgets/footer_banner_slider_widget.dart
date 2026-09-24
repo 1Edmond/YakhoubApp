@@ -1,11 +1,11 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/custom_image_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/banner/controllers/banner_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/banner/domain/models/banner_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/banner/widgets/single_banner_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/theme/controllers/theme_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
+import 'package:multishop_tchad/core/widgets/base/custom_image_widget.dart';
+import 'package:multishop_tchad/features/customer/banner/controllers/banner_controller.dart';
+import 'package:multishop_tchad/features/customer/banner/domain/models/banner_model.dart';
+import 'package:multishop_tchad/features/customer/banner/widgets/single_banner_widget.dart';
+import 'package:multishop_tchad/core/theme/controllers/theme_controller.dart';
+import 'package:multishop_tchad/core/constants/dimensions.dart';
 import 'package:provider/provider.dart';
 
 class FooterBannerSliderWidget extends StatelessWidget {

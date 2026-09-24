@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/paginated_list_view_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/product_details/controllers/product_details_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/review/controllers/review_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/review/widgets/overall_rating_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/localization/language_constrants.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/custom_themes.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/review/widgets/review_widget.dart';
+import 'package:multishop_tchad/core/widgets/base/paginated_list_view_widget.dart';
+import 'package:multishop_tchad/features/customer/product_details/controllers/product_details_controller.dart';
+import 'package:multishop_tchad/features/vault/review/controllers/review_controller.dart';
+import 'package:multishop_tchad/features/vault/review/widgets/overall_rating_widget.dart';
+import 'package:multishop_tchad/core/localization/language_constrants.dart';
+import 'package:multishop_tchad/core/constants/custom_themes.dart';
+import 'package:multishop_tchad/core/constants/dimensions.dart';
+import 'package:multishop_tchad/features/vault/review/widgets/review_widget.dart';
 import 'package:provider/provider.dart';
 
 class ReviewSection extends StatelessWidget {

@@ -1,7 +1,7 @@
 import 'dart:convert';
 
-import 'package:flutter_sixvalley_ecommerce/features/shared/enums/auction_enum.dart';
-import 'package:flutter_sixvalley_ecommerce/features/shared/enums/payment_status_enum.dart';
+import 'package:multishop_tchad/features/shared/enums/auction_enum.dart';
+import 'package:multishop_tchad/features/shared/enums/payment_status_enum.dart';
 
 
 enum AuctionOwnerType {

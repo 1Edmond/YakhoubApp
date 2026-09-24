@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/show_custom_snakbar_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/address/domain/models/address_model.dart';
-import 'package:flutter_sixvalley_ecommerce/core/models/api_response.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/address/domain/models/label_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/address/domain/models/restricted_zip_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/address/domain/services/address_service_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/api_checker.dart';
-import 'package:flutter_sixvalley_ecommerce/main.dart';
+import 'package:multishop_tchad/core/widgets/base/show_custom_snakbar_widget.dart';
+import 'package:multishop_tchad/features/customer/address/domain/models/address_model.dart';
+import 'package:multishop_tchad/core/models/api_response.dart';
+import 'package:multishop_tchad/features/customer/address/domain/models/label_model.dart';
+import 'package:multishop_tchad/features/customer/address/domain/models/restricted_zip_model.dart';
+import 'package:multishop_tchad/features/customer/address/domain/services/address_service_interface.dart';
+import 'package:multishop_tchad/core/helpers/api_checker.dart';
+import 'package:multishop_tchad/main.dart';
 
 class AddressController with ChangeNotifier {
   final AddressServiceInterface addressServiceInterface;

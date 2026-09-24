@@ -1,1 +1,1 @@
-export 'package:flutter_sixvalley_ecommerce/core/localization/controllers/localization_controller.dart';
+export 'package:multishop_tchad/core/localization/controllers/localization_controller.dart';

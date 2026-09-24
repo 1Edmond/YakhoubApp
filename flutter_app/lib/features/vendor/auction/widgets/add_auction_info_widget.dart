@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shimmer/shimmer.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/addProduct/controllers/add_product_tax_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/addProduct/domain/models/tax_vat_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/splash/controllers/splash_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/dropdown_decorator_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/auction/widgets/auction_tag_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/styles.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/date_converter.dart';
-import 'package:flutter_sixvalley_ecommerce/core/localization/language_constrants.dart';
+import 'package:multishop_tchad/features/vendor/addProduct/controllers/add_product_tax_controller.dart';
+import 'package:multishop_tchad/features/vendor/addProduct/domain/models/tax_vat_model.dart';
+import 'package:multishop_tchad/features/vendor/splash/controllers/splash_controller.dart';
+import 'package:multishop_tchad/core/widgets/base/dropdown_decorator_widget.dart';
+import 'package:multishop_tchad/features/vendor/auction/widgets/auction_tag_widget.dart';
+import 'package:multishop_tchad/core/constants/dimensions.dart';
+import 'package:multishop_tchad/core/constants/styles.dart';
+import 'package:multishop_tchad/core/helpers/date_converter.dart';
+import 'package:multishop_tchad/core/localization/language_constrants.dart';
 import 'package:textfield_tags/textfield_tags.dart';
 
 class AddAuctionInfoWidget extends StatefulWidget {
@@ -479,10 +479,9 @@ class _ShimmerOverlayWrapper extends StatelessWidget {
   const _ShimmerOverlayWrapper({
     required this.child,
     this.isActive = false,
-    this.opacity = 0.3,
     this.baseColor,
     this.highlightColor,
-  });
+  }) : opacity = 0.3;
 
   @override
   Widget build(BuildContext context) {

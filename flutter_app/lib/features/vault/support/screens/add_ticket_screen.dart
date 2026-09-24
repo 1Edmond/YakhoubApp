@@ -1,19 +1,19 @@
 import 'dart:io';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/custom_asset_image_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/support/controllers/support_ticket_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/support/domain/models/support_ticket_body.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/support/widgets/priority_bottom_sheet_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/support/widgets/support_ticket_type_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/localization/language_constrants.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/custom_themes.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/images.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/custom_app_bar_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/custom_button_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/show_custom_snakbar_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/custom_textfield_widget.dart';
+import 'package:multishop_tchad/core/widgets/base/custom_asset_image_widget.dart';
+import 'package:multishop_tchad/features/vault/support/controllers/support_ticket_controller.dart';
+import 'package:multishop_tchad/features/vault/support/domain/models/support_ticket_body.dart';
+import 'package:multishop_tchad/features/vault/support/widgets/priority_bottom_sheet_widget.dart';
+import 'package:multishop_tchad/features/vault/support/widgets/support_ticket_type_widget.dart';
+import 'package:multishop_tchad/core/localization/language_constrants.dart';
+import 'package:multishop_tchad/core/constants/custom_themes.dart';
+import 'package:multishop_tchad/core/constants/dimensions.dart';
+import 'package:multishop_tchad/core/constants/images.dart';
+import 'package:multishop_tchad/core/widgets/base/custom_app_bar_widget.dart';
+import 'package:multishop_tchad/core/widgets/base/custom_button_widget.dart';
+import 'package:multishop_tchad/core/widgets/base/show_custom_snakbar_widget.dart';
+import 'package:multishop_tchad/core/widgets/base/custom_textfield_widget.dart';
 import 'package:provider/provider.dart';
 
 class AddTicketScreen extends StatefulWidget {

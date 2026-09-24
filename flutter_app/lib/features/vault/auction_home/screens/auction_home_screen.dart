@@ -1,18 +1,18 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/custom_image_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/auction_category/controllers/auction_category_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/auction_home/controllers/auction_home_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/auction_home/screens/category_content_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/auction_home/screens/explore_content_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/auth/controllers/auth_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/home/widgets/search_home_page_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/profile/controllers/profile_contrroller.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/route_helper.dart';
-import 'package:flutter_sixvalley_ecommerce/core/localization/language_constrants.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/custom_themes.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/images.dart';
+import 'package:multishop_tchad/core/widgets/base/custom_image_widget.dart';
+import 'package:multishop_tchad/features/vault/auction_category/controllers/auction_category_controller.dart';
+import 'package:multishop_tchad/features/vault/auction_home/controllers/auction_home_controller.dart';
+import 'package:multishop_tchad/features/vault/auction_home/screens/category_content_screen.dart';
+import 'package:multishop_tchad/features/vault/auction_home/screens/explore_content_screen.dart';
+import 'package:multishop_tchad/features/auth/controllers/auth_controller.dart';
+import 'package:multishop_tchad/features/customer/home/widgets/search_home_page_widget.dart';
+import 'package:multishop_tchad/features/customer/profile/controllers/profile_contrroller.dart';
+import 'package:multishop_tchad/core/helpers/route_helper.dart';
+import 'package:multishop_tchad/core/localization/language_constrants.dart';
+import 'package:multishop_tchad/core/constants/custom_themes.dart';
+import 'package:multishop_tchad/core/constants/dimensions.dart';
+import 'package:multishop_tchad/core/constants/images.dart';
 import 'package:provider/provider.dart';
 
 class AuctionHomeScreen extends StatefulWidget {
@@ -336,7 +336,7 @@ class _SliverSearchBarDelegate extends SliverPersistentHeaderDelegate {
   final Widget child;
   final double height;
 
-  const _SliverSearchBarDelegate({required this.child, this.height = 75});
+  const _SliverSearchBarDelegate({required this.child}) : height = 75;
 
   @override
   Widget build(BuildContext context, double shrinkOffset, bool overlapsContent) => child;

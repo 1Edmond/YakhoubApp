@@ -1,9 +1,9 @@
 import 'package:dio/dio.dart';
-import 'package:flutter_sixvalley_ecommerce/core/di/data_sources/dio_client.dart';
-import 'package:flutter_sixvalley_ecommerce/core/di/data_sources/remote/exception/api_error_handler.dart';
-import 'package:flutter_sixvalley_ecommerce/core/models/api_response.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/auction_ai/domain/repository/auction_ai_repository_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/app_constants.dart';
+import 'package:multishop_tchad/core/di/data_sources/dio_client.dart';
+import 'package:multishop_tchad/core/di/data_sources/remote/exception/api_error_handler.dart';
+import 'package:multishop_tchad/core/models/api_response.dart';
+import 'package:multishop_tchad/features/vault/auction_ai/domain/repository/auction_ai_repository_interface.dart';
+import 'package:multishop_tchad/core/constants/app_constants.dart';
 import 'package:image_picker/image_picker.dart';
 
 

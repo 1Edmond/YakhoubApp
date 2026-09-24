@@ -1,22 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/vendor_custom_button_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/addProduct/controllers/digital_product_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/addProduct/domain/models/category_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/product/controllers/category_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/product/controllers/product_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/product/domain/enums/product_type_enum.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/product/domain/models/filter_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/product/domain/models/product_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/profile/controllers/profile_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/splash/controllers/splash_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/splash/domain/models/config_model.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/price_converter.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/localization/language_constrants.dart';
-import 'package:flutter_sixvalley_ecommerce/main.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/theme/controllers/theme_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/styles.dart';
+import 'package:multishop_tchad/core/widgets/base/vendor_custom_button_widget.dart';
+import 'package:multishop_tchad/features/vendor/addProduct/controllers/digital_product_controller.dart';
+import 'package:multishop_tchad/features/vendor/addProduct/domain/models/category_model.dart';
+import 'package:multishop_tchad/features/vendor/product/controllers/category_controller.dart';
+import 'package:multishop_tchad/features/vendor/product/controllers/product_controller.dart';
+import 'package:multishop_tchad/features/vendor/product/domain/enums/product_type_enum.dart';
+import 'package:multishop_tchad/features/vendor/product/domain/models/filter_model.dart';
+import 'package:multishop_tchad/features/vendor/product/domain/models/product_model.dart';
+import 'package:multishop_tchad/features/vendor/profile/controllers/profile_controller.dart';
+import 'package:multishop_tchad/features/vendor/splash/controllers/splash_controller.dart';
+import 'package:multishop_tchad/features/vendor/splash/domain/models/config_model.dart';
+import 'package:multishop_tchad/core/helpers/price_converter.dart';
+import 'package:multishop_tchad/features/vendor/localization/language_constrants.dart';
+import 'package:multishop_tchad/main.dart';
+import 'package:multishop_tchad/features/vendor/theme/controllers/theme_controller.dart';
+import 'package:multishop_tchad/core/constants/dimensions.dart';
+import 'package:multishop_tchad/core/constants/styles.dart';
 
 class ProductFilterBottomSheet extends StatefulWidget {
   const ProductFilterBottomSheet({super.key});
@@ -1055,7 +1055,7 @@ class _ButtonWidget extends StatelessWidget {
     if (!productController.isPriceRangeValid) return false;
 
 
-    bool _areListsEqual(List<int>? list1, List<int>? list2) {
+    bool areListsEqual(List<int>? list1, List<int>? list2) {
       if (list1 == null && list2 == null) return true;
       if (list1 == null || list2 == null) return false;
       if (list1.length != list2.length) return false;

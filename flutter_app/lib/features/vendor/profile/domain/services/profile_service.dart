@@ -1,12 +1,12 @@
 import 'dart:io';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/basewidgets/custom_snackbar_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/profile/domain/models/profile_body.dart';
-import 'package:flutter_sixvalley_ecommerce/core/di/model/response/base/api_response.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/profile/domain/models/profile_info.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/profile/domain/repositories/profile_repository_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/profile/domain/services/profice_service_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/api_checker.dart';
-import 'package:flutter_sixvalley_ecommerce/main.dart';
+import 'package:multishop_tchad/core/widgets/base/basewidgets/custom_snackbar_widget.dart';
+import 'package:multishop_tchad/features/vendor/profile/domain/models/profile_body.dart';
+import 'package:multishop_tchad/core/di/model/response/base/api_response.dart';
+import 'package:multishop_tchad/features/vendor/profile/domain/models/profile_info.dart';
+import 'package:multishop_tchad/features/vendor/profile/domain/repositories/profile_repository_interface.dart';
+import 'package:multishop_tchad/features/vendor/profile/domain/services/profice_service_interface.dart';
+import 'package:multishop_tchad/core/helpers/api_checker.dart';
+import 'package:multishop_tchad/main.dart';
 
 class ProfileService implements ProfileServiceInterface{
   final ProfileRepositoryInterface profileRepoInterface;

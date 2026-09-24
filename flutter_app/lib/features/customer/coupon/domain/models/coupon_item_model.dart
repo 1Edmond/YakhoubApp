@@ -1,5 +1,5 @@
 
-import 'package:flutter_sixvalley_ecommerce/features/customer/shop/domain/models/seller_model.dart';
+import 'package:multishop_tchad/features/customer/shop/domain/models/seller_model.dart';
 
 class CouponItemModel {
   int? totalSize;

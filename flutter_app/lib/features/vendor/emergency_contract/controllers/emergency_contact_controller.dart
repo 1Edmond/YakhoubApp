@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_sixvalley_ecommerce/core/models/response_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/emergency_contract/domain/models/emergency_contact_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/emergency_contract/domain/services/emergency_contruct_service_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/main.dart';
+import 'package:multishop_tchad/core/models/response_model.dart';
+import 'package:multishop_tchad/features/vendor/emergency_contract/domain/models/emergency_contact_model.dart';
+import 'package:multishop_tchad/features/vendor/emergency_contract/domain/services/emergency_contruct_service_interface.dart';
+import 'package:multishop_tchad/main.dart';
 
 class EmergencyContactController extends ChangeNotifier {
   final EmergencyServiceInterface emergencyServiceInterface;

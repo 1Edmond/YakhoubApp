@@ -3,15 +3,15 @@ import 'dart:convert';
 import 'package:drift/drift.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/core/di/local/cache_response.dart';
-import 'package:flutter_sixvalley_ecommerce/core/models/api_response.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/splash/domain/models/business_pages_model.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/route_helper.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/splash/domain/models/config_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/splash/domain/services/splash_service_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/api_checker.dart';
-import 'package:flutter_sixvalley_ecommerce/main.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/app_constants.dart';
+import 'package:multishop_tchad/core/di/local/cache_response.dart';
+import 'package:multishop_tchad/core/models/api_response.dart';
+import 'package:multishop_tchad/features/customer/splash/domain/models/business_pages_model.dart';
+import 'package:multishop_tchad/core/helpers/route_helper.dart';
+import 'package:multishop_tchad/features/customer/splash/domain/models/config_model.dart';
+import 'package:multishop_tchad/features/customer/splash/domain/services/splash_service_interface.dart';
+import 'package:multishop_tchad/core/helpers/api_checker.dart';
+import 'package:multishop_tchad/main.dart';
+import 'package:multishop_tchad/core/constants/app_constants.dart';
 
 class SplashController extends ChangeNotifier {
   final SplashServiceInterface? splashServiceInterface;

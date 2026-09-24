@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:screenshot/screenshot.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/pos/domain/models/invoice_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/shop/domain/models/shop_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/splash/controllers/splash_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/date_converter.dart';
-import 'package:flutter_sixvalley_ecommerce/core/localization/language_constrants.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/styles.dart';
+import 'package:multishop_tchad/features/vendor/pos/domain/models/invoice_model.dart';
+import 'package:multishop_tchad/features/vendor/shop/domain/models/shop_model.dart';
+import 'package:multishop_tchad/features/vendor/splash/controllers/splash_controller.dart';
+import 'package:multishop_tchad/core/helpers/date_converter.dart';
+import 'package:multishop_tchad/core/localization/language_constrants.dart';
+import 'package:multishop_tchad/core/constants/dimensions.dart';
+import 'package:multishop_tchad/core/constants/styles.dart';
 
 class InvoiceDialogWidget extends StatelessWidget {
   final InvoiceModel? invoice;

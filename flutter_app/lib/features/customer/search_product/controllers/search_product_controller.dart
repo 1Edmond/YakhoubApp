@@ -1,14 +1,14 @@
 
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/core/models/api_response.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/compare/controllers/compare_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/product/domain/models/product_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/search_product/domain/models/author_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/search_product/domain/models/suggestion_product_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/search_product/domain/services/search_product_service_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/api_checker.dart';
-import 'package:flutter_sixvalley_ecommerce/main.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/app_constants.dart';
+import 'package:multishop_tchad/core/models/api_response.dart';
+import 'package:multishop_tchad/features/vault/compare/controllers/compare_controller.dart';
+import 'package:multishop_tchad/features/customer/product/domain/models/product_model.dart';
+import 'package:multishop_tchad/features/customer/search_product/domain/models/author_model.dart';
+import 'package:multishop_tchad/features/customer/search_product/domain/models/suggestion_product_model.dart';
+import 'package:multishop_tchad/features/customer/search_product/domain/services/search_product_service_interface.dart';
+import 'package:multishop_tchad/core/helpers/api_checker.dart';
+import 'package:multishop_tchad/main.dart';
+import 'package:multishop_tchad/core/constants/app_constants.dart';
 import 'package:provider/provider.dart';
 
 class SearchProductController with ChangeNotifier {

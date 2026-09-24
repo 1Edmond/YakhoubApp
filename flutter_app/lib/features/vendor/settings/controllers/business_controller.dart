@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/settings/domain/models/business_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/settings/domain/services/business_service_interface.dart';
+import 'package:multishop_tchad/features/vendor/settings/domain/models/business_model.dart';
+import 'package:multishop_tchad/features/vendor/settings/domain/services/business_service_interface.dart';
 
 class BusinessController extends ChangeNotifier {
   final BusinessServiceInterface businessServiceInterface;

@@ -1,9 +1,9 @@
 import 'dart:convert';
-import 'package:flutter_sixvalley_ecommerce/core/di/data_sources/dio_client.dart';
-import 'package:flutter_sixvalley_ecommerce/core/di/data_sources/exception/api_error_handler.dart';
-import 'package:flutter_sixvalley_ecommerce/core/models/api_response.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/search_product/domain/repositories/search_product_repository_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/app_constants.dart';
+import 'package:multishop_tchad/core/di/data_sources/dio_client.dart';
+import 'package:multishop_tchad/core/di/data_sources/exception/api_error_handler.dart';
+import 'package:multishop_tchad/core/models/api_response.dart';
+import 'package:multishop_tchad/features/customer/search_product/domain/repositories/search_product_repository_interface.dart';
+import 'package:multishop_tchad/core/constants/app_constants.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SearchProductRepository implements SearchProductRepositoryInterface{
@@ -74,31 +74,26 @@ class SearchProductRepository implements SearchProductRepositoryInterface{
 
   @override
   Future add(value) {
-    // TODO: implement add
     throw UnimplementedError();
   }
 
   @override
   Future delete(int id) {
-    // TODO: implement delete
     throw UnimplementedError();
   }
 
   @override
   Future get(String id) {
-    // TODO: implement get
     throw UnimplementedError();
   }
 
   @override
   Future getList({int? offset = 1}) {
-    // TODO: implement getList
     throw UnimplementedError();
   }
 
   @override
   Future update(Map<String, dynamic> body, int id) {
-    // TODO: implement update
     throw UnimplementedError();
   }
 

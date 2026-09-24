@@ -1,15 +1,15 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/order_details/controllers/order_details_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/order_details/domain/models/order_details_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/order_edit/domain/models/order_edit_cart_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/order_edit/domain/services/order_edit_service_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/core/di/model/response/base/api_response.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/product/domain/models/product_model.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/api_checker.dart';
+import 'package:multishop_tchad/features/vendor/order_details/controllers/order_details_controller.dart';
+import 'package:multishop_tchad/features/vendor/order_details/domain/models/order_details_model.dart';
+import 'package:multishop_tchad/features/vendor/order_edit/domain/models/order_edit_cart_model.dart';
+import 'package:multishop_tchad/features/vendor/order_edit/domain/services/order_edit_service_interface.dart';
+import 'package:multishop_tchad/core/di/model/response/base/api_response.dart';
+import 'package:multishop_tchad/features/vendor/product/domain/models/product_model.dart';
+import 'package:multishop_tchad/core/helpers/api_checker.dart';
 
-import 'package:flutter_sixvalley_ecommerce/main.dart';
+import 'package:multishop_tchad/main.dart';
 
 
 class OrderEditController with ChangeNotifier {

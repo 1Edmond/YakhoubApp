@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter_sixvalley_ecommerce/core/feature_vault/vault_controller.dart';
+import 'package:multishop_tchad/core/feature_vault/vault_controller.dart';
 
 class VaultPanelScreen extends StatelessWidget {
   const VaultPanelScreen({super.key});

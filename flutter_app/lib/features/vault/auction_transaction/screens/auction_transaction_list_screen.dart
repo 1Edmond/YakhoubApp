@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/custom_app_bar_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/custom_icon_search_field_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/filter_icon_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/paginated_list_view_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/auction_transaction/controller/auction_transaction_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/auction_transaction/widgets/auction_transaction_filter_bottom_sheet_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/auction_transaction/widgets/auction_transaction_shimmer_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/auction_transaction/widgets/auction_transaction_tile_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/debounce_helper.dart';
-import 'package:flutter_sixvalley_ecommerce/core/localization/language_constrants.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/images.dart';
+import 'package:multishop_tchad/core/widgets/base/custom_app_bar_widget.dart';
+import 'package:multishop_tchad/core/widgets/base/custom_icon_search_field_widget.dart';
+import 'package:multishop_tchad/core/widgets/base/filter_icon_widget.dart';
+import 'package:multishop_tchad/core/widgets/base/paginated_list_view_widget.dart';
+import 'package:multishop_tchad/features/vault/auction_transaction/controller/auction_transaction_controller.dart';
+import 'package:multishop_tchad/features/vault/auction_transaction/widgets/auction_transaction_filter_bottom_sheet_widget.dart';
+import 'package:multishop_tchad/features/vault/auction_transaction/widgets/auction_transaction_shimmer_widget.dart';
+import 'package:multishop_tchad/features/vault/auction_transaction/widgets/auction_transaction_tile_widget.dart';
+import 'package:multishop_tchad/core/helpers/debounce_helper.dart';
+import 'package:multishop_tchad/core/localization/language_constrants.dart';
+import 'package:multishop_tchad/core/constants/dimensions.dart';
+import 'package:multishop_tchad/core/constants/images.dart';
 import 'package:provider/provider.dart';
 
 

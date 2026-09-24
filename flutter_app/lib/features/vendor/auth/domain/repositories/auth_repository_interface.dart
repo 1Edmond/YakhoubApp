@@ -1,7 +1,7 @@
 import 'package:image_picker/image_picker.dart';
-import 'package:flutter_sixvalley_ecommerce/core/di/model/response/base/api_response.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/auth/domain/models/register_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/interface/repository_interface.dart';
+import 'package:multishop_tchad/core/di/model/response/base/api_response.dart';
+import 'package:multishop_tchad/features/vendor/auth/domain/models/register_model.dart';
+import 'package:multishop_tchad/features/vendor/interface/repository_interface.dart';
 
 abstract class AuthRepositoryInterface implements RepositoryInterface{
   Future<ApiResponse> login({String? emailAddress, String? password});

@@ -1,26 +1,23 @@
 import 'package:dio/dio.dart';
-import 'package:flutter_sixvalley_ecommerce/core/di/datasource/remote/exception/api_error_handler.dart';
-import 'package:flutter_sixvalley_ecommerce/core/di/model/response/base/api_response.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/settings/domain/models/business_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/settings/domain/repositories/buisness_repository_interface.dart';
+import 'package:multishop_tchad/core/di/datasource/remote/exception/api_error_handler.dart';
+import 'package:multishop_tchad/core/di/model/response/base/api_response.dart';
+import 'package:multishop_tchad/features/vendor/settings/domain/models/business_model.dart';
+import 'package:multishop_tchad/features/vendor/settings/domain/repositories/buisness_repository_interface.dart';
 
 class BusinessRepository implements BusinessRepositoryInterface{
 
   @override
   Future add(value) {
-    // TODO: implement add
     throw UnimplementedError();
   }
 
   @override
   Future delete(int id) {
-    // TODO: implement delete
     throw UnimplementedError();
   }
 
   @override
   Future get(String id) {
-    // TODO: implement get
     throw UnimplementedError();
   }
 
@@ -41,7 +38,6 @@ class BusinessRepository implements BusinessRepositoryInterface{
 
   @override
   Future update(Map<String, dynamic> body, int id) {
-    // TODO: implement update
     throw UnimplementedError();
   }
 }

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/delivery_man/controllers/delivery_man_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/no_data_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/delivery_man/widgets/delivery_man_card_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/pos/widgets/pos_product_shimmer_widget.dart';
+import 'package:multishop_tchad/features/vendor/delivery_man/controllers/delivery_man_controller.dart';
+import 'package:multishop_tchad/core/constants/dimensions.dart';
+import 'package:multishop_tchad/core/widgets/base/no_data_screen.dart';
+import 'package:multishop_tchad/features/vendor/delivery_man/widgets/delivery_man_card_widget.dart';
+import 'package:multishop_tchad/features/vendor/pos/widgets/pos_product_shimmer_widget.dart';
 
 class DeliveryManListViewWidget extends StatelessWidget {
   const DeliveryManListViewWidget({super.key});

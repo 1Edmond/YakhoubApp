@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:flutter_sixvalley_ecommerce/features/vendor/order_details/domain/models/order_setup_model.dart';
+import 'package:multishop_tchad/features/vendor/order_details/domain/models/order_setup_model.dart';
 
 abstract class OrderDetailsServiceInterface{
   Future<dynamic> setUpOrder(OrderSetupModel orderSetUpModel);

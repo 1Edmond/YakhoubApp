@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/debounce_helper.dart';
-import 'package:flutter_sixvalley_ecommerce/utill/dimensions.dart';
+import 'package:multishop_tchad/core/helpers/debounce_helper.dart';
+import 'package:multishop_tchad/utill/dimensions.dart';
 
 
 class PaginatedListView extends StatefulWidget {

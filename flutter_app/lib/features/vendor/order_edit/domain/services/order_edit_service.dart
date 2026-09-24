@@ -1,6 +1,6 @@
-import 'package:flutter_sixvalley_ecommerce/core/di/model/response/base/api_response.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/order_edit/domain/repositories/order_edit_repository_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/order_edit/domain/services/order_edit_service_interface.dart';
+import 'package:multishop_tchad/core/di/model/response/base/api_response.dart';
+import 'package:multishop_tchad/features/vendor/order_edit/domain/repositories/order_edit_repository_interface.dart';
+import 'package:multishop_tchad/features/vendor/order_edit/domain/services/order_edit_service_interface.dart';
 
 class OrderEditService implements OrderEditServiceInterface {
   final OrderEditRepositoryInterface orderEditRepositoryInterface;

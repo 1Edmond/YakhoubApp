@@ -2,10 +2,10 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:flutter_sixvalley_ecommerce/core/di/model/response/base/api_response.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/order/domain/models/place_details_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/order/domain/models/prediction_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/order/domain/services/location_service_interface.dart';
+import 'package:multishop_tchad/core/di/model/response/base/api_response.dart';
+import 'package:multishop_tchad/features/vendor/order/domain/models/place_details_model.dart';
+import 'package:multishop_tchad/features/vendor/order/domain/models/prediction_model.dart';
+import 'package:multishop_tchad/features/vendor/order/domain/services/location_service_interface.dart';
 
 class LocationController with ChangeNotifier {
   final LocationServiceInterface locationServiceInterface;
@@ -70,7 +70,7 @@ class LocationController with ChangeNotifier {
         }
       } catch (e) {
         if (kDebugMode) {
-          print(e);
+          // print(e);
         }
       }
       _loading = false;
@@ -132,7 +132,7 @@ class LocationController with ChangeNotifier {
     _position = _pickPosition;
     _address = _pickAddress!;
     if(_pickAddress != null && _pickAddress!.isNotEmpty) {
-      print("Save Address Data: $_pickAddress");
+      // print("Save Address Data: $_pickAddress");
       _locationTextEditingController.text = _address ?? '';
     }
     _updateAddAddressData = false;

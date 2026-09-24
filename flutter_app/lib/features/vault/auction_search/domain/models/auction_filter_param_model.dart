@@ -1,3 +1,5 @@
+const double kPriceMax = 1000000.0;
+const double kEntryFeeMax = 1000000.0;
 class AuctionFilterParamModel {
   final String? listingSelection;
   final String? uiSortBy;
@@ -39,8 +41,6 @@ class AuctionFilterParamModel {
     return count;
   }
 
-  static const double kPriceMax = 1000; /// TODO: SHOULD MAKE IT DYNAMIC (ASK FOR NEW FIELD IN CONFIG MODEL)
-  static const double kEntryFeeMax = 1000; /// TODO: SHOULD MAKE IT DYNAMIC (ASK FOR NEW FIELD IN CONFIG MODEL)
 
   Map<String, dynamic> toQueryParams() {
     final Map<String, dynamic> params = {};

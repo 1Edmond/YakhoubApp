@@ -1,18 +1,18 @@
 
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/order_details/controllers/order_details_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/order_details/domain/models/order_details_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/review/controllers/review_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/date_converter.dart';
-import 'package:flutter_sixvalley_ecommerce/core/localization/language_constrants.dart';
-import 'package:flutter_sixvalley_ecommerce/main.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/order/domain/models/order_model.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/app_constants.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/custom_themes.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/images.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/custom_button_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/custom_textfield_widget.dart';
+import 'package:multishop_tchad/features/customer/order_details/controllers/order_details_controller.dart';
+import 'package:multishop_tchad/features/customer/order_details/domain/models/order_details_model.dart';
+import 'package:multishop_tchad/features/vault/review/controllers/review_controller.dart';
+import 'package:multishop_tchad/core/helpers/date_converter.dart';
+import 'package:multishop_tchad/core/localization/language_constrants.dart';
+import 'package:multishop_tchad/main.dart';
+import 'package:multishop_tchad/features/customer/order/domain/models/order_model.dart';
+import 'package:multishop_tchad/core/constants/app_constants.dart';
+import 'package:multishop_tchad/core/constants/custom_themes.dart';
+import 'package:multishop_tchad/core/constants/dimensions.dart';
+import 'package:multishop_tchad/core/constants/images.dart';
+import 'package:multishop_tchad/core/widgets/base/custom_button_widget.dart';
+import 'package:multishop_tchad/core/widgets/base/custom_textfield_widget.dart';
 import 'package:provider/provider.dart';
 
 class DeliveryManReviewDialogWidget extends StatefulWidget {

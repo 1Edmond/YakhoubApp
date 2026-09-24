@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/core/models/response/base/api_response.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/third_party_deliveryman/domain/models/courier_enabled_provider_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/third_party_deliveryman/domain/models/courier_location_option_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/third_party_deliveryman/domain/models/courier_provider_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/third_party_deliveryman/domain/models/courier_tracking_event_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/third_party_deliveryman/domain/services/third_party_deliveryman_service_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/api_checker.dart';
+import 'package:multishop_tchad/core/models/response/base/api_response.dart';
+import 'package:multishop_tchad/features/vendor/third_party_deliveryman/domain/models/courier_enabled_provider_model.dart';
+import 'package:multishop_tchad/features/vendor/third_party_deliveryman/domain/models/courier_location_option_model.dart';
+import 'package:multishop_tchad/features/vendor/third_party_deliveryman/domain/models/courier_provider_model.dart';
+import 'package:multishop_tchad/features/vendor/third_party_deliveryman/domain/models/courier_tracking_event_model.dart';
+import 'package:multishop_tchad/features/vendor/third_party_deliveryman/domain/services/third_party_deliveryman_service_interface.dart';
+import 'package:multishop_tchad/core/helpers/api_checker.dart';
 
 class ThirdPartyDeliverymanController extends ChangeNotifier {
   final ThirdPartyDeliverymanServiceInterface serviceInterface;

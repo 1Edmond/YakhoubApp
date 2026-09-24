@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/shop/controllers/shop_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/shop/domain/models/seller_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/shop/widgets/seller_card.dart';
+import 'package:multishop_tchad/features/customer/shop/controllers/shop_controller.dart';
+import 'package:multishop_tchad/features/customer/shop/domain/models/seller_model.dart';
+import 'package:multishop_tchad/features/customer/shop/widgets/seller_card.dart';
 import 'package:provider/provider.dart';
 
 class TopSellerWidget extends StatelessWidget {

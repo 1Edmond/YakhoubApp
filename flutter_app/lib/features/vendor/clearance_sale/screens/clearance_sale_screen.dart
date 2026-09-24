@@ -2,22 +2,22 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/vendor_custom_app_bar_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/custom_snackbar_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/vendor_paginated_list_view_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/clearance_sale/controllers/clearance_sale_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/clearance_sale/screens/clearance_search_product_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/clearance_sale/widgets/clearance_offer_setup_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/clearance_sale/widgets/clearance_product_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/clearance_sale/widgets/clearance_sale_section_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/clearance_sale/widgets/delete_confiramation_dialog_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/clearance_sale/widgets/show_confirmation_bottom_sheet_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/order/screens/order_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/debounce_helper.dart';
-import 'package:flutter_sixvalley_ecommerce/core/localization/language_constrants.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/images.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/styles.dart';
+import 'package:multishop_tchad/core/widgets/base/vendor_custom_app_bar_widget.dart';
+import 'package:multishop_tchad/core/widgets/base/custom_snackbar_widget.dart';
+import 'package:multishop_tchad/core/widgets/base/vendor_paginated_list_view_widget.dart';
+import 'package:multishop_tchad/features/vendor/clearance_sale/controllers/clearance_sale_controller.dart';
+import 'package:multishop_tchad/features/vendor/clearance_sale/screens/clearance_search_product_screen.dart';
+import 'package:multishop_tchad/features/vendor/clearance_sale/widgets/clearance_offer_setup_widget.dart';
+import 'package:multishop_tchad/features/vendor/clearance_sale/widgets/clearance_product_widget.dart';
+import 'package:multishop_tchad/features/vendor/clearance_sale/widgets/clearance_sale_section_widget.dart';
+import 'package:multishop_tchad/features/vendor/clearance_sale/widgets/delete_confiramation_dialog_widget.dart';
+import 'package:multishop_tchad/features/vendor/clearance_sale/widgets/show_confirmation_bottom_sheet_widget.dart';
+import 'package:multishop_tchad/features/vendor/order/screens/order_screen.dart';
+import 'package:multishop_tchad/core/helpers/debounce_helper.dart';
+import 'package:multishop_tchad/core/localization/language_constrants.dart';
+import 'package:multishop_tchad/core/constants/dimensions.dart';
+import 'package:multishop_tchad/core/constants/images.dart';
+import 'package:multishop_tchad/core/constants/styles.dart';
 
 
 class ClearanceSaleScreen extends StatefulWidget {

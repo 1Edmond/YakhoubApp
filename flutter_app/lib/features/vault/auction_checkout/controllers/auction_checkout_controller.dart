@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/core/models/api_response.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/address/domain/models/address_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/auction_checkout/domain/services/auction_checkout_service_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/offline_payment/domain/models/offline_payment_model.dart';
+import 'package:multishop_tchad/core/models/api_response.dart';
+import 'package:multishop_tchad/features/customer/address/domain/models/address_model.dart';
+import 'package:multishop_tchad/features/vault/auction_checkout/domain/services/auction_checkout_service_interface.dart';
+import 'package:multishop_tchad/features/vault/offline_payment/domain/models/offline_payment_model.dart';
 
 class AuctionCheckoutController with ChangeNotifier {
   final AuctionCheckoutServiceInterface auctionCheckoutServiceInterface;

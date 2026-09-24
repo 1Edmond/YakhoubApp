@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/order/domain/models/order_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/order_details/controllers/order_details_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
+import 'package:multishop_tchad/features/vendor/order/domain/models/order_model.dart';
+import 'package:multishop_tchad/features/vendor/order_details/controllers/order_details_controller.dart';
+import 'package:multishop_tchad/core/constants/dimensions.dart';
 
 class ShowOnMapDialogWidget extends StatelessWidget {
   final BillingAddressData? billingAddressData;

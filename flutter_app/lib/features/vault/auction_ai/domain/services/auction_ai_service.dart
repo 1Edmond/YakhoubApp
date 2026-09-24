@@ -1,5 +1,5 @@
-import 'package:flutter_sixvalley_ecommerce/features/vault/auction_ai/domain/repository/auction_ai_repository_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/auction_ai/domain/services/auction_ai_service_interface.dart';
+import 'package:multishop_tchad/features/vault/auction_ai/domain/repository/auction_ai_repository_interface.dart';
+import 'package:multishop_tchad/features/vault/auction_ai/domain/services/auction_ai_service_interface.dart';
 import 'package:image_picker/image_picker.dart';
 
 

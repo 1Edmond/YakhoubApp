@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/delivery_man/domain/model/top_delivery_man.dart';
-import 'package:flutter_sixvalley_ecommerce/core/localization/language_constrants.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/delivery_man/controllers/delivery_man_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/images.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/styles.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/bank_info/widgets/bank_info_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/delivery_man/widgets/balance_statement_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/delivery_man/widgets/delivery_man_card_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/delivery_man/widgets/delivery_man_withdraw_balance_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/delivery_man/screens/withdraw/withdraw_details_screen.dart';
+import 'package:multishop_tchad/features/vendor/delivery_man/domain/model/top_delivery_man.dart';
+import 'package:multishop_tchad/core/localization/language_constrants.dart';
+import 'package:multishop_tchad/features/vendor/delivery_man/controllers/delivery_man_controller.dart';
+import 'package:multishop_tchad/core/constants/dimensions.dart';
+import 'package:multishop_tchad/core/constants/images.dart';
+import 'package:multishop_tchad/core/constants/styles.dart';
+import 'package:multishop_tchad/features/vendor/bank_info/widgets/bank_info_widget.dart';
+import 'package:multishop_tchad/features/vendor/delivery_man/widgets/balance_statement_widget.dart';
+import 'package:multishop_tchad/features/vendor/delivery_man/widgets/delivery_man_card_widget.dart';
+import 'package:multishop_tchad/features/vendor/delivery_man/widgets/delivery_man_withdraw_balance_widget.dart';
+import 'package:multishop_tchad/features/vendor/delivery_man/screens/withdraw/withdraw_details_screen.dart';
 
 class DeliveryManOverViewScreen extends StatelessWidget {
   final DeliveryMan? deliveryMan;

@@ -1,5 +1,5 @@
-import 'package:flutter_sixvalley_ecommerce/features/vault/auction_details/domain/repositories/participator/participation_auction_details_repository_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/auction_details/domain/services/participator/participation_auction_details_service_interface.dart';
+import 'package:multishop_tchad/features/vault/auction_details/domain/repositories/participator/participation_auction_details_repository_interface.dart';
+import 'package:multishop_tchad/features/vault/auction_details/domain/services/participator/participation_auction_details_service_interface.dart';
 
 class ParticipationAuctionDetailsService implements ParticipationAuctionDetailsServiceInterface {
 

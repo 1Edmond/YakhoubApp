@@ -1,4 +1,4 @@
-import 'package:flutter_sixvalley_ecommerce/features/shared/enums/auction_enum.dart';
+import 'package:multishop_tchad/features/shared/enums/auction_enum.dart';
 
 class RecentlyViewedAuctionModel {
   int? totalSize;

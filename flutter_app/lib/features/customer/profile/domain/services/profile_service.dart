@@ -1,8 +1,8 @@
 import 'dart:io';
 
-import 'package:flutter_sixvalley_ecommerce/features/customer/profile/domain/models/profile_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/profile/domain/repositories/profile_repository_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/profile/domain/services/profile_service_interface.dart';
+import 'package:multishop_tchad/features/customer/profile/domain/models/profile_model.dart';
+import 'package:multishop_tchad/features/customer/profile/domain/repositories/profile_repository_interface.dart';
+import 'package:multishop_tchad/features/customer/profile/domain/services/profile_service_interface.dart';
 
 class ProfileService implements ProfileServiceInterface{
   ProfileRepositoryInterface profileRepositoryInterface;

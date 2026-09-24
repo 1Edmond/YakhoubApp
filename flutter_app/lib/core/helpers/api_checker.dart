@@ -1,8 +1,8 @@
 // import 'dart:io';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/core/models/api_response.dart';
-import 'package:flutter_sixvalley_ecommerce/core/models/error_response.dart';
+import 'package:multishop_tchad/core/models/api_response.dart';
+import 'package:multishop_tchad/core/models/error_response.dart';
 
 class ApiChecker {
   static void checkApi(dynamic apiresponse, [BuildContext? context]) {

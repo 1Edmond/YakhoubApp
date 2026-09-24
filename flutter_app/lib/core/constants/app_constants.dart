@@ -1,9 +1,9 @@
-﻿import 'package:flutter_sixvalley_ecommerce/core/localization/models/language_model.dart';
-import 'package:flutter_sixvalley_ecommerce/core/enums/local_caches_type_enum.dart';
+﻿import 'package:multishop_tchad/core/localization/models/language_model.dart';
+import 'package:multishop_tchad/core/enums/local_caches_type_enum.dart';
 
 class AppConstants {
   static const String baseUrl =
-      'https://0442-194-71-130-44.ngrok-free.app/admin';
+      'https://879c-194-71-130-44.ngrok-free.app/admin';
   static const String appName = 'MultiShop Tchad';
   static const String packageName = 'com.multishop.tchad';
 

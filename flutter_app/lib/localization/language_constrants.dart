@@ -1,1 +1,1 @@
-export 'package:flutter_sixvalley_ecommerce/core/localization/language_constrants.dart';
+export 'package:multishop_tchad/core/localization/language_constrants.dart';

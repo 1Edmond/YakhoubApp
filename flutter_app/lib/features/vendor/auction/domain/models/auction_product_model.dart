@@ -1,10 +1,10 @@
 import 'dart:convert';
 
-import 'package:flutter_sixvalley_ecommerce/core/models/image_full_url.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/addProduct/domain/models/tax_vat_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/auction/domain/enum/auction_status.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/product/domain/models/product_model.dart';
-export 'package:flutter_sixvalley_ecommerce/features/vendor/auction/domain/enum/auction_status.dart';
+import 'package:multishop_tchad/core/models/image_full_url.dart';
+import 'package:multishop_tchad/features/vendor/addProduct/domain/models/tax_vat_model.dart';
+import 'package:multishop_tchad/features/vendor/auction/domain/enum/auction_status.dart';
+import 'package:multishop_tchad/features/vendor/product/domain/models/product_model.dart';
+export 'package:multishop_tchad/features/vendor/auction/domain/enum/auction_status.dart';
 
 class AuctionProductListModel {
   int? totalSize;

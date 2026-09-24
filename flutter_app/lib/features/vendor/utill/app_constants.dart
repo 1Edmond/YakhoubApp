@@ -1,6 +1,6 @@
-import 'package:flutter_sixvalley_ecommerce/core/localization/models/language_model.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/images.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/shop/domain/models/guideline_model.dart';
+import 'package:multishop_tchad/core/localization/models/language_model.dart';
+import 'package:multishop_tchad/core/constants/images.dart';
+import 'package:multishop_tchad/features/vendor/shop/domain/models/guideline_model.dart';
 
 class AppConstants {
   static const String appName = 'Vendor App'; ///Flutter SDK 3.47.0
@@ -178,7 +178,6 @@ class AppConstants {
   static const String auctionPayCommission = '/api/v3/seller/auction/commission/pay/';
 
 
-  /// TODO: update the below URI when the API is ready
   static const String auctionUploadTrackingUri = '/api/v3/seller/auction/products/tracking-url/';
   static const String auctionAddressUpdateUri = '/api/v3/seller/auction/products/address-update';
   static const String auctionPaymentStatusUri = '/api/v3/seller/auction/products/payment-status/';

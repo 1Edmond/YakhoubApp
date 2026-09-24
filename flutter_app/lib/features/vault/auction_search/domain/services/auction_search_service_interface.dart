@@ -1,4 +1,4 @@
-import 'package:flutter_sixvalley_ecommerce/core/models/api_response.dart';
+import 'package:multishop_tchad/core/models/api_response.dart';
 
 abstract class AuctionSearchServiceInterface {
 

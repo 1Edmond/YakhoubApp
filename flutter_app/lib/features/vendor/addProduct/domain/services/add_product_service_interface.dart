@@ -1,9 +1,9 @@
 import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/addProduct/domain/models/add_product_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/product/domain/models/product_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/addProduct/domain/models/image_model.dart';
+import 'package:multishop_tchad/features/vendor/addProduct/domain/models/add_product_model.dart';
+import 'package:multishop_tchad/features/vendor/product/domain/models/product_model.dart';
+import 'package:multishop_tchad/features/vendor/addProduct/domain/models/image_model.dart';
 
 abstract class AddProductServiceInterface {
   Future<dynamic> getAttributeList(String languageCode);

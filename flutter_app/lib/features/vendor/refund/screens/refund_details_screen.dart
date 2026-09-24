@@ -2,17 +2,17 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/dashboard/screens/dashboard_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/refund/widgets/refund_detail_shimmer.dart';
-import 'package:flutter_sixvalley_ecommerce/core/localization/language_constrants.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/refund/controllers/refund_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/main.dart';
-import 'package:flutter_sixvalley_ecommerce/core/theme/controllers/theme_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/styles.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/refund/widgets/change_log_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/refund/widgets/refund_details_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/refund/domain/models/refund_model.dart';
+import 'package:multishop_tchad/features/vendor/dashboard/screens/dashboard_screen.dart';
+import 'package:multishop_tchad/features/vendor/refund/widgets/refund_detail_shimmer.dart';
+import 'package:multishop_tchad/core/localization/language_constrants.dart';
+import 'package:multishop_tchad/features/vendor/refund/controllers/refund_controller.dart';
+import 'package:multishop_tchad/main.dart';
+import 'package:multishop_tchad/core/theme/controllers/theme_controller.dart';
+import 'package:multishop_tchad/core/constants/dimensions.dart';
+import 'package:multishop_tchad/core/constants/styles.dart';
+import 'package:multishop_tchad/features/vendor/refund/widgets/change_log_widget.dart';
+import 'package:multishop_tchad/features/vendor/refund/widgets/refund_details_widget.dart';
+import 'package:multishop_tchad/features/vendor/refund/domain/models/refund_model.dart';
 
 class RefundDetailsScreen extends StatefulWidget {
   final RefundModel? refundModel;

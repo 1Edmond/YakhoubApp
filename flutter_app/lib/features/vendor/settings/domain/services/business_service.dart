@@ -1,10 +1,10 @@
 
 
-import 'package:flutter_sixvalley_ecommerce/core/di/model/response/base/api_response.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/settings/domain/models/business_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/settings/domain/repositories/buisness_repository_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/settings/domain/services/business_service_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/api_checker.dart';
+import 'package:multishop_tchad/core/di/model/response/base/api_response.dart';
+import 'package:multishop_tchad/features/vendor/settings/domain/models/business_model.dart';
+import 'package:multishop_tchad/features/vendor/settings/domain/repositories/buisness_repository_interface.dart';
+import 'package:multishop_tchad/features/vendor/settings/domain/services/business_service_interface.dart';
+import 'package:multishop_tchad/core/helpers/api_checker.dart';
 
 class BusinessService implements BusinessServiceInterface{
   final BusinessRepositoryInterface businessRepoInterface;

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/order/domain/models/business_analytics_filter_data.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/profile/domain/models/profile_body.dart';
-import 'package:flutter_sixvalley_ecommerce/core/di/model/response/base/api_response.dart';
-import 'package:flutter_sixvalley_ecommerce/core/models/response_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/bank_info/domain/services/bank_info_service_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/profile/domain/models/profile_info.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/api_checker.dart';
+import 'package:multishop_tchad/features/vendor/order/domain/models/business_analytics_filter_data.dart';
+import 'package:multishop_tchad/features/vendor/profile/domain/models/profile_body.dart';
+import 'package:multishop_tchad/core/di/model/response/base/api_response.dart';
+import 'package:multishop_tchad/core/models/response_model.dart';
+import 'package:multishop_tchad/features/vendor/bank_info/domain/services/bank_info_service_interface.dart';
+import 'package:multishop_tchad/features/vendor/profile/domain/models/profile_info.dart';
+import 'package:multishop_tchad/core/helpers/api_checker.dart';
 
 class BankInfoController extends ChangeNotifier {
   final BankInfoServiceInterface bankInfoServiceInterface;

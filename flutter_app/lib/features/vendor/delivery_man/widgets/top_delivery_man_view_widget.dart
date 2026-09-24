@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/delivery_man/domain/model/top_delivery_man.dart';
-import 'package:flutter_sixvalley_ecommerce/core/localization/language_constrants.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/delivery_man/controllers/delivery_man_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/images.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/no_data_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/title_row_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/delivery_man/screens/top_delivery_man_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/delivery_man/widgets/top_delivery_man_widget.dart';
+import 'package:multishop_tchad/features/vendor/delivery_man/domain/model/top_delivery_man.dart';
+import 'package:multishop_tchad/core/localization/language_constrants.dart';
+import 'package:multishop_tchad/features/vendor/delivery_man/controllers/delivery_man_controller.dart';
+import 'package:multishop_tchad/core/constants/dimensions.dart';
+import 'package:multishop_tchad/core/constants/images.dart';
+import 'package:multishop_tchad/core/widgets/base/no_data_screen.dart';
+import 'package:multishop_tchad/core/widgets/base/title_row_widget.dart';
+import 'package:multishop_tchad/features/vendor/delivery_man/screens/top_delivery_man_screen.dart';
+import 'package:multishop_tchad/features/vendor/delivery_man/widgets/top_delivery_man_widget.dart';
 
 
 

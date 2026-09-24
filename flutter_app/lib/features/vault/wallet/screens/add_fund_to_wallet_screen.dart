@@ -3,12 +3,12 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/wallet/controllers/wallet_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/core/localization/language_constrants.dart';
-import 'package:flutter_sixvalley_ecommerce/main.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/app_constants.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/animated_custom_dialog_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/checkout/widgets/order_place_dialog_widget.dart';
+import 'package:multishop_tchad/features/vault/wallet/controllers/wallet_controller.dart';
+import 'package:multishop_tchad/core/localization/language_constrants.dart';
+import 'package:multishop_tchad/main.dart';
+import 'package:multishop_tchad/core/constants/app_constants.dart';
+import 'package:multishop_tchad/core/widgets/base/animated_custom_dialog_widget.dart';
+import 'package:multishop_tchad/features/customer/checkout/widgets/order_place_dialog_widget.dart';
 import 'package:provider/provider.dart';
 
 class AddFundToWalletScreen extends StatefulWidget {

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/search_product/widgets/partial_matched_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
+import 'package:multishop_tchad/features/customer/search_product/widgets/partial_matched_widget.dart';
+import 'package:multishop_tchad/core/constants/dimensions.dart';
 
 class SearchAppBar extends StatelessWidget implements PreferredSizeWidget {
   final Function()? onBackPressed;

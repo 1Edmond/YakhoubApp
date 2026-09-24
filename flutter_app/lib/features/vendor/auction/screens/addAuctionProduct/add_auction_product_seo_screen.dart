@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shimmer/shimmer.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/custom_snackbar_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/auction/controllers/add_auction_product_contoller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/auction/controllers/add_auction_product_media_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/auction/controllers/auction_ai_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/auction/widgets/product_seo_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/auction/widgets/seo_setup_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/splash/controllers/splash_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/core/localization/language_constrants.dart';
-import 'package:flutter_sixvalley_ecommerce/core/theme/controllers/theme_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/styles.dart';
+import 'package:multishop_tchad/core/widgets/base/custom_snackbar_widget.dart';
+import 'package:multishop_tchad/features/vendor/auction/controllers/add_auction_product_contoller.dart';
+import 'package:multishop_tchad/features/vendor/auction/controllers/add_auction_product_media_controller.dart';
+import 'package:multishop_tchad/features/vendor/auction/controllers/auction_ai_controller.dart';
+import 'package:multishop_tchad/features/vendor/auction/widgets/product_seo_widget.dart';
+import 'package:multishop_tchad/features/vendor/auction/widgets/seo_setup_widget.dart';
+import 'package:multishop_tchad/features/vendor/splash/controllers/splash_controller.dart';
+import 'package:multishop_tchad/core/localization/language_constrants.dart';
+import 'package:multishop_tchad/core/theme/controllers/theme_controller.dart';
+import 'package:multishop_tchad/core/constants/dimensions.dart';
+import 'package:multishop_tchad/core/constants/styles.dart';
 
 class AddAuctionProductSeoScreen extends StatefulWidget {
   final VoidCallback? onNext;

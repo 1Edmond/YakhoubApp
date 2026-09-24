@@ -1,9 +1,9 @@
 import 'dart:convert';
 import 'package:dio/dio.dart';
-import 'package:flutter_sixvalley_ecommerce/core/enums/data_source_enum.dart';
-import 'package:flutter_sixvalley_ecommerce/core/di/local/cache_response.dart';
-import 'package:flutter_sixvalley_ecommerce/core/models/api_response.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/api_checker.dart';
+import 'package:multishop_tchad/core/enums/data_source_enum.dart';
+import 'package:multishop_tchad/core/di/local/cache_response.dart';
+import 'package:multishop_tchad/core/models/api_response.dart';
+import 'package:multishop_tchad/core/helpers/api_checker.dart';
 
 class DataSyncHelper {
   /// Generic method to fetch data from local and remote sources

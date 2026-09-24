@@ -1,6 +1,6 @@
-import 'package:flutter_sixvalley_ecommerce/features/vault/auction_details/domain/enum/creator/auction_delivery_status_enum.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/auction_details/domain/repositories/creator/creator_auction_details_repository_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/auction_details/domain/services/creator/creator_auction_details_service_interface.dart';
+import 'package:multishop_tchad/features/vault/auction_details/domain/enum/creator/auction_delivery_status_enum.dart';
+import 'package:multishop_tchad/features/vault/auction_details/domain/repositories/creator/creator_auction_details_repository_interface.dart';
+import 'package:multishop_tchad/features/vault/auction_details/domain/services/creator/creator_auction_details_service_interface.dart';
 
 class CreatorAuctionDetailsService implements CreatorAuctionDetailsServiceInterface {
   final CreatorAuctionDetailsRepositoryInterface repoInterface;

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/localization/language_constrants.dart';
-import 'package:flutter_sixvalley_ecommerce/utill/dimensions.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/custom_themes.dart';
+import 'package:multishop_tchad/localization/language_constrants.dart';
+import 'package:multishop_tchad/utill/dimensions.dart';
+import 'package:multishop_tchad/core/constants/custom_themes.dart';
 
 class CustomButtonWidget extends StatelessWidget {
   final Function? onTap;

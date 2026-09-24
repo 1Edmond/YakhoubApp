@@ -1,12 +1,12 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/features/shared/enums/data_source_enum.dart';
-import 'package:flutter_sixvalley_ecommerce/core/models/api_response.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/auction_category/domain/services/auction_category_service_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/auction_category/domain/models/auction_category_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/auction_home/domain/models/auction_product_model.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/api_checker.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/data_sync_helper.dart';
+import 'package:multishop_tchad/features/shared/enums/data_source_enum.dart';
+import 'package:multishop_tchad/core/models/api_response.dart';
+import 'package:multishop_tchad/features/vault/auction_category/domain/services/auction_category_service_interface.dart';
+import 'package:multishop_tchad/features/vault/auction_category/domain/models/auction_category_model.dart';
+import 'package:multishop_tchad/features/vault/auction_home/domain/models/auction_product_model.dart';
+import 'package:multishop_tchad/core/helpers/api_checker.dart';
+import 'package:multishop_tchad/core/helpers/data_sync_helper.dart';
 
 class AuctionCategoryController extends ChangeNotifier {
   final AuctionCategoryServiceInterface? auctionCategoryServiceInterface;

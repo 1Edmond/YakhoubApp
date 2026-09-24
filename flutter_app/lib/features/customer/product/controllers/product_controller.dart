@@ -1,17 +1,17 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/features/shared/enums/data_source_enum.dart';
-import 'package:flutter_sixvalley_ecommerce/core/models/api_response.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/category/domain/models/find_what_you_need.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/product/domain/models/home_category_product_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/product/domain/models/most_demanded_product_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/product/domain/models/product_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/product/domain/services/product_service_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/api_checker.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/product/enums/product_type.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/data_sync_helper.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/debounce_helper.dart';
-import 'package:flutter_sixvalley_ecommerce/main.dart';
+import 'package:multishop_tchad/features/shared/enums/data_source_enum.dart';
+import 'package:multishop_tchad/core/models/api_response.dart';
+import 'package:multishop_tchad/features/customer/category/domain/models/find_what_you_need.dart';
+import 'package:multishop_tchad/features/customer/product/domain/models/home_category_product_model.dart';
+import 'package:multishop_tchad/features/customer/product/domain/models/most_demanded_product_model.dart';
+import 'package:multishop_tchad/features/customer/product/domain/models/product_model.dart';
+import 'package:multishop_tchad/features/customer/product/domain/services/product_service_interface.dart';
+import 'package:multishop_tchad/core/helpers/api_checker.dart';
+import 'package:multishop_tchad/features/customer/product/enums/product_type.dart';
+import 'package:multishop_tchad/core/helpers/data_sync_helper.dart';
+import 'package:multishop_tchad/core/helpers/debounce_helper.dart';
+import 'package:multishop_tchad/main.dart';
 
 class ProductController extends ChangeNotifier {
   final ProductServiceInterface? productServiceInterface;

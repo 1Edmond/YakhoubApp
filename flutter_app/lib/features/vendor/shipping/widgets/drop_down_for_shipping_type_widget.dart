@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter_sixvalley_ecommerce/core/localization/language_constrants.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/shipping/controllers/shipping_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
+import 'package:multishop_tchad/core/localization/language_constrants.dart';
+import 'package:multishop_tchad/features/vendor/shipping/controllers/shipping_controller.dart';
+import 'package:multishop_tchad/core/constants/dimensions.dart';
 
 class DropDownForShippingTypeWidget extends StatelessWidget {
   const DropDownForShippingTypeWidget({super.key});

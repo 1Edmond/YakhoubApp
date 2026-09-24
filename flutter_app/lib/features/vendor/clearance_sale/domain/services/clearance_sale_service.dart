@@ -1,5 +1,5 @@
-import 'package:flutter_sixvalley_ecommerce/features/vendor/clearance_sale/domain/repositories/clearance_sale_repository_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/clearance_sale/domain/services/clearance_sale_service_interface.dart';
+import 'package:multishop_tchad/features/vendor/clearance_sale/domain/repositories/clearance_sale_repository_interface.dart';
+import 'package:multishop_tchad/features/vendor/clearance_sale/domain/services/clearance_sale_service_interface.dart';
 
 class ClearanceSaleService implements ClearanceSaleServiceInterface{
   ClearanceSaleRepositoryInterface clearanceSaleRepositoryInterface;

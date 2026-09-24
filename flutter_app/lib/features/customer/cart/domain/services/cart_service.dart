@@ -1,13 +1,13 @@
 import 'dart:developer';
-import 'package:flutter_sixvalley_ecommerce/features/shared/enums/data_source_enum.dart';
-import 'package:flutter_sixvalley_ecommerce/core/models/api_response.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/cart/domain/models/cart_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/cart/domain/repositories/cart_repository_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/cart/domain/services/cart_service_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/product/domain/models/product_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/shipping/controllers/shipping_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/splash/controllers/splash_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/main.dart';
+import 'package:multishop_tchad/features/shared/enums/data_source_enum.dart';
+import 'package:multishop_tchad/core/models/api_response.dart';
+import 'package:multishop_tchad/features/customer/cart/domain/models/cart_model.dart';
+import 'package:multishop_tchad/features/customer/cart/domain/repositories/cart_repository_interface.dart';
+import 'package:multishop_tchad/features/customer/cart/domain/services/cart_service_interface.dart';
+import 'package:multishop_tchad/features/customer/product/domain/models/product_model.dart';
+import 'package:multishop_tchad/features/vault/shipping/controllers/shipping_controller.dart';
+import 'package:multishop_tchad/features/customer/splash/controllers/splash_controller.dart';
+import 'package:multishop_tchad/main.dart';
 import 'package:provider/provider.dart';
 
 class CartService implements CartServiceInterface{

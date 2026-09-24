@@ -1,1 +1,1 @@
-export 'package:flutter_sixvalley_ecommerce/features/customer/splash/domain/models/config_model.dart';
+export 'package:multishop_tchad/features/customer/splash/domain/models/config_model.dart';

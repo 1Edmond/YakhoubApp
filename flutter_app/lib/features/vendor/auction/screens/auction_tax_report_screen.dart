@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shimmer/shimmer.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/vendor_custom_app_bar_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/custom_asset_image_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/no_data_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/vendor_paginated_list_view_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/auction/controllers/auction_product_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/auction/widgets/auction_tax_filter_bottom_sheet_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/auction/widgets/auction_tax_info_card_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/auction/widgets/auction_tax_order_list_card_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/vat_management/widgets/order_info_card_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/vat_management/widgets/order_list_card_shimmer_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/price_converter.dart';
-import 'package:flutter_sixvalley_ecommerce/core/localization/language_constrants.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/images.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/styles.dart';
+import 'package:multishop_tchad/core/widgets/base/vendor_custom_app_bar_widget.dart';
+import 'package:multishop_tchad/core/widgets/base/custom_asset_image_widget.dart';
+import 'package:multishop_tchad/core/widgets/base/no_data_screen.dart';
+import 'package:multishop_tchad/core/widgets/base/vendor_paginated_list_view_widget.dart';
+import 'package:multishop_tchad/features/vendor/auction/controllers/auction_product_controller.dart';
+import 'package:multishop_tchad/features/vendor/auction/widgets/auction_tax_filter_bottom_sheet_widget.dart';
+import 'package:multishop_tchad/features/vendor/auction/widgets/auction_tax_info_card_widget.dart';
+import 'package:multishop_tchad/features/vendor/auction/widgets/auction_tax_order_list_card_widget.dart';
+import 'package:multishop_tchad/features/vendor/vat_management/widgets/order_info_card_widget.dart';
+import 'package:multishop_tchad/features/vendor/vat_management/widgets/order_list_card_shimmer_widget.dart';
+import 'package:multishop_tchad/core/helpers/price_converter.dart';
+import 'package:multishop_tchad/core/localization/language_constrants.dart';
+import 'package:multishop_tchad/core/constants/dimensions.dart';
+import 'package:multishop_tchad/core/constants/images.dart';
+import 'package:multishop_tchad/core/constants/styles.dart';
 
 class AuctionTaxReportScreen extends StatefulWidget {
   const AuctionTaxReportScreen({super.key});

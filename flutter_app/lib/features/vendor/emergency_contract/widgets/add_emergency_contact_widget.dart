@@ -1,18 +1,18 @@
 import 'package:country_code_picker/country_code_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/auth/widgets/code_picker_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/emergency_contract/domain/models/emergency_contact_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/splash/controllers/splash_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/country_code_helper.dart';
-import 'package:flutter_sixvalley_ecommerce/core/localization/language_constrants.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/emergency_contract/controllers/emergency_contact_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/vendor_custom_button_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/custom_snackbar_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/textfeild/custom_text_feild_widget.dart';
+import 'package:multishop_tchad/features/vendor/auth/widgets/code_picker_widget.dart';
+import 'package:multishop_tchad/features/vendor/emergency_contract/domain/models/emergency_contact_model.dart';
+import 'package:multishop_tchad/features/vendor/splash/controllers/splash_controller.dart';
+import 'package:multishop_tchad/core/helpers/country_code_helper.dart';
+import 'package:multishop_tchad/core/localization/language_constrants.dart';
+import 'package:multishop_tchad/features/vendor/emergency_contract/controllers/emergency_contact_controller.dart';
+import 'package:multishop_tchad/core/constants/dimensions.dart';
+import 'package:multishop_tchad/core/widgets/base/vendor_custom_button_widget.dart';
+import 'package:multishop_tchad/core/widgets/base/custom_snackbar_widget.dart';
+import 'package:multishop_tchad/core/widgets/base/textfeild/custom_text_feild_widget.dart';
 
-import 'package:flutter_sixvalley_ecommerce/main.dart';
+import 'package:multishop_tchad/main.dart';
 
 class AddEmergencyContactWidget extends StatefulWidget {
   final ContactList? contactList;
@@ -24,7 +24,7 @@ class AddEmergencyContactWidget extends StatefulWidget {
 }
 
 class _AddEmergencyContactWidgetState extends State<AddEmergencyContactWidget> {
-  String? _countryDialCode = CountryCodeHelper.getCountryCodebyCode(Provider.of<SplashController>(Get.context!, listen: false).configModel!.countryCode)!;
+  String? _countryDialCode = CountryCodeHelper.getCountryCodebyCode(Provider.of<SplashController>(Get.context!, listen: false).configModel!.countryCode);
   TextEditingController contactNameController = TextEditingController();
   TextEditingController phoneController = TextEditingController();
   FocusNode nameFocus = FocusNode();

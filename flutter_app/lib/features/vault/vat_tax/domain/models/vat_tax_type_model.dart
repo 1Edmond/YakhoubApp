@@ -1,4 +1,4 @@
-import 'package:flutter_sixvalley_ecommerce/features/vault/vat_tax/domain/models/tax_vat_model.dart';
+import 'package:multishop_tchad/features/vault/vat_tax/domain/models/tax_vat_model.dart';
 
 class TaxVats {
   int? id;

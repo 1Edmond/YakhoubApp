@@ -1,4 +1,4 @@
-import 'package:flutter_sixvalley_ecommerce/features/vendor/auction/domain/enum/auction_status.dart';
+import 'package:multishop_tchad/features/vendor/auction/domain/enum/auction_status.dart';
 
 class AuctionTabFilterConfig {
   final bool showStatus;

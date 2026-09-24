@@ -5,39 +5,39 @@ import 'package:flutter/material.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 import 'package:provider/provider.dart';
 import 'package:shimmer/shimmer.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/basewidgets/attribute_view_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/basewidgets/custom_asset_image_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/vendor_custom_button_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/basewidgets/discount_text_field_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/basewidgets/dropdown_decorator_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/basewidgets/textfeild/custom_text_feild_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/addProduct/controllers/add_product_image_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/addProduct/controllers/add_product_tax_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/addProduct/controllers/digital_product_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/addProduct/controllers/variation_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/addProduct/domain/models/add_product_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/addProduct/domain/models/product_general_info_data_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/addProduct/domain/models/tax_vat_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/addProduct/widgets/add_product_section_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/addProduct/widgets/color_variation_image_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/addProduct/widgets/digital_product_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/addProduct/widgets/upload_preview_file_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/ai/controllers/ai_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/product/controllers/category_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/product/domain/models/product_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/splash/domain/models/config_model.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/color_helper.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/price_converter.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/localization/language_constrants.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/localization/controllers/localization_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/addProduct/controllers/add_product_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/splash/controllers/splash_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/main.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/theme/controllers/theme_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/images.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/styles.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/basewidgets/custom_snackbar_widget.dart';
+import 'package:multishop_tchad/core/widgets/base/basewidgets/attribute_view_widget.dart';
+import 'package:multishop_tchad/core/widgets/base/basewidgets/custom_asset_image_widget.dart';
+import 'package:multishop_tchad/core/widgets/base/vendor_custom_button_widget.dart';
+import 'package:multishop_tchad/core/widgets/base/basewidgets/discount_text_field_widget.dart';
+import 'package:multishop_tchad/core/widgets/base/basewidgets/dropdown_decorator_widget.dart';
+import 'package:multishop_tchad/core/widgets/base/basewidgets/textfeild/custom_text_feild_widget.dart';
+import 'package:multishop_tchad/features/vendor/addProduct/controllers/add_product_image_controller.dart';
+import 'package:multishop_tchad/features/vendor/addProduct/controllers/add_product_tax_controller.dart';
+import 'package:multishop_tchad/features/vendor/addProduct/controllers/digital_product_controller.dart';
+import 'package:multishop_tchad/features/vendor/addProduct/controllers/variation_controller.dart';
+import 'package:multishop_tchad/features/vendor/addProduct/domain/models/add_product_model.dart';
+import 'package:multishop_tchad/features/vendor/addProduct/domain/models/product_general_info_data_model.dart';
+import 'package:multishop_tchad/features/vendor/addProduct/domain/models/tax_vat_model.dart';
+import 'package:multishop_tchad/features/vendor/addProduct/widgets/add_product_section_widget.dart';
+import 'package:multishop_tchad/features/vendor/addProduct/widgets/color_variation_image_widget.dart';
+import 'package:multishop_tchad/features/vendor/addProduct/widgets/digital_product_widget.dart';
+import 'package:multishop_tchad/features/vendor/addProduct/widgets/upload_preview_file_widget.dart';
+import 'package:multishop_tchad/features/vendor/ai/controllers/ai_controller.dart';
+import 'package:multishop_tchad/features/vendor/product/controllers/category_controller.dart';
+import 'package:multishop_tchad/features/vendor/product/domain/models/product_model.dart';
+import 'package:multishop_tchad/features/vendor/splash/domain/models/config_model.dart';
+import 'package:multishop_tchad/core/helpers/color_helper.dart';
+import 'package:multishop_tchad/core/helpers/price_converter.dart';
+import 'package:multishop_tchad/features/vendor/localization/language_constrants.dart';
+import 'package:multishop_tchad/features/vendor/localization/controllers/localization_controller.dart';
+import 'package:multishop_tchad/features/vendor/addProduct/controllers/add_product_controller.dart';
+import 'package:multishop_tchad/features/vendor/splash/controllers/splash_controller.dart';
+import 'package:multishop_tchad/main.dart';
+import 'package:multishop_tchad/features/vendor/theme/controllers/theme_controller.dart';
+import 'package:multishop_tchad/core/constants/dimensions.dart';
+import 'package:multishop_tchad/core/constants/images.dart';
+import 'package:multishop_tchad/core/constants/styles.dart';
+import 'package:multishop_tchad/core/widgets/base/basewidgets/custom_snackbar_widget.dart';
 import '../../auth/controllers/auth_controller.dart';
 
 class AddProductNextScreen extends StatefulWidget {
@@ -637,8 +637,8 @@ class AddProductNextScreenState extends State<AddProductNextScreen> with Automat
 
                                                     Consumer<AiController>(
                                                       builder: (context, aiController, child) {
-                                                        TextEditingController? _autoController;
-                                                        FocusNode? _autoFocusNode;
+                                                        TextEditingController? autoController;
+                                                        FocusNode? autoFocusNode;
 
                                                         return Column(
                                                           children : [
@@ -733,8 +733,8 @@ class AddProductNextScreenState extends State<AddProductNextScreen> with Automat
                                                                 },
 
                                                                 fieldViewBuilder: (context, controller, node, onComplete) {
-                                                                  _autoController ??= controller;
-                                                                  _autoFocusNode ??= node;
+                                                                  autoController ??= controller;
+                                                                  autoFocusNode ??= node;
                                                                   return Container(
                                                                     height: 50,
                                                                     decoration: BoxDecoration(
@@ -769,7 +769,7 @@ class AddProductNextScreenState extends State<AddProductNextScreen> with Automat
                                                                   variationController.addColorCode(colorProvider.colorList![value].code);
 
                                                                   WidgetsBinding.instance.addPostFrameCallback((_) {
-                                                                    _autoFocusNode?.unfocus();
+                                                                    autoFocusNode?.unfocus();
                                                                   });
                                                                 },
                                                               );

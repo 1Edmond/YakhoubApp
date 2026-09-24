@@ -2,8 +2,8 @@
 
 import 'dart:io';
 
-import 'package:flutter_sixvalley_ecommerce/features/vendor/product_details/domain/repositories/product_details_repository_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/product_details/domain/services/product_details_service_interface.dart';
+import 'package:multishop_tchad/features/vendor/product_details/domain/repositories/product_details_repository_interface.dart';
+import 'package:multishop_tchad/features/vendor/product_details/domain/services/product_details_service_interface.dart';
 
 class ProductDetailsService implements ProductDetailsServiceInterface {
 

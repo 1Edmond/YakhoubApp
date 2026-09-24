@@ -1,7 +1,7 @@
 import 'package:file_picker/file_picker.dart';
-import 'package:flutter_sixvalley_ecommerce/features/shared/chat/domain/models/message_body.dart';
-import 'package:flutter_sixvalley_ecommerce/features/shared/chat/domain/repositories/chat_repository_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/features/shared/chat/domain/services/chat_service_interface.dart';
+import 'package:multishop_tchad/features/shared/chat/domain/models/message_body.dart';
+import 'package:multishop_tchad/features/shared/chat/domain/repositories/chat_repository_interface.dart';
+import 'package:multishop_tchad/features/shared/chat/domain/services/chat_service_interface.dart';
 import 'package:image_picker/image_picker.dart';
 
 class ChatService implements ChatServiceInterface{

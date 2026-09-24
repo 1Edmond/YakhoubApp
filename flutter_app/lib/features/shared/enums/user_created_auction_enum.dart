@@ -1,1 +1,1 @@
-export 'package:flutter_sixvalley_ecommerce/core/enums/user_created_auction_enum.dart';
+export 'package:multishop_tchad/core/enums/user_created_auction_enum.dart';

@@ -1,7 +1,7 @@
 
-import 'package:flutter_sixvalley_ecommerce/features/customer/splash/controllers/splash_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/splash/domain/models/business_pages_model.dart';
-import 'package:flutter_sixvalley_ecommerce/main.dart';
+import 'package:multishop_tchad/features/customer/splash/controllers/splash_controller.dart';
+import 'package:multishop_tchad/features/customer/splash/domain/models/business_pages_model.dart';
+import 'package:multishop_tchad/main.dart';
 import 'package:provider/provider.dart';
 
 class HtmlPagesHelper{

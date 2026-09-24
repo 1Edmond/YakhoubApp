@@ -1,14 +1,14 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/support/controllers/support_ticket_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/support/domain/models/support_ticket_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/support/widgets/support_ticket_reply_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/date_converter.dart';
-import 'package:flutter_sixvalley_ecommerce/features/auth/controllers/auth_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/custom_themes.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/images.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/custom_app_bar_widget.dart';
+import 'package:multishop_tchad/features/vault/support/controllers/support_ticket_controller.dart';
+import 'package:multishop_tchad/features/vault/support/domain/models/support_ticket_model.dart';
+import 'package:multishop_tchad/features/vault/support/widgets/support_ticket_reply_widget.dart';
+import 'package:multishop_tchad/core/helpers/date_converter.dart';
+import 'package:multishop_tchad/features/auth/controllers/auth_controller.dart';
+import 'package:multishop_tchad/core/constants/custom_themes.dart';
+import 'package:multishop_tchad/core/constants/dimensions.dart';
+import 'package:multishop_tchad/core/constants/images.dart';
+import 'package:multishop_tchad/core/widgets/base/custom_app_bar_widget.dart';
 import 'package:provider/provider.dart';
 
 class SupportConversationScreen extends StatefulWidget {

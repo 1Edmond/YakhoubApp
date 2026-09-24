@@ -1,1 +1,1 @@
-export 'package:flutter_sixvalley_ecommerce/features/auth/domain/services/auth_service.dart';
+export 'package:multishop_tchad/features/auth/domain/services/auth_service.dart';

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/show_custom_snakbar_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/models/api_response.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/auction_details/domain/models/participator/auction_bid_list_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/auction_details/domain/models/participator/participation_auction_details_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/auction_details/domain/services/participator/participation_auction_details_service_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/api_checker.dart';
-import 'package:flutter_sixvalley_ecommerce/core/localization/language_constrants.dart';
-import 'package:flutter_sixvalley_ecommerce/main.dart';
+import 'package:multishop_tchad/core/widgets/base/show_custom_snakbar_widget.dart';
+import 'package:multishop_tchad/core/models/api_response.dart';
+import 'package:multishop_tchad/features/vault/auction_details/domain/models/participator/auction_bid_list_model.dart';
+import 'package:multishop_tchad/features/vault/auction_details/domain/models/participator/participation_auction_details_model.dart';
+import 'package:multishop_tchad/features/vault/auction_details/domain/services/participator/participation_auction_details_service_interface.dart';
+import 'package:multishop_tchad/core/helpers/api_checker.dart';
+import 'package:multishop_tchad/core/localization/language_constrants.dart';
+import 'package:multishop_tchad/main.dart';
 
 class ParticipationAuctionDetailsController extends ChangeNotifier {
   final ParticipationAuctionDetailsServiceInterface participationAuctionDetailsServiceInterface;
@@ -125,11 +125,11 @@ class ParticipationAuctionDetailsController extends ChangeNotifier {
           .getAuctionBidList(auctionProductId: productId, isMyBid: isMyBid, offset: 1, limit: _bidLimit);
       if (response?.response?.statusCode == 200) {
         final data = response?.response?.data;
-        print("--->> bid list response: $data");
+        // print("--->> bid list response: $data");
         if (data != null) {
-          print("--->> bid list response 1: $data");
+          // print("--->> bid list response 1: $data");
           final model = AuctionBidListModel.fromJson(data);
-          print("--->> bid list response 2: $data");
+          // print("--->> bid list response 2: $data");
           _bidTotalSize = model.totalSize;
           _allBids = model.bids ?? [];
           _bidListModel = model;

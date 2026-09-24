@@ -6,7 +6,7 @@ import 'package:geolocator/geolocator.dart';
 class DoorPhotoScreen extends StatefulWidget {
   final Function(File photo, Position position) onSave;
   
-  const DoorPhotoScreen({Key? key, required this.onSave}) : super(key: key);
+  const DoorPhotoScreen({super.key, required this.onSave});
 
   @override
   State<DoorPhotoScreen> createState() => _DoorPhotoScreenState();

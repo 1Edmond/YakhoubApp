@@ -1,24 +1,24 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/custom_snackbar_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/pos/controllers/customer_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/pos/domain/models/customer_body.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/pos/domain/models/invoice_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/pos/domain/models/place_order_body.dart';
-import 'package:flutter_sixvalley_ecommerce/core/models/response/base/api_response.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/pos/domain/models/cart_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/pos/domain/services/cart_service_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/pos/screens/pos_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/product/domain/models/product_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/pos/domain/models/temporary_cart_for_customer_model.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/api_checker.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/debounce_helper.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/price_converter.dart';
-import 'package:flutter_sixvalley_ecommerce/core/localization/language_constrants.dart';
-import 'package:flutter_sixvalley_ecommerce/main.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/order/controllers/order_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/pos/screens/invoice_screen.dart';
+import 'package:multishop_tchad/core/widgets/base/custom_snackbar_widget.dart';
+import 'package:multishop_tchad/features/vendor/pos/controllers/customer_controller.dart';
+import 'package:multishop_tchad/features/vendor/pos/domain/models/customer_body.dart';
+import 'package:multishop_tchad/features/vendor/pos/domain/models/invoice_model.dart';
+import 'package:multishop_tchad/features/vendor/pos/domain/models/place_order_body.dart';
+import 'package:multishop_tchad/core/models/response/base/api_response.dart';
+import 'package:multishop_tchad/features/vendor/pos/domain/models/cart_model.dart';
+import 'package:multishop_tchad/features/vendor/pos/domain/services/cart_service_interface.dart';
+import 'package:multishop_tchad/features/vendor/pos/screens/pos_screen.dart';
+import 'package:multishop_tchad/features/vendor/product/domain/models/product_model.dart';
+import 'package:multishop_tchad/features/vendor/pos/domain/models/temporary_cart_for_customer_model.dart';
+import 'package:multishop_tchad/core/helpers/api_checker.dart';
+import 'package:multishop_tchad/core/helpers/debounce_helper.dart';
+import 'package:multishop_tchad/core/helpers/price_converter.dart';
+import 'package:multishop_tchad/core/localization/language_constrants.dart';
+import 'package:multishop_tchad/main.dart';
+import 'package:multishop_tchad/features/vendor/order/controllers/order_controller.dart';
+import 'package:multishop_tchad/features/vendor/pos/screens/invoice_screen.dart';
 
 class CartController extends ChangeNotifier{
   final CartServiceInterface cartServiceInterface;
@@ -66,7 +66,7 @@ class CartController extends ChangeNotifier{
   final TextEditingController _extraDiscountController = TextEditingController();
   TextEditingController get extraDiscountController => _extraDiscountController;
 
-  double _returnToCustomerAmount = 0 ;
+  final double _returnToCustomerAmount = 0 ;
   double get returnToCustomerAmount => _returnToCustomerAmount;
 
   double? _couponCodeAmount = 0;

@@ -1,22 +1,21 @@
-import 'package:flutter_sixvalley_ecommerce/core/helpers/route_helper.dart';
+import 'package:multishop_tchad/core/helpers/route_helper.dart';
 import 'dart:io';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/bouncy_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/splash/controllers/splash_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/splash/domain/models/config_model.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/network_info.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/route_helper.dart';
-import 'package:flutter_sixvalley_ecommerce/main.dart';
-import 'package:flutter_sixvalley_ecommerce/push_notification/models/notification_body.dart';
-import 'package:flutter_sixvalley_ecommerce/features/shared/push_notification/notification_helper.dart';
-import 'package:flutter_sixvalley_ecommerce/features/auth/controllers/auth_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/core/theme/controllers/theme_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/utill/app_constants.dart';
-import 'package:flutter_sixvalley_ecommerce/utill/custom_themes.dart';
-import 'package:flutter_sixvalley_ecommerce/utill/dimensions.dart';
-import 'package:flutter_sixvalley_ecommerce/utill/images.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/no_internet_screen_widget.dart';
+import 'package:multishop_tchad/core/widgets/base/bouncy_widget.dart';
+import 'package:multishop_tchad/features/splash/controllers/splash_controller.dart';
+import 'package:multishop_tchad/features/splash/domain/models/config_model.dart';
+import 'package:multishop_tchad/core/helpers/network_info.dart';
+import 'package:multishop_tchad/main.dart';
+import 'package:multishop_tchad/push_notification/models/notification_body.dart';
+import 'package:multishop_tchad/features/shared/push_notification/notification_helper.dart';
+import 'package:multishop_tchad/features/auth/controllers/auth_controller.dart';
+import 'package:multishop_tchad/core/theme/controllers/theme_controller.dart';
+import 'package:multishop_tchad/utill/app_constants.dart';
+import 'package:multishop_tchad/utill/custom_themes.dart';
+import 'package:multishop_tchad/utill/dimensions.dart';
+import 'package:multishop_tchad/utill/images.dart';
+import 'package:multishop_tchad/core/widgets/base/no_internet_screen_widget.dart';
 import 'package:provider/provider.dart';
 
 class SplashScreen extends StatefulWidget {

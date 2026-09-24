@@ -1,1 +1,1 @@
-export 'package:flutter_sixvalley_ecommerce/core/interfaces/repo_interface.dart';
+export 'package:multishop_tchad/core/interfaces/repo_interface.dart';

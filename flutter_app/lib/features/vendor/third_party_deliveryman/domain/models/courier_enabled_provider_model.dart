@@ -1,4 +1,4 @@
-import 'package:flutter_sixvalley_ecommerce/features/vendor/third_party_deliveryman/domain/models/courier_provider_model.dart';
+import 'package:multishop_tchad/features/vendor/third_party_deliveryman/domain/models/courier_provider_model.dart';
 
 class CourierEnabledProviderModel {
   String? id;

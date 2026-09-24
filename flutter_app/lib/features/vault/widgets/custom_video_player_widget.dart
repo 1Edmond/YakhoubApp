@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/product_details/widgets/video_preview.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
+import 'package:multishop_tchad/features/customer/product_details/widgets/video_preview.dart';
+import 'package:multishop_tchad/core/constants/dimensions.dart';
 import 'package:video_player/video_player.dart';
 
 class CustomVideoPlayerWidget extends StatefulWidget {

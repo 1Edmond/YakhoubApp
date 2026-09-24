@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/transaction/controllers/transaction_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/transaction/widgets/transaction_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
+import 'package:multishop_tchad/features/vendor/transaction/controllers/transaction_controller.dart';
+import 'package:multishop_tchad/features/vendor/transaction/widgets/transaction_widget.dart';
+import 'package:multishop_tchad/core/constants/dimensions.dart';
 
 class WalletTransactionListViewWidget extends StatelessWidget {
   final TransactionController? transactionProvider;

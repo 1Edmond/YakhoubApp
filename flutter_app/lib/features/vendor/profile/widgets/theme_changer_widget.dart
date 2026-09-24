@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/localization/language_constrants.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/shipping/controllers/shipping_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/theme/controllers/theme_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/images.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/styles.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/bank_info/screens/bank_info_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/menu/widgets/sign_out_confirmation_dialog_widget.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/settings/screens/order_wise_shipping_list_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/settings/screens/setting_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/shipping/screens/category_wise_shipping_screen.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/shipping/widgets/product_wise_shipping_widget.dart';
+import 'package:multishop_tchad/features/vendor/localization/language_constrants.dart';
+import 'package:multishop_tchad/features/vendor/shipping/controllers/shipping_controller.dart';
+import 'package:multishop_tchad/features/vendor/theme/controllers/theme_controller.dart';
+import 'package:multishop_tchad/core/constants/dimensions.dart';
+import 'package:multishop_tchad/core/constants/images.dart';
+import 'package:multishop_tchad/core/constants/styles.dart';
+import 'package:multishop_tchad/features/vendor/bank_info/screens/bank_info_screen.dart';
+import 'package:multishop_tchad/features/vendor/menu/widgets/sign_out_confirmation_dialog_widget.dart';
+import 'package:multishop_tchad/features/vendor/settings/screens/order_wise_shipping_list_screen.dart';
+import 'package:multishop_tchad/features/vendor/settings/screens/setting_screen.dart';
+import 'package:multishop_tchad/features/vendor/shipping/screens/category_wise_shipping_screen.dart';
+import 'package:multishop_tchad/features/vendor/shipping/widgets/product_wise_shipping_widget.dart';
 
 class ThemeChangerWidget extends StatelessWidget {
   const ThemeChangerWidget({super.key});

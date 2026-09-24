@@ -1,6 +1,6 @@
 import 'package:image_picker/image_picker.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/auction/domain/repository/auction_ai_repository_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vendor/auction/domain/services/auction_ai_service_interface.dart';
+import 'package:multishop_tchad/features/vendor/auction/domain/repository/auction_ai_repository_interface.dart';
+import 'package:multishop_tchad/features/vendor/auction/domain/services/auction_ai_service_interface.dart';
 
 class AuctionAiService implements AuctionAiServiceInterface {
   final AuctionAiRepositoryInterface auctionAiRepositoryInterface;

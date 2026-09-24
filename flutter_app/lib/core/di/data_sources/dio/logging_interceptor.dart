@@ -1,1 +1,1 @@
-export 'package:flutter_sixvalley_ecommerce/core/di/data_sources/logging_interceptor.dart';
+export 'package:multishop_tchad/core/di/data_sources/logging_interceptor.dart';

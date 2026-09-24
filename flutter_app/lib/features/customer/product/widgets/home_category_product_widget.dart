@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/product/controllers/product_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/product/widgets/home_category_item_widget.dart';
+import 'package:multishop_tchad/features/customer/product/controllers/product_controller.dart';
+import 'package:multishop_tchad/features/customer/product/widgets/home_category_item_widget.dart';
 import 'package:provider/provider.dart';
 
 class HomeCategoryProductWidget extends StatelessWidget {

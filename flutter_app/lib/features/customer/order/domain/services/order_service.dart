@@ -1,5 +1,5 @@
-import 'package:flutter_sixvalley_ecommerce/features/customer/order/domain/repositories/order_repository_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/order/domain/services/order_service_interface.dart';
+import 'package:multishop_tchad/features/customer/order/domain/repositories/order_repository_interface.dart';
+import 'package:multishop_tchad/features/customer/order/domain/services/order_service_interface.dart';
 
 class OrderService implements OrderServiceInterface{
   OrderRepositoryInterface orderRepositoryInterface;

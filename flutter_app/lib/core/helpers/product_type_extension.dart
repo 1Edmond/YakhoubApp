@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/product/enums/product_type.dart';
-import 'package:flutter_sixvalley_ecommerce/core/localization/language_constrants.dart';
+import 'package:multishop_tchad/features/customer/product/enums/product_type.dart';
+import 'package:multishop_tchad/core/localization/language_constrants.dart';
 
 extension ProductTypeExtension on ProductType {
   String displayName(BuildContext context) {

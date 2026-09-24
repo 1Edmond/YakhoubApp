@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/shipping/domain/models/shipping_method_model.dart';
-import 'package:flutter_sixvalley_ecommerce/features/vault/shipping/controllers/shipping_controller.dart';
-import 'package:flutter_sixvalley_ecommerce/core/helpers/price_converter.dart';
-import 'package:flutter_sixvalley_ecommerce/core/localization/language_constrants.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/custom_themes.dart';
-import 'package:flutter_sixvalley_ecommerce/core/constants/dimensions.dart';
-import 'package:flutter_sixvalley_ecommerce/core/widgets/base/custom_button_widget.dart';
+import 'package:multishop_tchad/features/vault/shipping/domain/models/shipping_method_model.dart';
+import 'package:multishop_tchad/features/vault/shipping/controllers/shipping_controller.dart';
+import 'package:multishop_tchad/core/helpers/price_converter.dart';
+import 'package:multishop_tchad/core/localization/language_constrants.dart';
+import 'package:multishop_tchad/core/constants/custom_themes.dart';
+import 'package:multishop_tchad/core/constants/dimensions.dart';
+import 'package:multishop_tchad/core/widgets/base/custom_button_widget.dart';
 import 'package:provider/provider.dart';
 
 class ShippingMethodBottomSheetWidget extends StatefulWidget {

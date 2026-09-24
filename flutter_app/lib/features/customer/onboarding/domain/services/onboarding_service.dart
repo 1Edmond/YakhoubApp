@@ -1,5 +1,5 @@
-import 'package:flutter_sixvalley_ecommerce/features/customer/onboarding/domain/repositories/onboarding_repository_interface.dart';
-import 'package:flutter_sixvalley_ecommerce/features/customer/onboarding/domain/services/onboarding_service_interface.dart';
+import 'package:multishop_tchad/features/customer/onboarding/domain/repositories/onboarding_repository_interface.dart';
+import 'package:multishop_tchad/features/customer/onboarding/domain/services/onboarding_service_interface.dart';
 
 class OnBoardingService implements OnBoardingServiceInterface{
   OnBoardingRepositoryInterface onBoardingRepositoryInterface;
