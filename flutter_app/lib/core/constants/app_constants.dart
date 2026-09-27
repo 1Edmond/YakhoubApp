@@ -3,7 +3,7 @@ import 'package:multishop_tchad/core/enums/local_caches_type_enum.dart';
 
 class AppConstants {
   static const String baseUrl =
-      'https://879c-194-71-130-44.ngrok-free.app/admin';
+      'https://48af-194-71-130-44.ngrok-free.app/admin';
   static const String appName = 'MultiShop Tchad';
   static const String packageName = 'com.multishop.tchad';
 
