@@ -181,6 +181,36 @@ class CartRepository extends DataSyncService implements CartRepositoryInterface 
   Future getList({int? offset = 1}) {
     throw UnimplementedError();
   }
+
+  @override
+  Future<ApiResponseModel> requestCartNegotiation(int cartId, double requestedReduction) async {
+    try {
+      final response = await dioClient.post(
+        AppConstants.customerCartNegotiateEndpoint,
+        data: {
+          'cart_id': cartId,
+          'requested_reduction': requestedReduction,
+        },
+      );
+      return ApiResponseModel.withSuccess(response);
+    } catch (e) {
+      return ApiResponseModel.withError(ApiErrorHandler.getMessage(e));
+    }
+  }
+
+  @override
+  Future<ApiResponseModel> respondToCartCounterOffer(int requestId, bool accept) async {
+    try {
+      final uri = AppConstants.customerCartNegotiationRespondEndpoint.replaceAll('{requestId}', requestId.toString());
+      final response = await dioClient.put(
+        uri,
+        data: {'accept': accept},
+      );
+      return ApiResponseModel.withSuccess(response);
+    } catch (e) {
+      return ApiResponseModel.withError(ApiErrorHandler.getMessage(e));
+    }
+  }
 }
 
 

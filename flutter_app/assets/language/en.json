@@ -2529,5 +2529,22 @@
   "request_reduction": "Request a price reduction",
   "navigate_to_client": "Navigate to client (GPS)",
   "moov_money": "Moov Money",
-  "airtel_money": "Airtel Money"
+  "airtel_money": "Airtel Money",
+  "negotiate_price": "Negotiate",
+  "negotiate_product_price": "Negotiate Item Price",
+  "select_reduction_tier": "Select a reduction tier (FCFA):",
+  "negotiation_tier_hint": "The seller can accept, decline or counter-offer.",
+  "send_negotiation_request": "Send proposal to seller",
+  "negotiation_sent_successfully": "Negotiation proposal sent to seller!",
+  "negotiation_accepted": "Offer accepted! New price applied.",
+  "negotiation_refused": "Offer declined.",
+  "negotiation_pending": "Negotiation",
+  "negotiation_accepted_badge": "Negotiated Price",
+  "counter_offer_from_seller": "Counter-offer",
+  "negotiation_refused_badge": "Declined",
+  "retry_negotiation": "Retry",
+  "current_unit_price": "Current Unit Price",
+  "requested_reduction": "Requested Reduction",
+  "proposed_unit_price": "Proposed Unit Price",
+  "total_savings": "Total Savings"
 }

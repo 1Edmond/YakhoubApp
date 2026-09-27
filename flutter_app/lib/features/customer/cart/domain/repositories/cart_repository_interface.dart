@@ -20,4 +20,8 @@ abstract class CartRepositoryInterface implements RepositoryInterface{
 
   Future<dynamic> getCartList({String? couponCode});
 
+  Future<ApiResponseModel> requestCartNegotiation(int cartId, double requestedReduction);
+
+  Future<ApiResponseModel> respondToCartCounterOffer(int requestId, bool accept);
+
 }

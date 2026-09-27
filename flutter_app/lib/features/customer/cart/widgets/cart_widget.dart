@@ -15,6 +15,7 @@ import 'package:multishop_tchad/core/constants/custom_themes.dart';
 import 'package:multishop_tchad/core/constants/dimensions.dart';
 import 'package:multishop_tchad/core/widgets/base/custom_image_widget.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
+import 'package:multishop_tchad/features/customer/cart/widgets/cart_product_negotiation_bottom_sheet.dart';
 import 'package:provider/provider.dart';
 
 class CartWidget extends StatelessWidget {
@@ -143,7 +144,11 @@ class CartWidget extends StatelessWidget {
                               horizontal: Dimensions.paddingSizeSmall,
                               vertical: Dimensions.paddingSizeSmall,
                             ),
-                            child: _CartProductDetailsWidget(cartModel: cartModel),
+                            child: _CartProductDetailsWidget(
+                              cartModel: cartModel,
+                              index: index,
+                              fromCheckout: fromCheckout,
+                            ),
                           )),
                         ]),
 
@@ -258,7 +263,13 @@ class _CartQuantityControlsWidget extends StatelessWidget {
 
 class _CartProductDetailsWidget extends StatelessWidget {
   final CartModel? cartModel;
-  const _CartProductDetailsWidget({required this.cartModel});
+  final int index;
+  final bool fromCheckout;
+  const _CartProductDetailsWidget({
+    required this.cartModel,
+    required this.index,
+    required this.fromCheckout,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -388,8 +399,244 @@ class _CartProductDetailsWidget extends StatelessWidget {
             ),
           ),
 
+        // Negotiation Section (only in cart screen, not during checkout)
+        if (!fromCheckout && cartModel != null)
+          Padding(
+            padding: const EdgeInsets.only(top: Dimensions.paddingSizeExtraSmall),
+            child: _CartNegotiationSectionWidget(cartModel: cartModel!, index: index),
+          ),
+
       ],
     );
+  }
+}
+
+class _CartNegotiationSectionWidget extends StatelessWidget {
+  final CartModel cartModel;
+  final int index;
+  const _CartNegotiationSectionWidget({required this.cartModel, required this.index});
+
+  @override
+  Widget build(BuildContext context) {
+    final cartProvider = Provider.of<CartController>(context, listen: false);
+    final status = cartModel.negotiationStatus ?? 'none';
+
+    if (status == 'none' || status.isEmpty) {
+      return InkWell(
+        onTap: () {
+          showModalBottomSheet(
+            context: context,
+            isScrollControlled: true,
+            backgroundColor: Colors.transparent,
+            builder: (ctx) => CartProductNegotiationBottomSheet(
+              cartModel: cartModel,
+              index: index,
+            ),
+          );
+        },
+        child: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+          decoration: BoxDecoration(
+            color: Theme.of(context).primaryColor.withValues(alpha: 0.08),
+            borderRadius: BorderRadius.circular(Dimensions.radiusSmall),
+            border: Border.all(color: Theme.of(context).primaryColor.withValues(alpha: 0.3)),
+          ),
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Icon(Icons.handshake_outlined, size: 14, color: Theme.of(context).primaryColor),
+              const SizedBox(width: 4),
+              Text(
+                getTranslated('negotiate_price', context) ?? 'Négocier',
+                style: textMedium.copyWith(
+                  fontSize: Dimensions.fontSizeExtraSmall,
+                  color: Theme.of(context).primaryColor,
+                ),
+              ),
+            ],
+          ),
+        ),
+      );
+    } else if (status == 'pending') {
+      return Container(
+        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+        decoration: BoxDecoration(
+          color: Colors.amber.withValues(alpha: 0.12),
+          borderRadius: BorderRadius.circular(Dimensions.radiusSmall),
+          border: Border.all(color: Colors.amber.withValues(alpha: 0.5)),
+        ),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            const Icon(Icons.access_time_rounded, size: 13, color: Colors.amber),
+            const SizedBox(width: 4),
+            Flexible(
+              child: Text(
+                '${getTranslated('negotiation_pending', context) ?? 'Négociation'}: -${PriceConverter.convertPrice(context, cartModel.negotiationReduction ?? 0)}',
+                style: textMedium.copyWith(
+                  fontSize: Dimensions.fontSizeExtraSmall,
+                  color: Colors.amber[900],
+                ),
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+              ),
+            ),
+          ],
+        ),
+      );
+    } else if (status == 'accepted') {
+      return Container(
+        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+        decoration: BoxDecoration(
+          color: Colors.green.withValues(alpha: 0.12),
+          borderRadius: BorderRadius.circular(Dimensions.radiusSmall),
+          border: Border.all(color: Colors.green.withValues(alpha: 0.5)),
+        ),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            const Icon(Icons.check_circle_outline, size: 13, color: Colors.green),
+            const SizedBox(width: 4),
+            Flexible(
+              child: Text(
+                '${getTranslated('negotiation_accepted_badge', context) ?? 'Prix négocié'}: -${PriceConverter.convertPrice(context, cartModel.negotiationReduction ?? 0)}',
+                style: textBold.copyWith(
+                  fontSize: Dimensions.fontSizeExtraSmall,
+                  color: Colors.green[800],
+                ),
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+              ),
+            ),
+          ],
+        ),
+      );
+    } else if (status == 'counter_offer') {
+      return Container(
+        padding: const EdgeInsets.all(6),
+        decoration: BoxDecoration(
+          color: Colors.blue.withValues(alpha: 0.08),
+          borderRadius: BorderRadius.circular(Dimensions.radiusSmall),
+          border: Border.all(color: Colors.blue.withValues(alpha: 0.3)),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              children: [
+                const Icon(Icons.info_outline, size: 13, color: Colors.blue),
+                const SizedBox(width: 4),
+                Flexible(
+                  child: Text(
+                    '${getTranslated('counter_offer_from_seller', context) ?? 'Contre-offre'}: -${PriceConverter.convertPrice(context, cartModel.counterOfferAmount ?? 0)}',
+                    style: textBold.copyWith(
+                      fontSize: Dimensions.fontSizeExtraSmall,
+                      color: Colors.blue[900],
+                    ),
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 4),
+            Row(
+              children: [
+                InkWell(
+                  onTap: () {
+                    if (cartModel.negotiationId != null) {
+                      cartProvider.respondToProductNegotiation(cartModel.negotiationId!, true);
+                    }
+                  },
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+                    decoration: BoxDecoration(
+                      color: Colors.green,
+                      borderRadius: BorderRadius.circular(Dimensions.radiusSmall),
+                    ),
+                    child: Text(
+                      getTranslated('accept', context) ?? 'Accepter',
+                      style: textMedium.copyWith(
+                        fontSize: Dimensions.fontSizeExtraSmall,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                ),
+                const SizedBox(width: 6),
+                InkWell(
+                  onTap: () {
+                    if (cartModel.negotiationId != null) {
+                      cartProvider.respondToProductNegotiation(cartModel.negotiationId!, false);
+                    }
+                  },
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+                    decoration: BoxDecoration(
+                      color: Colors.red.withValues(alpha: 0.1),
+                      borderRadius: BorderRadius.circular(Dimensions.radiusSmall),
+                      border: Border.all(color: Colors.red.withValues(alpha: 0.4)),
+                    ),
+                    child: Text(
+                      getTranslated('refuse', context) ?? 'Refuser',
+                      style: textMedium.copyWith(
+                        fontSize: Dimensions.fontSizeExtraSmall,
+                        color: Colors.red,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
+      );
+    } else if (status == 'refused') {
+      return Row(
+        children: [
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 3),
+            decoration: BoxDecoration(
+              color: Colors.red.withValues(alpha: 0.08),
+              borderRadius: BorderRadius.circular(Dimensions.radiusSmall),
+            ),
+            child: Text(
+              getTranslated('negotiation_refused_badge', context) ?? 'Refusée',
+              style: textRegular.copyWith(
+                fontSize: Dimensions.fontSizeExtraSmall,
+                color: Colors.red[700],
+              ),
+            ),
+          ),
+          if ((cartModel.negotiationRound ?? 1) < 2) ...[
+            const SizedBox(width: 6),
+            InkWell(
+              onTap: () {
+                showModalBottomSheet(
+                  context: context,
+                  isScrollControlled: true,
+                  backgroundColor: Colors.transparent,
+                  builder: (ctx) => CartProductNegotiationBottomSheet(
+                    cartModel: cartModel,
+                    index: index,
+                  ),
+                );
+              },
+              child: Text(
+                getTranslated('retry_negotiation', context) ?? 'Réessayer',
+                style: textMedium.copyWith(
+                  fontSize: Dimensions.fontSizeExtraSmall,
+                  color: Theme.of(context).primaryColor,
+                  decoration: TextDecoration.underline,
+                ),
+              ),
+            ),
+          ],
+        ],
+      );
+    }
+
+    return const SizedBox();
   }
 }
 

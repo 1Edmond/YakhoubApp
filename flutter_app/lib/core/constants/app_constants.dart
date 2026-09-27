@@ -28,6 +28,10 @@ class AppConstants {
       'v3/seller/reduction-requests/{orderId}/refuse';
   static const String vendorReductionCounterOfferEndpoint =
       'v3/seller/reduction-requests/{requestId}/counter-offer';
+  static const String customerCartNegotiateEndpoint = 'customer/cart/negotiate';
+  static const String customerCartNegotiationsEndpoint = 'customer/cart/negotiations';
+  static const String customerCartNegotiationRespondEndpoint =
+      'customer/cart/negotiations/{requestId}/respond';
 
   // Order Cancellation
   static const String orderCancelEndpoint = 'customer/order/{orderId}/cancel';

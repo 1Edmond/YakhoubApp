@@ -2529,5 +2529,22 @@
   "request_reduction": "طلب تخفيض السعر",
   "navigate_to_client": "التوجه نحو العميل (GPS)",
   "moov_money": "موف موني",
-  "airtel_money": "إيرتل موني"
+  "airtel_money": "إيرتل موني",
+  "negotiate_price": "تفاوض",
+  "negotiate_product_price": "التفاوض على سعر المنتج",
+  "select_reduction_tier": "اختر مستوى التخفيض (فرنك سيفا):",
+  "negotiation_tier_hint": "يمكن للبائع القبول أو الرفض أو تقديم عرض مضاد.",
+  "send_negotiation_request": "إرسال الاقتراح إلى البائع",
+  "negotiation_sent_successfully": "تم إرسال طلب التفاوض إلى البائع!",
+  "negotiation_accepted": "تم قبول العرض! تم تطبيق السعر الجديد.",
+  "negotiation_refused": "تم رفض العرض.",
+  "negotiation_pending": "تفاوض",
+  "negotiation_accepted_badge": "سعر متفاوض عليه",
+  "counter_offer_from_seller": "عرض مضاد",
+  "negotiation_refused_badge": "مرفوض",
+  "retry_negotiation": "إعادة المحاولة",
+  "current_unit_price": "سعر الوحدة الحالي",
+  "requested_reduction": "التخفيض المطلوب",
+  "proposed_unit_price": "سعر الوحدة المقترح",
+  "total_savings": "إجمالي التوفير"
 }

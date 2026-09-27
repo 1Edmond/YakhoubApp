@@ -8,6 +8,7 @@ import 'package:multishop_tchad/features/customer/product_details/controllers/pr
 import 'package:multishop_tchad/features/vault/shipping/controllers/shipping_controller.dart';
 import 'package:multishop_tchad/core/helpers/api_checker.dart';
 import 'package:multishop_tchad/main.dart';
+import 'package:multishop_tchad/core/localization/language_constrants.dart';
 import 'package:multishop_tchad/core/widgets/base/show_custom_snakbar_widget.dart';
 import 'package:provider/provider.dart';
 
@@ -187,6 +188,59 @@ class CartController extends ChangeNotifier {
       ApiChecker.checkApi(apiResponse);
     }
     notifyListeners();
+  }
+
+  bool _isNegotiationLoading = false;
+  bool get isNegotiationLoading => _isNegotiationLoading;
+
+  Future<bool> requestProductNegotiation(int cartId, double reductionAmount) async {
+    _isNegotiationLoading = true;
+    notifyListeners();
+    ApiResponseModel apiResponse = await cartServiceInterface!.requestCartNegotiation(cartId, reductionAmount);
+    _isNegotiationLoading = false;
+    if (apiResponse.response != null && (apiResponse.response!.statusCode == 200 || apiResponse.response!.statusCode == 201)) {
+      showCustomSnackBarWidget(
+        getTranslated('negotiation_sent_successfully', Get.context!) ?? 'Demande de négociation envoyée au vendeur !',
+        Get.context!,
+        snackBarType: SnackBarType.success,
+      );
+      await getCartData(Get.context!, reload: false);
+      notifyListeners();
+      return true;
+    } else {
+      String errorMessage = 'Erreur lors de la demande';
+      if (apiResponse.error is String) {
+        errorMessage = apiResponse.error;
+      } else if (apiResponse.response?.data != null && apiResponse.response?.data['message'] != null) {
+        errorMessage = apiResponse.response?.data['message'].toString() ?? errorMessage;
+      }
+      showCustomSnackBarWidget(errorMessage, Get.context!, snackBarType: SnackBarType.error);
+      notifyListeners();
+      return false;
+    }
+  }
+
+  Future<bool> respondToProductNegotiation(int requestId, bool accept) async {
+    _isNegotiationLoading = true;
+    notifyListeners();
+    ApiResponseModel apiResponse = await cartServiceInterface!.respondToCartCounterOffer(requestId, accept);
+    _isNegotiationLoading = false;
+    if (apiResponse.response != null && apiResponse.response!.statusCode == 200) {
+      showCustomSnackBarWidget(
+        accept 
+          ? (getTranslated('negotiation_accepted', Get.context!) ?? 'Offre acceptée ! Nouveau prix appliqué.')
+          : (getTranslated('negotiation_refused', Get.context!) ?? 'Offre refusée.'),
+        Get.context!,
+        snackBarType: SnackBarType.success,
+      );
+      await getCartData(Get.context!, reload: false);
+      notifyListeners();
+      return true;
+    } else {
+      ApiChecker.checkApi(apiResponse);
+      notifyListeners();
+      return false;
+    }
   }
 
 

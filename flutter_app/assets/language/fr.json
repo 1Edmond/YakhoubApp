@@ -2529,5 +2529,22 @@
   "user": "Utilisateur",
   "via": "via",
   "we\\": "nous",
-  "you_denied": "vous avez nié"
+  "you_denied": "vous avez nié",
+  "negotiate_price": "Négocier",
+  "negotiate_product_price": "Négocier le prix de l'article",
+  "select_reduction_tier": "Choisissez un palier de réduction (FCFA) :",
+  "negotiation_tier_hint": "Le vendeur pourra accepter, refuser ou contre-proposer.",
+  "send_negotiation_request": "Envoyer la proposition au vendeur",
+  "negotiation_sent_successfully": "Demande de négociation envoyée au vendeur !",
+  "negotiation_accepted": "Offre acceptée ! Nouveau prix appliqué.",
+  "negotiation_refused": "Offre refusée.",
+  "negotiation_pending": "Négociation",
+  "negotiation_accepted_badge": "Prix négocié",
+  "counter_offer_from_seller": "Contre-offre",
+  "negotiation_refused_badge": "Refusée",
+  "retry_negotiation": "Réessayer",
+  "current_unit_price": "Prix unitaire actuel",
+  "requested_reduction": "Réduction demandée",
+  "proposed_unit_price": "Nouveau prix unitaire proposé",
+  "total_savings": "Économie totale"
 }

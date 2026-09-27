@@ -139,4 +139,14 @@ class CartService implements CartServiceInterface{
     return await cartRepositoryInterface.mergeGuestCart();
   }
 
+  @override
+  Future<ApiResponseModel> requestCartNegotiation(int cartId, double requestedReduction) async {
+    return await cartRepositoryInterface.requestCartNegotiation(cartId, requestedReduction);
+  }
+
+  @override
+  Future<ApiResponseModel> respondToCartCounterOffer(int requestId, bool accept) async {
+    return await cartRepositoryInterface.respondToCartCounterOffer(requestId, accept);
+  }
+
 }

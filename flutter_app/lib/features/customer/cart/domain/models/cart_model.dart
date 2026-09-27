@@ -46,7 +46,12 @@ class CartModel {
   double? appliedTax;
   String? appliedTaxType;
   double? shippingCostTax;
-
+  String? negotiationStatus;
+  double? negotiationReduction;
+  double? negotiatedPrice;
+  double? counterOfferAmount;
+  int? negotiationId;
+  int? negotiationRound;
 
   CartModel(
       this.id,
@@ -165,6 +170,12 @@ class CartModel {
     appliedTaxType = json['applied_tax_type'];
     shippingCostTax = json['shipping_cost_tax'] != null ?
     double.tryParse(json['shipping_cost_tax'].toString()) : null;
+    negotiationStatus = json['negotiation_status']?.toString();
+    negotiationReduction = json['negotiation_reduction'] != null ? double.tryParse(json['negotiation_reduction'].toString()) : null;
+    negotiatedPrice = json['negotiated_price'] != null ? double.tryParse(json['negotiated_price'].toString()) : null;
+    counterOfferAmount = json['counter_offer_amount'] != null ? double.tryParse(json['counter_offer_amount'].toString()) : null;
+    negotiationId = json['negotiation_id'] != null ? int.tryParse(json['negotiation_id'].toString()) : null;
+    negotiationRound = json['negotiation_round'] != null ? int.tryParse(json['negotiation_round'].toString()) : null;
   }
 
   Map<String, dynamic> toJson() {
@@ -217,6 +228,12 @@ class CartModel {
     data['applied_tax'] = appliedTax;
     data['applied_tax_type'] = appliedTaxType;
     data['shipping_cost_tax'] = shippingCostTax;
+    data['negotiation_status'] = negotiationStatus;
+    data['negotiation_reduction'] = negotiationReduction;
+    data['negotiated_price'] = negotiatedPrice;
+    data['counter_offer_amount'] = counterOfferAmount;
+    data['negotiation_id'] = negotiationId;
+    data['negotiation_round'] = negotiationRound;
     return data;
   }
 }
