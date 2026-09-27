@@ -39,12 +39,14 @@ class LanguageWidget extends StatelessWidget {
             child: Column(mainAxisSize: MainAxisSize.min, children: [
               Container(height: 65, width: 65,
                 decoration: BoxDecoration(borderRadius: BorderRadius.circular(Dimensions.paddingSizeSmall),
-                  border: Border.all(color: Theme.of(context).textTheme.bodyLarge!.color!, width: 1)),
+                  border: Border.all(color: Theme.of(context).textTheme.bodyLarge?.color ?? Colors.grey, width: 1)),
                 alignment: Alignment.center,
-                child: Image.asset(languageModel.imageUrl!, width: 36, height: 36)),
+                child: (languageModel.imageUrl != null && languageModel.imageUrl!.isNotEmpty)
+                    ? Image.asset(languageModel.imageUrl!, width: 36, height: 36)
+                    : const Icon(Icons.language, size: 36)),
               const SizedBox(height: Dimensions.paddingSizeLarge),
 
-              Text(languageModel.languageName!, style: robotoMedium.copyWith(color: Theme.of(context).primaryColor)),
+              Text(languageModel.languageName ?? '', style: robotoMedium.copyWith(color: Theme.of(context).primaryColor)),
             ]),
           ),
 

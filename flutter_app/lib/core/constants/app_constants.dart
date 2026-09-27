@@ -1,5 +1,6 @@
 import 'package:multishop_tchad/core/localization/models/language_model.dart';
 import 'package:multishop_tchad/core/enums/local_caches_type_enum.dart';
+import 'package:multishop_tchad/core/constants/images.dart';
 
 class AppConstants {
   static const String baseUrl =
@@ -64,12 +65,23 @@ class AppConstants {
   // Frais d'annulation (FCFA)
   static const double cancellationFee = 1000.00;
 
-  // Langues supportÃ©es
+  // Langues supportées
   static List<LanguageModel> languages = [
     LanguageModel(
-        languageCode: 'fr', countryCode: 'TD', languageName: 'FranÃ§ais'),
+        imageUrl: Images.fr,
+        languageCode: 'fr',
+        countryCode: 'TD',
+        languageName: 'Français'),
     LanguageModel(
-        languageCode: 'ar', countryCode: 'TD', languageName: 'Ø§Ù„Ø¹Ø±Ø¨ÙŠØ©'),
+        imageUrl: Images.ar,
+        languageCode: 'ar',
+        countryCode: 'TD',
+        languageName: 'العربية'),
+    LanguageModel(
+        imageUrl: Images.en,
+        languageCode: 'en',
+        countryCode: 'US',
+        languageName: 'English'),
   ];
 
   // RÃ´les utilisateur

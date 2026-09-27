@@ -18,97 +18,152 @@ class SelectLanguageBottomSheetWidget extends StatefulWidget {
   const SelectLanguageBottomSheetWidget({super.key});
 
   @override
-  State<SelectLanguageBottomSheetWidget> createState() => _SelectLanguageBottomSheetWidgetState();
+  State<SelectLanguageBottomSheetWidget> createState() =>
+      _SelectLanguageBottomSheetWidgetState();
 }
 
-class _SelectLanguageBottomSheetWidgetState extends State<SelectLanguageBottomSheetWidget> {
+class _SelectLanguageBottomSheetWidgetState
+    extends State<SelectLanguageBottomSheetWidget> {
   int selectedIndex = 0;
   @override
   void initState() {
-    selectedIndex = Provider.of<LocalizationController>(context, listen: false).languageIndex!;
+    final langIndex = Provider.of<LocalizationController>(context, listen: false).languageIndex;
+    selectedIndex = (langIndex != null && langIndex >= 0 && langIndex < AppConstants.languages.length) ? langIndex : 0;
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
-    final SplashController splashController = Provider.of<SplashController>(context, listen: false);
-    final ProductController productController = Provider.of<ProductController>(context, listen: false);
+    final SplashController splashController =
+        Provider.of<SplashController>(context, listen: false);
+    final ProductController productController =
+        Provider.of<ProductController>(context, listen: false);
     return Consumer<LocalizationController>(
         builder: (context, localizationProvider, _) {
-          return SingleChildScrollView(
-            child: Container(padding: const EdgeInsets.only(bottom: 40, top: 15),
-              decoration: BoxDecoration(color: Theme.of(context).cardColor,
-                  borderRadius: const BorderRadius.vertical(top: Radius.circular(Dimensions.paddingSizeDefault))),
-              child: Column(mainAxisSize: MainAxisSize.min, children: [
-                Container(width: 40,height: 5,decoration: BoxDecoration(color: Theme.of(context).hintColor.withValues(alpha:.5),
+      return SingleChildScrollView(
+        child: Container(
+          padding: const EdgeInsets.only(bottom: 40, top: 15),
+          decoration: BoxDecoration(
+              color: Theme.of(context).cardColor,
+              borderRadius: const BorderRadius.vertical(
+                  top: Radius.circular(Dimensions.paddingSizeDefault))),
+          child: Column(mainAxisSize: MainAxisSize.min, children: [
+            Container(
+                width: 40,
+                height: 5,
+                decoration: BoxDecoration(
+                    color: Theme.of(context).hintColor.withValues(alpha: .5),
                     borderRadius: BorderRadius.circular(20))),
-                const SizedBox(height: 40,),
-
-                Text(getTranslated('select_language', context)!, style: textBold.copyWith(fontSize: Dimensions.fontSizeLarge, color: Theme.of(context).textTheme.bodyLarge?.color )),
-                Padding(padding: const EdgeInsets.only(top: Dimensions.paddingSizeSmall, bottom: Dimensions.paddingSizeLarge),
-                  child: Text('${getTranslated('choose_your_language_to_proceed', context)}', style: textRegular.copyWith(color: Theme.of(context).textTheme.bodyLarge?.color ))),
-
-                ListView.builder(
-                    physics: const NeverScrollableScrollPhysics(),
-                    itemCount: AppConstants.languages.length,
-                    shrinkWrap: true,
-                    itemBuilder: (context, index){
-                      return InkWell(
-                          onTap: (){
-                            setState(() {
-                              selectedIndex = index;
-                            });
-                          },
-                          child: Padding(padding: const EdgeInsets.fromLTRB(Dimensions.homePagePadding, 0,
-                              Dimensions.homePagePadding, Dimensions.paddingSizeSmall),
-                              child: Container(decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(Dimensions.paddingSizeExtraSmall),
-                                  color: selectedIndex == index? Theme.of(context).primaryColor.withValues(alpha:.1): Theme.of(context).cardColor),
-                                  child: Padding(padding: const EdgeInsets.symmetric(horizontal: Dimensions.paddingSizeDefault,
+            const SizedBox(
+              height: 40,
+            ),
+            Text(getTranslated('select_language', context)!,
+                style: textBold.copyWith(
+                    fontSize: Dimensions.fontSizeLarge,
+                    color: Theme.of(context).textTheme.bodyLarge?.color)),
+            Padding(
+                padding: const EdgeInsets.only(
+                    top: Dimensions.paddingSizeSmall,
+                    bottom: Dimensions.paddingSizeLarge),
+                child: Text(
+                    '${getTranslated('choose_your_language_to_proceed', context)}',
+                    style: textRegular.copyWith(
+                        color: Theme.of(context).textTheme.bodyLarge?.color))),
+            ListView.builder(
+                physics: const NeverScrollableScrollPhysics(),
+                itemCount: AppConstants.languages.length,
+                shrinkWrap: true,
+                itemBuilder: (context, index) {
+                  return InkWell(
+                      onTap: () {
+                        setState(() {
+                          selectedIndex = index;
+                        });
+                      },
+                      child: Padding(
+                          padding: const EdgeInsets.fromLTRB(
+                              Dimensions.homePagePadding,
+                              0,
+                              Dimensions.homePagePadding,
+                              Dimensions.paddingSizeSmall),
+                          child: Container(
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(
+                                      Dimensions.paddingSizeExtraSmall),
+                                  color: selectedIndex == index
+                                      ? Theme.of(context)
+                                          .primaryColor
+                                          .withValues(alpha: .1)
+                                      : Theme.of(context).cardColor),
+                              child: Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: Dimensions.paddingSizeDefault,
                                       vertical: Dimensions.paddingSizeSmall),
-                                      child: Row(children: [
-                                        SizedBox(width: 25, child: Image.asset(AppConstants.languages[index].imageUrl!)),
-
-                                        Padding(padding: const EdgeInsets.symmetric(horizontal: Dimensions.paddingSizeSmall),
-                                            child: Text(AppConstants.languages[index].languageName!, style: textRegular.copyWith(color: Theme.of(context).textTheme.bodyLarge?.color)))])))));
-
-                    }),
-
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(
-                    Dimensions.homePagePadding,
-                    Dimensions.paddingSizeSmall,
-                    Dimensions.homePagePadding,
-                    0,
-                  ),
-                  child: CustomButton(buttonText: '${getTranslated('select', context)}', onTap: (){
-                    Provider.of<LocalizationController>(context, listen: false).setLanguage(Locale(
-                        AppConstants.languages[selectedIndex].languageCode!,
-                        AppConstants.languages[selectedIndex].countryCode));
-                    Provider.of<CategoryController>(context, listen: false).getCategoryList(true);
+                                  child: Row(children: [
+                                    SizedBox(
+                                        width: 25,
+                                        height: 25,
+                                        child: (AppConstants.languages[index].imageUrl != null && AppConstants.languages[index].imageUrl!.isNotEmpty)
+                                            ? Image.asset(AppConstants.languages[index].imageUrl!)
+                                            : const Icon(Icons.language, size: 22)),
+                                    Padding(
+                                        padding: const EdgeInsets.symmetric(
+                                            horizontal:
+                                                Dimensions.paddingSizeSmall),
+                                        child: Text(
+                                            AppConstants
+                                                .languages[index].languageName ?? '',
+                                            style: textRegular.copyWith(
+                                                color: Theme.of(context)
+                                                    .textTheme
+                                                    .bodyLarge
+                                                    ?.color)))
+                                  ])))));
+                }),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(
+                Dimensions.homePagePadding,
+                Dimensions.paddingSizeSmall,
+                Dimensions.homePagePadding,
+                0,
+              ),
+              child: CustomButton(
+                  buttonText: '${getTranslated('select', context)}',
+                  onTap: () {
+                    final effectiveIndex = (selectedIndex >= 0 && selectedIndex < AppConstants.languages.length) ? selectedIndex : 0;
+                    Provider.of<LocalizationController>(context, listen: false)
+                        .setLanguage(Locale(
+                            AppConstants.languages[effectiveIndex].languageCode ?? 'fr',
+                            AppConstants.languages[effectiveIndex].countryCode));
+                    Provider.of<CategoryController>(context, listen: false)
+                        .getCategoryList(true);
                     productController.getHomeCategoryProductList(true);
-                    Provider.of<ShopController>(context, listen: false).getTopSellerList(offset: 1);
-                    Provider.of<BrandController>(context, listen: false).getBrandList(offset: 1);
+                    Provider.of<ShopController>(context, listen: false)
+                        .getTopSellerList(offset: 1);
+                    Provider.of<BrandController>(context, listen: false)
+                        .getBrandList(offset: 1);
                     productController.getLatestProductList(1);
-                    productController.getFeaturedProductModel(1, isUpdate: true);
-                    Provider.of<FeaturedDealController>(context, listen: false).getFeaturedDealList();
+                    productController.getFeaturedProductModel(1,
+                        isUpdate: true);
+                    Provider.of<FeaturedDealController>(context, listen: false)
+                        .getFeaturedDealList();
                     // productController.getLProductList('1', reload: true);
-                    Provider.of<FlashDealController>(context, listen: false).getFlashDealList(true, true);
+                    Provider.of<FlashDealController>(context, listen: false)
+                        .getFlashDealList(true, true);
                     productController.getRecommendedProduct();
                     productController.getJustForYouProduct(1);
 
-                    if(splashController.configModel?.activeTheme == "theme_fashion") {
+                    if (splashController.configModel?.activeTheme ==
+                        "theme_fashion") {
                       productController.getMostSearchingProduct(1);
                     }
 
-
-
                     Navigator.pop(context);
                   }),
-                )
-              ]),
-            ),
-          );
-        }
-    );
+            )
+          ]),
+        ),
+      );
+    });
   }
 }

@@ -277,11 +277,9 @@ class AppConstants {
   static const String bluetoothMacAddress = 'bluetooth_mac_address';
 
   static List<LanguageModel> languages = [
-    LanguageModel(imageUrl: Images.unitedKingdom, languageName: 'English', countryCode: 'US', languageCode: 'en'),
-    LanguageModel(imageUrl: Images.arabic, languageName: 'Arabic', countryCode: 'SA', languageCode: 'ar'),
-    LanguageModel(imageUrl: Images.hindi, languageName: 'Hindi', countryCode: 'IN', languageCode: 'hi'),
-    LanguageModel(imageUrl: Images.bd, languageName: 'Bangla', countryCode: 'BD', languageCode: 'bn'),
-    LanguageModel(imageUrl: Images.spanish, languageName: 'Spanish', countryCode: 'ES', languageCode: 'es'),
+    LanguageModel(imageUrl: Images.fr, languageName: 'Français', countryCode: 'TD', languageCode: 'fr'),
+    LanguageModel(imageUrl: Images.ar, languageName: 'العربية', countryCode: 'TD', languageCode: 'ar'),
+    LanguageModel(imageUrl: Images.en, languageName: 'English', countryCode: 'US', languageCode: 'en'),
   ];
 
   static const double maxSizeOfASingleFile = 10;

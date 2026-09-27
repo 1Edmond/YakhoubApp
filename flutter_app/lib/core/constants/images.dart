@@ -163,6 +163,7 @@ class Images {
   static const String noTicket = 'assets/images/no_ticket.png';
   static const String exitIcon = 'assets/images/exit_icon.png';
   static const String en = 'assets/images/en.png';
+  static const String fr = 'assets/images/fr.png';
   static const String bn = 'assets/images/bn.png';
   static const String hi = 'assets/images/in.png';
   static const String es = 'assets/images/es.png';

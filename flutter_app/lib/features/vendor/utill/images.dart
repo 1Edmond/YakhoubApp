@@ -29,6 +29,9 @@ class Images {
   static const String noData = 'assets/images/no_data.png';
   static const String arabic = 'assets/images/arabic.png';
   static const String unitedKingdom = 'assets/images/united_kindom.png';
+  static const String fr = 'assets/images/fr.png';
+  static const String ar = 'assets/images/ar.png';
+  static const String en = 'assets/images/en.png';
   static const String product_1 = 'assets/images/product_12.jpg';
   static const String product_2 = 'assets/images/product_2.png';
   static const String restaurantImage = 'assets/images/resturant.jpg';
