@@ -53,28 +53,39 @@ class ProductDetailsController extends ChangeNotifier {
 
   Future<void> getProductDetails(BuildContext context, String productId, String slug) async {
     _isDetails = true;
-    log("=====slug===>$slug/ $productId");
-    ApiResponseModel apiResponse = await productDetailsServiceInterface.get(slug);
-    if (apiResponse.response != null && apiResponse.response!.statusCode == 200) {
-      _isDetails = false;
-      _productDetailsModel = ProductDetailsModel.fromJson(apiResponse.response!.data);
-      if(_productDetailsModel != null){
-        log("=====slug===>$slug/ $productId");
-        // Provider.of<SellerProductController>(Get.context!, listen: false).
-        // getSellerProductList(_productDetailsModel?.addedBy == 'admin' ? '0' : productDetailsModel!.userId.toString(), 1, productId, reload: true);
-
-        Provider.of<SellerProductController>(Get.context!, listen: false).
-        getSellerMoreProductList(_productDetailsModel?.addedBy == 'admin' ?
-          Provider.of<SplashController>(Get.context!, listen: false).configModel?.inHouseShop?.slug ?? ''
-          : productDetailsModel!.seller!.shop!.slug.toString(), 1, productId);
-
-      }
-    } else {
-      _isDetails = false;
-      showCustomSnackBarWidget(apiResponse.error.toString(), Get.context!, snackBarType: SnackBarType.error);
-    }
-    _isDetails = false;
     notifyListeners();
+    try {
+      log("=====slug===>$slug/ $productId");
+      ApiResponseModel apiResponse = await productDetailsServiceInterface.get(slug);
+      if (apiResponse.response != null && apiResponse.response!.statusCode == 200 && apiResponse.response!.data != null) {
+        if (apiResponse.response!.data is Map<String, dynamic>) {
+          _productDetailsModel = ProductDetailsModel.fromJson(apiResponse.response!.data);
+          if(_productDetailsModel != null){
+            log("=====slug===>$slug/ $productId");
+            final shopSlug = _productDetailsModel?.addedBy == 'admin'
+                ? Provider.of<SplashController>(Get.context!, listen: false).configModel?.inHouseShop?.slug ?? ''
+                : (_productDetailsModel?.seller?.shop?.slug ?? '');
+            if (shopSlug.isNotEmpty) {
+              Provider.of<SellerProductController>(Get.context!, listen: false)
+                  .getSellerMoreProductList(shopSlug, 1, productId);
+            }
+          }
+        } else {
+          _productDetailsModel = null;
+        }
+      } else {
+        _productDetailsModel = null;
+        if (apiResponse.error != null && apiResponse.error.toString().isNotEmpty) {
+          showCustomSnackBarWidget(apiResponse.error.toString(), Get.context!, snackBarType: SnackBarType.error);
+        }
+      }
+    } catch (e, stack) {
+      log("Error in getProductDetails: $e \n $stack");
+      _productDetailsModel = null;
+    } finally {
+      _isDetails = false;
+      notifyListeners();
+    }
   }
 
 

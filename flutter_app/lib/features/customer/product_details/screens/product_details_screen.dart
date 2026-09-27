@@ -49,17 +49,23 @@ class _ProductDetailsState extends State<ProductDetails> {
 
   Size widgetSize = const Size(100, 400);
 
-  Future<void> _loadData( BuildContext context) async {
-    Provider.of<ProductDetailsController>(context, listen: false).getProductDetails(context, widget.slug.toString(), widget.slug.toString());
-    Provider.of<ReviewController>(context, listen: false).removePrevReview();
-    Provider.of<ProductDetailsController>(context, listen: false).removePrevLink();
-    Provider.of<ReviewController>(context, listen: false).getReviewList(1, productSlug: widget.slug);
-    Provider.of<ProductController>(context, listen: false).removePrevRelatedProduct();
-    Provider.of<ProductController>(context, listen: false).initRelatedProductList(widget.slug.toString(), context);
-    Provider.of<ProductDetailsController>(context, listen: false).getCount(widget.slug.toString(), context);
-    Provider.of<ProductDetailsController>(context, listen: false).getSharableLink(widget.slug.toString(), context);
-    Provider.of<ProductDetailsController>(context, listen: false).setImageSliderSelectedIndex(0, isUpdate: false);
-    Provider.of<ShopController>(context, listen: false).emptyProductDetailsSeller();
+  Future<void> _loadData(BuildContext context) async {
+    final effectiveSlug = (widget.slug != null && widget.slug!.isNotEmpty && widget.slug != 'null')
+        ? widget.slug!
+        : (widget.productId != null ? widget.productId.toString() : '');
+
+    if (effectiveSlug.isNotEmpty) {
+      Provider.of<ProductDetailsController>(context, listen: false).getProductDetails(context, widget.productId?.toString() ?? effectiveSlug, effectiveSlug);
+      Provider.of<ReviewController>(context, listen: false).removePrevReview();
+      Provider.of<ProductDetailsController>(context, listen: false).removePrevLink();
+      Provider.of<ReviewController>(context, listen: false).getReviewList(1, productSlug: effectiveSlug);
+      Provider.of<ProductController>(context, listen: false).removePrevRelatedProduct();
+      Provider.of<ProductController>(context, listen: false).initRelatedProductList(effectiveSlug, context);
+      Provider.of<ProductDetailsController>(context, listen: false).getCount(effectiveSlug, context);
+      Provider.of<ProductDetailsController>(context, listen: false).getSharableLink(effectiveSlug, context);
+      Provider.of<ProductDetailsController>(context, listen: false).setImageSliderSelectedIndex(0, isUpdate: false);
+      Provider.of<ShopController>(context, listen: false).emptyProductDetailsSeller();
+    }
   }
 
   @override
@@ -104,14 +110,14 @@ class _ProductDetailsState extends State<ProductDetails> {
               if(details.productDetailsModel?.publishingHouse != null && details.productDetailsModel!.publishingHouse!.isNotEmpty) {
                 _publishingHouse = [];
                 for(String? houseName in details.productDetailsModel!.publishingHouse!) {
-                  _publishingHouse.add(TextSpan(text: '${houseName!} ' , style: titilliumSemiBold.copyWith(fontSize: Dimensions.fontSizeDefault)));
+                  _publishingHouse.add(TextSpan(text: '${houseName ?? ''} ' , style: titilliumSemiBold.copyWith(fontSize: Dimensions.fontSizeDefault)));
                 }
               }
 
               if(details.productDetailsModel?.authors != null && details.productDetailsModel!.authors!.isNotEmpty) {
                 _authors = [];
                 for(String? authorName in details.productDetailsModel!.authors!) {
-                  _authors.add(TextSpan(text: '${authorName!} ', style: titilliumSemiBold.copyWith(fontSize: Dimensions.fontSizeDefault)));
+                  _authors.add(TextSpan(text: '${authorName ?? ''} ', style: titilliumSemiBold.copyWith(fontSize: Dimensions.fontSizeDefault)));
                 }
               }
 
@@ -119,7 +125,7 @@ class _ProductDetailsState extends State<ProductDetails> {
               return SingleChildScrollView(
                 physics: const BouncingScrollPhysics(),
                 child: !details.isDetails ?
-                (!details.isDetails && details.productDetailsModel?.userId == null) ?
+                (!details.isDetails && (details.productDetailsModel == null || (details.productDetailsModel?.id == null && details.productDetailsModel?.userId == null))) ?
                 SizedBox(
                   height: MediaQuery.of(context).size.height - 200,
                   child: NoInternetOrDataScreenWidget(isNoInternet: false, icon: Images.noProduct, message: 'no_product_found')) :
@@ -300,7 +306,7 @@ class _ProductDetailsState extends State<ProductDetails> {
 
         bottomNavigationBar: Consumer<ProductDetailsController>(
           builder: (context, details, child) {
-            return !details.isDetails && details.productDetailsModel?.userId != null ?
+            return !details.isDetails && details.productDetailsModel?.id != null ?
             BottomCartWidget(product: details.productDetailsModel):const SizedBox();
           }
         ),
