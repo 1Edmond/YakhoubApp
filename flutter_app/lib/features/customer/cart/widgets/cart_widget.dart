@@ -204,11 +204,11 @@ class _CartQuantityControlsWidget extends StatelessWidget {
             ) : CartQuantityButton(
               index: index,
               isIncrement: true,
-              quantity: cartModel!.quantity,
-              maxQty: cartModel!.productInfo?.totalCurrentStock,
+              quantity: cartModel?.quantity,
+              maxQty: cartModel?.productInfo?.totalCurrentStock ?? cartModel?.maxQuantity ?? 999,
               cartModel: cartModel,
-              minimumOrderQuantity: cartModel!.productInfo!.minimumOrderQty,
-              digitalProduct: cartModel!.productType == "digital" ? true : false,
+              minimumOrderQuantity: cartModel?.productInfo?.minimumOrderQty ?? cartModel?.minimumOrderQuantity ?? 1,
+              digitalProduct: cartModel?.productType == "digital" ? true : false,
             ),
 
             Padding(
@@ -223,7 +223,7 @@ class _CartQuantityControlsWidget extends StatelessWidget {
                   borderRadius: const BorderRadius.all(Radius.circular(Dimensions.radiusSmall)),
                 ),
                 child: Text(
-                  cartModel!.quantity.toString(),
+                  (cartModel?.quantity ?? 1).toString(),
                   style: textBold.copyWith(color: Theme.of(context).textTheme.bodyLarge?.color)
                 )
               ),
@@ -242,11 +242,11 @@ class _CartQuantityControlsWidget extends StatelessWidget {
             ) : CartQuantityButton(
               isIncrement: false,
               index: index,
-              quantity: cartModel!.quantity,
-              maxQty: cartModel!.productInfo!.totalCurrentStock,
+              quantity: cartModel?.quantity,
+              maxQty: cartModel?.productInfo?.totalCurrentStock ?? cartModel?.maxQuantity ?? 999,
               cartModel: cartModel,
-              minimumOrderQuantity: cartModel!.productInfo!.minimumOrderQty,
-              digitalProduct: cartModel!.productType == "digital" ? true : false,
+              minimumOrderQuantity: cartModel?.productInfo?.minimumOrderQty ?? cartModel?.minimumOrderQuantity ?? 1,
+              digitalProduct: cartModel?.productType == "digital" ? true : false,
             ),
           ],
         ),
@@ -273,12 +273,12 @@ class _CartProductDetailsWidget extends StatelessWidget {
                 RouterHelper.getProductDetailsRoute(action: RouteAction.push, productId: cartModel?.productId, slug: cartModel?.slug);
               },
               child: Text(
-                cartModel!.name!,
+                cartModel?.name ?? '',
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
                 style: textMedium.copyWith(
                   fontSize: Dimensions.fontSizeDefault,
-                  color: (cartModel!.shop != null &&  cartModel?.shop?.vacationStatus != null && cartModel?.shop?.temporaryClose != null && (cartModel!.shop!.temporaryClose! || cartModel!.shop!.vacationStatus!))
+                  color: (cartModel?.shop != null &&  cartModel?.shop?.vacationStatus != null && cartModel?.shop?.temporaryClose != null && ((cartModel?.shop?.temporaryClose ?? false) || (cartModel?.shop?.vacationStatus ?? false)))
                     ? Theme.of(context).hintColor
                     : Theme.of(context).textTheme.titleMedium?.color,
                 ),
@@ -292,8 +292,8 @@ class _CartProductDetailsWidget extends StatelessWidget {
         Row(
           children: [
             // Price with discount
-            cartModel!.discount! > 0 ? Text(
-              PriceConverter.convertPrice(context, cartModel!.price),
+            (cartModel?.discount ?? 0) > 0 ? Text(
+              PriceConverter.convertPrice(context, cartModel?.price ?? 0),
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
               style: titleRegular.copyWith(
@@ -303,21 +303,21 @@ class _CartProductDetailsWidget extends StatelessWidget {
               ),
             ) : const SizedBox(),
 
-            if(cartModel!.discount! > 0)
+            if((cartModel?.discount ?? 0) > 0)
               SizedBox(width: Dimensions.paddingSizeSmall),
 
             // Discounted price
             Text(
               PriceConverter.convertPrice(
                 context,
-                cartModel!.price,
-                discount: cartModel!.discount,
+                cartModel?.price ?? 0,
+                discount: cartModel?.discount ?? 0,
                 discountType: 'amount',
               ),
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
               style: textBold.copyWith(
-                color: (cartModel!.shop != null && cartModel?.shop?.vacationStatus != null && cartModel?.shop?.temporaryClose != null && (cartModel!.shop!.temporaryClose! || cartModel!.shop!.vacationStatus!))
+                color: (cartModel?.shop != null && cartModel?.shop?.vacationStatus != null && cartModel?.shop?.temporaryClose != null && ((cartModel?.shop?.temporaryClose ?? false) || (cartModel?.shop?.vacationStatus ?? false)))
                   ? Theme.of(context).hintColor
                   : Theme.of(context).textTheme.bodyMedium?.color,
                 fontSize: Dimensions.fontSizeDefault,
@@ -329,7 +329,7 @@ class _CartProductDetailsWidget extends StatelessWidget {
 
 
         // Variation
-        (cartModel!.variant != null && cartModel!.variant!.isNotEmpty)
+        (cartModel?.variant != null && cartModel!.variant!.isNotEmpty)
             ? Padding(
           padding: const EdgeInsets.only(top: 0),
           child: Row(children: [
@@ -346,37 +346,11 @@ class _CartProductDetailsWidget extends StatelessWidget {
         ) : const SizedBox(),
         const SizedBox(width: Dimensions.paddingSizeSmall),
 
-
-        /// Todo: remove vat tax
-        // Tax info
-        // cartModel!.taxModel == 'exclude'
-        //     ? Padding(
-        //   padding: const EdgeInsets.only(top: Dimensions.paddingSizeExtraSmall),
-        //   child: Text(
-        //     '(${getTranslated('tax', context)} : ${PriceConverter.convertPrice(context, cartModel?.tax)})',
-        //     style: textRegular.copyWith(
-        //       color: Theme.of(context).textTheme.titleMedium?.color,
-        //       fontSize: Dimensions.fontSizeDefault,
-        //     ),
-        //   ),
-        // )
-        //     : Padding(
-        //   padding: const EdgeInsets.only(top: Dimensions.paddingSizeExtraSmall),
-        //   child: Text(
-        //     '(${getTranslated('tax', context)} ${cartModel!.taxModel})',
-        //     style: textRegular.copyWith(
-        //       color: Theme.of(context).textTheme.titleMedium?.color,
-        //       fontSize: Dimensions.fontSizeDefault,
-        //     ),
-        //   ),
-        // ),
-
-
         // Shipping cost
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            cartModel!.shippingType != 'order_wise' ? Padding(
+            cartModel?.shippingType != 'order_wise' ? Padding(
               padding: const EdgeInsets.only(top: 0),
               child: Row(
                 children: [
@@ -384,15 +358,15 @@ class _CartProductDetailsWidget extends StatelessWidget {
                     '${getTranslated('shipping_cost', context)}: ',
                     style: titilliumSemiBold.copyWith(
                       fontSize: Dimensions.fontSizeSmall,
-                      color: (cartModel!.shop != null && cartModel?.shop?.temporaryClose != null && cartModel?.shop?.vacationStatus != null &&
-                          (cartModel!.shop!.temporaryClose! ||
-                              cartModel!.shop!.vacationStatus!))
+                      color: (cartModel?.shop != null && cartModel?.shop?.temporaryClose != null && cartModel?.shop?.vacationStatus != null &&
+                          ((cartModel?.shop?.temporaryClose ?? false) ||
+                              (cartModel?.shop?.vacationStatus ?? false)))
                           ? Theme.of(context).hintColor
                           : Theme.of(context).textTheme.bodyLarge?.color,
                     ),
                   ),
                   Text(
-                    PriceConverter.convertPrice(context, cartModel!.shippingCost),
+                    PriceConverter.convertPrice(context, cartModel?.shippingCost ?? 0),
                     style: textRegular.copyWith(
                       fontSize: Dimensions.fontSizeSmall,
                       color: Theme.of(context).disabledColor,
@@ -405,7 +379,7 @@ class _CartProductDetailsWidget extends StatelessWidget {
         ),
 
         // Out of stock warning
-        if (cartModel!.quantity! > cartModel!.productInfo!.totalCurrentStock! && cartModel?.productType == "physical")
+        if ((cartModel?.quantity ?? 0) > (cartModel?.productInfo?.totalCurrentStock ?? 999) && cartModel?.productType == "physical")
           Text(
             "${getTranslated("out_of_stock", context)}",
             style: textRegular.copyWith(
@@ -448,7 +422,7 @@ class _CartProductImageWidget extends StatelessWidget {
               ),
             ),
           ),
-          if (cartModel!.isProductAvailable! == 0)
+          if ((cartModel?.isProductAvailable ?? 1) == 0)
             Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(Dimensions.paddingSizeExtraSmall),

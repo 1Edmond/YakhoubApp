@@ -53,48 +53,60 @@ class CartScreenState extends State<CartScreen> {
       }
   }
 
-  Color _currentColor = Theme.of(Get.context!).cardColor; // Initial color
+  Color? _currentColor;
   final Duration duration = const Duration(milliseconds: 500);
+
   void changeColor() {
+    if (!mounted) return;
+    final cardColor = Theme.of(context).cardColor;
+    final hintColor = Theme.of(context).hintColor;
     setState(() {
-      _currentColor = (_currentColor == Theme.of(Get.context!).cardColor) ? Theme.of(Get.context!).hintColor.withValues(alpha:0.01) : Theme.of(Get.context!).cardColor;
+      _currentColor = (_currentColor == cardColor) ? hintColor.withValues(alpha: 0.01) : cardColor;
       Future.delayed(const Duration(milliseconds: 700)).then((value){
-        reBackColor();
+        if (mounted) reBackColor();
       });
       validated = true;
     });
   }
 
   void _scrollToSeller(int? index) async {
-    if (index == null) return;
+    if (index == null || index < 0 || index >= sellerKeys.length) return;
 
-    final context = sellerKeys[index].currentContext;
-    if (context == null) return;
+    final targetContext = sellerKeys[index].currentContext;
+    if (targetContext == null || !targetContext.mounted) return;
 
     // Wait for a frame to ensure layout is ready
     await Future.delayed(const Duration(milliseconds: 100));
 
-    Scrollable.ensureVisible(
-      Get.context!,
-      duration: const Duration(milliseconds: 800),
-      curve: Curves.easeInOutCubic,
-      alignment: 0.1, // adjust if needed
-    );
+    if (targetContext.mounted) {
+      Scrollable.ensureVisible(
+        targetContext,
+        duration: const Duration(milliseconds: 800),
+        curve: Curves.easeInOutCubic,
+        alignment: 0.1,
+      );
+    }
   }
 
 
   void reBackColor() {
+    if (!mounted) return;
     setState(() {
-      _currentColor = (_currentColor == Theme.of(Get.context!).cardColor) ? Theme.of(Get.context!).hintColor.withValues(alpha:0.01) : Theme.of(Get.context!).cardColor;
+      _currentColor = Theme.of(context).cardColor;
     });
   }
 
 
   @override
   void initState() {
-    _loadData();
-    singleVendor = Provider.of<SplashController>(Get.context!, listen: false).configModel?.businessMode == "single";
     super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted) {
+        _currentColor = Theme.of(context).cardColor;
+        _loadData();
+      }
+    });
+    singleVendor = Provider.of<SplashController>(Get.context!, listen: false).configModel?.businessMode == "single";
   }
 
 
@@ -121,7 +133,7 @@ class CartScreenState extends State<CartScreen> {
               int totalItemCheckedCount = 0;
 
               for(CartModel cart in cartList) {
-                if(cart.productType == "physical" && cart.isChecked!) {
+                if(cart.productType == "physical" && (cart.isChecked ?? false)) {
                   onlyDigital = false;
                 }
               }
@@ -134,7 +146,7 @@ class CartScreenState extends State<CartScreen> {
               List<List<int>> cartProductIndexList = [];
 
               for(CartModel cart in cartList) {
-                if(cart.isChecked! && !isItemChecked) {
+                if((cart.isChecked ?? false) && !isItemChecked) {
                   isItemChecked = true;
                 }
                 if(!sellerList.contains(cart.cartGroupId)) {
@@ -143,7 +155,7 @@ class CartScreenState extends State<CartScreen> {
                   sellerGroupList.add(cart);
                 }
                 if(cart.isChecked ?? false){
-                  totalItemCheckedCount +=1;
+                  totalItemCheckedCount += 1;
                 }
               }
 
@@ -152,17 +164,24 @@ class CartScreenState extends State<CartScreen> {
                 List<int> indexList = [];
                 List<String> productTypeList = [];
                 bool isSellerChecked = true;
+                bool groupHasPhysical = false;
                 for(CartModel cart in cartList) {
                   if(seller?.cartGroupId == cart.cartGroupId) {
                     cartLists.add(cart);
                     indexList.add(cartList.indexOf(cart));
-                    productTypeList.add(cart.productType!);
-                    if(!cart.isChecked!){
+                    productTypeList.add(cart.productType ?? '');
+                    if(!(cart.isChecked ?? false)){
                       isSellerChecked = false;
-                    } else if (cart.isChecked!) {
+                    } else {
                       seller?.isGroupItemChecked = true;
+                      if (cart.productType == 'physical') {
+                        groupHasPhysical = true;
+                      }
                     }
                   }
+                }
+                if (groupHasPhysical) {
+                  totalPhysical += 1;
                 }
 
                 cartProductList.add(cartLists);
@@ -175,8 +194,8 @@ class CartScreenState extends State<CartScreen> {
 
               double freeDeliveryAmountDiscount = 0;
               for (var seller in sellerGroupList) {
-                if(seller.freeDeliveryOrderAmount?.status == 1 && seller.isGroupItemChecked!){
-                  freeDeliveryAmountDiscount += seller.freeDeliveryOrderAmount!.shippingCostSaved!;
+                if(seller.freeDeliveryOrderAmount?.status == 1 && (seller.isGroupItemChecked ?? false)){
+                  freeDeliveryAmountDiscount += seller.freeDeliveryOrderAmount?.shippingCostSaved ?? 0;
                 }
                 if(seller.shippingType == 'order_wise'){
                   orderTypeShipping.add(seller.shippingType);
@@ -225,47 +244,29 @@ class CartScreenState extends State<CartScreen> {
                 bottomNavigationBar: (!cart.cartLoading && cartList.isNotEmpty) ?
                 Consumer<SplashController>(
                   builder: (context, configProvider,_) {
-                    final double bottomInset = MediaQuery.of(context).padding.bottom;
-                    return Container(height: cartList.isNotEmpty ? 110 + bottomInset : 0, padding: EdgeInsets.only(
-                      left: Dimensions.homePagePadding,
-                      right: Dimensions.homePagePadding,
-                      top: Dimensions.paddingSizeSmall,
-                      bottom: Dimensions.paddingSizeSmall + bottomInset,
-                     ),
-
-                      decoration: BoxDecoration(
-                        color: Theme.of(context).cardColor,
-                        borderRadius: BorderRadius.circular(10)
-                      ),
-
-                      child: cartList.isNotEmpty ?
-                                            Column(children: [
-                        Padding(
-                          padding: const EdgeInsets.only(bottom: Dimensions.paddingSizeSmall),
-                          child: InkWell(
-                            onTap: () {
-                              showDialog(context: context, builder: (context) => AlertDialog(
-                                title: const Text("Demande de rduction"),
-                                content: const Text("Votre demande de rduction a bien t envoye."),
-                                actions: [
-                                  TextButton(onPressed: () => Navigator.pop(context), child: const Text("OK"))
-                                ]
-                              ));
-                            },
-                            child: Container(
-                              width: double.infinity,
-                              padding: const EdgeInsets.symmetric(vertical: Dimensions.paddingSizeSmall),
-                              decoration: BoxDecoration(
-                                color: Colors.orange.withValues(alpha: 0.1),
-                                borderRadius: BorderRadius.circular(Dimensions.paddingSizeSmall),
-                                border: Border.all(color: Colors.orange)
-                              ),
-                              child: Center(
-                                child: Text("Demander une rduction", style: titilliumSemiBold.copyWith(color: Colors.orange)),
-                              ),
-                            ),
-                          ),
+                    return SafeArea(
+                      child: Container(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: Dimensions.homePagePadding,
+                          vertical: Dimensions.paddingSizeSmall,
                         ),
+                        decoration: BoxDecoration(
+                          color: Theme.of(context).cardColor,
+                          borderRadius: const BorderRadius.only(
+                            topLeft: Radius.circular(10),
+                            topRight: Radius.circular(10),
+                          ),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Theme.of(context).hintColor.withValues(alpha: 0.1),
+                              blurRadius: 4,
+                              spreadRadius: 1,
+                            )
+                          ],
+                        ),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
 
                         Padding(padding: const EdgeInsets.only(bottom: Dimensions.paddingSizeSmall),
                           child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
@@ -474,42 +475,16 @@ class CartScreenState extends State<CartScreen> {
                               ),
                             ),
                           ],
-                        )
-
-                      ]
-                    ) : const SizedBox());
-                  }
-                ) : null,
-
+                        ),
+                      ],
+                    ),
+                  ),
+                );
+              }
+            ) : null,
 
                 appBar: CustomAppBar(title: getTranslated('my_cart', context), isBackButtonExist: widget.showBackButton),
-                body:                       Column(children: [
-                        Padding(
-                          padding: const EdgeInsets.only(bottom: Dimensions.paddingSizeSmall),
-                          child: InkWell(
-                            onTap: () {
-                              showDialog(context: context, builder: (context) => AlertDialog(
-                                title: const Text("Demande de rduction"),
-                                content: const Text("Votre demande de rduction a bien t envoye."),
-                                actions: [
-                                  TextButton(onPressed: () => Navigator.pop(context), child: const Text("OK"))
-                                ]
-                              ));
-                            },
-                            child: Container(
-                              width: double.infinity,
-                              padding: const EdgeInsets.symmetric(vertical: Dimensions.paddingSizeSmall),
-                              decoration: BoxDecoration(
-                                color: Colors.orange.withValues(alpha: 0.1),
-                                borderRadius: BorderRadius.circular(Dimensions.paddingSizeSmall),
-                                border: Border.all(color: Colors.orange)
-                              ),
-                              child: Center(
-                                child: Text("Demander une rduction", style: titilliumSemiBold.copyWith(color: Colors.orange)),
-                              ),
-                            ),
-                          ),
-                        ),
+                body: Column(children: [
                   cart.cartLoading ? const Expanded(child: CartPageShimmerWidget()) : sellerList.isNotEmpty ?
                   Expanded(child:
                     Column(
@@ -535,14 +510,13 @@ class CartScreenState extends State<CartScreen> {
                                     bool shopClose = false;
                                     for(CartModel cart in cartProductList[index]) {
                                       if(cart.isChecked ?? false) {
-                                        totalCost += (cart.price! - cart.discount!) * cart.quantity!;
+                                        totalCost += ((cart.price ?? 0) - (cart.discount ?? 0)) * (cart.quantity ?? 1);
                                       }
                                     }
 
                                     for(CartModel cart in cartProductList[index]) {
-                                      if(cart.productType == 'physical' && cart.isChecked!) {
+                                      if(cart.productType == 'physical' && (cart.isChecked ?? false)) {
                                         hasPhysical = true;
-                                        totalPhysical += 1;
                                         break;
                                       }
                                     }
@@ -563,32 +537,22 @@ class CartScreenState extends State<CartScreen> {
                                       }
                                     }
 
-                                    // print('---Shipping-${sellerGroupList[index].shop?.name}---${
-                                    //     (configProvider.configModel!.shippingMethod == 'sellerwise_shipping' &&
-                                    //         sellerGroupList[index].shippingType == 'order_wise' &&
-                                    //         Provider.of<ShippingController>(context, listen: false).shippingList != null &&  Provider.of<ShippingController>(context, listen: false).shippingList!.isNotEmpty &&
-                                    //         Provider.of<ShippingController>(context, listen: false).shippingList?.length == index+1 &&
-                                    //         Provider.of<ShippingController>(context, listen: false).shippingList?[index].shippingIndex == -1 && sellerGroupList[index].isGroupItemChecked == true)
-                                    //}---');
-
-
-                                    bool showColor = (sellerGroupList[index].minimumOrderAmountInfo! > totalCost) || (configProvider.configModel!.shippingMethod == 'sellerwise_shipping' &&
+                                    bool showColor = ((sellerGroupList[index].minimumOrderAmountInfo ?? 0) > totalCost) || (configProvider.configModel!.shippingMethod == 'sellerwise_shipping' &&
                                         sellerGroupList[index].shippingType == 'order_wise' &&
                                         Provider.of<ShippingController>(context, listen: false).shippingList != null &&  Provider.of<ShippingController>(context, listen: false).shippingList!.isNotEmpty &&
                                         requiredShippingCartModel?.sellerIndex == index &&
-                                        Provider.of<ShippingController>(context, listen: false).shippingList?[index].shippingIndex == -1 && sellerGroupList[index].isGroupItemChecked == true);
+                                        Provider.of<ShippingController>(context, listen: false).shippingList?[index].shippingIndex == -1 && (sellerGroupList[index].isGroupItemChecked ?? false));
 
-                                    bool isNotValidated = (sellerGroupList[index].minimumOrderAmountInfo! > totalCost) || (configProvider.configModel!.shippingMethod == 'sellerwise_shipping' &&
+                                    bool isNotValidated = ((sellerGroupList[index].minimumOrderAmountInfo ?? 0) > totalCost) || (configProvider.configModel!.shippingMethod == 'sellerwise_shipping' &&
                                         sellerGroupList[index].shippingType == 'order_wise' &&
                                         Provider.of<ShippingController>(context, listen: false).shippingList != null &&  Provider.of<ShippingController>(context, listen: false).shippingList!.isNotEmpty &&
-                                        Provider.of<ShippingController>(context, listen: false).shippingList?[index].shippingIndex == -1 && sellerGroupList[index].isGroupItemChecked == true);
+                                        Provider.of<ShippingController>(context, listen: false).shippingList?[index].shippingIndex == -1 && (sellerGroupList[index].isGroupItemChecked ?? false));
 
                                     return AnimatedContainer(
                                       key: sellerKeys[index],
                                       duration: duration,
                                       decoration: BoxDecoration(
-                                        color : showColor ? _currentColor :
-                                        index.floor().isOdd ? Theme.of(context).cardColor : Theme.of(context).cardColor,
+                                        color : showColor ? (_currentColor ?? Theme.of(context).cardColor) : Theme.of(context).cardColor,
                                         boxShadow :  Provider.of<ThemeController>(context,listen: false).darkTheme ? null :
                                         [BoxShadow(color: Colors.grey.withValues(alpha:0.3), spreadRadius: 1, blurRadius: 5)],
 
@@ -597,7 +561,7 @@ class CartScreenState extends State<CartScreen> {
 
                                       child: Padding(padding: const EdgeInsets.only(bottom: Dimensions.paddingSizeSmall),
                                         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                                          sellerGroupList[index].shopInfo!.isNotEmpty ?
+                                          (sellerGroupList[index].shopInfo != null && sellerGroupList[index].shopInfo!.isNotEmpty) ?
 
                                           ColoredBox(
                                             color: Colors.transparent,
@@ -619,14 +583,16 @@ class CartScreenState extends State<CartScreen> {
                                                               onChanged: (bool? value)  async {
                                                                 List<int> ids = [];
                                                                 for (CartModel cart in cartProductList[index]) {
-                                                                  ids.add(cart.id!);
+                                                                  if (cart.id != null) ids.add(cart.id!);
                                                                 }
 
                                                                 showDialog(context: context, builder: (ctx)  => const CustomLoaderWidget());
-                                                                await cart.addRemoveCartSelectedItem(ids, sellerGroupList[index].isGroupChecked! ? false : true);
+                                                                await cart.addRemoveCartSelectedItem(ids, (sellerGroupList[index].isGroupChecked ?? false) ? false : true);
 
                                                                 WidgetsBinding.instance.addPostFrameCallback((_) {
-                                                                  Navigator.of(Get.context!).pop();
+                                                                  if (Navigator.of(context).canPop()) {
+                                                                    Navigator.of(context).pop();
+                                                                  }
                                                                 });
 
                                                               },
@@ -635,7 +601,7 @@ class CartScreenState extends State<CartScreen> {
 
                                                           Flexible(child: InkWell(
                                                             onTap: () => _storeScreenRouteCall(sellerGroupList[index]),
-                                                            child: Text(sellerGroupList[index].shopInfo!, maxLines: 1, overflow: TextOverflow.ellipsis,
+                                                            child: Text(sellerGroupList[index].shopInfo ?? '', maxLines: 1, overflow: TextOverflow.ellipsis,
                                                               textAlign: TextAlign.start, style: textBold.copyWith(fontWeight: FontWeight.w500, fontSize: Dimensions.fontSizeLarge,
                                                                 color: Provider.of<ThemeController>(context, listen: false).darkTheme?
                                                                 Theme.of(context).hintColor : Theme.of(context).textTheme.bodyLarge?.color)
@@ -786,7 +752,7 @@ class CartScreenState extends State<CartScreen> {
                                                   // if(configProvider.configModel!.shippingMethod == 'sellerwise_shipping' && sellerGroupList[index].shippingType == 'order_wise' && hasPhysical)
                                                   //   SizedBox(height: Dimensions.paddingSizeSmall,),
 
-                                                  if(sellerGroupList[index].minimumOrderAmountInfo!> totalCost)
+                                                  if((sellerGroupList[index].minimumOrderAmountInfo ?? 0) > totalCost)
                                                     Padding(padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 0),
                                                         child: Text('${getTranslated('minimum_order_amount_is', context)} '
                                                             '${PriceConverter.convertPrice(context, sellerGroupList[index].minimumOrderAmountInfo)}',
@@ -798,55 +764,26 @@ class CartScreenState extends State<CartScreen> {
 
                                           Container (
                                               padding: const EdgeInsets.only(bottom: Dimensions.paddingSizeDefault),
-                                              // decoration: BoxDecoration(color: Theme.of(context).cardColor),
-                                              child:                       Column(children: [
-                        Padding(
-                          padding: const EdgeInsets.only(bottom: Dimensions.paddingSizeSmall),
-                          child: InkWell(
-                            onTap: () {
-                              showDialog(context: context, builder: (context) => AlertDialog(
-                                title: const Text("Demande de rduction"),
-                                content: const Text("Votre demande de rduction a bien t envoye."),
-                                actions: [
-                                  TextButton(onPressed: () => Navigator.pop(context), child: const Text("OK"))
-                                ]
-                              ));
-                            },
-                            child: Container(
-                              width: double.infinity,
-                              padding: const EdgeInsets.symmetric(vertical: Dimensions.paddingSizeSmall),
-                              decoration: BoxDecoration(
-                                color: Colors.orange.withValues(alpha: 0.1),
-                                borderRadius: BorderRadius.circular(Dimensions.paddingSizeSmall),
-                                border: Border.all(color: Colors.orange)
-                              ),
-                              child: Center(
-                                child: Text("Demander une rduction", style: titilliumSemiBold.copyWith(color: Colors.orange)),
-                              ),
-                            ),
-                          ),
-                        ),
-                                                ListView.builder(
-                                                  physics: const NeverScrollableScrollPhysics(),
-                                                  shrinkWrap: true,
-                                                  padding: const EdgeInsets.all(0),
-                                                  itemCount: cartProductList[index].length,
-                                                  itemBuilder: (context, i) {
-                                                    return CartWidget(
-                                                      highLightColor: _currentColor,
-                                                      cartModel: cartProductList[index][i],
-                                                      index: cartProductIndexList[index][i],
-                                                      fromCheckout: widget.fromCheckout,
-                                                      isValidate: validated,
-                                                    );
-                                                  },
-                                                ),
-                                              ],)
+                                              child: ListView.builder(
+                                                physics: const NeverScrollableScrollPhysics(),
+                                                shrinkWrap: true,
+                                                padding: const EdgeInsets.all(0),
+                                                itemCount: cartProductList[index].length,
+                                                itemBuilder: (context, i) {
+                                                  return CartWidget(
+                                                    highLightColor: _currentColor ?? Theme.of(context).cardColor,
+                                                    cartModel: cartProductList[index][i],
+                                                    index: cartProductIndexList[index][i],
+                                                    fromCheckout: widget.fromCheckout,
+                                                    isValidate: validated,
+                                                  );
+                                                },
+                                              ),
                                           ),
 
 
 
-                                          if(sellerGroupList[index].freeDeliveryOrderAmount?.status == 1 && hasPhysical && sellerGroupList[index].isGroupItemChecked! && !singleVendor )
+                                          if(sellerGroupList[index].freeDeliveryOrderAmount?.status == 1 && hasPhysical && (sellerGroupList[index].isGroupItemChecked ?? false) && !singleVendor )
                                             Container(
                                               padding: const EdgeInsets.fromLTRB(
                                                 Dimensions.paddingSizeDefault, 0,

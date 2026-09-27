@@ -61,9 +61,9 @@ class _BottomCartWidgetState extends State<BottomCartWidget> {
     return Container(height: 70,
       padding: const EdgeInsets.all(Dimensions.paddingSizeDefault),
       decoration: BoxDecoration(
-        color: Theme.of(context).highlightColor,
+        color: Theme.of(context).cardColor,
         borderRadius: const BorderRadius.only(topLeft: Radius.circular(10), topRight: Radius.circular(10)),
-        boxShadow: [BoxShadow(color: Theme.of(context).hintColor, blurRadius: .5, spreadRadius: .1)]
+        boxShadow: [BoxShadow(color: Theme.of(context).hintColor.withValues(alpha: 0.2), blurRadius: 4, spreadRadius: 1)]
       ),
       child: Row(children: [
         Padding(
@@ -84,11 +84,11 @@ class _BottomCartWidgetState extends State<BottomCartWidget> {
                     }
                     return Container(height: ResponsiveHelper.isTab(context)? 25 : 20, width: ResponsiveHelper.isTab(context)? 25 : 20,
                       alignment: Alignment.center,
-                      decoration: BoxDecoration(shape: BoxShape.circle, color: Theme.of(context).textTheme.bodyMedium?.color),
+                      decoration: BoxDecoration(shape: BoxShape.circle, color: Theme.of(context).primaryColor),
                       child: Center(
                         child: Text(cart.cartList.length.toString(),
                           style: textRegular.copyWith(fontSize: Dimensions.fontSizeSmall,
-                              color:Theme.of(context).highlightColor)),
+                              color: Colors.white)),
                       ),
                     );}),
                 ),
@@ -115,8 +115,7 @@ class _BottomCartWidgetState extends State<BottomCartWidget> {
               color: Theme.of(context).primaryColor),
             child: Text(getTranslated('add_to_cart', context)!,
               style: titilliumSemiBold.copyWith(fontSize: Dimensions.fontSizeLarge,
-                  color: Provider.of<ThemeController>(context, listen: false).darkTheme?
-                  Theme.of(context).hintColor : Theme.of(context).highlightColor),),
+                  color: Colors.white),),
           ),
         )),
       ]),

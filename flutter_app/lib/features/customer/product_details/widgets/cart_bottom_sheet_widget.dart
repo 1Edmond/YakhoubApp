@@ -45,18 +45,21 @@ class CartBottomSheetWidgetState extends State<CartBottomSheetWidget> {
   bool isFirstTime = true;
   int? quantity;
 
+  ProductDetailsController? _productDetailsController;
+
   @override
   void initState() {
-    Provider.of<ProductDetailsController>(context, listen: false).initData(widget.product!, widget.product?.minimumOrderQty ?? 1, context);
-    Provider.of<ProductDetailsController>(context, listen: false).initDigitalVariationIndex();
+    _productDetailsController = Provider.of<ProductDetailsController>(context, listen: false);
+    _productDetailsController?.initData(widget.product!, widget.product?.minimumOrderQty ?? 1, context);
+    _productDetailsController?.initDigitalVariationIndex();
     productQuantityController.text = (widget.product?.minimumOrderQty ?? 1).toString();
 
-    Provider.of<ProductDetailsController>(context, listen: false).addListener(_syncQuantity);
+    _productDetailsController?.addListener(_syncQuantity);
     super.initState();
   }
 
   void _syncQuantity() {
-    final qty = Provider.of<ProductDetailsController>(context, listen: false).quantity.toString();
+    final qty = (_productDetailsController?.quantity ?? 1).toString();
     if (productQuantityController.text != qty) {
       productQuantityController.text = qty;
       productQuantityController.selection = TextSelection.fromPosition(
@@ -67,7 +70,7 @@ class CartBottomSheetWidgetState extends State<CartBottomSheetWidget> {
 
   @override
   void dispose() {
-    Provider.of<ProductDetailsController>(context, listen: false).removeListener(_syncQuantity);
+    _productDetailsController?.removeListener(_syncQuantity);
     productQuantityController.dispose();
     super.dispose();
   }
