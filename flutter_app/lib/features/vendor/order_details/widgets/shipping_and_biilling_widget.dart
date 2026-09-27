@@ -12,6 +12,7 @@ import 'package:multishop_tchad/features/vendor/order/screens/edit_address_scree
 import 'package:multishop_tchad/features/vendor/order/widgets/icon_with_text_row_widget.dart';
 import 'package:multishop_tchad/features/vendor/order_details/widgets/show_on_map_dialog_widget.dart';
 import 'package:multishop_tchad/core/widgets/base/basewidgets/custom_image_widget.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 // class ShippingAndBillingWidget extends StatelessWidget {
 //   final Order? orderModel;
@@ -411,6 +412,58 @@ class _ShippingAndBillingWidgetState extends State<ShippingAndBillingWidget> {
                     ])),
                   ]),
                 ],
+                Builder(
+                  builder: (context) {
+                    final lat = widget.orderModel?.shippingAddressData?.doorLatitude ??
+                        widget.orderModel?.shippingAddressData?.latitude ??
+                        widget.orderModel?.billingAddressData?.doorLatitude ??
+                        widget.orderModel?.billingAddressData?.latitude;
+                    final lng = widget.orderModel?.shippingAddressData?.doorLongitude ??
+                        widget.orderModel?.shippingAddressData?.longitude ??
+                        widget.orderModel?.billingAddressData?.doorLongitude ??
+                        widget.orderModel?.billingAddressData?.longitude;
+
+                    if (lat != null && lng != null && lat.isNotEmpty && lng.isNotEmpty && lat != '0' && lng != '0') {
+                      return Padding(
+                        padding: const EdgeInsets.only(top: Dimensions.paddingSizeSmall),
+                        child: InkWell(
+                          onTap: () async {
+                            final uri = Uri.parse('https://www.google.com/maps/search/?api=1&query=$lat,$lng');
+                            if (await canLaunchUrl(uri)) {
+                              await launchUrl(uri, mode: LaunchMode.externalApplication);
+                            }
+                          },
+                          child: Container(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: Dimensions.paddingSizeSmall,
+                              vertical: Dimensions.paddingSizeExtraSmall,
+                            ),
+                            decoration: BoxDecoration(
+                              color: Theme.of(context).primaryColor.withValues(alpha: 0.1),
+                              borderRadius: BorderRadius.circular(Dimensions.radiusSmall),
+                              border: Border.all(color: Theme.of(context).primaryColor.withValues(alpha: 0.3)),
+                            ),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Icon(Icons.navigation, color: Theme.of(context).primaryColor, size: Dimensions.iconSizeSmall),
+                                const SizedBox(width: Dimensions.paddingSizeExtraSmall),
+                                Text(
+                                  'Naviguer vers le client (GPS)',
+                                  style: robotoMedium.copyWith(
+                                    color: Theme.of(context).primaryColor,
+                                    fontSize: Dimensions.fontSizeSmall,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      );
+                    }
+                    return const SizedBox.shrink();
+                  },
+                ),
               ]):const SizedBox(),
 
 

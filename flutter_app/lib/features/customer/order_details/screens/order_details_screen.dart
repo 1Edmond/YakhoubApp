@@ -6,6 +6,7 @@ import 'package:multishop_tchad/features/customer/checkout/widgets/shipping_deta
 import 'package:multishop_tchad/features/vault/offline_payment/widgets/offline_payment_section_widget.dart';
 import 'package:multishop_tchad/features/customer/order/controllers/order_controller.dart';
 import 'package:multishop_tchad/features/customer/order_details/controllers/order_details_controller.dart';
+import 'package:multishop_tchad/features/customer/order_details/controllers/price_reduction_controller.dart';
 import 'package:multishop_tchad/features/customer/order_details/widgets/cal_chat_widget.dart';
 import 'package:multishop_tchad/features/customer/order_details/widgets/cancel_and_support_center_widget.dart';
 import 'package:multishop_tchad/features/customer/order_details/widgets/delivery_man_review_dialog_widget.dart';
@@ -53,6 +54,7 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
       await Provider.of<OrderDetailsController>(Get.context!, listen: false).getOrderDetails(widget.orderId.toString());
       await Provider.of<OrderController>(Get.context!, listen: false).initTrackingInfo(widget.orderId.toString());
       await Provider.of<OrderDetailsController>(Get.context!, listen: false).getOrderFromOrderId(widget.orderId.toString());
+      Provider.of<PriceReductionController>(Get.context!, listen: false).fetchMyRequests();
     } else {
       await Provider.of<OrderDetailsController>(Get.context!, listen: false).trackOrder(orderId: widget.orderId.toString(), phoneNumber: widget.phone, isUpdate: false);
       await Provider.of<OrderDetailsController>(Get.context!, listen: false).getOrderFromOrderId(widget.orderId.toString());

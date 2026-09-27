@@ -33,6 +33,8 @@ import 'package:multishop_tchad/features/vendor/order_details/widgets/payment_st
 import 'package:multishop_tchad/features/vendor/order_details/widgets/shipping_and_biilling_widget.dart';
 import 'package:multishop_tchad/features/vendor/order_details/widgets/third_party_delivery_info_widget.dart';
 import 'package:multishop_tchad/core/widgets/base/custom_confirmation_dialog_widget.dart' show CustomConfirmationDialogWidget;
+import 'package:multishop_tchad/features/vendor/order_details/controllers/vendor_reduction_controller.dart';
+import 'package:multishop_tchad/features/vendor/order_details/widgets/vendor_reduction_card_widget.dart';
 
 
 class OrderDetailsScreen extends StatefulWidget {
@@ -51,6 +53,9 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
       await Provider.of<SplashController>(Get.context!, listen: false).initConfig();
     }
     Provider.of<OrderDetailsController>(Get.context!, listen: false).getOrderDetails(widget.orderId.toString());
+    if (widget.orderId != null) {
+      Provider.of<VendorReductionController>(Get.context!, listen: false).fetchRequests();
+    }
   }
 
 
@@ -184,6 +189,9 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
 
                           if(orderDetailsController.orderDetails![0].order?.editedStatus == 1 &&  (orderDetailsController.orderDetails?[0].latestEditHistory?.orderDueAmount ?? 0) > 0 &&  orderDetailsController.orderDetails![0].latestEditHistory!.orderDuePaymentMethod != 'cash_on_delivery')
                           const SizedBox(height: Dimensions.paddingSizeSmall),
+
+                          if (widget.orderId != null)
+                            VendorReductionCardWidget(orderId: widget.orderId!),
 
                           orderDetailsController.orderDetails![0].order!.orderType == 'POS' ? const SizedBox():
                           ShippingAndBillingWidget(orderModel: orderDetailsController.orderDetails![0].order!, onlyDigital: _onlyDigital, orderType: orderDetailsController.orderDetails![0].order!.orderType!),

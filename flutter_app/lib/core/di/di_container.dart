@@ -18,6 +18,10 @@ import 'package:get_it/get_it.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 // --- USER IMPORTS ---
+import 'package:multishop_tchad/features/customer/order_details/domain/repositories/price_reduction_repository.dart';
+import 'package:multishop_tchad/features/customer/order_details/controllers/price_reduction_controller.dart';
+import 'package:multishop_tchad/features/vendor/order_details/domain/repositories/vendor_reduction_repository.dart';
+import 'package:multishop_tchad/features/vendor/order_details/controllers/vendor_reduction_controller.dart';
 import 'package:multishop_tchad/features/shared/chat/domain/services/chat_service_interface.dart';
 import 'package:multishop_tchad/features/vault/support/domain/services/support_ticket_service_interface.dart';
 import 'package:multishop_tchad/features/customer/profile/domain/services/profile_service.dart';
@@ -1705,4 +1709,10 @@ Future<void> init() async {
   sl.registerLazySingleton(() => thirdPartyDeliverymanService);
   sl.registerFactory(
       () => ThirdPartyDeliverymanController(serviceInterface: sl()));
+
+  // Price Reduction (Client & Vendor)
+  sl.registerLazySingleton(() => PriceReductionRepository(dioClient: sl()));
+  sl.registerFactory(() => PriceReductionController(priceReductionRepository: sl()));
+  sl.registerLazySingleton(() => VendorReductionRepository(dioClient: sl()));
+  sl.registerFactory(() => VendorReductionController(vendorReductionRepository: sl()));
 }

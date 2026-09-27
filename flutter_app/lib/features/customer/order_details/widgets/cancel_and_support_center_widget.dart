@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:multishop_tchad/core/widgets/base/custom_asset_image_widget.dart';
 import 'package:multishop_tchad/features/customer/order/domain/models/order_model.dart';
 import 'package:multishop_tchad/features/customer/order_details/widgets/cancel_order_dialog_widget.dart';
+import 'package:multishop_tchad/features/customer/order_details/widgets/customer_reduction_section_widget.dart';
 import 'package:multishop_tchad/features/customer/profile/controllers/profile_contrroller.dart';
 import 'package:multishop_tchad/features/vault/reorder/controllers/re_order_controller.dart';
 import 'package:multishop_tchad/core/helpers/route_helper.dart';
@@ -75,6 +76,7 @@ class CancelAndSupportWidget extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: Dimensions.paddingSizeSmall, vertical: Dimensions.paddingSizeSmall),
           child: Column(
             children: [
+              CustomerReductionSectionWidget(orderModel: orderModel),
               (orderModel != null && (orderModel!.customerId! == int.parse(Provider.of<ProfileController>(context, listen: false).userID)) &&
                   (orderModel!.orderStatus == 'pending' || orderModel!.orderStatus == 'processing' || orderModel!.orderStatus == 'out_for_delivery' || orderModel!.orderStatus == 'confirmed') && (orderModel!.orderType != "POS")) ?
               CustomButton(textColor: Theme.of(context).colorScheme.error,

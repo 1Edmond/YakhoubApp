@@ -20,6 +20,8 @@ import 'package:multishop_tchad/core/controllers/show_bottom_sheet_controller.da
 import 'package:multishop_tchad/core/localization/controllers/localization_controller.dart';
 // import 'package:multishop_tchad/core/theme/controllers/theme_controller.dart'
 import 'package:multishop_tchad/core/theme/controllers/theme_controller.dart';
+import 'package:multishop_tchad/features/customer/order_details/controllers/price_reduction_controller.dart';
+import 'package:multishop_tchad/features/vendor/order_details/controllers/vendor_reduction_controller.dart';
 import 'package:multishop_tchad/features/customer/address/controllers/address_controller.dart';
 // import 'package:multishop_tchad/features/customer/address/domain/repositories/address_repository.dart';
 // import 'package:multishop_tchad/features/customer/address/domain/repositories/address_repository_interface.dart';
@@ -594,5 +596,7 @@ List<SingleChildWidget> getProviders() {
     ChangeNotifierProvider(create: (_) => di.sl<v_variation_controller.VariationController>()),
     ChangeNotifierProvider(create: (_) => di.sl<v_vat_controller.VatController>()),
     ChangeNotifierProvider(create: (_) => di.sl<v_wallet_controller.WalletController>()),
+    ChangeNotifierProvider(create: (_) => di.sl<PriceReductionController>()),
+    ChangeNotifierProvider(create: (_) => di.sl<VendorReductionController>()),
   ];
 }
