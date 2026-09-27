@@ -1,4 +1,4 @@
-﻿import 'package:multishop_tchad/core/localization/models/language_model.dart';
+import 'package:multishop_tchad/core/localization/models/language_model.dart';
 import 'package:multishop_tchad/core/enums/local_caches_type_enum.dart';
 
 class AppConstants {
@@ -177,7 +177,8 @@ class AppConstants {
   static const String getDeliveryManUri = '/api/v3/seller/seller-delivery-man';
   static const String assignDeliveryManUri =
       '/api/v3/seller/orders/assign-delivery-man';
-  static const String tokenUri = '/api/v3/seller/cm-firebase-token';
+  static const String tokenUri = '/api/v1/customer/cm-firebase-token';
+  static const String sellerTokenUri = '/api/v3/seller/cm-firebase-token';
   static const String refundListUri = '/api/v3/seller/refund/list';
   static const String refundItemDetails =
       '/api/v3/seller/refund/refund-details';

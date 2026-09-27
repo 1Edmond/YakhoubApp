@@ -31,7 +31,9 @@ class SettingsScreen extends StatelessWidget {
             //   child: Text(getTranslated('settings', context)!,
             //       style: titilliumSemiBold.copyWith(fontSize: Dimensions.fontSizeLarge))),
 
-            Expanded(child: ListView(
+            Expanded(child: Material(
+              color: Colors.transparent,
+              child: ListView(
               physics: const BouncingScrollPhysics(),
               padding: const EdgeInsets.symmetric(horizontal: Dimensions.paddingSizeExtraSmall),
               children: [
@@ -65,7 +67,7 @@ class SettingsScreen extends StatelessWidget {
                         context: context, builder: (_)=> const SelectCurrencyBottomSheetWidget())
                 ),
               ],
-        )),
+        ))),
 
       ])),
     );
@@ -81,10 +83,13 @@ class TitleButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      leading: Image.asset(image, width: 16, height: 16, fit: BoxFit.fill, color: Theme.of(context).hintColor),
-      title: Text(title!, style: titilliumRegular.copyWith(fontSize: Dimensions.fontSizeDefault)),
-      onTap: onTap as void Function()?,
+    return Material(
+      color: Colors.transparent,
+      child: ListTile(
+        leading: Image.asset(image, width: 16, height: 16, fit: BoxFit.fill, color: Theme.of(context).hintColor),
+        title: Text(title!, style: titilliumRegular.copyWith(fontSize: Dimensions.fontSizeDefault)),
+        onTap: onTap as void Function()?,
+      ),
     );
   }
 }

@@ -84,7 +84,7 @@ class AuthRepository implements AuthRepositoryInterface{
       FirebaseMessaging.instance.subscribeToTopic(AppConstants.topic);
       FirebaseMessaging.instance.subscribeToTopic(AppConstants.maintenanceModeTopic);
       Response response = await dioClient!.post(
-        AppConstants.tokenUri,
+        AppConstants.sellerTokenUri,
         data: {"_method": "put", "cm_firebase_token": deviceToken},
       );
       return ApiResponse.withSuccess(response);
