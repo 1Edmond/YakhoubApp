@@ -80,7 +80,7 @@ import 'package:multishop_tchad/features/customer/cart/domain/repositories/cart_
 import 'package:multishop_tchad/features/vault/auction_details/domain/repositories/participator/auction_participation_repository.dart';
 import 'package:multishop_tchad/features/vault/create_auction/domain/services/add_auction_product_service_interface.dart';
 import 'package:multishop_tchad/features/customer/product/controllers/seller_product_controller.dart';
-import 'package:multishop_tchad/features/vault/coupon/domain/services/coupon_service.dart';
+import 'package:multishop_tchad/features/customer/coupon/domain/services/coupon_service.dart';
 import 'package:multishop_tchad/features/customer/product/domain/services/product_service_interface.dart';
 import 'package:multishop_tchad/features/customer/shop/controllers/shop_controller.dart';
 import 'package:multishop_tchad/features/vault/wallet/domain/services/wallet_service.dart';
@@ -89,7 +89,7 @@ import 'package:multishop_tchad/features/customer/product_details/domain/service
 import 'package:multishop_tchad/features/customer/search_product/domain/repositories/search_product_repository_interface.dart';
 import 'package:multishop_tchad/features/vault/banner/controllers/banner_controller.dart';
 import 'package:multishop_tchad/features/customer/order_details/domain/repositories/order_details_repository.dart';
-import 'package:multishop_tchad/features/vault/coupon/controllers/coupon_controller.dart';
+import 'package:multishop_tchad/features/customer/coupon/controllers/coupon_controller.dart';
 import 'package:multishop_tchad/features/vault/auction_category/domain/services/auction_category_service.dart';
 import 'package:multishop_tchad/features/customer/address/domain/services/address_service.dart';
 import 'package:multishop_tchad/features/vault/wallet/domain/repositories/wallet_repository.dart';
@@ -113,8 +113,8 @@ import 'package:multishop_tchad/features/vault/review/domain/services/review_ser
 import 'package:multishop_tchad/features/vault/auction_search/controllers/auction_search_controller.dart';
 import 'package:multishop_tchad/features/vault/auction_details/domain/services/participator/auction_participation_service.dart';
 import 'package:multishop_tchad/features/vault/auction_dashboard_summary/domain/repository/auction_dashboard_summary_repository_interface.dart';
-import 'package:multishop_tchad/features/vault/coupon/domain/repositories/coupon_repository.dart';
-import 'package:multishop_tchad/features/vault/coupon/domain/repositories/coupon_repository_interface.dart';
+import 'package:multishop_tchad/features/customer/coupon/domain/repositories/coupon_repository.dart';
+import 'package:multishop_tchad/features/customer/coupon/domain/repositories/coupon_repository_interface.dart';
 import 'package:multishop_tchad/features/customer/location/domain/repositories/location_repository_interface.dart';
 import 'package:multishop_tchad/features/vault/compare/controllers/compare_controller.dart';
 import 'package:multishop_tchad/features/customer/product/domain/repositories/seller_product_repository_interface.dart';

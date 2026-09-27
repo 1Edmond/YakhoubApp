@@ -1,11 +1,1 @@
-abstract class CouponServiceInterface{
-
-  Future<dynamic> getList({int? offset = 1});
-
-  Future<dynamic> get(String id);
-
-  Future<dynamic> getAvailableCouponList();
-
-  Future<dynamic> getSellerCouponList(String slug, int offset);
-
-}
+export 'package:multishop_tchad/features/customer/coupon/domain/services/coupon_service_interface.dart';

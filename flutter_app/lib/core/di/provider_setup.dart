@@ -198,8 +198,7 @@ import 'package:multishop_tchad/features/vault/contact_us/controllers/contact_us
 // import 'package:multishop_tchad/features/vault/contact_us/domain/repository/contact_us_repository.dart';
 // import 'package:multishop_tchad/features/vault/contact_us/domain/repository/contact_us_repository_interface.dart';
 // import 'package:multishop_tchad/features/vault/contact_us/domain/services/contact_us_service.dart';
-// import 'package:multishop_tchad/features/vault/contact_us/domain/services/contact_us_service_interface.dart';
-import 'package:multishop_tchad/features/vault/coupon/controllers/coupon_controller.dart';
+import 'package:multishop_tchad/features/customer/coupon/controllers/coupon_controller.dart';
 // import 'package:multishop_tchad/features/vault/coupon/domain/repositories/coupon_repository.dart';
 // import 'package:multishop_tchad/features/vault/coupon/domain/repositories/coupon_repository_interface.dart';
 // import 'package:multishop_tchad/features/vault/coupon/domain/services/coupon_service.dart';

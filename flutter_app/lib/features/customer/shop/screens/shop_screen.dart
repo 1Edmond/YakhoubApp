@@ -101,7 +101,11 @@ class _TopSellerProductScreenState extends State<TopSellerProductScreen> with Ti
     }
 
     searchController.clear();
-    _load();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted) {
+        _load();
+      }
+    });
     if(widget.fromMore) {
       _tabController = TabController(length: 2, initialIndex: 1, vsync: this);
     } else{

@@ -32,113 +32,137 @@ class _ShopOverviewScreenState extends State<ShopOverviewScreen> {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-
         Consumer<CouponController>(
           builder: (context, couponController, _) {
-            return  Column(
+            if (couponController.isLoading) {
+              return Shimmer.fromColors(
+                baseColor: Colors.grey[300]!,
+                highlightColor: Colors.grey[100]!,
+                child: Container(
+                  height: 70,
+                  margin: const EdgeInsets.symmetric(horizontal: 10, vertical: Dimensions.paddingSizeSmall),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: Theme.of(context).colorScheme.secondaryContainer,
+                  ),
+                ),
+              );
+            }
+
+            final coupons = couponController.couponItemModel?.coupons;
+            if (coupons == null || coupons.isEmpty) {
+              return const SizedBox.shrink();
+            }
+
+            return Column(
               mainAxisSize: MainAxisSize.min,
               children: [
                 const SizedBox(height: Dimensions.paddingSizeSmall),
-
-                couponController.couponItemModel != null ? (couponController.couponItemModel!.coupons != null && couponController.couponItemModel!.coupons!.isNotEmpty) ? Stack(children: [
-                    CarouselSlider.builder(
-                      options: CarouselOptions(
-                          viewportFraction: 1,
-                          aspectRatio: 16 / (size.width > 380 ? 7 : 7.5),
-                          autoPlay: couponController.couponItemModel!.coupons!.length > 1 ? true : false,
-                          scrollPhysics: couponController.couponItemModel!.coupons!.length > 1 ? const BouncingScrollPhysics() : const NeverScrollableScrollPhysics(),
-                          enlargeCenterPage: true,
-                          disableCenter: true,
-                          onPageChanged: (index, reason) {
-                            couponController.setCurrentIndex(index);
-                          }
-                      ),
-                      itemCount: couponController.couponItemModel!.coupons!.length,
-                      itemBuilder: (context, index, _)=> ShopCouponItem(coupons: couponController.couponItemModel!.coupons![index]),
+                Stack(children: [
+                  CarouselSlider.builder(
+                    options: CarouselOptions(
+                      viewportFraction: 1,
+                      aspectRatio: 16 / (size.width > 380 ? 7 : 7.5),
+                      autoPlay: coupons.length > 1,
+                      scrollPhysics: coupons.length > 1 ? const BouncingScrollPhysics() : const NeverScrollableScrollPhysics(),
+                      enlargeCenterPage: true,
+                      disableCenter: true,
+                      onPageChanged: (index, reason) {
+                        couponController.setCurrentIndex(index);
+                      },
                     ),
-
-                  Positioned.fill(child: Padding(
-                    padding: const EdgeInsets.symmetric(vertical: Dimensions.paddingSizeDefault,),
-                    child: Align(
-                      alignment: Alignment.bottomCenter,
-                      child: Consumer<CouponController>(
-                        builder: (context, couponController, _) {
-                          return Row(mainAxisAlignment: MainAxisAlignment.center,
-                            children: couponController.couponItemModel!.coupons!.map((banner) {
-                              int index = couponController.couponItemModel!.coupons!.indexOf(banner);
-                              return TabPageSelectorIndicator(backgroundColor: index == couponController.couponCurrentIndex ?
-                              Theme.of(context).primaryColor : Theme.of(context).primaryColor.withValues(alpha:.25),
-                                borderColor: index == couponController.couponCurrentIndex ?
-                                Theme.of(context).primaryColor : Theme.of(context).primaryColor.withValues(alpha:.25), size: 5);
-                            }).toList());
-                        }
-                      ),
-                    ),
-                  )),
-
+                    itemCount: coupons.length,
+                    itemBuilder: (context, index, _) => ShopCouponItem(coupons: coupons[index]),
+                  ),
                   Positioned.fill(
                     child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: Dimensions.paddingSizeThirtyFive, vertical: Dimensions.paddingSizeDefault),
+                      padding: const EdgeInsets.symmetric(vertical: Dimensions.paddingSizeDefault),
+                      child: Align(
+                        alignment: Alignment.bottomCenter,
+                        child: Consumer<CouponController>(
+                          builder: (context, cController, _) {
+                            return Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: coupons.map((banner) {
+                                int index = coupons.indexOf(banner);
+                                return TabPageSelectorIndicator(
+                                  backgroundColor: index == cController.couponCurrentIndex
+                                      ? Theme.of(context).primaryColor
+                                      : Theme.of(context).primaryColor.withValues(alpha: .25),
+                                  borderColor: index == cController.couponCurrentIndex
+                                      ? Theme.of(context).primaryColor
+                                      : Theme.of(context).primaryColor.withValues(alpha: .25),
+                                  size: 5,
+                                );
+                              }).toList(),
+                            );
+                          },
+                        ),
+                      ),
+                    ),
+                  ),
+                  Positioned.fill(
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: Dimensions.paddingSizeThirtyFive,
+                        vertical: Dimensions.paddingSizeDefault,
+                      ),
                       child: Align(
                         alignment: Alignment.bottomRight,
-                        child: Row(mainAxisSize: MainAxisSize.min, children: [
-                          Text('${couponController.couponCurrentIndex+1}',
-                            style: textMedium.copyWith(color: Theme.of(context).primaryColor, fontSize: Dimensions.fontSizeExtraSmall),),
-                          Text('/${couponController.couponItemModel!.coupons!.length}',
-                            style: textRegular.copyWith(color: Theme.of(context).hintColor, fontSize: Dimensions.fontSizeExtraSmall),),
-                        ]),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Text(
+                              '${couponController.couponCurrentIndex + 1}',
+                              style: textMedium.copyWith(color: Theme.of(context).primaryColor, fontSize: Dimensions.fontSizeExtraSmall),
+                            ),
+                            Text(
+                              '/${coupons.length}',
+                              style: textRegular.copyWith(color: Theme.of(context).hintColor, fontSize: Dimensions.fontSizeExtraSmall),
+                            ),
+                          ],
+                        ),
                       ),
-                    )
+                    ),
                   ),
-                ]) : const SizedBox.shrink() :
-                Shimmer.fromColors(
-                  baseColor: Colors.grey[300]!,
-                  highlightColor: Colors.grey[100]!,
-                  enabled: couponController.couponItemModel?.coupons == null,
-                  child: Container(margin: const EdgeInsets.symmetric(horizontal: 10), decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10), color:  Theme.of(context).colorScheme.secondaryContainer)
-                  )
-                ),
-
-                ClearanceShopListWidget(slug: widget.slug.toString(), isHomeScreen: false, sellerNavigationModel: widget.sellerNavigationModel),
-                const SizedBox(height: Dimensions.paddingSizeSmall),
-
-                Consumer<SellerProductController>(
-                  builder: (context, productController, _) {
-                    return TitleRowWidget(title: productController.sellerWiseFeaturedProduct != null ?
-                    (productController.sellerWiseFeaturedProduct!.products != null &&
-                      productController.sellerWiseFeaturedProduct!.products!.isNotEmpty) ?
-                    getTranslated('featured_products', context) : getTranslated('recommanded_products', context) : '');
-                  }
-                ),
-
-
-                Consumer<SellerProductController>(
-                  builder: (context, productController, _) {
-                    return Padding(padding: const EdgeInsets.fromLTRB(Dimensions.paddingSizeSmall,
-                      Dimensions.paddingSizeDefault, Dimensions.paddingSizeSmall, 0),
-                      child: ShopFeaturedProductViewList(scrollController: widget.scrollController, slug: widget.slug, sellerNavigationModel: widget.sellerNavigationModel));
-                  }
-                ),
-
-
-                Consumer<SellerProductController>(
-                  builder: (context, productController, _) {
-                    return (productController.sellerWiseFeaturedProduct != null &&
-                      productController.sellerWiseFeaturedProduct!.products != null &&
-                      productController.sellerWiseFeaturedProduct!.products!.isEmpty)?
-                    Padding(padding: const EdgeInsets.fromLTRB(Dimensions.paddingSizeSmall,
-                      Dimensions.paddingSizeDefault, Dimensions.paddingSizeSmall, 0),
-                      child: ShopRecommandedProductViewList(scrollController: widget.scrollController,
-                      sellerNavigationModel: widget.sellerNavigationModel,
-                      slug : widget.slug),): const SizedBox();
-                  })]
+                ]),
+              ],
             );
+          },
+        ),
+
+        ClearanceShopListWidget(slug: widget.slug.toString(), isHomeScreen: false, sellerNavigationModel: widget.sellerNavigationModel),
+        const SizedBox(height: Dimensions.paddingSizeSmall),
+
+        Consumer<SellerProductController>(
+          builder: (context, productController, _) {
+            return TitleRowWidget(title: productController.sellerWiseFeaturedProduct != null ?
+            (productController.sellerWiseFeaturedProduct!.products != null &&
+              productController.sellerWiseFeaturedProduct!.products!.isNotEmpty) ?
+            getTranslated('featured_products', context) : getTranslated('recommanded_products', context) : '');
           }
         ),
 
+        Consumer<SellerProductController>(
+          builder: (context, productController, _) {
+            return Padding(padding: const EdgeInsets.fromLTRB(Dimensions.paddingSizeSmall,
+              Dimensions.paddingSizeDefault, Dimensions.paddingSizeSmall, 0),
+              child: ShopFeaturedProductViewList(scrollController: widget.scrollController, slug: widget.slug, sellerNavigationModel: widget.sellerNavigationModel));
+          }
+        ),
 
-
+        Consumer<SellerProductController>(
+          builder: (context, productController, _) {
+            return (productController.sellerWiseFeaturedProduct != null &&
+              productController.sellerWiseFeaturedProduct!.products != null &&
+              productController.sellerWiseFeaturedProduct!.products!.isEmpty)?
+            Padding(padding: const EdgeInsets.fromLTRB(Dimensions.paddingSizeSmall,
+              Dimensions.paddingSizeDefault, Dimensions.paddingSizeSmall, 0),
+              child: ShopRecommandedProductViewList(scrollController: widget.scrollController,
+              sellerNavigationModel: widget.sellerNavigationModel,
+              slug : widget.slug),): const SizedBox();
+          }
+        ),
       ],
     );
   }

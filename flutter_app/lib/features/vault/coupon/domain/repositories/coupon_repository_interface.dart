@@ -1,9 +1,1 @@
-import 'package:multishop_tchad/core/interfaces/repo_interface.dart';
-
-abstract class CouponRepositoryInterface<T> extends RepositoryInterface{
-
-  Future<dynamic> getAvailableCouponList();
-
-  Future<dynamic> getSellerCouponList(String slug, int offset);
-
-}
+export 'package:multishop_tchad/features/customer/coupon/domain/repositories/coupon_repository_interface.dart';
