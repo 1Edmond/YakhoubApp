@@ -64,9 +64,13 @@ class _ProductDetailsState extends State<ProductDetails> {
 
   @override
   void initState() {
-    Provider.of<ProductDetailsController>(context, listen: false).selectReviewSection(false, isUpdate: false);
-    _loadData(context);
     super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted) {
+        Provider.of<ProductDetailsController>(context, listen: false).selectReviewSection(false, isUpdate: false);
+        _loadData(context);
+      }
+    });
   }
 
   @override

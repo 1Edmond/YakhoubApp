@@ -34,7 +34,11 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> with Ticker
   @override
   void initState() {
     super.initState();
-    load(context);
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted) {
+        load(context);
+      }
+    });
     _tabController = TabController(length: 2, initialIndex: 0, vsync: this);
     _tabController?.addListener((){
     });
