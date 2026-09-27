@@ -3,7 +3,7 @@ import 'package:multishop_tchad/core/enums/local_caches_type_enum.dart';
 
 class AppConstants {
   static const String baseUrl =
-      'https://48af-194-71-130-44.ngrok-free.app/admin';
+      'https://6642-194-71-130-44.ngrok-free.app/admin';
   static const String appName = 'MultiShop Tchad';
   static const String packageName = 'com.multishop.tchad';
 
@@ -119,8 +119,8 @@ class AppConstants {
   static const int maxPageSize = 100;
 
   // Timeouts
-  static const int connectTimeout = 30000; // 30s
-  static const int receiveTimeout = 30000; // 30s
+  static const int connectTimeout = 60000; // 60s
+  static const int receiveTimeout = 60000; // 60s
 
   // Cache
   static const int cacheMaxAge = 86400000; // 24h en ms

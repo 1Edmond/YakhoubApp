@@ -26,76 +26,58 @@ class ApiErrorHandler {
               errorDescription = "Receive timeout in connection with API server";
               break;
             case DioExceptionType.badResponse:
-              switch (error.response!.statusCode) {
+              final data = error.response?.data;
+              final statusCode = error.response?.statusCode;
 
-                case 403:
-                  if(error.response!.data['errors'] != null){
-                    ErrorResponse errorResponse = ErrorResponse.fromJson(error.response?.data);
-                    errorDescription = errorResponse.errors?[0].message;
-                  }else{
-                    errorDescription = error.response!.data['message'];
-                  }
+              if (statusCode == 401) {
+                Provider.of<AuthController>(Get.context!, listen: false).clearSharedData();
+              }
 
-                  if (kDebugMode) {
-                    // print("=================403=============>>$errorDescription");
-                    // print("=================403=============>>${error.response!.data}");
-                  }
+              if (data is Map<String, dynamic>) {
+                if (data['errors'] != null) {
+                  try {
+                    ErrorResponse errorResponse = ErrorResponse.fromJson(data);
+                    if (errorResponse.errors != null && errorResponse.errors!.isNotEmpty) {
+                      errorDescription = errorResponse.errors?[0].message ?? '';
+                    }
+                  } catch (_) {}
+                }
+                if ((errorDescription == null || errorDescription == "") && data['message'] != null) {
+                  errorDescription = data['message'].toString();
+                }
+              } else if (data is String && data.isNotEmpty) {
+                if (!data.trim().startsWith('<')) {
+                  errorDescription = data;
+                }
+              }
 
-                  break;
-                case 401:
-                  Provider.of<AuthController>(Get.context!,listen: false).clearSharedData();
-                  if(error.response!.data['errors'] != null) {
-                    ErrorResponse errorResponse = ErrorResponse.fromJson(error.response?.data);
-                    errorDescription = errorResponse.errors?[0].message;
-                  } else{
-                    errorDescription = error.response!.data['message'];
-                  }
-                  break;
-                case 404:
-                  break;
-                case 400:
-                  if(error.response!.data['errors'] != null){
-                    ErrorResponse errorResponse = ErrorResponse.fromJson(error.response?.data);
-                    errorDescription = errorResponse.errors?[0].message;
-                  } else{
-                    errorDescription = error.response?.data['message'] ?? '';
-                  }
-                  break;
-                case 422:
-                  if(error.response!.data['errors'] != null){
-                    ErrorResponse errorResponse = ErrorResponse.fromJson(error.response?.data);
-                    errorDescription = errorResponse.errors?[0].message;
-                  } else{
-                    errorDescription = error.response?.data['message'] ?? '';
-                  }
-                  break;
-                case 500:
-                  if (kDebugMode) {
-                    // print("-----------500------------->>${error.response!.data}");
-                  }
-                  errorDescription = 'Internal server error';
-                case 503:
-                  if(error.response!.data['message'] != null){
-                    errorDescription = error.response!.data['message'];
-                  }
-                case 429:
-                  // print("-----------429------------->>${error.response!.data}");
-                  errorDescription = error.response!.statusMessage;
-                  break;
-                default:
-                  ErrorResponse errorResponse = ErrorResponse.fromJson(error.response!.data);
-                  if (errorResponse.errors != null && errorResponse.errors!.isNotEmpty) {
-                    errorDescription = errorResponse;
-                  } else {errorDescription = "Failed to load data - status code: ${error.response!.statusCode}";
-                  }
+              if (errorDescription == "" || errorDescription == null) {
+                switch (statusCode) {
+                  case 404:
+                    errorDescription = "Not found (404)";
+                    break;
+                  case 500:
+                    errorDescription = "Internal server error (500)";
+                    break;
+                  case 503:
+                    errorDescription = "Service unavailable (503)";
+                    break;
+                  case 429:
+                    errorDescription = error.response?.statusMessage ?? "Too many requests";
+                    break;
+                  default:
+                    errorDescription = "Failed to load data - status code: $statusCode";
+                }
               }
               break;
             case DioExceptionType.badCertificate:
+              errorDescription = "Bad certificate";
               break;
             case DioExceptionType.connectionError:
+              errorDescription = "Connection error";
               break;
             case DioExceptionType.unknown:
-              errorDescription = "Request to API call limit excited ";
+              errorDescription = "Network request failed";
               break;
             case DioExceptionType.transformTimeout:
               errorDescription = "Connection timeout with API server";
@@ -104,7 +86,7 @@ class ApiErrorHandler {
         } else {
           errorDescription = "Unexpected error occured";
         }
-      } on FormatException catch (e) {
+      } catch (e) {
         errorDescription = e.toString();
       }
     } else {

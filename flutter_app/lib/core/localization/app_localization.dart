@@ -23,8 +23,12 @@ class AppLocalization {
   }
 
   String? translate(String? key) {
-    throwIf(_localizedValues[key] == null, 'key [$key] is missing');
-    return _localizedValues[key!];
+    if (key == null) return '';
+    final val = _localizedValues[key];
+    if (val != null && val.isNotEmpty) {
+      return val;
+    }
+    return key.replaceAll('_', ' ').toTitleCase();
   }
 
   static const LocalizationsDelegate<AppLocalization> delegate = _DemoLocalizationsDelegate();
