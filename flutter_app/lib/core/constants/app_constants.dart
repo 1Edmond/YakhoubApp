@@ -157,6 +157,8 @@ class AppConstants {
   static const String vendorMessageUri = '/api/v3/seller/messages/get-message/';
   static const String vendorSendMessageUri = '/api/v3/seller/messages/send/';
   static const String vendorSeenMessageUri = '/api/v3/seller/messages/seen/';
+  static const String cartUri = vendorCartUri;
+  static const String chatSearchUri = vendorChatSearchUri;
   static const String orderListUri = '/api/v3/seller/orders/list';
   static const String orderDetails = '/api/v3/seller/orders/';
   static const String updateOrderStatus =
