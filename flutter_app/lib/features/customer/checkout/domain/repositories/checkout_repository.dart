@@ -61,7 +61,7 @@ class CheckoutRepository implements CheckoutRepositoryInterface{
       if (doorPhoto != null) {
         if (doorPhoto is File) {
           files.add(MultipartWithKey(
-            key: 'door_photo_url',
+            key: 'door_photo',
             multipartFile: await MultipartFile.fromFile(doorPhoto.path),
           ));
         }

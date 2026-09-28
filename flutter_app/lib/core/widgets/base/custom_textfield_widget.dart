@@ -117,21 +117,36 @@ class _CustomTextFieldWidgetState extends State<CustomTextFieldWidget> {
   bool _obscureText = true;
   bool isFocusActive = false;
 
+  void _onFocusChanged() {
+    if (mounted) {
+      setState(() {
+        isFocusActive = widget.focusNode?.hasFocus ?? false;
+      });
+    }
+  }
+
   @override
   void initState() {
-    widget.focusNode?.addListener(() {
-      isFocusActive = widget.focusNode!.hasFocus;
-      setState(() {});
-    });
-    widget.toolTipKey != null ? showAndCloseTooltip(widget.toolTipKey) : null;
     super.initState();
+    widget.focusNode?.addListener(_onFocusChanged);
+    if (widget.toolTipKey != null) {
+      showAndCloseTooltip(widget.toolTipKey);
+    }
+  }
+
+  @override
+  void dispose() {
+    widget.focusNode?.removeListener(_onFocusChanged);
+    super.dispose();
   }
 
   Future showAndCloseTooltip(dynamic key) async {
     await Future.delayed(const Duration(milliseconds: 10));
+    if (!mounted) return;
     final dynamic tooltip = key.currentState;
     tooltip?.ensureTooltipVisible();
     await Future.delayed(const Duration(milliseconds: 10));
+    if (!mounted) return;
     tooltip?.deactivate();
   }
 
@@ -326,8 +341,10 @@ class _CustomTextFieldWidgetState extends State<CustomTextFieldWidget> {
   }
 
   void _toggle() {
-    setState(() {
-      _obscureText = !_obscureText;
-    });
+    if (mounted) {
+      setState(() {
+        _obscureText = !_obscureText;
+      });
+    }
   }
 }
