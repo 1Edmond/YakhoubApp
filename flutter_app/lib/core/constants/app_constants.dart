@@ -1,4 +1,4 @@
-﻿import 'package:multishop_tchad/core/localization/models/language_model.dart';
+import 'package:multishop_tchad/core/localization/models/language_model.dart';
 import 'package:multishop_tchad/core/enums/local_caches_type_enum.dart';
 import 'package:multishop_tchad/core/constants/images.dart';
 
@@ -144,7 +144,7 @@ class AppConstants {
   static const int cacheMaxSize = 50 * 1024 * 1024; // 50MB
   // Vendor app specific constants
   static const String appVersion = '16.5';
-  static const String companyName = '6Valley';
+  static const String companyName = 'MultiShop Tchad';
   static const bool demo = false;
   static const int imageQuality = 100;
   static const String loginUri = '/api/v1/auth/login';
@@ -152,11 +152,11 @@ class AppConstants {
   static const String sellerUri = '/api/v3/seller/seller-info';
   static const String sellerAndBankUpdate = '/api/v3/seller/seller-update';
   static const String shopUpdate = '/api/v3/seller/shop-update';
-  static const String cartUri = '/api/v3/seller/messages/list/';
-  static const String chatSearchUri = '/api/v3/seller/messages/search/';
-  static const String messageUri = '/api/v3/seller/messages/get-message/';
-  static const String sendMessageUri = '/api/v3/seller/messages/send/';
-  static const String seenMessageUri = '/api/v3/seller/messages/seen/';
+  static const String vendorCartUri = '/api/v3/seller/messages/list/';
+  static const String vendorChatSearchUri = '/api/v3/seller/messages/search/';
+  static const String vendorMessageUri = '/api/v3/seller/messages/get-message/';
+  static const String vendorSendMessageUri = '/api/v3/seller/messages/send/';
+  static const String vendorSeenMessageUri = '/api/v3/seller/messages/seen/';
   static const String orderListUri = '/api/v3/seller/orders/list';
   static const String orderDetails = '/api/v3/seller/orders/';
   static const String updateOrderStatus =
@@ -585,6 +585,9 @@ class AppConstants {
   static const String couponUri = '/api/v1/coupon/apply?code=';
   static const String chatInfoUri = '/api/v1/customer/chat/list/';
   static const String searchChat = '/api/v1/customer/chat/search/';
+  static const String messageUri = '/api/v1/customer/chat/get-messages/';
+  static const String sendMessageUri = '/api/v1/customer/chat/send-message/';
+  static const String seenMessageUri = '/api/v1/customer/chat/seen-message/';
   static const String notificationUri = '/api/v1/notifications';
   static const String seenNotificationUri = '/api/v1/notifications/seen';
   static const String getCartDataUri = '/api/v1/cart';

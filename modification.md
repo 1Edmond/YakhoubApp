@@ -196,3 +196,24 @@
   - Intégration des champs d'adresse (Quartier, Rue, Indications) et de la capture GPS / photo de porte dans le checkout client et affichage dans la vue vendeur.
   - Dialogue de confirmation d'annulation avec avertissement des frais de 1000 FCFA.
   - Saisie du numéro de téléphone de paiement pour Airtel Money et Moov Money.
+
+---
+
+### [28/09/2026] — Remplacement de la marque "6am/6Valley" & Résolution du 401 sur Chat Vendeur
+- **Fichier(s) Backend** :
+  - Base de données (`business_settings`, `shops`) : mise à jour de `company_name` (`MultiShop Tchad`), `company_email` (`contact@multishop-tchad.com`), `company_copyright_text` (`Copyright MultiShop Tchad © 2026`), `shop_address` (`N'Djamena, Tchad`).
+  - `app/Traits/PdfGenerator.php` : sécurisation de la génération du pied de page des factures PDF pour garantir l'utilisation exclusive des coordonnées de MultiShop Tchad.
+  - `resources/themes/default/web-views/order/invoice.blade.php`, `resources/views/admin-views/order/invoice.blade.php`, `resources/views/vendor-views/order/invoice.blade.php` : affichage du nom de la compagnie MultiShop Tchad et de l'adresse en en-tête de reçu même si aucun logo personnalisé n'a été configuré.
+- **Fichier(s) Mobile Flutter** :
+  - `lib/core/constants/app_constants.dart` :
+    - Remplacement de `companyName = '6Valley'` par `companyName = 'MultiShop Tchad'`.
+    - Rétablissement des routes de chat client : `/api/v1/customer/chat/get-messages/`, `send-message/`, `seen-message/`.
+    - Séparation des routes de chat vendeur (`vendorCartUri`, `vendorChatSearchUri`, `vendorMessageUri`, `vendorSendMessageUri`, `vendorSeenMessageUri`).
+  - `lib/features/vendor/chat/domain/repositories/chat_repository.dart` : utilisation des constantes dédiées au vendeur (`AppConstants.vendor*`).
+  - `lib/features/vendor/utill/app_constants.dart` : mise à jour de `companyName = 'MultiShop Tchad'`.
+  - `lib/features/vault/ai_shopping/screens/ai_shopping_screen.dart` : mise à jour du message d'accueil de l'assistant d'achat pour MultiShop Tchad.
+- **Type** : FIX | BRANDING
+- **Description** :
+  - Élimination définitive des mentions résiduelles "6amTech" et "6Valley" sur le reçu / facture de commande et dans l'application mobile au profit de MultiShop Tchad.
+  - Correction de l'erreur `401 Unauthorized` sur `/admin/api/v3/seller/messages/get-message/seller/0` : le repository client appelait à tort une route protégée par le middleware vendeur suite à une collision de constantes. Les routes client et vendeur sont désormais clairement dissociées.
+

@@ -21,7 +21,7 @@ class ChatRepository implements ChatRepositoryInterface{
   @override
   Future<ApiResponse> getChatList(String type, int offset) async {
     try {
-      final response = await dioClient!.get('${AppConstants.cartUri}$type?limit=30&offset=$offset');
+      final response = await dioClient!.get('${AppConstants.vendorCartUri}$type?limit=30&offset=$offset');
       return ApiResponse.withSuccess(response);
     } catch (e) {
       return ApiResponse.withError(ApiErrorHandler.getMessage(e));
@@ -31,7 +31,7 @@ class ChatRepository implements ChatRepositoryInterface{
   @override
   Future<ApiResponse> searchChat(String type, String search) async {
     try {
-      final response = await dioClient!.get('${AppConstants.chatSearchUri}$type?search=$search');
+      final response = await dioClient!.get('${AppConstants.vendorChatSearchUri}$type?search=$search');
       return ApiResponse.withSuccess(response);
     } catch (e) {
       return ApiResponse.withError(ApiErrorHandler.getMessage(e));
@@ -41,7 +41,7 @@ class ChatRepository implements ChatRepositoryInterface{
   @override
   Future<ApiResponse> getMessageList(String type, int offset, int? id) async {
     try {
-      final response = await dioClient!.get('${AppConstants.messageUri}$type/$id?limit=30&offset=$offset');
+      final response = await dioClient!.get('${AppConstants.vendorMessageUri}$type/$id?limit=30&offset=$offset');
       return ApiResponse.withSuccess(response);
     } catch (e) {
       return ApiResponse.withError(ApiErrorHandler.getMessage(e));
@@ -50,7 +50,7 @@ class ChatRepository implements ChatRepositoryInterface{
 
   @override
   Future<http.StreamedResponse> sendMessage(MessageBody messageBody, String type, List<XFile?> files, List<PlatformFile>? platformFile) async {
-    http.MultipartRequest request = http.MultipartRequest('POST', Uri.parse('${AppConstants.baseUrl}${AppConstants.sendMessageUri}$type'));
+    http.MultipartRequest request = http.MultipartRequest('POST', Uri.parse('${AppConstants.baseUrl}${AppConstants.vendorSendMessageUri}$type'));
 
 
 
@@ -81,7 +81,7 @@ class ChatRepository implements ChatRepositoryInterface{
   @override
   Future<ApiResponse> seenMessage(int id, String type) async {
     try {
-      final response = await dioClient!.post('${AppConstants.seenMessageUri}$type',
+      final response = await dioClient!.post('${AppConstants.vendorSeenMessageUri}$type',
           data: {'id':id});
       return ApiResponse.withSuccess(response);
     } catch (e) {

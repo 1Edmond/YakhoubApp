@@ -5,7 +5,7 @@ import 'package:multishop_tchad/features/vendor/shop/domain/models/guideline_mod
 class AppConstants {
   static const String appName = 'Vendor App'; ///Flutter SDK 3.47.0
   static const String appVersion = '16.5';
-  static const String companyName = '6Valley';
+  static const String companyName = 'MultiShop Tchad';
   static const bool demo = false;
   static const int imageQuality = 100;
 

@@ -99,7 +99,7 @@ class _AiShoppingWelcome extends StatelessWidget {
         children: [
           _AiWelcomeBubble(
             message: getTranslated('ai_shopping_welcome_message', context) ??
-                "?? Hi! I'm your shopping assistant at 6Valley. I can help you find products, compare options, discover today's deals, and add items to your cart. What are you looking for today?",
+                "?? Bonjour ! Je suis votre assistant shopping chez MultiShop Tchad. Je peux vous aider à trouver des produits, comparer les options, découvrir les offres du jour et ajouter des articles à votre panier. Que cherchez-vous aujourd'hui ?",
           ),
           const SizedBox(height: Dimensions.paddingSizeLarge),
           Text(
