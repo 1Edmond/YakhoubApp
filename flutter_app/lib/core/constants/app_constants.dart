@@ -1,10 +1,10 @@
-import 'package:multishop_tchad/core/localization/models/language_model.dart';
+﻿import 'package:multishop_tchad/core/localization/models/language_model.dart';
 import 'package:multishop_tchad/core/enums/local_caches_type_enum.dart';
 import 'package:multishop_tchad/core/constants/images.dart';
 
 class AppConstants {
   static const String baseUrl =
-      'https://6642-194-71-130-44.ngrok-free.app/admin';
+      'https://5192-194-71-130-44.ngrok-free.app/admin';
   static const String appName = 'MultiShop Tchad';
   static const String packageName = 'com.multishop.tchad';
 
@@ -29,7 +29,8 @@ class AppConstants {
   static const String vendorReductionCounterOfferEndpoint =
       'v3/seller/reduction-requests/{requestId}/counter-offer';
   static const String customerCartNegotiateEndpoint = 'customer/cart/negotiate';
-  static const String customerCartNegotiationsEndpoint = 'customer/cart/negotiations';
+  static const String customerCartNegotiationsEndpoint =
+      'customer/cart/negotiations';
   static const String customerCartNegotiationRespondEndpoint =
       'customer/cart/negotiations/{requestId}/respond';
 
