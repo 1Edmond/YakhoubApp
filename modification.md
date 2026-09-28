@@ -8,6 +8,19 @@
 
 ## 1. Modifications Backend / Projet Admin Laravel (`C:\laragon\www\admin`)
 
+### [28/09/2026] — Correction 405 sur Order Place & setState sur CustomTextFieldWidget
+- **Fichier(s)** :
+  - `routes/rest_api/v1/api.php`
+  - `app/Http/Controllers/RestAPI/v1/OrderController.php`
+  - `lib/core/widgets/base/custom_textfield_widget.dart`
+  - `lib/features/customer/checkout/domain/repositories/checkout_repository.dart`
+- **Type** : FIX
+- **Description** :
+  - **405 Method Not Allowed sur `/api/v1/customer/order/place`** : La route Laravel était configurée uniquement en `Route::get('place', ...)`. L'application Flutter envoyant un `postMultipart` (pour la photo de la porte et les données d'adresse), la requête était rejetée avec une erreur 405. La route a été mise à jour avec `Route::match(['get', 'post'], 'place', ...)` et `OrderController@updateTchadFields` gère désormais `door_photo` et `door_photo_url`.
+  - **Exception `setState() called after dispose()` dans `CustomTextFieldWidget`** : L'écouteur de focus (`focusNode.addListener`) attachait une fermeture anonyme sans détachement dans `dispose()` ni vérification de `mounted`. Remplacement par une méthode nommée `_onFocusChanged`, suppression dans `dispose()`, et vérification de `mounted` dans `showAndCloseTooltip()` et `_toggle()`.
+
+---
+
 ### [27/09/2026] — Négociation de Prix par Produit dans le Panier (CDC 3.4.7)
 - **Fichier(s)** :
   - `database/migrations/2026_09_27_000001_add_cart_id_to_price_reduction_requests_table.php`
