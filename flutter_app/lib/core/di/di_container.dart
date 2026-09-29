@@ -602,8 +602,10 @@ import 'package:multishop_tchad/features/vendor/emergency_contract/controllers/e
     as v_emergency_contact_controller;
 import 'package:multishop_tchad/features/vendor/language/controllers/language_controller.dart'
     as v_language_controller;
-// import 'package:multishop_tchad/core/localization/controllers/localization_controller.dart'
-// import 'package:multishop_tchad/features/vendor/dashboard/controllers/bottom_menu_controller.dart'
+import 'package:multishop_tchad/features/vendor/localization/controllers/localization_controller.dart'
+    as v_localization_controller;
+import 'package:multishop_tchad/features/vendor/dashboard/controllers/bottom_menu_controller.dart'
+    as v_bottom_menu_controller;
 import 'package:multishop_tchad/features/vendor/order/controllers/location_controller.dart'
     as v_location_controller;
 import 'package:multishop_tchad/features/vendor/order/controllers/order_controller.dart'
@@ -622,15 +624,18 @@ import 'package:multishop_tchad/features/vendor/shipping/controllers/shipping_co
     as v_shipping_controller;
 import 'package:multishop_tchad/features/vendor/shop/controllers/shop_controller.dart'
     as v_shop_controller;
-// import 'package:multishop_tchad/features/vendor/splash/controllers/splash_controller.dart'
-// import 'package:multishop_tchad/core/theme/controllers/theme_controller.dart'
+import 'package:multishop_tchad/features/vendor/splash/controllers/splash_controller.dart'
+    as v_splash_controller;
+import 'package:multishop_tchad/features/vendor/theme/controllers/theme_controller.dart'
+    as v_theme_controller;
 import 'package:multishop_tchad/features/vendor/bank_info/controllers/bank_info_controller.dart'
     as v_bank_info_controller;
 import 'package:multishop_tchad/features/vendor/transaction/controllers/transaction_controller.dart'
     as v_transaction_controller;
 import 'package:multishop_tchad/core/constants/app_constants.dart'
     as v_app_constants;
-// import 'package:multishop_tchad/common/controller/tutorial_controller.dart'
+import 'package:multishop_tchad/common/controller/tutorial_controller.dart'
+    as v_tutorial_controller;
 
 final sl = GetIt.instance;
 
@@ -1626,8 +1631,8 @@ Future<void> init() async {
       v_shipping_controller.ShippingController(shippingServiceInterface: sl()));
   sl.registerFactory(() => v_add_product_controller.AddProductController(
       shopServiceInterface: sl()));
-//   sl.registerFactory(
-//       () => v_splash_controller.SplashController(serviceInterface: sl()));
+  sl.registerFactory(
+      () => v_splash_controller.SplashController(serviceInterface: sl()));
   sl.registerFactory(() => v_transaction_controller.TransactionController(
       transactionServiceInterface: sl()));
   sl.registerFactory(() => v_notification_controller.NotificationController(
@@ -1639,16 +1644,16 @@ Future<void> init() async {
   sl.registerFactory(() =>
       v_product_details_controller.ProductDetailsController(
           productDetailsServiceInterface: sl()));
-//   sl.registerFactory(
-//       () => v_theme_controller.ThemeController(sharedPreferences: sl()));
-//   sl.registerFactory(() => v_localization_controller.LocalizationController(
-//       sharedPreferences: sl()));
+  sl.registerFactory(
+      () => v_theme_controller.ThemeController(sharedPreferences: sl()));
+  sl.registerFactory(() => v_localization_controller.LocalizationController(
+      sharedPreferences: sl()));
   sl.registerFactory(() => v_language_controller.LanguageController());
   sl.registerFactory(
       () => v_shop_controller.ShopController(shopServiceInterface: sl()));
   sl.registerFactory(
       () => v_cart_controller.CartController(cartServiceInterface: sl()));
-//   sl.registerFactory(() => v_bottom_menu_controller.BottomMenuController());
+  sl.registerFactory(() => v_bottom_menu_controller.BottomMenuController());
   sl.registerFactory(() =>
       v_location_controller.LocationController(locationServiceInterface: sl()));
   sl.registerFactory(() =>
@@ -1664,7 +1669,7 @@ Future<void> init() async {
   sl.registerFactory(() => v_barcode_scan_controller.BarcodeScanController(
       cartServiceInterface: sl()));
   sl.registerFactory(() => ShowBottomSheetController());
-//   sl.registerFactory(() => v_tutorial_controller.TutorialController());
+  sl.registerFactory(() => v_tutorial_controller.TutorialController());
   sl.registerFactory(() =>
       v_add_product_image_controller.AddProductImageController(
           shopServiceInterface: sl()));

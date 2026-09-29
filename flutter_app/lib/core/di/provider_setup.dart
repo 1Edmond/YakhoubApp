@@ -463,11 +463,16 @@ import 'package:multishop_tchad/features/vendor/shop/controllers/shop_controller
 // import 'package:multishop_tchad/features/vendor/shop/domain/repositories/shop_repository_interface.dart'
 // import 'package:multishop_tchad/features/vendor/shop/domain/services/shop_service.dart'
 // import 'package:multishop_tchad/features/vendor/shop/domain/services/shop_service_interface.dart'
-// import 'package:multishop_tchad/features/vendor/splash/controllers/splash_controller.dart'
-// import 'package:multishop_tchad/features/vendor/splash/domain/repositories/splash_repository.dart'
-// import 'package:multishop_tchad/features/vendor/splash/domain/repositories/splash_repository_interface.dart'
-// import 'package:multishop_tchad/features/vendor/splash/domain/services/splash_service.dart'
-// import 'package:multishop_tchad/features/vendor/splash/domain/services/splash_service_interface.dart'
+import 'package:multishop_tchad/features/vendor/splash/controllers/splash_controller.dart'
+    as v_splash_controller;
+import 'package:multishop_tchad/features/vendor/theme/controllers/theme_controller.dart'
+    as v_theme_controller;
+import 'package:multishop_tchad/features/vendor/localization/controllers/localization_controller.dart'
+    as v_localization_controller;
+import 'package:multishop_tchad/features/vendor/dashboard/controllers/bottom_menu_controller.dart'
+    as v_bottom_menu_controller;
+import 'package:multishop_tchad/common/controller/tutorial_controller.dart'
+    as v_tutorial_controller;
 import 'package:multishop_tchad/features/vendor/third_party_deliveryman/controllers/third_party_deliveryman_controller.dart';
 // import 'package:multishop_tchad/features/vendor/third_party_deliveryman/domain/repositories/third_party_deliveryman_repository.dart';
 // import 'package:multishop_tchad/features/vendor/third_party_deliveryman/domain/repositories/third_party_deliveryman_repository_interface.dart';
@@ -597,5 +602,10 @@ List<SingleChildWidget> getProviders() {
     ChangeNotifierProvider(create: (_) => di.sl<v_wallet_controller.WalletController>()),
     ChangeNotifierProvider(create: (_) => di.sl<PriceReductionController>()),
     ChangeNotifierProvider(create: (_) => di.sl<VendorReductionController>()),
+    ChangeNotifierProvider(create: (_) => di.sl<v_splash_controller.SplashController>()),
+    ChangeNotifierProvider(create: (_) => di.sl<v_theme_controller.ThemeController>()),
+    ChangeNotifierProvider(create: (_) => di.sl<v_localization_controller.LocalizationController>()),
+    ChangeNotifierProvider(create: (_) => di.sl<v_bottom_menu_controller.BottomMenuController>()),
+    ChangeNotifierProvider(create: (_) => di.sl<v_tutorial_controller.TutorialController>()),
   ];
 }

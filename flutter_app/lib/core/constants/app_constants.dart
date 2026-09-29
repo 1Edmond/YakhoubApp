@@ -1,10 +1,10 @@
-import 'package:multishop_tchad/core/localization/models/language_model.dart';
+﻿import 'package:multishop_tchad/core/localization/models/language_model.dart';
 import 'package:multishop_tchad/core/enums/local_caches_type_enum.dart';
 import 'package:multishop_tchad/core/constants/images.dart';
 
 class AppConstants {
   static const String baseUrl =
-      'https://5192-194-71-130-44.ngrok-free.app/admin';
+      'https://6ab0-194-71-130-44.ngrok-free.app/admin';
   static const String appName = 'MultiShop Tchad';
   static const String packageName = 'com.multishop.tchad';
 

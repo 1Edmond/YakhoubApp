@@ -25,6 +25,7 @@ import 'package:multishop_tchad/features/vendor/auth/controllers/auth_controller
 import 'package:multishop_tchad/features/vendor/dashboard/screens/dashboard_screen.dart' as v_dash;
 import 'package:multishop_tchad/features/vendor/auth/screens/registration_screen.dart' as v_reg;
 import 'package:multishop_tchad/features/vendor/auth/screens/forget_password_screen.dart' as v_forgot;
+import 'package:multishop_tchad/features/vendor/splash/controllers/splash_controller.dart' as v_splash;
 
 class LoginScreen extends StatefulWidget {
   final bool fromLogout;
@@ -440,6 +441,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                               } else {
                                                 vAuth.clearUserEmailAndPassword();
                                               }
+                                              await Provider.of<v_splash.SplashController>(Get.context!, listen: false).initConfig();
                                               Navigator.pushAndRemoveUntil(Get.context!, MaterialPageRoute(builder: (_) => const v_dash.DashboardScreen()), (route) => false);
                                             }
                                           } else {

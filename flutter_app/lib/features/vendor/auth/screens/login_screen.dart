@@ -156,6 +156,7 @@ class LoginScreenState extends State<LoginScreen> {
                               authProvider.clearUserEmailAndPassword();
                             }
                            // Navigator.of(Get.context!).pushReplacement(MaterialPageRoute(builder: (_) => const DashboardScreen()));
+                            await Provider.of<SplashController>(Get.context!, listen: false).initConfig();
                             Navigator.pushAndRemoveUntil(Get.context!, MaterialPageRoute(builder: (_) => const DashboardScreen()), (route) => false);
                           }else {
                           }
@@ -166,7 +167,7 @@ class LoginScreenState extends State<LoginScreen> {
                 ) :
                 Center( child: CircularProgressIndicator( valueColor: AlwaysStoppedAnimation<Color>(Theme.of(context).primaryColor),)),
 
-                Provider.of<SplashController>(context, listen: false).configModel!.sellerRegistration == "1"?
+                Provider.of<SplashController>(context, listen: false).configModel?.sellerRegistration == "1"?
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: Dimensions.paddingSizeDefault),
                   child: InkWell(
