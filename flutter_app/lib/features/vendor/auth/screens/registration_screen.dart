@@ -46,7 +46,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> with TickerProv
           break;
       }
     });
-    Provider.of<AuthController>(Get.context!, listen: false).setCountryDialCode(CountryCode.fromCountryCode(Provider.of<SplashController>(context, listen: false).configModel!.countryCode ?? '+880').dialCode);
+    Provider.of<AuthController>(Get.context!, listen: false).setCountryDialCode(CountryCode.fromCountryCode(Provider.of<SplashController>(context, listen: false).configModel?.countryCode ?? '+880').dialCode);
     Provider.of<AuthController>(Get.context!, listen: false).emptyRegistrationData();
   }
 
@@ -197,7 +197,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> with TickerProv
                             showCustomSnackBarWidget(getTranslated('shop_logo_is_required', context), context,  sanckBarType: SnackBarType.warning);
                             }else if(authController.shopBanner == null){
                             showCustomSnackBarWidget(getTranslated('shop_banner_is_required', context), context,  sanckBarType: SnackBarType.warning);
-                            }else if(authController.secondaryBanner == null && Provider.of<SplashController>(context,listen: false).configModel!.activeTheme != "default"){
+                            }else if(authController.secondaryBanner == null && Provider.of<SplashController>(context,listen: false).configModel?.activeTheme != "default"){
                               showCustomSnackBarWidget(getTranslated('secondary_banner_is_required', context), context,  sanckBarType: SnackBarType.warning);
                             }else if(Provider.of<ShopController>(context, listen: false).tinCertificateFile != null && (( await Provider.of<ShopController>(context, listen: false).tinCertificateFile?.length() ?? 0) > (2 * 1024 * 1024)) ) {
                               showCustomSnackBarWidget(getTranslated('single_file_size_can_not_be_more_than', Get.context!), Get.context!,  sanckBarType: SnackBarType.warning);

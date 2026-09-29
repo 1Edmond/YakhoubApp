@@ -45,6 +45,10 @@ class DashboardScreenState extends State<DashboardScreen> {
   @override
   void initState() {
     super.initState();
+    final splash = Provider.of<SplashController>(context, listen: false);
+    if (splash.configModel == null) {
+      splash.initConfig();
+    }
     String languageCode = Provider.of<LocalizationController>(context, listen: false).locale.countryCode == 'US'?
     'en':Provider.of<LocalizationController>(context, listen: false).locale.countryCode!.toLowerCase();
     Provider.of<ProfileController>(context, listen: false).getSellerInfo();

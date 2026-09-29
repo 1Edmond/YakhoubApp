@@ -40,8 +40,11 @@ class _HomePageScreenState extends State<HomePageScreen> {
     if(Provider.of<OrderController>(context, listen: false).orderModel == null || reload) {
       Provider.of<OrderController>(context, listen: false).getOrderList(context,1,'all', null, reload: reload);
     }
-    Provider.of<BankInfoController>(context, listen: false).getAnalyticsFilterData(context, 'overall');
-    Provider.of<SplashController>(context,listen: false).getColorList();
+    final splashController = Provider.of<SplashController>(context, listen: false);
+    if (splashController.configModel == null) {
+      splashController.initConfig();
+    }
+    splashController.getColorList();
     Provider.of<ProductController>(context,listen: false).getStockOutProductList(1, 'en', reload: reload);
 
     Provider.of<ProductController>(context,listen: false).getTopSellingProductList(1, context, 'en', reload: reload);
@@ -187,8 +190,14 @@ class _HomePageScreenState extends State<HomePageScreen> {
                       const MostPopularProductScreen(isMain: true),
                       const SizedBox(height: Dimensions.paddingSizeSmall),
 
-                      Provider.of<SplashController>(context, listen: false).configModel!.shippingMethod != 'inhouse_shipping' ?
-                      const TopDeliveryManViewWidget(isMain: true) : const SizedBox()
+                      Consumer<SplashController>(
+                        builder: (context, splash, _) {
+                          final shippingMethod = splash.configModel?.shippingMethod;
+                          return (shippingMethod != null && shippingMethod != 'inhouse_shipping')
+                              ? const TopDeliveryManViewWidget(isMain: true)
+                              : const SizedBox();
+                        },
+                      ),
 
                     ],
                   ),

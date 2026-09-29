@@ -95,7 +95,7 @@ class _ProductDetailsWidgetState extends State<ProductDetailsWidget> {
 
                       TitleAndDescriptionWidget(
                         translations: productDetailsController.productDetails?.translations ?? [],
-                        languageList: Provider.of<SplashController>(context, listen: false).configModel!.languageList ?? [],
+                        languageList: Provider.of<SplashController>(context, listen: false).configModel?.languageList ?? [],
                         productModel: widget.productModel,
                       ),
                       const SizedBox(height: Dimensions.paddingSizeExtraSmall),
