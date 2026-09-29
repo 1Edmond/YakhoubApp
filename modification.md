@@ -230,3 +230,21 @@
 - **Type** : FIX
 - **Description** :
   - Résolution du crash `ProviderNotFoundException (Error: Could not find the correct Provider<SplashController> above this Navigator Widget...)` survenu lors de la tentative de connexion en tant que vendeur. Les contrôleurs nécessaires à l'espace vendeur sont désormais injectés et instanciés proprement dans le widget tree Flutter.
+
+### [29/09/2026] — Sécurisation Null-Safety (configModel et deliveryManList) dans l'Espace Vendeur
+- **Fichier(s) Mobile Flutter** :
+  - `lib/features/vendor/home/screens/home_page_screen.dart` :
+    - Remplacement de l'accès forcé `configModel!.shippingMethod` par un `Consumer<SplashController>` réactif et null-safe sur `configModel?.shippingMethod`.
+    - Déclenchement automatique de `initConfig()` dans `_loadData()` si `configModel == null`.
+  - `lib/features/vendor/dashboard/screens/dashboard_screen.dart` :
+    - Déclenchement automatique de `initConfig()` dans `initState()` si non encore initialisé.
+  - `lib/features/vendor/delivery_man/widgets/top_delivery_man_view_widget.dart` :
+    - Sécurisation du test sur `deliveryManList` (`(deliveryManList != null && deliveryManList.isNotEmpty)`).
+  - `lib/features/vendor/auth/screens/registration_screen.dart` :
+    - Sécurisation null-safe sur `configModel?.countryCode` et `configModel?.activeTheme`.
+  - `lib/features/vendor/product_details/widgets/product_details_widget.dart` :
+    - Sécurisation null-safe sur `configModel?.languageList`.
+- **Type** : FIX
+- **Description** :
+  - Résolution de l'exception `_TypeError (Null check operator used on a null value)` provoquée par `configModel!.shippingMethod` dans `home_page_screen.dart` lorsque les données de configuration réseau sont en cours de chargement asynchrone ou non encore instanciées.
+
