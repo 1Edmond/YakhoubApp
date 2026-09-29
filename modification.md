@@ -216,4 +216,17 @@
 - **Description** :
   - Élimination définitive des mentions résiduelles "6amTech" et "6Valley" sur le reçu / facture de commande et dans l'application mobile au profit de MultiShop Tchad.
   - Correction de l'erreur `401 Unauthorized` sur `/admin/api/v3/seller/messages/get-message/seller/0` : le repository client appelait à tort une route protégée par le middleware vendeur suite à une collision de constantes. Les routes client et vendeur sont désormais clairement dissociées.
-
+### [29/09/2026] — Résolution du ProviderNotFoundException (SplashController Vendeur)
+- **Fichier(s) Mobile Flutter** :
+  - `lib/core/di/di_container.dart` :
+    - Réactivation et enregistrement de `v_splash_controller.SplashController`, `v_theme_controller.ThemeController`, `v_localization_controller.LocalizationController`, `v_bottom_menu_controller.BottomMenuController`, et `v_tutorial_controller.TutorialController` dans GetIt (`sl`).
+  - `lib/core/di/provider_setup.dart` :
+    - Enregistrement des 5 controllers vendeurs dans `MultiProvider` (`getProviders()`).
+  - `lib/features/auth/screens/login_screen.dart` :
+    - Appel de `await Provider.of<v_splash.SplashController>(Get.context!, listen: false).initConfig()` lors de la connexion en mode vendeur avant la redirection vers `DashboardScreen`.
+  - `lib/features/vendor/auth/screens/login_screen.dart` :
+    - Sécurisation null-safe sur `configModel?.sellerRegistration == "1"`.
+    - Appel explicite de `initConfig()` avant la transition vers `DashboardScreen`.
+- **Type** : FIX
+- **Description** :
+  - Résolution du crash `ProviderNotFoundException (Error: Could not find the correct Provider<SplashController> above this Navigator Widget...)` survenu lors de la tentative de connexion en tant que vendeur. Les contrôleurs nécessaires à l'espace vendeur sont désormais injectés et instanciés proprement dans le widget tree Flutter.
