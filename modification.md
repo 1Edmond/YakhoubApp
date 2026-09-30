@@ -248,3 +248,30 @@
 - **Description** :
   - Résolution de l'exception `_TypeError (Null check operator used on a null value)` provoquée par `configModel!.shippingMethod` dans `home_page_screen.dart` lorsque les données de configuration réseau sont en cours de chargement asynchrone ou non encore instanciées.
 
+### [30/09/2026] — Dé-Branding Complet (6Valley & 6amTech -> MultiShop Tchad)
+- **Base de données MySQL (`multishop_tchad`)** :
+  - `social_medias` : remplacement des URLs de démo `dev.6amtech.com` par `#`.
+  - `oauth_clients` : mise à jour du client Passport de `6amtech` vers `MultiShop Tchad`.
+- **Backend Admin Laravel (`C:\laragon\www\admin`)** :
+  - `.env` & `.env.example` : `APP_NAME="MultiShop Tchad"`, `CONTAINER_NAME_PREFIX=multishop-tchad`, `DB_DATABASE=multishop_tchad`.
+  - `config/app.php` & `config/builder.php` : noms d'application et de plateforme par défaut mis à jour vers `MultiShop Tchad` et `multishop_tchad`.
+  - `app/Traits/PushNotificationTrait.php` & `app/Utils/settings.php` : topics Firebase mis à jour de `sixvalley` vers `multishop_tchad`.
+  - `app/Http/Controllers/UpdateController.php` & `app/Traits/InstallationTrail.php` : mise à jour du nom par défaut de l'application vers `MultiShop Tchad`.
+  - Vues et gabarits (`resources/views/`) :
+    - Suppression des bandeaux démo et liens d'achat Codecanyon dans `layouts/admin/partials/_header.blade.php`, `layouts/admin/partials/v2/_body.blade.php` et `layouts/vendor/partials/v2/_body.blade.php`.
+    - Neutralisation des liens Codecanyon et des blogs externes 6amtech dans `system-setup/software-update.blade.php`, `seo-settings/error-logs.blade.php`, `seo-settings/robots-meta-content-view.blade.php`, `seo-settings/web-master-tool.blade.php`, et `third-party/recaptcha-index.blade.php`.
+    - Thèmes web (`resources/themes/`) : remplacement des cookies `6valley_cookie_consent` par `multishop_cookie_consent`, mise à jour des balises `alt` et des en-têtes CSS/JS de métadonnées.
+    - Écrans d'installation & mise à jour (`installation/` et `update/`) : remplacement de "6valley Software" par "MultiShop Tchad Software".
+    - `table.blade.php` et `vat-tax/` : élimination de 76 occurrences d'URLs d'exemples statiques `Backend-6Valley-eCommerce-CMS` au profit d'URLs relatives dynamiques.
+    - Fichiers de langues backend (`resources/lang/`) : neutralisation des clés et libellés démo dans `en`, `es`, `bd`, `in`, `sa`.
+- **Projet Mobile Flutter (`multishop_tchad/flutter_app`)** :
+  - Fichiers de langues (`assets/language/ar.json`, `en.json`, `fr.json`) : remplacement de toutes les mentions de "6Valley" et "6valley Auction" par "MultiShop Tchad" et "MultiShop Tchad Enchères".
+  - Configurations iOS (`ios/Runner.xcodeproj/project.pbxproj`, `ios/Runner/Info.plist`) : nom de l'application iOS défini à `MultiShop Tchad` et mise à jour du domaine universal links vers `multishop-tchad.com`.
+  - Notifications (`lib/core/helpers/notification_helper.dart`) : channel id de livraison mis à jour vers `multishop_delivery`.
+  - Assets (`images.dart`) : renommage de `6valley_logo.svg` en `multishop_logo.svg` et mise à jour de la constante `logoSvg`.
+  - Nettoyage : suppression des scripts temporaires de patch à la racine du projet.
+- **Type** : REFACTOR | BRANDING
+- **Description** :
+  - Remplacement exhaustif de toutes les références à la marque d'origine (6Valley, 6amTech, 6amdev) à travers l'ensemble des couches de l'écosystème : base de données, application mobile Flutter, backend administratif et thèmes web.
+
+
