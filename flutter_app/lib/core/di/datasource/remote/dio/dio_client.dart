@@ -21,7 +21,7 @@ class DioClient {
         required this.loggingInterceptor,
         required this.sharedPreferences,
       }) {
-    token = sharedPreferences.getString(AppConstants.userLoginToken);
+    token = sharedPreferences.getString(AppConstants.userLoginToken) ?? sharedPreferences.getString(AppConstants.token);
     countryCode = sharedPreferences.getString(AppConstants.countryCode) ?? AppConstants.languages[0].countryCode;
     if (kDebugMode) {
       // print("NNNN $token");

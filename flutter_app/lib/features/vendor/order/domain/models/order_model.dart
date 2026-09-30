@@ -199,6 +199,12 @@ class Order {
   double? get shippingCost => _shippingCost;
   BillingAddressData? get shippingAddressData => _shippingAddressData;
   BillingAddressData? get billingAddressData => _billingAddressData;
+  String? get deliveryQuarter => _shippingAddressData?.deliveryQuarter;
+  String? get deliveryStreet => _shippingAddressData?.deliveryStreet;
+  String? get deliveryDescription => _shippingAddressData?.deliveryDescription;
+  String? get doorPhoto => _shippingAddressData?.doorPhoto;
+  String? get doorLatitude => _shippingAddressData?.doorLatitude;
+  String? get doorLongitude => _shippingAddressData?.doorLongitude;
   String? get createdAt => _createdAt;
   String? get updatedAt => _updatedAt;
   double? get discountAmount => _discountAmount;
@@ -258,7 +264,16 @@ class Order {
 
     if(json['shipping_address_data'] != null){
       _shippingAddressData =  BillingAddressData.fromJson(json['shipping_address_data']);
-
+    } else if (json['delivery_quarter'] != null || json['door_photo_url'] != null || json['door_photo'] != null) {
+      _shippingAddressData = BillingAddressData();
+    }
+    if (_shippingAddressData != null) {
+      _shippingAddressData!.deliveryQuarter ??= json['delivery_quarter'];
+      _shippingAddressData!.deliveryStreet ??= json['delivery_street'];
+      _shippingAddressData!.deliveryDescription ??= json['delivery_description'];
+      _shippingAddressData!.doorPhoto ??= json['door_photo_url'] ?? json['door_photo'];
+      _shippingAddressData!.doorLatitude ??= json['door_latitude']?.toString();
+      _shippingAddressData!.doorLongitude ??= json['door_longitude']?.toString();
     }
     if(json['billing_address_data'] != null){
       _billingAddressData =  BillingAddressData.fromJson(json['billing_address_data']);

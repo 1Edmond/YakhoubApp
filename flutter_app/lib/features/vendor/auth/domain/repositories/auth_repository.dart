@@ -109,9 +109,11 @@ class AuthRepository implements AuthRepositoryInterface{
   Future<void> saveUserToken(String token) async {
     dioClient!.token = token;
     dioClient!.dio!.options.headers = {'Content-Type': 'application/json; charset=UTF-8', 'Authorization': 'Bearer $token'};
+    dioClient!.updateHeader(token, null);
 
     try {
       await sharedPreferences!.setString(AppConstants.token, token);
+      await sharedPreferences!.setString(AppConstants.userLoginToken, token);
     } catch (e) {
       rethrow;
     }
@@ -119,12 +121,12 @@ class AuthRepository implements AuthRepositoryInterface{
 
   @override
   String getUserToken() {
-    return sharedPreferences!.getString(AppConstants.token) ?? "";
+    return sharedPreferences!.getString(AppConstants.token) ?? sharedPreferences!.getString(AppConstants.userLoginToken) ?? "";
   }
 
   @override
   bool isLoggedIn() {
-    return sharedPreferences!.containsKey(AppConstants.token);
+    return sharedPreferences!.containsKey(AppConstants.token) || sharedPreferences!.containsKey(AppConstants.userLoginToken);
   }
 
   @override
@@ -137,6 +139,7 @@ class AuthRepository implements AuthRepositoryInterface{
         print("====Execption====>>$e");
       }
     }
+    await sharedPreferences!.remove(AppConstants.userLoginToken);
     return sharedPreferences!.remove(AppConstants.token);
   }
 

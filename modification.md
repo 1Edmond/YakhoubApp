@@ -274,4 +274,25 @@
 - **Description** :
   - Remplacement exhaustif de toutes les références à la marque d'origine (6Valley, 6amTech, 6amdev) à travers l'ensemble des couches de l'écosystème : base de données, application mobile Flutter, backend administratif et thèmes web.
 
-
+### [30/09/2026] — Résolution des Anomalies & Blocages de l'Audit des 5 Fonctionnalités
+- **Backend Admin Laravel (`C:\laragon\www\admin`)** :
+  - `app/Http/Controllers/RestAPI/v3/seller/ReductionController.php` :
+    - Remplacement de `$request->user()->id` par `$request->seller->id` dans `getRequests()`, `accept()`, `refuse()`, et `counterOffer()`. Élimination du crash fatal 500 (`Call to a member function id() on null`) causé par le fait que le middleware `seller_api_auth` injecte `$request->seller` et non `$request->user()`.
+  - `app/Services/PriceReductionService.php` :
+    - Mise à jour de `acceptRequest()` et `respondToCounterOffer()` pour recalculer et déduire automatiquement le montant de la réduction sur `orders.order_amount` et incrémenter `orders.discount_amount` lorsque la réduction validée concerne une commande (`order_id`).
+  - `app/Http/Controllers/RestAPI/v3/seller/ProductController.php` :
+    - Sécurisation de la méthode `delete()` : vérification de l'existence du produit (retour 404 au lieu d'une exception PHP sur `$product['images']`) et vérification stricte de propriété (`$product->added_by == 'seller' && $product->user_id == $seller->id`, retour 403 en cas de tentative non autorisée).
+  - `app/Http/Controllers/RestAPI/v1/OrderController.php` :
+    - Dans `updateTchadFields()`, synchronisation automatique des champs spécifiques Tchad (`delivery_quarter`, `delivery_street`, `delivery_description`, `door_photo_url`, `door_latitude`, `door_longitude`) à la fois dans les colonnes dédiées de `orders` et dans l'objet JSON `orders.shipping_address_data`.
+- **Application Mobile Flutter (`multishop_tchad/flutter_app`)** :
+  - `lib/core/di/datasource/remote/dio/dio_client.dart` :
+    - Initialisation du token avec fallback : `sharedPreferences.getString(AppConstants.userLoginToken) ?? sharedPreferences.getString(AppConstants.token)`. Évite les erreurs 401 Unauthorized après redémarrage ou reconnexion vendeur.
+  - `lib/features/vendor/auth/domain/repositories/auth_repository.dart` :
+    - Dans `saveUserToken()`, persistance du token sous les deux clés `AppConstants.token` et `AppConstants.userLoginToken`, et synchronisation immédiate avec `dioClient!.updateHeader(token, null)`.
+    - Nettoyage des deux clés de token dans `clearSharedData()`.
+  - `lib/features/vendor/order/domain/models/order_model.dart` :
+    - Ajout de getters directs sur `Order` pour les coordonnées et champs Tchad (`deliveryQuarter`, `deliveryStreet`, `deliveryDescription`, `doorPhoto`, `doorLatitude`, `doorLongitude`).
+    - Dans `Order.fromJson()`, mapping dynamique des champs d'adresse Tchad de la racine du JSON vers `_shippingAddressData`, garantissant l'affichage de l'adresse et de la navigation GPS dans l'espace vendeur.
+- **Type** : FIX | SECURITY | ARCHITECTURE
+- **Description** :
+  - Résolution des points de rupture fonctionnelle et de sécurité identifiés lors de l'audit de simulation des flux Vendeur, Commande, Produit, Réduction et Messagerie.
