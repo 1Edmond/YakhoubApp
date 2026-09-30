@@ -55,7 +55,7 @@
 //
 //   static Future<void> showTextNotification(String title, String body, String orderID, FlutterLocalNotificationsPlugin fln) async {
 //     const AndroidNotificationDetails androidPlatformChannelSpecifics = AndroidNotificationDetails(
-//       '6valley_delivery', '6valley_delivery name', playSound: true,
+//       'multishop_delivery', 'multishop_delivery name', playSound: true,
 //       importance: Importance.max, priority: Priority.max, sound: RawResourceAndroidNotificationSound('notification'),
 //     );
 //     const NotificationDetails platformChannelSpecifics = NotificationDetails(android: androidPlatformChannelSpecifics);
@@ -68,7 +68,7 @@
 //       contentTitle: title, htmlFormatContentTitle: true,
 //     );
 //     AndroidNotificationDetails androidPlatformChannelSpecifics = AndroidNotificationDetails(
-//       '6valley_delivery channel id', '6valley_delivery name', importance: Importance.max,
+//       'multishop_delivery channel id', 'multishop_delivery name', importance: Importance.max,
 //       styleInformation: bigTextStyleInformation, priority: Priority.max, playSound: true,
 //       sound: const RawResourceAndroidNotificationSound('notification'),
 //     );
@@ -85,7 +85,7 @@
 //       summaryText: body, htmlFormatSummaryText: true,
 //     );
 //     final AndroidNotificationDetails androidPlatformChannelSpecifics = AndroidNotificationDetails(
-//       '6valley_delivery', '6valley_delivery name',
+//       'multishop_delivery', 'multishop_delivery name',
 //       largeIcon: FilePathAndroidBitmap(largeIconPath), priority: Priority.max, playSound: true,
 //       styleInformation: bigPictureStyleInformation, importance: Importance.max,
 //       sound: const RawResourceAndroidNotificationSound('notification'),
