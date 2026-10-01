@@ -65,15 +65,17 @@ class SplashController extends ChangeNotifier {
       _configModel = ConfigModel.fromJson(apiResponse.response!.data);
       _baseUrls = ConfigModel.fromJson(apiResponse.response!.data).baseUrls;
       String? currencyCode = serviceInterface.getCurrency();
-      for(CurrencyList currencyList in _configModel!.currencyList!) {
-        if(currencyList.id == _configModel!.systemDefaultCurrency) {
-          if(currencyCode == null || currencyCode.isEmpty) {
-            currencyCode = currencyList.code;
+      if (_configModel?.currencyList != null) {
+        for(CurrencyList currencyList in _configModel!.currencyList!) {
+          if(currencyList.id == _configModel!.systemDefaultCurrency) {
+            if(currencyCode == null || currencyCode.isEmpty) {
+              currencyCode = currencyList.code;
+            }
+            _defaultCurrency = currencyList;
           }
-          _defaultCurrency = currencyList;
-        }
-        if(currencyList.code == 'USD') {
-          _usdCurrency = currencyList;
+          if(currencyList.code == 'USD') {
+            _usdCurrency = currencyList;
+          }
         }
       }
 
@@ -84,13 +86,15 @@ class SplashController extends ChangeNotifier {
           if(_configModel?.maintenanceModeData?.maintenanceTypeAndDuration?.maintenanceDuration == 'customize'){
 
             DateTime now = DateTime.now();
-            DateTime specifiedDateTime = DateTime.parse(_configModel!.maintenanceModeData!.maintenanceTypeAndDuration!.startDate!);
-
-            Duration difference = specifiedDateTime.difference(now);
-
-
-            if(difference.inMinutes > 0 && (difference.inMinutes < 60 || difference.inMinutes == 60)){
-              _startTimer(specifiedDateTime);
+            final startDate = _configModel?.maintenanceModeData?.maintenanceTypeAndDuration?.startDate;
+            if (startDate != null) {
+              DateTime? specifiedDateTime = DateTime.tryParse(startDate);
+              if (specifiedDateTime != null) {
+                Duration difference = specifiedDateTime.difference(now);
+                if(difference.inMinutes > 0 && (difference.inMinutes <= 60)){
+                  _startTimer(specifiedDateTime);
+                }
+              }
             }
 
           }
@@ -130,11 +134,13 @@ class SplashController extends ChangeNotifier {
   }
 
   void getCurrencyData(String? currencyCode) {
-    for (var currency in _configModel!.currencyList!) {
-      if(currencyCode == currency.code) {
-        _myCurrency = currency;
-        _currencyIndex = _configModel!.currencyList!.indexOf(currency);
-        continue;
+    if (_configModel?.currencyList != null) {
+      for (var currency in _configModel!.currencyList!) {
+        if(currencyCode == currency.code) {
+          _myCurrency = currency;
+          _currencyIndex = _configModel!.currencyList!.indexOf(currency);
+          continue;
+        }
       }
     }
   }
@@ -142,9 +148,11 @@ class SplashController extends ChangeNotifier {
   Future<List<int?>> getColorList() async {
     List<int?> colorIds = [];
     _colorList = [];
-    for (ColorList item in _configModel!.colors!) {
-      _colorList!.add(item);
-      colorIds.add(item.id);
+    if (_configModel?.colors != null) {
+      for (ColorList item in _configModel!.colors!) {
+        _colorList!.add(item);
+        colorIds.add(item.id);
+      }
     }
     return colorIds;
   }
@@ -152,13 +160,20 @@ class SplashController extends ChangeNotifier {
 
 
   void setCurrency(int index) {
-    serviceInterface.setCurrency(_configModel!.currencyList![index].code!);
-    getCurrencyData(_configModel!.currencyList![index].code);
-    notifyListeners();
+    if (_configModel?.currencyList != null && _configModel!.currencyList!.length > index) {
+      final code = _configModel!.currencyList![index].code;
+      if (code != null) {
+        serviceInterface.setCurrency(code);
+        getCurrencyData(code);
+        notifyListeners();
+      }
+    }
   }
   void setShippingType(int index) {
-    serviceInterface.setShippingType(_shippingTypeList[index]!);
-    notifyListeners();
+    if (_shippingTypeList.length > index && _shippingTypeList[index] != null) {
+      serviceInterface.setShippingType(_shippingTypeList[index]!);
+      notifyListeners();
+    }
   }
 
   void initShippingType(String? type) {

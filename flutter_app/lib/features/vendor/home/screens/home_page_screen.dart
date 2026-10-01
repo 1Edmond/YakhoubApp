@@ -42,9 +42,12 @@ class _HomePageScreenState extends State<HomePageScreen> {
     }
     final splashController = Provider.of<SplashController>(context, listen: false);
     if (splashController.configModel == null) {
-      splashController.initConfig();
+      splashController.initConfig().then((_) {
+        splashController.getColorList();
+      });
+    } else {
+      splashController.getColorList();
     }
-    splashController.getColorList();
     Provider.of<ProductController>(context,listen: false).getStockOutProductList(1, 'en', reload: reload);
 
     Provider.of<ProductController>(context,listen: false).getTopSellingProductList(1, context, 'en', reload: reload);

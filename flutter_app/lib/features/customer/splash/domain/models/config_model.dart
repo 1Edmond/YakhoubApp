@@ -215,11 +215,11 @@ class ConfigModel {
     posActive = json['pos_active'];
     companyPhone = json['company_phone'].toString();
     companyEmail = json['company_email'];
-    companyLogo = json['company_cover_image'] != null
-      ? ImageFullUrl.fromJson(json['company_cover_image'])
+    companyLogo = json['company_logo'] != null
+      ? ImageFullUrl.fromJson(json['company_logo'])
       : null;
-    companyCoverImage = json['company_logo'] != null
-        ? ImageFullUrl.fromJson(json['company_logo'])
+    companyCoverImage = json['company_cover_image'] != null
+        ? ImageFullUrl.fromJson(json['company_cover_image'])
         : null;
     // companyIcon = json['company_fav_icon'];
     companyName = json['company_name'];

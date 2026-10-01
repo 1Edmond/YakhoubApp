@@ -1,10 +1,10 @@
-﻿import 'package:multishop_tchad/core/localization/models/language_model.dart';
+import 'package:multishop_tchad/core/localization/models/language_model.dart';
 import 'package:multishop_tchad/core/enums/local_caches_type_enum.dart';
 import 'package:multishop_tchad/core/constants/images.dart';
 
 class AppConstants {
   static const String baseUrl =
-      'https://6ab0-194-71-130-44.ngrok-free.app/admin';
+      'https://8491-194-71-130-44.ngrok-free.app/admin';
   static const String appName = 'MultiShop Tchad';
   static const String packageName = 'com.multishop.tchad';
 
@@ -906,11 +906,11 @@ class AppConstants {
   static const String refundId = 'refundId';
 
   // Image paths fallback in AppConstants
-  static const String reviewList = 'assets/image/review_list.png';
-  static const String orderTrack = 'assets/image/order_track.png';
-  static const String digitalPayment = 'assets/image/digital_payment.png';
-  static const String imageUrl = 'assets/image/image_url.png';
+  static const String reviewList = 'assets/images/review_list.png';
+  static const String orderTrack = 'assets/images/order_track.png';
+  static const String digitalPayment = 'assets/images/digital_payment.png';
+  static const String imageUrl = 'assets/images/image_url.png';
   static const String auctionGenerateInvoice =
-      'assets/image/auction_generate_invoice.png';
-  static const String dealOfTheDay = 'assets/image/deal_of_the_day.png';
+      'assets/images/auction_generate_invoice.png';
+  static const String dealOfTheDay = 'assets/images/deal_of_the_day.png';
 }

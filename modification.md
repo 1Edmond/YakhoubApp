@@ -351,3 +351,29 @@
   - `dart analyze` sur l'ensemble des 18 fichiers modifiés : **0 erreur, 0 avertissement** (`No issues found!`).
   - `php -l` sur les contrôleurs Laravel modifiés : **Syntaxe 100% valide**.
 
+---
+
+### [01/10/2026] — Restauration des Logos, Synchronisation Assets & Fix getColorList Null Crash
+- **Problèmes Identifiés** :
+  1. `Null check operator used on a null value` dans `SplashController.getColorList` (`splash_controller.dart:145:40`) provoqué par un appel direct non-attendu dans `_HomePageScreenState._loadData` avant que `initConfig()` n'ait terminé son chargement.
+  2. Crash `Unable to load asset: "assets/image/home.png"` dû à une faute de frappe historique (`assets/image/` sans `s` au lieu de `assets/images/`) dans `images.dart` et `app_constants.dart`.
+  3. Disparition des logos vendeur et icônes d'interface : 132 images issues de l'application Vendor (`logo_with_app_name.png`, `logo_white.png`, etc.) étaient manquantes dans `assets/images/` de l'application unifiée.
+  4. Inversion dans le parsing de `ConfigModel` entre `companyLogo` et `companyCoverImage`.
+- **Corrections Appliquées** :
+  - `lib/features/vendor/splash/controllers/splash_controller.dart` :
+    - Sécurisation de `getColorList()` pour retourner une liste vide si `_configModel?.colors` est nul au lieu de crasher.
+    - Sécurisation de `initConfig()`, `getCurrencyData()`, `setCurrency()`, `setShippingType()`.
+  - `lib/features/vendor/home/screens/home_page_screen.dart` :
+    - Enchaînement asynchrone `initConfig().then((_) => getColorList())`.
+  - `lib/core/constants/images.dart` & `app_constants.dart` :
+    - Remplacement des 28 occurrences erronées de `assets/image/` par le chemin valide `assets/images/`.
+  - `assets/images/` :
+    - Copie et synchronisation intégrale de l'ensemble des 132 assets vendor manquants (dont `logo_with_app_name.png` et `logo_white.png`).
+  - `lib/features/customer/splash/domain/models/config_model.dart` :
+    - Rétablissement du mapping correct de `companyLogo` vers `json['company_logo']` et `companyCoverImage` vers `json['company_cover_image']`.
+  - `lib/features/customer/home/screens/home_screens.dart` :
+    - Null-safety sur la bannière d'annonce (`configModel?.announcement?.status`).
+- **Validation** :
+  - `dart analyze` : **No issues found!**
+
+
