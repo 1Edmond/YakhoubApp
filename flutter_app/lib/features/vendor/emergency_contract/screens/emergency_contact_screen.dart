@@ -32,6 +32,7 @@ class _EmergencyContactScreenState extends State<EmergencyContactScreen> {
       appBar: CustomAppBarWidget(title: getTranslated('emergency_contact', context),isBackButtonExist: true,),
       body: RefreshIndicator(
         onRefresh: () async{
+          await Provider.of<EmergencyContactController>(context, listen: false).getEmergencyContactList();
         },
         child: CustomScrollView(
           slivers: [
@@ -45,7 +46,7 @@ class _EmergencyContactScreenState extends State<EmergencyContactScreen> {
                         controller: searchController,
                         hint: getTranslated('search', context),
                         prefix: !emergencyContactProvider.isSearchActive ? Images.iconsSearch : Images.crossIcon,
-                        iconPressed: () => () {
+                        iconPressed: () {
                           if(emergencyContactProvider.isSearchActive) {
                             emergencyContactProvider.toggleIsSearchActive(false);
                             searchController.text =  '';

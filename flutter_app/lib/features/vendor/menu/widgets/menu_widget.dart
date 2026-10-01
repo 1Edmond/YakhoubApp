@@ -28,6 +28,7 @@ import 'package:multishop_tchad/features/vendor/settings/screens/setting_screen.
 import 'package:multishop_tchad/features/vendor/shop/screens/shop_screen.dart';
 import 'package:multishop_tchad/features/vendor/wallet/screens/wallet_screen.dart';
 import 'package:multishop_tchad/features/vendor/bank_info/screens/bank_info_screen.dart';
+import 'package:multishop_tchad/features/vendor/refund/screens/refund_screen.dart';
 
 import 'package:multishop_tchad/main.dart';
 
@@ -98,6 +99,10 @@ class MenuBottomSheetWidget extends StatelessWidget {
 
           CustomBottomSheetWidget(image: Images.wallet, title: getTranslated('wallet', context),
             onTap: () => _handleMenuTap(context, const WalletScreen()),
+          ),
+
+          CustomBottomSheetWidget(image: Images.refund, title: getTranslated('refund', context),
+            onTap: () => _handleMenuTap(context, const RefundScreen(fromNotification: false, isBacButtonExist: true)),
           ),
 
 

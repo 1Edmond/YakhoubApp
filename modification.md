@@ -296,3 +296,58 @@
 - **Type** : FIX | SECURITY | ARCHITECTURE
 - **Description** :
   - Résolution des points de rupture fonctionnelle et de sécurité identifiés lors de l'audit de simulation des flux Vendeur, Commande, Produit, Réduction et Messagerie.
+
+---
+
+### [01/10/2026] — Résolution Exhaustive des Anomalies & Inspection Page par Page (Flutter & Laravel)
+- **Backend Admin Laravel (`C:\laragon\www\admin`)** :
+  - `app/Http/Controllers/RestAPI/v1/OrderController.php` :
+    - Règle d'annulation Tchad : suppression du blocage HTTP 403 `insufficient_wallet_balance_for_cancellation_fee` qui piégeait le client. Débit systématique via transaction wallet `order_cancellation` et enregistrement de `cancellation_fee = 1000` sur la commande.
+  - `app/Http/Controllers/RestAPI/v1/auth/CustomerAPIAuthController.php` :
+    - Prise en charge du champ `nni` (validation d'unicité `unique:nni_records,nni_number` et persistance DB) dans les méthodes `registrationWithOTP` et `registrationWithSocialMedia`, complétant ainsi l'inscription email classique.
+- **Application Mobile Flutter (`multishop_tchad/flutter_app`)** :
+  - `lib/features/customer/checkout/screens/checkout_screen.dart` :
+    - Initialisation de `double _couponDiscount = 0.0;` et `double _referralDiscount = 0.0;`.
+    - Restauration de `late bool _billingAddress;` et initialisation de `late SplashController splashController;` dans `initState()`.
+    - Élimination des opérateurs `!` non sécurisés qui causaient un crash immédiat `_TypeError (Null check operator used on a null value)` lors de la validation par Portefeuille ou paiement hors ligne.
+  - `lib/features/customer/cart/screens/cart_screen.dart` & `cart_widget.dart` :
+    - Remplacement des accès `cartList[i].isChecked!` et `cartModel!.isChecked!` par `isChecked ?? false`.
+    - Remplacement des accès non sécurisés `price!`, `discount!` et `shippingCost!` par des fallbacks sécurisés (`?? 0`).
+  - `lib/features/auth/screens/login_screen.dart` :
+    - Fallback sécurisé sur `ConfigModel` avec `CustomerLogin` par défaut pour éviter les crashs au démarrage si la configuration réseau est différée.
+    - Préfixage sécurisé de l'indicatif téléphonique avec fallback Tchad (`countryCode ?? '+235'`).
+  - `lib/features/auth/screens/forget_password_screen.dart` :
+    - Déplacement de l'accès à `SplashController` hors de l'instanciation de champ vers `initState()` et `build()`.
+    - Sécurisation du `_countryCode` et du `configModel`.
+  - `lib/features/auth/screens/mobile_verify_screen.dart` :
+    - Correction de la troncature du numéro de téléphone lors de la concaténation de l'indicatif.
+    - Rétablissement de la navigation vers `VerificationScreen` après l'envoi réussi de l'OTP.
+  - `lib/features/vendor/order_details/screens/order_details_screen.dart` :
+    - Sécurisation de tous les montants et remises calculés (`discountAmount`, `shippingCost`, `itemsPrice`, `extraDiscount`) pour éviter un crash d'affichage sur les commandes vendeur.
+  - `lib/features/vendor/pos/screens/pos_screen.dart` :
+    - Remplacement de `double.tryParse(...)!` par `(double.tryParse(...) ?? 0.0)`.
+  - `lib/features/vendor/shop/screens/shop_update_screen.dart` :
+    - Déplacement de l'affectation des contrôleurs de texte de `build()` vers `initState()` afin d'éviter la réinitialisation intempestive du texte et du curseur à chaque frappe.
+  - `lib/features/vendor/menu/widgets/menu_widget.dart` :
+    - Intégration du module de remboursement vendeur orphelin (`RefundScreen`) sous forme d'élément de menu navigable.
+  - `lib/features/vendor/emergency_contract/screens/emergency_contact_screen.dart` :
+    - Correction de la double closure `() => () {}` sur le bouton de recherche et implémentation de `onRefresh`.
+  - `lib/features/shared/chat/screens/chat_screen.dart` :
+    - Suppression du `SingleChildScrollView` parent en conflit pour éliminer l'assertion fatale `ScrollController attached to multiple scroll views`.
+    - Implémentation de `dispose()` pour `scrollController` et `inputMessageController`.
+  - `lib/features/vault/support/screens/support_conversation_screen.dart` :
+    - Remplacement de `DateTime.parse(createdAt!)` par `DateTime.tryParse`.
+  - `lib/features/customer/checkout/screens/door_photo_screen.dart` :
+    - Rendu du callback `onSave` optionnel et sécurisé.
+    - Internationalisation des libellés (Photo de la porte, Valider, Prendre une photo) avec `getTranslated`.
+  - `lib/features/customer/address/domain/models/address_model.dart` :
+    - Ajout et mapping des attributs Tchad (`quarter`, `street`, `deliveryDescription`, `doorPhotoUrl`, `doorLatitude`, `doorLongitude`, `nni`).
+  - `lib/core/helpers/route_helper.dart` :
+    - Sécurisation de l'extraction des paramètres (`state.extra`) sur la route `/door-photo`.
+  - Nettoyage dette technique :
+    - Suppression des fichiers morts/doublons `lib/core/router/app_router.dart` et `lib/features/customer/screens/splash_screen.dart`.
+    - Nettoyage des imports orphelins dans `lib/main.dart`.
+- **Validation** :
+  - `dart analyze` sur l'ensemble des 18 fichiers modifiés : **0 erreur, 0 avertissement** (`No issues found!`).
+  - `php -l` sur les contrôleurs Laravel modifiés : **Syntaxe 100% valide**.
+

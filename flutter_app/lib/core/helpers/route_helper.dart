@@ -2366,8 +2366,9 @@ class RouterHelper {
         GoRoute(
             path: doorPhoto,
             builder: (context, state) {
-              final Map<String, dynamic> extra = state.extra as Map<String, dynamic>;
-              return DoorPhotoScreen(onSave: extra['onSave']);
+              final extra = state.extra;
+              final onSave = extra is Map<String, dynamic> ? extra['onSave'] : null;
+              return DoorPhotoScreen(onSave: onSave);
             }),
       ]);
 }

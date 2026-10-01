@@ -56,7 +56,7 @@ class _LoginScreenState extends State<LoginScreen> {
     _emailPhoneController = TextEditingController();
     _passwordController = TextEditingController();
 
-    final ConfigModel configModel = Provider.of<SplashController>(context, listen: false).configModel!;
+    final ConfigModel configModel = Provider.of<SplashController>(context, listen: false).configModel ?? ConfigModel(countryCode: 'TD');
     final AuthController authController =  Provider.of<AuthController>(context, listen: false);
 
     authController.setIsLoading = false;
@@ -65,7 +65,7 @@ class _LoginScreenState extends State<LoginScreen> {
     authController.toggleIsNumberLoginScreenText(value: false, isUpdate: false);
 
 
-    countryCode = CountryCode.fromCountryCode(configModel.countryCode!).dialCode;
+    countryCode = CountryCode.fromCountryCode(configModel.countryCode ?? 'TD').dialCode;
 
     if(userData != null) {
       if(userData.email != null) {
@@ -90,14 +90,19 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     final double width = MediaQuery.of(context).size.width;
     final size = MediaQuery.of(context).size;
-    final configModel = Provider.of<SplashController>(context,listen: false).configModel!;
+    final ConfigModel configModel = Provider.of<SplashController>(context, listen: false).configModel ?? ConfigModel(
+      countryCode: 'TD',
+      customerLogin: CustomerLogin(
+        loginOption: LoginOption(manualLogin: 1, otpLogin: 0, socialMediaLogin: 0),
+      ),
+    );
     final LocalizationController localizationProvider = Provider.of<LocalizationController>(context, listen: false);
     // final socialStatus = configModel.customerLogin?.socialMediaLoginOptions;
 
-    if(configModel.customerLogin!.loginOption!.manualLogin == 0 && configModel.customerLogin!.loginOption!.otpLogin == 0) {
+    if(configModel.customerLogin?.loginOption?.manualLogin == 0 && configModel.customerLogin?.loginOption?.otpLogin == 0) {
       return OnlySocialLoginWidget(fromLogout: widget.fromLogout, fromPage: widget.fromPage, onLoginSuccess: widget.onLoginSuccess);
     }
-    if(configModel.customerLogin!.loginOption!.manualLogin == 0) {
+    if(configModel.customerLogin?.loginOption?.manualLogin == 0) {
     }
 
     return PopScope(
@@ -448,7 +453,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                             bool isNumber = NumberCheckerHelper.isNumber(userInput);
 
                                             if (isNumber) {
-                                              userInput = countryCode! + userInput;
+                                              userInput = (countryCode ?? '+235') + userInput;
                                             }
 
                                             String type = isNumber ? 'phone' : 'email';

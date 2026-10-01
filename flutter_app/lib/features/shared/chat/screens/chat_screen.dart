@@ -78,6 +78,13 @@ class _ChatScreenState extends State<ChatScreen> {
    await Provider.of<ChatController>(context, listen: false).getMessageList( context, widget.id, 1, userType: widget.userType);
   }
 
+  @override
+  void dispose() {
+    scrollController.dispose();
+    _controller.dispose();
+    super.dispose();
+  }
+
 
   bool _isMediaExist (ChatController chatController){
     return (chatController.pickedMediaStored?.isNotEmpty ?? false) || (chatController.pickedFiles?.isNotEmpty ?? false);

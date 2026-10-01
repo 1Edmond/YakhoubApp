@@ -78,9 +78,19 @@ class _CancelOrderDialogWidgetState extends State<CancelOrderDialogWidget> {
                           orderController.cancelOrder(context, widget.orderId).then((value) {
                             if (value.response != null && value.response!.statusCode == 200) {
                               orderController.getOrderList(1, orderController.selectedType);
-                              if(context.mounted) {
+                              if (context.mounted) {
                                 Navigator.pop(context);
-                                showCustomSnackBarWidget("Commande annulée.", context, isError: false);
+                                String successMsg = widget.orderModel?.orderStatus != 'pending'
+                                    ? getTranslated('order_canceled_with_fee', context) ?? "Commande annulée. Frais d'annulation de 1000 FCFA déduits."
+                                    : getTranslated('order_canceled_successfully', context) ?? "Commande annulée avec succès.";
+                                showCustomSnackBarWidget(successMsg, context, isError: false);
+                              }
+                            } else {
+                              if (context.mounted) {
+                                String errorMsg = value.error != null
+                                    ? value.error.toString()
+                                    : getTranslated('order_cancel_failed', context) ?? "Échec de l'annulation de la commande.";
+                                showCustomSnackBarWidget(errorMsg, context, isError: true);
                               }
                             }
                           });

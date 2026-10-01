@@ -202,15 +202,18 @@ class CartScreenState extends State<CartScreen> {
                 }
               }
 
-              if(cart.getData && configProvider.configModel!.shippingMethod == 'sellerwise_shipping') {
+              if(cart.getData && (configProvider.configModel?.shippingMethod == 'sellerwise_shipping')) {
                 shippingController.getShippingMethod(context, cartProductList);
               }
 
               for(int i=0; i<cart.cartList.length; i++) {
-                if(cart.cartList[i].isChecked!){
-                  totalQuantity += cart.cartList[i].quantity!;
-                  amount += (cart.cartList[i].price! - cart.cartList[i].discount!) * cart.cartList[i].quantity!;
-                  discount += cart.cartList[i].discount! * cart.cartList[i].quantity!;
+                if(cart.cartList[i].isChecked ?? false){
+                  totalQuantity += cart.cartList[i].quantity ?? 0;
+                  final itemPrice = cart.cartList[i].price ?? 0;
+                  final itemDiscount = cart.cartList[i].discount ?? 0;
+                  final itemQuantity = cart.cartList[i].quantity ?? 1;
+                  amount += (itemPrice - itemDiscount) * itemQuantity;
+                  discount += itemDiscount * itemQuantity;
                   if(Provider.of<SplashController>(Get.context!, listen: false).configModel?.systemTaxIncludeStatus != 1) {
                     tax = CartHelper().calculateVatTax(cartList);
                   }
@@ -218,13 +221,13 @@ class CartScreenState extends State<CartScreen> {
               }
               for(int i=0; i<shippingController.chosenShippingList.length; i++){
                 if(shippingController.chosenShippingList[i].isCheckItemExist == 1 && !onlyDigital) {
-                  shippingAmount += shippingController.chosenShippingList[i].shippingCost!;
+                  shippingAmount += shippingController.chosenShippingList[i].shippingCost ?? 0;
                 }
               }
 
 
               for(int j = 0; j< cartList.length; j++) {
-                if(cartList[j].isChecked!) {
+                if(cartList[j].isChecked ?? false) {
                   shippingAmount += cart.cartList[j].shippingCost ?? 0;
                 }
               }

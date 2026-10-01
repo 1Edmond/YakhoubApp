@@ -138,7 +138,7 @@ class PosScreenState extends State<PosScreen> {
                     double.parse(PriceConverter.discountCalculationWithOutSymbol(context, payableWithoutExDiscount, extraDiscount, Provider.of<CouponDiscountController>(context, listen: false).selectedDiscountType, convertCurrency: true)) :
                     double.parse(PriceConverter.discountCalculationWithOutSymbol(context, payableWithoutExDiscount, extraDiscount, Provider.of<CouponDiscountController>(context, listen: false).selectedDiscountType, convertCurrency: false));
 
-                  total = subTotal - productDiscount - couponAmount - double.tryParse(PriceConverter.reverseConvertPriceWithoutSymbol(context, extraDiscountAmount))! + productTax;
+                  total = subTotal - productDiscount - couponAmount - (double.tryParse(PriceConverter.reverseConvertPriceWithoutSymbol(context, extraDiscountAmount)) ?? 0.0) + productTax;
 
                   payable = total;
 

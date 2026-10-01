@@ -63,16 +63,17 @@ class CheckoutScreenState extends State<CheckoutScreen> {
   double _order = 0;
   double _tax = 0;
   late bool _billingAddress;
-  double? _couponDiscount;
-  double? _referralDiscount;
+  double _couponDiscount = 0;
+  double _referralDiscount = 0;
 
   DebounceHelper debounceHelper = DebounceHelper(milliseconds: 500);
-  SplashController  splashController= Provider.of<SplashController>(Get.context!, listen: false);
+  late SplashController splashController;
 
 
   @override
   void initState() {
     super.initState();
+    splashController = Provider.of<SplashController>(context, listen: false);
     Provider.of<AddressController>(context, listen: false).getAddressList();
     Provider.of<CheckoutController>(context, listen: false).getReferralAmount('0');
     Provider.of<CouponController>(context, listen: false).removePrevCouponData();
@@ -184,16 +185,16 @@ class CheckoutScreenState extends State<CheckoutScreen> {
                                       }
 
                                       else if(orderProvider.isOfflineChecked){
-                                        // Navigator.of(context).push(MaterialPageRoute(builder: (_)=> OfflinePaymentScreen(payableAmount: _order + 0.0 /* Tchad Free Delivery */ - widget.discount - (_referralDiscount ?? 0) - _couponDiscount! + _tax, callback: _callback)));
-                                        RouterHelper.getOfflinePaymentScreen(payableAmount: (_order + 0.0 /* Tchad Free Delivery */ - widget.discount - (_referralDiscount ?? 0) - _couponDiscount! + _tax), callback: _callback);
+                                        // Navigator.of(context).push(MaterialPageRoute(builder: (_)=> OfflinePaymentScreen(payableAmount: _order + 0.0 /* Tchad Free Delivery */ - widget.discount - _referralDiscount - _couponDiscount + _tax, callback: _callback)));
+                                        RouterHelper.getOfflinePaymentScreen(payableAmount: (_order + 0.0 /* Tchad Free Delivery */ - widget.discount - _referralDiscount - _couponDiscount + _tax), callback: _callback);
                                       }
 
                                       else if(orderProvider.isWalletChecked) {
                                         showAnimatedDialog(context, WalletPaymentWidget(
                                           currentBalance: profileProvider.balance ?? 0,
-                                          orderAmount: _order + 0.0 /* Tchad Free Delivery */ - widget.discount - (_referralDiscount ?? 0) - _couponDiscount! + _tax,
+                                          orderAmount: _order + 0.0 /* Tchad Free Delivery */ - widget.discount - _referralDiscount - _couponDiscount + _tax,
                                           onTap: (){if(profileProvider.balance! <
-                                              (_order + 0.0 /* Tchad Free Delivery */ - widget.discount - (_referralDiscount ?? 0) - _couponDiscount! + _tax)) {
+                                              (_order + 0.0 /* Tchad Free Delivery */ - widget.discount - _referralDiscount - _couponDiscount + _tax)) {
                                             showCustomSnackBarWidget(getTranslated('insufficient_balance', context), context, snackBarType: SnackBarType.warning);
                                           }else{
                                             Navigator.pop(context);
@@ -333,7 +334,7 @@ class CheckoutScreenState extends State<CheckoutScreen> {
                                     amount: PriceConverter.convertPrice(context, _tax),
                                   ),
 
-                                  if ((_referralDiscount ?? 0) > 0)
+                                  if (_referralDiscount > 0)
                                   AmountWidget(
                                     title: getTranslated('referral_discount', context),
                                     amount: PriceConverter.convertPrice(context, _referralDiscount),
@@ -344,7 +345,7 @@ class CheckoutScreenState extends State<CheckoutScreen> {
                                     fontSize: Dimensions.fontSizeLarge, isTitleBlack: true,
                                     title: '${getTranslated('total_payable', context)} ${Provider.of<SplashController>(Get.context!, listen: false).configModel?.systemTaxIncludeStatus == 1 ? getTranslated('inc_vat_tax', context) : ''} ',
                                     amount: PriceConverter.convertPrice(context,
-                                      (_order + 0.0 /* Tchad Free Delivery */ - (_referralDiscount ?? 0) - widget.discount - _couponDiscount! + _tax),
+                                      (_order + 0.0 /* Tchad Free Delivery */ - _referralDiscount - widget.discount - _couponDiscount + _tax),
                                     ),
                                   ),
 

@@ -2,6 +2,8 @@ import 'package:country_code_picker/country_code_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:multishop_tchad/core/localization/language_constrants.dart';
 import 'package:multishop_tchad/features/auth/controllers/auth_controller.dart';
+import 'package:multishop_tchad/features/auth/enums/from_page.dart';
+import 'package:multishop_tchad/features/auth/screens/otp_verification_screen.dart';
 import 'package:multishop_tchad/features/customer/splash/controllers/splash_controller.dart';
 import 'package:multishop_tchad/core/constants/dimensions.dart';
 import 'package:multishop_tchad/core/constants/images.dart';
@@ -23,13 +25,13 @@ class MobileVerificationScreenState extends State<MobileVerificationScreen> {
 
   TextEditingController? _numberController;
   final FocusNode _numberFocus = FocusNode();
-  String? _countryDialCode = '+880';
+  String? _countryDialCode = '+235';
 
   @override
   void initState() {
     super.initState();
     _numberController = TextEditingController();
-    _countryDialCode = CountryCode.fromCountryCode(Provider.of<SplashController>(context, listen: false).configModel?.countryCode??'BD').dialCode;
+    _countryDialCode = CountryCode.fromCountryCode(Provider.of<SplashController>(context, listen: false).configModel?.countryCode ?? 'TD').dialCode ?? '+235';
   }
 
 
@@ -66,7 +68,7 @@ class MobileVerificationScreenState extends State<MobileVerificationScreen> {
                             _countryDialCode = countryCode.dialCode;
                           },
                           initialSelection: _countryDialCode,
-                          favorite: [_countryDialCode??'BD'],
+                          favorite: [_countryDialCode??'TD'],
                           showDropDownButton: true,
                           padding: EdgeInsets.zero,
                           showFlagMain: true,
@@ -87,25 +89,23 @@ class MobileVerificationScreenState extends State<MobileVerificationScreen> {
                     !authProvider.isPhoneNumberVerificationButtonLoading ?
                     CustomButton(buttonText: getTranslated('continue', context),
                       onTap: () async {
-                        String number = _countryDialCode??'BD${_numberController?.text.trim()}';
-                        String numberChk = _numberController?.text.trim()??'';
+                        String numberChk = _numberController?.text.trim() ?? '';
 
                         if (numberChk.isEmpty) {
                           showCustomSnackBarWidget(getTranslated('enter_phone_number', context), context, snackBarType: SnackBarType.warning);
                         }
                         else {
-                          authProvider.sendOtpToPhone(number,widget.tempToken).then((value) async {
+                          String number = '${_countryDialCode ?? "+235"}$numberChk';
+                          authProvider.sendOtpToPhone(number, widget.tempToken).then((value) async {
                             if (value.isSuccess) {
                               authProvider.updatePhone(number);
-                              if (value.message == 'active') {
-                                // Navigator.pushAndRemoveUntil(context, MaterialPageRoute(
-                                //   builder: (_) => VerificationScreen(widget.tempToken,number,'', null, fromPage: FromPage.forgetPassword),
-                                //   settings: RouteSettings(
-                                //     arguments: number,
-                                //   ),), (route) => false);
+                              if (context.mounted) {
+                                Navigator.pushReplacement(context, MaterialPageRoute(
+                                  builder: (_) => VerificationScreen(number, FromPage.verification, session: widget.tempToken),
+                                ));
                               }
-                            }else{
-                              if(context.mounted) {
+                            } else {
+                              if (context.mounted) {
                                 showCustomSnackBarWidget(getTranslated('phone_number_already_exist', context), context, snackBarType: SnackBarType.error);
                               }
                             }

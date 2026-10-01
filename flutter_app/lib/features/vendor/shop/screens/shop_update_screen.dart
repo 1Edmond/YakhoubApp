@@ -102,7 +102,10 @@ class ShopUpdateScreenState extends State<ShopUpdateScreen> {
   @override
   void initState() {
     super.initState();
-
+    final shop = Provider.of<ShopController>(context, listen: false).shopModel;
+    _shopNameController.text = shop?.name ?? '';
+    _contactNumberController.text = shop?.contact ?? '';
+    _addressController.text = shop?.address ?? '';
   }
 
   @override
@@ -115,10 +118,6 @@ class ShopUpdateScreenState extends State<ShopUpdateScreen> {
       key: _scaffoldKey,
       body: Consumer<ShopController>(
         builder: (context, shop, child) {
-          _shopNameController.text = shop.shopModel?.name ?? '';
-          _contactNumberController.text = shop.shopModel?.contact ?? '';
-          _addressController.text = shop.shopModel?.address ?? '';
-
           return Consumer<AuthController>(
             builder: (context, authProvider, _) {
               return Column(children: [

@@ -33,7 +33,7 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
 
   final GlobalKey<FormState> forgetFormKey = GlobalKey<FormState>();
 
-  final ConfigModel config = Provider.of<SplashController>(Get.context!, listen: false).configModel!;
+  ConfigModel? config;
 
   @override
   void initState() {
@@ -44,14 +44,16 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
     authProvider.setIsLoading = false;
     authProvider.setIsPhoneVerificationButttonLoading = false;
     authProvider.toggleIsNumberLogin(value: false, isUpdate: false);
-    _countryCode = CountryCode.fromCountryCode(Provider.of<SplashController>(context, listen: false).configModel!.countryCode!).dialCode;
+    final splash = Provider.of<SplashController>(context, listen: false);
+    config = splash.configModel;
+    _countryCode = CountryCode.fromCountryCode(config?.countryCode ?? 'TD').dialCode;
     super.initState();
   }
 
 
   @override
   Widget build(BuildContext context) {
-    final ConfigModel configModel =  Provider.of<SplashController>(context, listen: false).configModel!;
+    final ConfigModel? configModel =  Provider.of<SplashController>(context, listen: false).configModel;
     return Scaffold(
       key: _key,
 
@@ -121,7 +123,8 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                     buttonText: getTranslated('send', context),
                     onTap: () async {
                       if(forgetFormKey.currentState?.validate() ?? false) {
-                        if(!(config.emailVerification ?? false) && !(config.phoneVerification ?? false) && config.customerVerification?.phone == 0 && config.customerVerification?.firebase == 0 && config.customerVerification?.email == 0) {
+                        final currentConfig = splashProvider.configModel ?? config;
+                        if(!(currentConfig?.emailVerification ?? false) && !(currentConfig?.phoneVerification ?? false) && currentConfig?.customerVerification?.phone == 0 && currentConfig?.customerVerification?.firebase == 0 && currentConfig?.customerVerification?.email == 0) {
                           showCustomSnackBarWidget(getTranslated('forgot_password_configuration_is_not', context), context, snackBarType: SnackBarType.warning);
                         } else if (_userInputController!.text.isEmpty) {
                           showCustomSnackBarWidget(getTranslated('enter_email_or_phone', context), context, snackBarType: SnackBarType.warning);
@@ -133,29 +136,30 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                           bool isNumber = NumberCheckerHelper.isNumber(userInput);
 
                           if(isNumber) {
-                            userInput = _countryCode! + userInput;
+                            userInput = (_countryCode ?? '+235') + userInput;
                           }
 
-                          ResponseModel? response =  await authProvider.forgetPassword(config: configModel, phoneOrEmail: userInput, type: isNumber ? 'phone' : 'email');
+                          if(configModel != null) {
+                            ResponseModel? response =  await authProvider.forgetPassword(config: configModel, phoneOrEmail: userInput, type: isNumber ? 'phone' : 'email');
 
-                          if(response != null && response.isSuccess) {
-                            if(isNumber && !authProvider.sendToEmail) {
-                              RouterHelper.getVerificationRoute(
-                                userInput: userInput,
-                                fromPage: FromPage.forgetPassword,
-                                action: RouteAction.push,
-                              );
-                            } else {
-                              if(context.mounted) {
+                            if(response != null && response.isSuccess) {
+                              if(isNumber && !authProvider.sendToEmail) {
+                                RouterHelper.getVerificationRoute(
+                                  userInput: userInput,
+                                  fromPage: FromPage.forgetPassword,
+                                  action: RouteAction.push,
+                                );
+                              } else {
+                                if(context.mounted) {
+                                  showCustomSnackBarWidget(response.message, context, snackBarType: SnackBarType.warning);
+                                }
+                              }
+                            } else if(response != null && !response.isSuccess) {
+                              if(context.mounted){
                                 showCustomSnackBarWidget(response.message, context, snackBarType: SnackBarType.warning);
                               }
                             }
-                          } else if(response != null && !response.isSuccess) {
-                            if(context.mounted){
-                              showCustomSnackBarWidget(response.message, context, snackBarType: SnackBarType.warning);
-                            }
                           }
-
                         }
                       }
                     },

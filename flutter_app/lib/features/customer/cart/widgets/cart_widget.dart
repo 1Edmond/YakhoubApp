@@ -112,7 +112,7 @@ class CartWidget extends StatelessWidget {
                           ),
                         ),
                         checkColor: Colors.white,
-                        value: cartModel!.isChecked!,
+                        value: cartModel?.isChecked ?? false,
                         onChanged: (bool? value) async {
                           showDialog(
                             context: context,
@@ -120,7 +120,7 @@ class CartWidget extends StatelessWidget {
                           );
                           await cartProvider.addRemoveCartSelectedItem(
                             [cartModel!.id!],
-                            cartModel!.isChecked! ? false : true,
+                            !(cartModel?.isChecked ?? false),
                           );
                           Navigator.of(Get.context!).pop();
                         },
