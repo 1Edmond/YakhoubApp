@@ -61,22 +61,23 @@ class _WithdrawBalanceWidgetState extends State<WithdrawBalanceWidget> {
 
                   Row(mainAxisAlignment: MainAxisAlignment.start, crossAxisAlignment: CrossAxisAlignment.end, children: [
 
-                    Column(mainAxisAlignment: MainAxisAlignment.center, crossAxisAlignment: CrossAxisAlignment.start, children: [
+                    Expanded(
+                      child: Column(mainAxisAlignment: MainAxisAlignment.center, crossAxisAlignment: CrossAxisAlignment.start, children: [
 
-                      Text(getTranslated('balance_withdraw', context)!, style: robotoRegular.copyWith(
-                        fontSize: Dimensions.fontSizeSmall,
-                        color: Theme.of(context).cardColor,
-                      )),
-                      const SizedBox(height: Dimensions.paddingSizeExtraSmall),
+                        Text(getTranslated('balance_withdraw', context)!, style: robotoRegular.copyWith(
+                          fontSize: Dimensions.fontSizeSmall,
+                          color: Theme.of(context).cardColor,
+                        ), maxLines: 1, overflow: TextOverflow.ellipsis),
+                        const SizedBox(height: Dimensions.paddingSizeExtraSmall),
 
-                      Text(PriceConverter.convertPrice(context, seller.userInfoModel!.wallet != null ?
-                      seller.userInfoModel!.wallet!.totalEarning ?? 0 : 0), style: robotoMedium.copyWith(
-                        fontSize: Dimensions.fontSizeMaxLarge,
-                        color: Theme.of(context).cardColor,
-                      )),
-                    ]),
+                        Text(PriceConverter.convertPrice(context, seller.userInfoModel!.wallet != null ?
+                        seller.userInfoModel!.wallet!.totalEarning ?? 0 : 0), style: robotoMedium.copyWith(
+                          fontSize: Dimensions.fontSizeMaxLarge,
+                          color: Theme.of(context).cardColor,
+                        ), maxLines: 1, overflow: TextOverflow.ellipsis),
+                      ]),
+                    ),
 
-                    const Spacer(),
                     const SizedBox(width: Dimensions.paddingSizeSmall),
 
                     InkWell(
@@ -86,8 +87,8 @@ class _WithdrawBalanceWidgetState extends State<WithdrawBalanceWidget> {
                           context: context, builder: (_) => CustomEditDialogWidget(totalEarning: seller.userInfoModel!.wallet != null
                           ? seller.userInfoModel!.wallet!.totalEarning ?? 0 : 0,
                       )),
-                      child: Container(height: 40, width: widthSize * 0.2,
-                        padding: const EdgeInsets.all(Dimensions.paddingSizeExtraSmall),
+                      child: Container(height: 40,
+                        padding: const EdgeInsets.symmetric(horizontal: Dimensions.paddingSizeSmall, vertical: Dimensions.paddingSizeExtraSmall),
                         decoration: BoxDecoration(
                           color: Theme.of(context).cardColor,
                           borderRadius: BorderRadius.circular(Dimensions.paddingSizeExtraSmall),
@@ -96,7 +97,7 @@ class _WithdrawBalanceWidgetState extends State<WithdrawBalanceWidget> {
                         child: Text(getTranslated('withdraw', context)!, style:titilliumRegular.copyWith(
                           color: Theme.of(context).primaryColor,
                           fontSize: Dimensions.fontSizeDefault,
-                        )),
+                        ), maxLines: 1, overflow: TextOverflow.ellipsis),
                       ),
                     ),
                   ]),

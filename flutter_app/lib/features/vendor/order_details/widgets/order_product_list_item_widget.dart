@@ -146,7 +146,7 @@ class _OrderedProductListItemWidgetState extends State<OrderedProductListItemWid
 
 
 
-                Row( children: [
+                Wrap( crossAxisAlignment: WrapCrossAlignment.center, children: [
                   (widget.orderDetailsModel!.productDetails!.discount! > 0 &&
                       widget.orderDetailsModel!.productDetails!.discount!= null)?
                   Text(PriceConverter.convertPrice(context,

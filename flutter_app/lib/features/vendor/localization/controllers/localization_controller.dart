@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:multishop_tchad/core/localization/controllers/localization_controller.dart' as core_loc;
 import 'package:multishop_tchad/features/vendor/auth/controllers/auth_controller.dart';
 import 'package:multishop_tchad/core/localization/models/language_model.dart';
 import 'package:multishop_tchad/main.dart';
@@ -32,13 +33,28 @@ class LocalizationController extends ChangeNotifier {
       _isLtr = true;
     }
     _saveLanguage(_locale);
-    Provider.of<AuthController>(Get.context!, listen: false).setCurrentLanguage(locale.countryCode == 'US'?'en': _locale.countryCode!.toLowerCase());
+    try {
+      if (Get.context != null) {
+        Provider.of<core_loc.LocalizationController>(Get.context!, listen: false).setLanguage(locale, index);
+      }
+    } catch (_) {}
+    try {
+      if (Get.context != null) {
+        Provider.of<AuthController>(Get.context!, listen: false).setCurrentLanguage(locale.countryCode == 'US'?'en': _locale.countryCode!.toLowerCase());
+      }
+    } catch (_) {}
     notifyListeners();
   }
 
   Future<void> _loadCurrentLanguage() async {
-    _locale = Locale(sharedPreferences!.getString(AppConstants.languageCode) ?? AppConstants.languages[0].languageCode!,
-        sharedPreferences!.getString(AppConstants.countryCode) ?? AppConstants.languages[0].countryCode);
+    final langCode = sharedPreferences!.getString(AppConstants.languageCodeKey) ??
+        sharedPreferences!.getString(AppConstants.languageCode) ??
+        AppConstants.languages[0].languageCode!;
+    final countryCode = sharedPreferences!.getString(AppConstants.countryCodeKey) ??
+        sharedPreferences!.getString(AppConstants.countryCode) ??
+        AppConstants.languages[0].countryCode;
+
+    _locale = Locale(langCode, countryCode);
     for(int index=0; index<AppConstants.languages.length; index++) {
       if(AppConstants.languages[index].languageCode == _locale.languageCode) {
         _languageIndex = index;
@@ -52,13 +68,19 @@ class LocalizationController extends ChangeNotifier {
   }
 
   Future<void> _saveLanguage(Locale locale) async {
-    sharedPreferences!.setString(AppConstants.languageCode, locale.languageCode);
-    sharedPreferences!.setString(AppConstants.countryCode, locale.countryCode!);
+    await sharedPreferences!.setString(AppConstants.languageCodeKey, locale.languageCode);
+    if (locale.countryCode != null) {
+      await sharedPreferences!.setString(AppConstants.countryCodeKey, locale.countryCode!);
+    }
+    await sharedPreferences!.setString(AppConstants.languageCode, locale.languageCode);
+    if (locale.countryCode != null) {
+      await sharedPreferences!.setString(AppConstants.countryCode, locale.countryCode!);
+    }
   }
 
   String? getCurrentLanguage() {
-    return sharedPreferences!.getString(AppConstants.countryCode == 'US'? 'en' : AppConstants.countryCode) ?? "en";
+    return sharedPreferences!.getString(AppConstants.countryCodeKey) ??
+        sharedPreferences!.getString(AppConstants.countryCode) ??
+        "TD";
   }
-
-
 }

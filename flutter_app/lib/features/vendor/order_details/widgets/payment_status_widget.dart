@@ -60,8 +60,12 @@ class _PaymentStatusWidgetState extends State<PaymentStatusWidget> {
                     style: robotoRegular.copyWith(color: Theme.of(context).textTheme.titleMedium?.color)
                 ),
 
-                Text(getTranslated(widget.orderModel!.paymentMethod, context)!,
-                    style: robotoMedium.copyWith(color: Theme.of(context).textTheme.bodyLarge?.color)
+                Flexible(
+                  child: Text(getTranslated(widget.orderModel!.paymentMethod, context) ?? '',
+                      style: robotoMedium.copyWith(color: Theme.of(context).textTheme.bodyLarge?.color),
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 1,
+                  ),
                 ),
               ]),
 
@@ -73,25 +77,27 @@ class _PaymentStatusWidgetState extends State<PaymentStatusWidget> {
 
 
 
-                Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Text(PriceConverter.convertPrice(context, widget.orderModel!.initOrderAmount!),
-                      style: robotoMedium.copyWith(color: Theme.of(context).textTheme.bodyLarge?.color)
-                    ),
-                    SizedBox(width: Dimensions.paddingSizeSmall),
+                Flexible(
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text(PriceConverter.convertPrice(context, widget.orderModel!.initOrderAmount!),
+                        style: robotoMedium.copyWith(color: Theme.of(context).textTheme.bodyLarge?.color)
+                      ),
+                      SizedBox(width: Dimensions.paddingSizeSmall),
 
-                    Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(Dimensions.radiusDefault),
-                        color: widget.orderModel!.paymentStatus =='paid' ? Colors.green.withValues(alpha: 0.1) : Theme.of(context).colorScheme.error.withValues(alpha: 0.1)
+                      Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(Dimensions.radiusDefault),
+                          color: widget.orderModel!.paymentStatus =='paid' ? Colors.green.withValues(alpha: 0.1) : Theme.of(context).colorScheme.error.withValues(alpha: 0.1)
+                        ),
+                        padding: EdgeInsets.symmetric(horizontal: Dimensions.paddingSizeSmall, vertical: Dimensions.paddingSizeExtraSmall),
+                        child: Text(getTranslated(widget.orderModel!.paymentStatus, context)!,
+                          style: robotoBold.copyWith(color: widget.orderModel!.paymentStatus =='paid' ? Colors.green: Theme.of(context).colorScheme.error)
+                        ),
                       ),
-                      padding: EdgeInsets.symmetric(horizontal: Dimensions.paddingSizeSmall, vertical: Dimensions.paddingSizeExtraSmall),
-                      child: Text(getTranslated(widget.orderModel!.paymentStatus, context)!,
-                        style: robotoBold.copyWith(color: widget.orderModel!.paymentStatus =='paid' ? Colors.green: Theme.of(context).colorScheme.error)
-                      ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ]),
               SizedBox(height: Dimensions.paddingSizeSmall),
@@ -175,7 +181,7 @@ class _PaymentStatusWidgetState extends State<PaymentStatusWidget> {
                             children: [
 
                               if(paymentHistory.orderDueAmount != null && paymentHistory.orderDueAmount! > 0)
-                                Row(mainAxisAlignment: MainAxisAlignment.start, children: [
+                                Wrap(crossAxisAlignment: WrapCrossAlignment.center, children: [
                                   Text(
                                       paymentHistory.orderDuePaymentStatus =='unpaid' ?
                                       '${getTranslated('due', context)} '
@@ -273,7 +279,7 @@ class _PaymentStatusWidgetState extends State<PaymentStatusWidget> {
 
 
                               if(paymentHistory.orderReturnAmount != null && paymentHistory.orderReturnAmount! > 0)
-                                Row(mainAxisAlignment: MainAxisAlignment.start, children: [
+                                Wrap(crossAxisAlignment: WrapCrossAlignment.center, children: [
                                   Text(
                                       paymentHistory.orderReturnPaymentStatus =='paid' ?
                                       '${getTranslated('paid_by', context)} ' : '${getTranslated('pay_by', context)} ',

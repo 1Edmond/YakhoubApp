@@ -56,23 +56,15 @@ class TransactionWidget extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
 
-                    Row(crossAxisAlignment: CrossAxisAlignment.start,children: [
-                      Text(getTranslated('transaction_id', context)!, style: robotoMedium.copyWith(
+                    Text(
+                      '${getTranslated('transaction_id', context)} # ${transactionModel.id}',
+                      style: robotoMedium.copyWith(
                         color: Theme.of(context).textTheme.bodyLarge?.color,
                         fontSize: Dimensions.fontSizeSmall,
-                      )),
-
-                      Text.rich(
-                        style: robotoMedium.copyWith(
-                          color: Theme.of(context).textTheme.bodyLarge?.color,
-                          fontSize: Dimensions.fontSizeSmall,
-                        ),
-                        TextSpan(children: [
-                          const TextSpan(text: ' # ',),
-                          TextSpan(text: '${transactionModel.id}'),
-                        ]),
                       ),
-                    ]),
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                    ),
 
                     Text(
                       DateConverter.isoStringToLocalDateAndTime(transactionModel.createdAt!),
@@ -110,12 +102,15 @@ class TransactionWidget extends StatelessWidget {
 
           Row(
             children: [
-              Text(PriceConverter.convertPrice(context, transactionModel.amount), style: robotoBold.copyWith(
-                color: Theme.of(context).textTheme.bodyLarge?.color,
-                fontSize: Dimensions.fontSizeDefault,
-              )),
+              Flexible(
+                child: Text(PriceConverter.convertPrice(context, transactionModel.amount), style: robotoBold.copyWith(
+                  color: Theme.of(context).textTheme.bodyLarge?.color,
+                  fontSize: Dimensions.fontSizeDefault,
+                ), maxLines: 1, overflow: TextOverflow.ellipsis),
+              ),
 
-              Spacer(),
+              const SizedBox(width: Dimensions.paddingSizeExtraSmall),
+              const Spacer(),
 
               if(transactionModel.approved != 1 && transactionModel.approved != 2)
                 Consumer<WalletController>(

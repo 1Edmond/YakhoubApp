@@ -379,9 +379,14 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
 
 
                                       if(!_onlyDigital)Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-                                        Text(getTranslated('shipping_fee', context)! + _shippingFreeText(orderDetailsController.orderDetails![0].order),
-                                            style: titilliumRegular.copyWith(
-                                                color: ColorHelper.blendColors(Colors.white, Theme.of(context).textTheme.bodyLarge!.color!, 0.7))),
+                                        Expanded(
+                                          child: Text(getTranslated('shipping_fee', context)! + _shippingFreeText(orderDetailsController.orderDetails![0].order),
+                                              style: titilliumRegular.copyWith(
+                                                  color: ColorHelper.blendColors(Colors.white, Theme.of(context).textTheme.bodyLarge!.color!, 0.7)),
+                                              overflow: TextOverflow.ellipsis,
+                                          ),
+                                        ),
+                                        const SizedBox(width: Dimensions.paddingSizeExtraSmall),
                                         Text('${(isFreeShipping) ? '' : '+'} ${PriceConverter.convertPrice(context, shipping)}',
                                             style: titilliumRegular.copyWith(
                                                 color: ColorHelper.blendColors(Colors.white, Theme.of(context).textTheme.bodyLarge!.color!, 0.7))),]),
@@ -514,10 +519,15 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                                                 )
                                               ),
 
-                                              Text(
-                                                "${orderDetailsController.orderDetails![0].orderEditHistory![index].editBy} (${orderDetailsController.orderDetails![0].orderEditHistory![index].editedUserName})",
-                                                style: robotoRegular.copyWith(fontSize: Dimensions.fontSizeDefault,
-                                                  color: Theme.of(context).textTheme.bodyLarge?.color
+                                              Flexible(
+                                                child: Text(
+                                                  "${orderDetailsController.orderDetails![0].orderEditHistory![index].editBy} (${orderDetailsController.orderDetails![0].orderEditHistory![index].editedUserName})",
+                                                  style: robotoRegular.copyWith(
+                                                    fontSize: Dimensions.fontSizeDefault,
+                                                    color: Theme.of(context).textTheme.bodyLarge?.color,
+                                                  ),
+                                                  overflow: TextOverflow.ellipsis,
+                                                  maxLines: 1,
                                                 ),
                                               ),
                                             ],

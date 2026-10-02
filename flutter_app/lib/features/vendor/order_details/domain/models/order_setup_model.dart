@@ -39,7 +39,7 @@ class OrderSetupModel {
     return {
       'order_id': orderId,
       'order_status': orderStatus,
-      'payment_status': paymentStatus,
+      'payment_status': (paymentStatus != null && paymentStatus!.isNotEmpty) ? paymentStatus : 'unpaid',
       'delivery_man_id': deliveryManId,
       'deliveryman_charge': deliveryManCharge,
       'expected_delivery_date': expectedDeliveryDate,

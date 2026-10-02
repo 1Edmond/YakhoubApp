@@ -29,34 +29,39 @@ class OrderTopSectionWidget extends StatelessWidget {
       Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              RichText(
-                text: TextSpan(
-                  text: '${getTranslated('order', context)}# ',
-                  style: robotoRegular.copyWith(
-                    color: Theme.of(context).textTheme.bodyLarge?.color,
-                    fontSize: Dimensions.fontSizeDefault,
-                  ),
-                  children: [
-                    TextSpan(
-                      text: orderModel?.id.toString(),
-                      style: robotoBold.copyWith(
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 45.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  RichText(
+                    textAlign: TextAlign.center,
+                    text: TextSpan(
+                      text: '${getTranslated('order', context)}# ',
+                      style: robotoRegular.copyWith(
                         color: Theme.of(context).textTheme.bodyLarge?.color,
-                        fontSize: Dimensions.fontSizeLarge,
+                        fontSize: Dimensions.fontSizeDefault,
                       ),
+                      children: [
+                        TextSpan(
+                          text: orderModel?.id.toString(),
+                          style: robotoBold.copyWith(
+                            color: Theme.of(context).textTheme.bodyLarge?.color,
+                            fontSize: Dimensions.fontSizeLarge,
+                          ),
+                        ),
+                      ],
                     ),
-                  ],
-                ),
-              ),
-              const SizedBox(height: Dimensions.paddingSizeSmall),
+                  ),
+                  const SizedBox(height: Dimensions.paddingSizeSmall),
 
-              RichText(
-                text: TextSpan(
-                  text: getTranslated('your_order_is', context),
-                  style: titilliumRegular.copyWith(
+                  RichText(
+                    textAlign: TextAlign.center,
+                    text: TextSpan(
+                      text: getTranslated('your_order_is', context),
+                      style: titilliumRegular.copyWith(
                     fontSize: Dimensions.fontSizeLarge,
                     color: Theme.of(context).hintColor,
                   ),
@@ -84,8 +89,10 @@ class OrderTopSectionWidget extends StatelessWidget {
               ),
             ],
           ),
-        ],
+        ),
       ),
+    ],
+  ),
 
       InkWell(
         onTap: () {

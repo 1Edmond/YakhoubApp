@@ -43,12 +43,16 @@ class _CustomerContactWidgetState extends State<CustomerContactWidget> {
           padding: const EdgeInsets.symmetric(horizontal: Dimensions.paddingSizeDefault, vertical: Dimensions.paddingSizeSmall),
           child: Row(
             children: [
-              widget.orderModel!.isGuest! ?
-              Text('${getTranslated('customer_info', context)} (${getTranslated('guest_customer', context)})',
-                  style: robotoBold.copyWith(fontSize: Dimensions.fontSizeLarge, color: Theme.of(context).textTheme.bodyLarge?.color)
-              ) :
-              Text('${getTranslated('customer_info', context)}',
-                  style: robotoBold.copyWith(fontSize: Dimensions.fontSizeLarge, color: Theme.of(context).textTheme.bodyLarge?.color)
+              Expanded(
+                child: widget.orderModel!.isGuest! ?
+                Text('${getTranslated('customer_info', context)} (${getTranslated('guest_customer', context)})',
+                    style: robotoBold.copyWith(fontSize: Dimensions.fontSizeLarge, color: Theme.of(context).textTheme.bodyLarge?.color),
+                    maxLines: 1, overflow: TextOverflow.ellipsis,
+                ) :
+                Text('${getTranslated('customer_info', context)}',
+                    style: robotoBold.copyWith(fontSize: Dimensions.fontSizeLarge, color: Theme.of(context).textTheme.bodyLarge?.color),
+                    maxLines: 1, overflow: TextOverflow.ellipsis,
+                ),
               ),
             ],
           ),
@@ -78,7 +82,9 @@ class _CustomerContactWidgetState extends State<CustomerContactWidget> {
                       '${widget.orderModel?.billingAddressData?.contactPersonName}'}' :
                       '${widget.orderModel!.customer?.fName ?? ''} ''${widget.orderModel!.customer?.lName ?? ''}',
                       style: robotoMedium.copyWith(color: Theme.of(context).textTheme.bodyLarge?.color,
-                        fontSize: Dimensions.fontSizeDefault)
+                        fontSize: Dimensions.fontSizeDefault),
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
                     ),
                     const SizedBox(height: Dimensions.paddingSizeExtraSmall),
 

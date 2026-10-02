@@ -118,7 +118,8 @@ class _ShopProductWidgetState extends State<ShopProductWidget> {
                         ),
                         const SizedBox(height: Dimensions.paddingSizeExtraSmall),
 
-                        Row(
+                        Wrap(
+                          crossAxisAlignment: WrapCrossAlignment.center,
                           children: [
                             Text(
                               PriceConverter.convertPrice(context, widget.productModel!.unitPrice,
@@ -148,21 +149,25 @@ class _ShopProductWidgetState extends State<ShopProductWidget> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text.rich(
-                              TextSpan(
-                                children: [
-                                  TextSpan(
-                                    text: '${getTranslated('product_type', context)} : ',
-                                    style: robotoRegular.copyWith(color: Theme.of(context).textTheme.headlineLarge?.color, fontSize: Dimensions.fontSizeSmall),
-                                  ),
-                                  TextSpan(
-                                    text: getTranslated(widget.productModel?.productType, context),
-                                    style: robotoRegular.copyWith(color: Theme.of(context).textTheme.bodyLarge?.color, fontSize: Dimensions.fontSizeSmall),
-                                  ),
-                                ],
+                            Expanded(
+                              child: Text.rich(
+                                TextSpan(
+                                  children: [
+                                    TextSpan(
+                                      text: '${getTranslated('product_type', context)} : ',
+                                      style: robotoRegular.copyWith(color: Theme.of(context).textTheme.headlineLarge?.color, fontSize: Dimensions.fontSizeSmall),
+                                    ),
+                                    TextSpan(
+                                      text: getTranslated(widget.productModel?.productType, context),
+                                      style: robotoRegular.copyWith(color: Theme.of(context).textTheme.bodyLarge?.color, fontSize: Dimensions.fontSizeSmall),
+                                    ),
+                                  ],
+                                ),
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
                               ),
                             ),
-
+                            const SizedBox(width: Dimensions.paddingSizeExtraSmall),
 
                             Container(
                                 padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),

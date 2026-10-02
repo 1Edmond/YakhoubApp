@@ -107,7 +107,7 @@ class ShopCardWidget extends StatelessWidget {
                             child: Row(
                               children: [
                                 ShopInfoCard(
-                                  width: 110,
+                                  width: 125,
                                   title: getTranslated('products', context) ?? '',
                                   count: shopInfo.shopModel?.totalProducts.toString() ?? '0',
                                   image: Images.productsIcon,
@@ -116,7 +116,7 @@ class ShopCardWidget extends StatelessWidget {
                                 const SizedBox(width: Dimensions.paddingSizeSmall),
 
                                 ShopInfoCard(
-                                  width: 110,
+                                  width: 125,
                                   title: getTranslated('orders', context) ?? '',
                                   count: shopInfo.shopModel?.totalOrder.toString() ?? '0',
                                   image: Images.orderIcon,
@@ -125,7 +125,7 @@ class ShopCardWidget extends StatelessWidget {
                                 const SizedBox(width: Dimensions.paddingSizeSmall),
 
                                 ShopInfoCard(
-                                  width: 110,
+                                  width: 125,
                                   title: getTranslated('reviews', context) ?? '',
                                   count: shopInfo.shopModel?.totalReview.toString() ?? '0',
                                   image: Images.reviewsIcon,
@@ -234,11 +234,15 @@ class ShopInfoCard extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(
-                title,
-                style: robotoRegular.copyWith(color: Theme.of(context).textTheme.bodyLarge?.color, fontSize: Dimensions.fontSizeDefault)
+              Expanded(
+                child: Text(
+                  title,
+                  style: robotoRegular.copyWith(color: Theme.of(context).textTheme.bodyLarge?.color, fontSize: Dimensions.fontSizeSmall),
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                ),
               ),
-
+              const SizedBox(width: Dimensions.paddingSizeExtraSmall),
               CustomAssetImageWidget(image, width: 20, height: 20),
             ],
           ),

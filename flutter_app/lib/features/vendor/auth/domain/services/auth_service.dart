@@ -76,12 +76,22 @@ class AuthService implements AuthServiceInterface{
       Map map = apiResponse.response!.data;
       String token = map["token"];
       saveUserToken(token);
-    } else if (apiResponse.error == 'pending'){
-      showCustomSnackBarWidget(getTranslated('your_account_is_in_review_process', Get.context!), Get.context!, sanckBarType: SnackBarType.error);
-    } else if(apiResponse.error == 'unauthorized'){
-      showCustomSnackBarWidget(getTranslated('invalid_credential', Get.context!), Get.context!, sanckBarType: SnackBarType.error);
-    }else {
-      showCustomSnackBarWidget(getTranslated('account_not_verified_yet', Get.context!), Get.context!, sanckBarType: SnackBarType.error);
+    } else {
+      String errorMsg = apiResponse.error?.toString() ?? '';
+      if (errorMsg.toLowerCase().contains('review') ||
+          errorMsg.toLowerCase().contains('pending') ||
+          errorMsg.toLowerCase().contains('examen')) {
+        showCustomSnackBarWidget(getTranslated('your_account_is_in_review_process', Get.context!), Get.context!, sanckBarType: SnackBarType.error);
+      } else if (errorMsg.toLowerCase().contains('credential') ||
+          errorMsg.toLowerCase().contains('unauthorized') ||
+          errorMsg.toLowerCase().contains('identifiant') ||
+          errorMsg.toLowerCase().contains('incorrect')) {
+        showCustomSnackBarWidget(getTranslated('invalid_credential', Get.context!), Get.context!, sanckBarType: SnackBarType.error);
+      } else if (errorMsg.isNotEmpty) {
+        showCustomSnackBarWidget(errorMsg, Get.context!, sanckBarType: SnackBarType.error);
+      } else {
+        showCustomSnackBarWidget(getTranslated('account_not_verified_yet', Get.context!), Get.context!, sanckBarType: SnackBarType.error);
+      }
     }
     return apiResponse;
   }

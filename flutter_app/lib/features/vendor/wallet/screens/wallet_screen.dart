@@ -276,10 +276,13 @@ class _TransactionTitleRowWidget extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.fromLTRB(Dimensions.paddingSizeMedium, Dimensions.paddingSizeSmall, Dimensions.paddingSizeMedium, Dimensions.paddingSizeSmall),
       child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,children: [
-        Text(getTranslated('withdraw_history', context)!, style: robotoBold.copyWith(
-            color: Theme.of(context).textTheme.bodyLarge?.color?.withValues(alpha: 0.50),
-            fontSize: Dimensions.fontSizeDefault
-        )),
+        Expanded(
+          child: Text(getTranslated('withdraw_history', context)!, style: robotoBold.copyWith(
+              color: Theme.of(context).textTheme.bodyLarge?.color?.withValues(alpha: 0.50),
+              fontSize: Dimensions.fontSizeDefault
+          ), maxLines: 1, overflow: TextOverflow.ellipsis),
+        ),
+        const SizedBox(width: Dimensions.paddingSizeExtraSmall),
 
         InkWell(
           onTap: ()=> Navigator.push(context, MaterialPageRoute(builder: (_) => const TransactionScreen())),

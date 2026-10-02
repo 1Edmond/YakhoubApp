@@ -35,10 +35,15 @@ class OrderTypeButtonWidget extends StatelessWidget {
                   icon != null ?
                   SizedBox(width: Dimensions.iconSizeLarge,
                       child: Image.asset(icon!)): const SizedBox(),
+                  Expanded(
+                    child: Text(
+                      text!,
+                      style: robotoRegular.copyWith(color: Theme.of(context).textTheme.bodyLarge?.color),
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ),
                   const SizedBox(width: Dimensions.paddingSizeSmall),
-                  Text(text!, style: robotoRegular.copyWith(color: Theme.of(context).textTheme.bodyLarge?.color)),
-
-                  const Spacer(),
                   Container(decoration: BoxDecoration(
                       color: color!.withValues(alpha:.10),
                       borderRadius: BorderRadius.circular(Dimensions.paddingSizeLarge)

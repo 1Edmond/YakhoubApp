@@ -79,9 +79,12 @@ class RefundPricingWidget extends StatelessWidget {
                 const SizedBox(height: Dimensions.paddingSizeSmall),
 
                 Row(children: [
-                  Text('${getTranslated('total_refund_amount', context)}',
-                    style: robotoBold.copyWith(fontSize: Dimensions.fontSizeDefault, color: Theme.of(context).textTheme.bodyLarge?.color)),
-                  const Spacer(),
+                  Expanded(
+                    child: Text('${getTranslated('total_refund_amount', context)}',
+                      style: robotoBold.copyWith(fontSize: Dimensions.fontSizeDefault, color: Theme.of(context).textTheme.bodyLarge?.color),
+                      maxLines: 1, overflow: TextOverflow.ellipsis),
+                  ),
+                  const SizedBox(width: Dimensions.paddingSizeExtraSmall),
 
                   Text(PriceConverter.convertPrice(context, refund.refundDetailsModel!.refundAmount),
                     style: robotoBold.copyWith(color: Theme.of(context).primaryColor,fontSize: Dimensions.fontSizeLarge, fontWeight: FontWeight.w700),

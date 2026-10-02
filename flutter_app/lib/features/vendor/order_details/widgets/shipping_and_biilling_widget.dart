@@ -290,8 +290,11 @@ class _ShippingAndBillingWidgetState extends State<ShippingAndBillingWidget> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(getTranslated('shipping_address', context)!,
-                      style: titilliumSemiBold.copyWith(fontSize: Dimensions.fontSizeSmall, color: Theme.of(context).textTheme.bodyLarge?.color)
+                    Expanded(
+                      child: Text(getTranslated('shipping_address', context)!,
+                        style: titilliumSemiBold.copyWith(fontSize: Dimensions.fontSizeSmall, color: Theme.of(context).textTheme.bodyLarge?.color),
+                        overflow: TextOverflow.ellipsis,
+                      ),
                     ),
 
                     !showEditButton ?
@@ -480,8 +483,11 @@ class _ShippingAndBillingWidgetState extends State<ShippingAndBillingWidget> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(getTranslated('billing_address', context)!,
-                        style: titilliumSemiBold.copyWith(fontSize: Dimensions.fontSizeDefault, color: Theme.of(context).textTheme.bodyLarge?.color)
+                      Expanded(
+                        child: Text(getTranslated('billing_address', context)!,
+                          style: titilliumSemiBold.copyWith(fontSize: Dimensions.fontSizeDefault, color: Theme.of(context).textTheme.bodyLarge?.color),
+                          overflow: TextOverflow.ellipsis,
+                        ),
                       ),
 
 
@@ -674,9 +680,12 @@ class _CollapsibleAddressSectionState extends State<CollapsibleAddressSection>
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(
-                  'Address',
-                  style: robotoBold.copyWith(fontWeight: FontWeight.bold, fontSize: 16, color: Theme.of(context).textTheme.bodyLarge?.color),
+                Expanded(
+                  child: Text(
+                    getTranslated('address', context) ?? 'Address',
+                    style: robotoBold.copyWith(fontWeight: FontWeight.bold, fontSize: 16, color: Theme.of(context).textTheme.bodyLarge?.color),
+                    overflow: TextOverflow.ellipsis,
+                  ),
                 ),
 
 

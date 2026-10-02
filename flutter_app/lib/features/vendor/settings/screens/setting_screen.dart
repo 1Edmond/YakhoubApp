@@ -74,8 +74,12 @@ class TitleButton extends StatelessWidget {
             child: Row(children: [
               SizedBox(width:Dimensions.iconSizeLarge, height:Dimensions.iconSizeLarge, child: Image.asset(icon)),
               const SizedBox(width: Dimensions.paddingSizeSmall,),
-              Text(title!, style: titilliumRegular.copyWith(fontSize: Dimensions.fontSizeLarge, color: Theme.of(context).textTheme.bodyLarge?.color)),
-              const Spacer(),
+              Expanded(
+                child: Text(title!, style: titilliumRegular.copyWith(fontSize: Dimensions.fontSizeLarge, color: Theme.of(context).textTheme.bodyLarge?.color),
+                  maxLines: 1, overflow: TextOverflow.ellipsis,
+                ),
+              ),
+              const SizedBox(width: Dimensions.paddingSizeSmall),
               Icon(Icons.arrow_forward_ios, color: Theme.of(context).primaryColor,size: Dimensions.iconSizeSmall,),
             ],
 

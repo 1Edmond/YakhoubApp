@@ -152,7 +152,10 @@ class DeliveryManCardWidget extends StatelessWidget {
                                     borderRadius: BorderRadius.circular(Dimensions.paddingSizeExtraSmall)
                                 ),
                                 child: Text('${NumberFormat.compact().format(deliveryMan!.orders!.isNotEmpty? deliveryMan!.orders![0].count : 0)} ${getTranslated('orders', context)}',
-                                  style: robotoMedium.copyWith(color: Colors.white),),
+                                  style: robotoMedium.copyWith(color: Colors.white),
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
+                                ),
                               ),
                             )
 

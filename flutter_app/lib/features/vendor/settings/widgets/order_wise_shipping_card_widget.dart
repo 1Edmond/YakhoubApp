@@ -50,7 +50,7 @@ class OrderWiseShippingCardWidget extends StatelessWidget {
                  Row(
                  children: [
                    Text('${getTranslated('duration', context)}  :   ', style: robotoRegular.copyWith(color: Theme.of(context).textTheme.bodyLarge?.color)),
-                   Text('${shippingModel!.duration}', style: robotoRegular.copyWith(color: Theme.of(context).textTheme.bodyLarge?.color)),
+                   Expanded(child: Text('${shippingModel!.duration ?? ''}', style: robotoRegular.copyWith(color: Theme.of(context).textTheme.bodyLarge?.color), maxLines: 1, overflow: TextOverflow.ellipsis)),
 
                  ],
                ),
@@ -58,8 +58,8 @@ class OrderWiseShippingCardWidget extends StatelessWidget {
                  Row(
                  children: [
                    Text('${getTranslated('cost', context)}           :   ', style: robotoRegular.copyWith(color: Theme.of(context).textTheme.bodyLarge?.color),),
-                   Text(PriceConverter.convertPrice(context, shippingModel!.cost),
-                       style: robotoRegular.copyWith(color: Theme.of(context).textTheme.bodyLarge?.color)),
+                   Expanded(child: Text(PriceConverter.convertPrice(context, shippingModel!.cost),
+                       style: robotoRegular.copyWith(color: Theme.of(context).textTheme.bodyLarge?.color), maxLines: 1, overflow: TextOverflow.ellipsis)),
                  ],
                ),
              ],),),

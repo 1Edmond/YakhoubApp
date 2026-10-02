@@ -54,9 +54,12 @@ class DeliveryManContactInformationWidget extends StatelessWidget {
                   Row(children: [
                     Image.asset(Images.phone, width: 15),
                     const SizedBox(width: Dimensions.paddingSizeSmall),
-                    Text('${orderModel!.deliveryMan!.countryCode} ${orderModel!.deliveryMan!.phone}',
-                        style: titilliumRegular.copyWith(color: ColorHelper.blendColors(Colors.white, Theme.of(context).textTheme.bodyLarge!.color!, 0.7),
-                            fontSize: Dimensions.fontSizeDefault)),
+                    Expanded(
+                      child: Text('${orderModel!.deliveryMan!.countryCode ?? ''} ${orderModel!.deliveryMan!.phone ?? ''}',
+                          style: titilliumRegular.copyWith(color: ColorHelper.blendColors(Colors.white, Theme.of(context).textTheme.bodyLarge!.color!, 0.7),
+                              fontSize: Dimensions.fontSizeDefault),
+                          maxLines: 1, overflow: TextOverflow.ellipsis),
+                    ),
                     ]
                   ),
 
@@ -65,9 +68,12 @@ class DeliveryManContactInformationWidget extends StatelessWidget {
                   Row(children: [
                     Image.asset(Images.email, width: 15),
                     const SizedBox(width: Dimensions.paddingSizeSmall),
-                    Text(orderModel!.deliveryMan!.email ?? '',
-                        style: titilliumRegular.copyWith(color: ColorHelper.blendColors(Colors.white, Theme.of(context).textTheme.bodyLarge!.color!, 0.7),
-                            fontSize: Dimensions.fontSizeDefault)),
+                    Expanded(
+                      child: Text(orderModel!.deliveryMan!.email ?? '',
+                          style: titilliumRegular.copyWith(color: ColorHelper.blendColors(Colors.white, Theme.of(context).textTheme.bodyLarge!.color!, 0.7),
+                              fontSize: Dimensions.fontSizeDefault),
+                          maxLines: 1, overflow: TextOverflow.ellipsis),
+                    ),
                     ],
                   ),
 

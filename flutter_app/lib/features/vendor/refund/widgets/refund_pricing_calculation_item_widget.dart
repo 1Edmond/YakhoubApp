@@ -14,14 +14,18 @@ class ProductCalculationItemWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(children: [
-      isQ?
-      Text('${getTranslated(title, context)} (x 1)',
-          style: titilliumRegular.copyWith(fontSize: Dimensions.fontSizeDefault,
-              color: ColorHelper.blendColors(Colors.white, Theme.of(context).textTheme.bodyLarge!.color!, 0.7))):
-      Text('${getTranslated(title, context)}',
-          style: robotoRegular.copyWith(fontSize: Dimensions.fontSizeDefault,
-              color: ColorHelper.blendColors(Colors.white, Theme.of(context).textTheme.bodyLarge!.color!, 0.7))),
-      const Spacer(),
+      Expanded(
+        child: isQ?
+        Text('${getTranslated(title, context)} (x 1)',
+            style: titilliumRegular.copyWith(fontSize: Dimensions.fontSizeDefault,
+                color: ColorHelper.blendColors(Colors.white, Theme.of(context).textTheme.bodyLarge!.color!, 0.7)),
+            maxLines: 1, overflow: TextOverflow.ellipsis):
+        Text('${getTranslated(title, context)}',
+            style: robotoRegular.copyWith(fontSize: Dimensions.fontSizeDefault,
+                color: ColorHelper.blendColors(Colors.white, Theme.of(context).textTheme.bodyLarge!.color!, 0.7)),
+            maxLines: 1, overflow: TextOverflow.ellipsis),
+      ),
+      const SizedBox(width: Dimensions.paddingSizeExtraSmall),
       Text('-${PriceConverter.convertPrice(context, price)}',
           style: robotoRegular.copyWith(fontSize: Dimensions.fontSizeDefault,
               color: ColorHelper.blendColors(Colors.white, Theme.of(context).textTheme.bodyLarge!.color!, 0.7))),

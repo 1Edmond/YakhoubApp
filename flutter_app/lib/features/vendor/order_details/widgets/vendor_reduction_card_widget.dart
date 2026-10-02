@@ -57,24 +57,31 @@ class VendorReductionCardWidget extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Row(
-                    children: [
-                      Icon(
-                        Icons.local_offer_outlined,
-                        color: status == 'accepted'
-                            ? Colors.green
-                            : status == 'refused'
-                                ? Colors.red
-                                : Colors.orange,
-                        size: 20,
-                      ),
-                      const SizedBox(width: Dimensions.paddingSizeSmall),
-                      Text(
-                        'Demande de réduction',
-                        style: robotoBold.copyWith(fontSize: Dimensions.fontSizeDefault),
-                      ),
-                    ],
+                  Expanded(
+                    child: Row(
+                      children: [
+                        Icon(
+                          Icons.local_offer_outlined,
+                          color: status == 'accepted'
+                              ? Colors.green
+                              : status == 'refused'
+                                  ? Colors.red
+                                  : Colors.orange,
+                          size: 20,
+                        ),
+                        const SizedBox(width: Dimensions.paddingSizeSmall),
+                        Expanded(
+                          child: Text(
+                            'Demande de réduction',
+                            style: robotoBold.copyWith(fontSize: Dimensions.fontSizeDefault),
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
+                  const SizedBox(width: Dimensions.paddingSizeSmall),
                   Container(
                     padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                     decoration: BoxDecoration(

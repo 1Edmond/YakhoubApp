@@ -64,14 +64,30 @@ class OrderTypeButtonHeadWidget extends StatelessWidget {
                         fontSize: Dimensions.fontSizeHeaderLarge)
                       ),
 
-                      Row(children: [
-                        Text(text!, style: robotoMedium.copyWith(color: Provider.of<ThemeController>(context).darkTheme ? Colors.white : Theme.of(context).textTheme.headlineLarge?.color,
-                          fontSize: Dimensions.fontSizeSmall)
+                      Text.rich(
+                        TextSpan(
+                          children: [
+                            TextSpan(
+                              text: text ?? '',
+                              style: robotoMedium.copyWith(
+                                color: Provider.of<ThemeController>(context).darkTheme ? Colors.white : Theme.of(context).textTheme.headlineLarge?.color,
+                                fontSize: Dimensions.fontSizeSmall,
+                              ),
+                            ),
+                            if (subText != null && subText!.isNotEmpty) ...[
+                              const TextSpan(text: ' '),
+                              TextSpan(
+                                text: subText,
+                                style: robotoMedium.copyWith(
+                                  fontSize: Dimensions.fontSizeSmall,
+                                  color: Provider.of<ThemeController>(context).darkTheme ? Colors.white : Theme.of(context).textTheme.headlineLarge?.color,
+                                ),
+                              ),
+                            ],
+                          ],
                         ),
-                        const SizedBox(width: Dimensions.paddingSizeExtraSmall),
-
-                        Text(subText!, style: robotoMedium.copyWith(fontSize: Dimensions.fontSizeSmall, color: Provider.of<ThemeController>(context).darkTheme ? Colors.white : Theme.of(context).textTheme.headlineLarge?.color)),
-                        ],
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
                       ),
 
                     ],

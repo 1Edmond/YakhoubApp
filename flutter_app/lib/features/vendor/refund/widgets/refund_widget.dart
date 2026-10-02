@@ -131,13 +131,16 @@ class RefundWidget extends StatelessWidget {
                                     refundModel!.order!.paymentMethod == 'pay_by_wallet' ? Images.payByWalletIcon : Images.digitalPaymentIcon
                                   ),
                                 ),
-                                const SizedBox(width: Dimensions.paddingSizeExtraSmall),
-                                Text(
-                                  refundModel!.order != null ? getTranslated(refundModel!.order!.paymentMethod, context) ?? '' : '',
-                                  style: robotoRegular.copyWith(
-                                    fontSize: Dimensions.fontSizeSmall,
-                                    color: Theme.of(context).textTheme.bodyLarge?.color
-                                  )
+                                Expanded(
+                                  child: Text(
+                                    refundModel!.order != null ? getTranslated(refundModel!.order!.paymentMethod, context) ?? '' : '',
+                                    style: robotoRegular.copyWith(
+                                      fontSize: Dimensions.fontSizeSmall,
+                                      color: Theme.of(context).textTheme.bodyLarge?.color
+                                    ),
+                                    maxLines: 1,
+                                    overflow: TextOverflow.ellipsis,
+                                  ),
                                 ),
                               ],
                             ),

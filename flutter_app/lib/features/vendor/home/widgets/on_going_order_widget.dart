@@ -85,7 +85,7 @@ class OngoingOrderWidget extends StatelessWidget {
                 child: GridView.count(
                   physics: const NeverScrollableScrollPhysics(),
                   crossAxisCount: 2,
-                  childAspectRatio: (1 / .65),
+                  childAspectRatio: (1 / .75),
                   shrinkWrap: true,
                   padding: EdgeInsets.zero,
                   children: [

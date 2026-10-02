@@ -103,44 +103,50 @@ class _OrderWidgetState extends State<OrderWidget> {
                   ),
                     child: Row(mainAxisAlignment : MainAxisAlignment.spaceBetween, children: [
 
-                        Row(children: [
-                          Text('${getTranslated('order_no', context)} ',
-                            style: robotoRegular.copyWith(color: Theme.of(context).textTheme.bodyLarge?.color, fontSize: Dimensions.fontSizeDefault),),
-                          Text('#${widget.orderModel.id} ${widget.orderModel.orderType == 'POS'? '(POS)':''}',
-                            style: robotoMedium.copyWith(color: Theme.of(context).textTheme.bodyLarge?.color,fontSize: Dimensions.fontSizeDefault),),
-
-                          if(widget.orderModel.editedStatus == 1)
-                          Text('(${getTranslated('edited', context)})',
-                            style: robotoMedium.copyWith(color: Theme.of(context).textTheme.headlineMedium?.color,fontSize: Dimensions.fontSizeSmall),
-                          ),
-                          SizedBox(width: Dimensions.paddingSizeExtraSmall),
-
-                          if(widget.orderModel.editedStatus == 1 && ((widget.orderModel.editDueAmount ?? 0) > 0 || (widget.orderModel.editReturnAmount ?? 0) > 0))
-                          JustTheTooltip(
-                            backgroundColor: Colors.black87,
-                            controller: tooltipController,
-                            preferredDirection: AxisDirection.up,
-                            tailLength: 10,
-                            tailBaseWidth: 20,
-                            content: Container(width: 250,
-                              padding: const EdgeInsets.all(Dimensions.paddingSizeSmall),
-                              child: Text(
-                                (widget.orderModel.editDueAmount ?? 0) > 0 ? getTranslated('customer_will_pay_due', context)! :
-                                (widget.orderModel.editReturnAmount ?? 0) > 0 ? getTranslated('contact_the_admin_to_return', context)! : '',
-                                style: robotoRegular.copyWith(color: Colors.white, fontSize: Dimensions.fontSizeDefault)
-                              )
-                            ),
-                            child: InkWell(
-                              onTap: ()=>  tooltipController.showTooltip(),
-                              child: CustomAssetImageWidget(
-                                (widget.orderModel.editDueAmount ?? 0) > 0 ?
-                                Images.orderDueAmountIcon : (widget.orderModel.editReturnAmount ?? 0) > 0 ? Images.orderReturnAmountIcon : Images.pendingOrderCardIcon,
-                                height: 16, width: 16
+                        Expanded(
+                          child: Row(children: [
+                            Text('${getTranslated('order_no', context)} ',
+                              style: robotoRegular.copyWith(color: Theme.of(context).textTheme.bodyLarge?.color, fontSize: Dimensions.fontSizeDefault),),
+                            Flexible(
+                              child: Text('#${widget.orderModel.id} ${widget.orderModel.orderType == 'POS'? '(POS)':''}',
+                                style: robotoMedium.copyWith(color: Theme.of(context).textTheme.bodyLarge?.color,fontSize: Dimensions.fontSizeDefault),
+                                maxLines: 1, overflow: TextOverflow.ellipsis,
                               ),
                             ),
-                          ),
-                        ]),
 
+                            if(widget.orderModel.editedStatus == 1)
+                            Text('(${getTranslated('edited', context)})',
+                              style: robotoMedium.copyWith(color: Theme.of(context).textTheme.headlineMedium?.color,fontSize: Dimensions.fontSizeSmall),
+                            ),
+                            const SizedBox(width: Dimensions.paddingSizeExtraSmall),
+
+                            if(widget.orderModel.editedStatus == 1 && ((widget.orderModel.editDueAmount ?? 0) > 0 || (widget.orderModel.editReturnAmount ?? 0) > 0))
+                            JustTheTooltip(
+                              backgroundColor: Colors.black87,
+                              controller: tooltipController,
+                              preferredDirection: AxisDirection.up,
+                              tailLength: 10,
+                              tailBaseWidth: 20,
+                              content: Container(width: 250,
+                                padding: const EdgeInsets.all(Dimensions.paddingSizeSmall),
+                                child: Text(
+                                  (widget.orderModel.editDueAmount ?? 0) > 0 ? getTranslated('customer_will_pay_due', context)! :
+                                  (widget.orderModel.editReturnAmount ?? 0) > 0 ? getTranslated('contact_the_admin_to_return', context)! : '',
+                                  style: robotoRegular.copyWith(color: Colors.white, fontSize: Dimensions.fontSizeDefault)
+                                )
+                              ),
+                              child: InkWell(
+                                onTap: ()=>  tooltipController.showTooltip(),
+                                child: CustomAssetImageWidget(
+                                  (widget.orderModel.editDueAmount ?? 0) > 0 ?
+                                  Images.orderDueAmountIcon : (widget.orderModel.editReturnAmount ?? 0) > 0 ? Images.orderReturnAmountIcon : Images.pendingOrderCardIcon,
+                                  height: 16, width: 16
+                                ),
+                              ),
+                            ),
+                          ]),
+                        ),
+                        const SizedBox(width: Dimensions.paddingSizeExtraSmall),
 
                         Container(
                           padding: const EdgeInsets.symmetric(
@@ -181,17 +187,24 @@ class _OrderWidgetState extends State<OrderWidget> {
 
                       Row(mainAxisAlignment:MainAxisAlignment.spaceBetween,
                         crossAxisAlignment: CrossAxisAlignment.center, children: [
-                          Row(children: [
-                            SizedBox(height: Dimensions.iconSizeDefault, width: Dimensions.iconSizeDefault,
-                              child: CustomAssetImageWidget(widget.orderModel.paymentMethod == 'cash_on_delivery'? Images.paymentIcon:
-                              widget.orderModel.paymentMethod == 'pay_by_wallet'? Images.payByWalletIcon : Images.digitalPaymentIcon),
-                            ),
-                            const SizedBox(width: Dimensions.paddingSizeSmall),
+                          Expanded(
+                            child: Row(children: [
+                              SizedBox(height: Dimensions.iconSizeDefault, width: Dimensions.iconSizeDefault,
+                                child: CustomAssetImageWidget(widget.orderModel.paymentMethod == 'cash_on_delivery'? Images.paymentIcon:
+                                widget.orderModel.paymentMethod == 'pay_by_wallet'? Images.payByWalletIcon : Images.digitalPaymentIcon),
+                              ),
+                              const SizedBox(width: Dimensions.paddingSizeSmall),
 
-                            if(widget.orderModel.paymentMethod != null &&widget.orderModel.paymentMethod!.isNotEmpty)
-                            Text(widget.orderModel.paymentMethod != null? getTranslated(widget.orderModel.paymentMethod??'', context)??'':'',
-                              style: robotoRegular.copyWith(fontSize: Dimensions.fontSizeDefault, color: Theme.of(context).hintColor)),
-                          ],),
+                              if(widget.orderModel.paymentMethod != null &&widget.orderModel.paymentMethod!.isNotEmpty)
+                              Expanded(
+                                child: Text(widget.orderModel.paymentMethod != null? getTranslated(widget.orderModel.paymentMethod??'', context)??'':'',
+                                  style: robotoRegular.copyWith(fontSize: Dimensions.fontSizeDefault, color: Theme.of(context).hintColor),
+                                  maxLines: 1, overflow: TextOverflow.ellipsis,
+                                ),
+                              ),
+                            ],),
+                          ),
+                          const SizedBox(width: Dimensions.paddingSizeSmall),
 
                           Text(
                             PriceConverter.convertPrice(context,  widget.orderModel.orderType == 'POS' ? widget.orderModel.orderAmount : widget.orderModel.orderAmount ?? 0),
