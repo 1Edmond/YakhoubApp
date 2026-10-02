@@ -45,6 +45,9 @@ class PriceReductionController extends ChangeNotifier {
     }
   }
 
+  String _lastErrorMessage = '';
+  String get lastErrorMessage => _lastErrorMessage;
+
   PriceReductionModel? getReductionForOrder(int orderId) {
     return _orderReductions[orderId];
   }
@@ -55,21 +58,24 @@ class PriceReductionController extends ChangeNotifier {
     required BuildContext context,
   }) async {
     _isLoading = true;
+    _lastErrorMessage = '';
     notifyListeners();
 
     ApiResponseModel response = await priceReductionRepository.requestReduction(orderId, requestedReduction);
     _isLoading = false;
-    notifyListeners();
 
     if (response.response != null && (response.response!.statusCode == 200 || response.response!.statusCode == 201)) {
       final model = PriceReductionModel.fromJson(response.response!.data);
       _orderReductions[orderId] = model;
-      showCustomSnackBarWidget('Demande de réduction envoyée avec succès', context, isError: false);
       notifyListeners();
       return true;
     } else {
       String errorMessage = response.error is String ? response.error : 'Échec de la demande';
-      showCustomSnackBarWidget(errorMessage, context, isError: true);
+      if (response.response?.data != null && response.response?.data['message'] != null) {
+        errorMessage = response.response?.data['message'].toString() ?? errorMessage;
+      }
+      _lastErrorMessage = errorMessage;
+      notifyListeners();
       return false;
     }
   }

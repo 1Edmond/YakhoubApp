@@ -129,13 +129,58 @@ class PriceReductionBottomSheetWidget extends StatelessWidget {
                       onTap: controller.selectedTier == null
                           ? null
                           : () async {
+                              final double reductionValue = controller.selectedTier!.toDouble();
+                              final navContext = Navigator.of(context).context;
                               final success = await controller.sendReductionRequest(
                                 orderId: orderId,
-                                requestedReduction: controller.selectedTier!.toDouble(),
+                                requestedReduction: reductionValue,
                                 context: context,
                               );
-                              if (success && context.mounted) {
+                              if (context.mounted) {
                                 Navigator.pop(context);
+                              }
+                              if (navContext.mounted) {
+                                showDialog(
+                                  context: navContext,
+                                  builder: (ctx) => AlertDialog(
+                                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+                                    title: Row(
+                                      children: [
+                                        Icon(
+                                          success ? Icons.check_circle : Icons.error_outline,
+                                          color: success ? Colors.green : Theme.of(ctx).colorScheme.error,
+                                          size: 28,
+                                        ),
+                                        const SizedBox(width: 8),
+                                        Expanded(
+                                          child: Text(
+                                            success ? 'Demande envoyée !' : 'Échec de la demande',
+                                            style: robotoBold.copyWith(fontSize: Dimensions.fontSizeLarge),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    content: Text(
+                                      success
+                                          ? 'Votre demande de réduction de ${reductionValue.toStringAsFixed(0)} FCFA a bien été transmise au vendeur pour la commande n°$orderId. Vous recevrez une notification dès sa réponse.'
+                                          : (controller.lastErrorMessage.isNotEmpty
+                                              ? controller.lastErrorMessage
+                                              : 'Impossible d\'enregistrer votre demande. Veuillez vérifier votre connexion et réessayer.'),
+                                      style: robotoRegular.copyWith(fontSize: Dimensions.fontSizeDefault),
+                                    ),
+                                    actions: [
+                                      TextButton(
+                                        onPressed: () => Navigator.pop(ctx),
+                                        child: Text(
+                                          'D\'accord',
+                                          style: robotoBold.copyWith(
+                                            color: success ? Theme.of(ctx).primaryColor : Theme.of(ctx).hintColor,
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                );
                               }
                             },
                     ),

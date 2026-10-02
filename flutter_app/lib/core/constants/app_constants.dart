@@ -1,4 +1,4 @@
-﻿import 'package:multishop_tchad/core/localization/models/language_model.dart';
+import 'package:multishop_tchad/core/localization/models/language_model.dart';
 import 'package:multishop_tchad/core/enums/local_caches_type_enum.dart';
 import 'package:multishop_tchad/core/constants/images.dart';
 
@@ -13,26 +13,27 @@ class AppConstants {
   static const String nniUploadDocumentEndpoint = 'nni/upload-document';
 
   // Price Reduction
-  static const String reductionTiersEndpoint = 'reduction-tiers';
+  static const String reductionTiersEndpoint = '/api/v1/reduction-tiers';
   static const String customerReductionRequestEndpoint =
-      'customer/orders/{orderId}/request-reduction';
+      '/api/v1/customer/orders/{orderId}/request-reduction';
   static const String customerReductionRequestsEndpoint =
-      'customer/reduction-requests';
+      '/api/v1/customer/reduction-requests';
   static const String customerReductionRespondEndpoint =
-      'customer/reduction-requests/{requestId}/respond';
+      '/api/v1/customer/reduction-requests/{requestId}/respond';
   static const String vendorReductionRequestsEndpoint =
-      'v3/seller/reduction-requests';
+      '/api/v3/seller/reduction-requests';
   static const String vendorReductionAcceptEndpoint =
-      'v3/seller/reduction-requests/{requestId}/accept';
+      '/api/v3/seller/reduction-requests/{requestId}/accept';
   static const String vendorReductionRefuseEndpoint =
-      'v3/seller/reduction-requests/{orderId}/refuse';
+      '/api/v3/seller/reduction-requests/{requestId}/refuse';
   static const String vendorReductionCounterOfferEndpoint =
-      'v3/seller/reduction-requests/{requestId}/counter-offer';
-  static const String customerCartNegotiateEndpoint = 'customer/cart/negotiate';
+      '/api/v3/seller/reduction-requests/{requestId}/counter-offer';
+  static const String customerCartNegotiateEndpoint =
+      '/api/v1/customer/cart/negotiate';
   static const String customerCartNegotiationsEndpoint =
-      'customer/cart/negotiations';
+      '/api/v1/customer/cart/negotiations';
   static const String customerCartNegotiationRespondEndpoint =
-      'customer/cart/negotiations/{requestId}/respond';
+      '/api/v1/customer/cart/negotiations/{requestId}/respond';
 
   // Order Cancellation
   static const String orderCancelEndpoint = 'customer/order/{orderId}/cancel';

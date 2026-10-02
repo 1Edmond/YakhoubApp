@@ -6,6 +6,7 @@ import 'package:multishop_tchad/core/constants/dimensions.dart';
 import 'package:multishop_tchad/core/constants/images.dart';
 import 'package:multishop_tchad/core/constants/styles.dart';
 import 'package:multishop_tchad/features/vendor/auth/screens/login_screen.dart';
+import 'package:multishop_tchad/features/customer/home/screens/dashboard_screen.dart';
 
 
 
@@ -15,88 +16,113 @@ class AuthScreen extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     Provider.of<AuthController>(context, listen: false).isActiveRememberMe;
-    return Scaffold(
-      body: Consumer<AuthController>(
-        builder: (context, auth, child) {
-          return SingleChildScrollView(
-            child: Column(mainAxisAlignment: MainAxisAlignment.start,crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Stack(children: [
-                  Positioned(
-                    top: MediaQuery.of(context).padding.top + 8,
-                    left: 12,
-                    child: IconButton(
-                      icon: const Icon(Icons.arrow_back_ios_new_rounded, size: 22),
-                      color: Theme.of(context).primaryColor,
-                      tooltip: getTranslated('back', context) ?? 'Retour',
-                      onPressed: () {
-                        if (Navigator.canPop(context)) {
-                          Navigator.pop(context);
-                        }
-                      },
-                    ),
-                  ),
-                  Align(alignment: Alignment.topCenter,
-                    child: Padding(
-                      padding:  EdgeInsets.only(top : MediaQuery.of(context).size.height/12,
-                      bottom: 38),
-                      child: Column( children: [
-                          Hero( tag: 'logo',
-                              child: Padding(
-                                padding: const EdgeInsets.only(top : Dimensions.paddingSizeExtraLarge),
-                                child: Image.asset(Images.logo,width: 80),
-                              )),
-                          Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                              Text(getTranslated('seller', context)!,
-                                style: robotoMedium.copyWith(fontSize: Dimensions.fontSizeExtraLargeTwenty, color: Theme.of(context).textTheme.bodyLarge?.color)),
-                              const SizedBox(width: Dimensions.paddingSizeExtraSmall),
-
-                              Text(getTranslated('app', context)!,
-                                  style: robotoMedium.copyWith(color: Theme.of(context).primaryColor,
-                                      fontSize: Dimensions.fontSizeExtraLargeTwenty)),
-                            ],
-                          )
-                        ],
-                      ),
-                    ),
-                  ),
-                ],),
-
-                Padding( padding: const EdgeInsets.symmetric(horizontal: Dimensions.paddingSizeDefault),
-                  child: Text(getTranslated('login', context)!,
-                    style: titilliumBold.copyWith(fontSize: Dimensions.fontSizeOverlarge, color: Theme.of(context).textTheme.bodyLarge?.color))),
-
-                Padding( padding: const EdgeInsets.symmetric(horizontal: Dimensions.paddingSizeDefault,vertical: Dimensions.paddingSizeSmall),
-                  child: Text(getTranslated('manage_your_business_from_app', context)!,
-                    style: titilliumRegular.copyWith(fontSize: Dimensions.fontSizeDefault, color: Theme.of(context).hintColor)),
-                ),
-
-                const SizedBox(height: Dimensions.paddingSizeLarge),
-
-                const LoginScreen(),
-
-                Center(
-                  child: Padding(
-                    padding: const EdgeInsets.only(bottom: Dimensions.paddingSizeLarge),
-                    child: TextButton.icon(
-                      onPressed: () {
-                        if (Navigator.canPop(context)) {
-                          Navigator.pop(context);
-                        }
-                      },
-                      icon: const Icon(Icons.arrow_back, size: 16),
-                      label: Text(
-                        getTranslated('back_to_customer_space', context) ?? "Retour à l'espace acheteur",
-                        style: robotoMedium.copyWith(color: Theme.of(context).hintColor),
-                      ),
-                    ),
-                  ),
-                ),
-
-              ],
-            ),
-          );
+    return PopScope(
+      canPop: false,
+      onPopInvokedWithResult: (didPop, result) {
+        if (!didPop) {
+          if (Navigator.canPop(context)) {
+            Navigator.pop(context);
+          } else {
+            Navigator.of(context).pushAndRemoveUntil(
+              MaterialPageRoute(builder: (_) => const DashBoardScreen(pageIndex: 0)),
+              (route) => false,
+            );
+          }
         }
+      },
+      child: Scaffold(
+        body: Consumer<AuthController>(
+          builder: (context, auth, child) {
+            return SingleChildScrollView(
+              child: Column(mainAxisAlignment: MainAxisAlignment.start,crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Stack(children: [
+                    Positioned(
+                      top: MediaQuery.of(context).padding.top + 8,
+                      left: 12,
+                      child: IconButton(
+                        icon: const Icon(Icons.arrow_back_ios_new_rounded, size: 22),
+                        color: Theme.of(context).primaryColor,
+                        tooltip: getTranslated('back', context) ?? 'Retour',
+                        onPressed: () {
+                          if (Navigator.canPop(context)) {
+                            Navigator.pop(context);
+                          } else {
+                            Navigator.of(context).pushAndRemoveUntil(
+                              MaterialPageRoute(builder: (_) => const DashBoardScreen(pageIndex: 0)),
+                              (route) => false,
+                            );
+                          }
+                        },
+                      ),
+                    ),
+                    Align(alignment: Alignment.topCenter,
+                      child: Padding(
+                        padding:  EdgeInsets.only(top : MediaQuery.of(context).size.height/12,
+                        bottom: 38),
+                        child: Column( children: [
+                            Hero( tag: 'logo',
+                                child: Padding(
+                                  padding: const EdgeInsets.only(top : Dimensions.paddingSizeExtraLarge),
+                                  child: Image.asset(Images.logo,width: 80),
+                                )),
+                            Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                                Text(getTranslated('seller', context)!,
+                                  style: robotoMedium.copyWith(fontSize: Dimensions.fontSizeExtraLargeTwenty, color: Theme.of(context).textTheme.bodyLarge?.color)),
+                                const SizedBox(width: Dimensions.paddingSizeExtraSmall),
+
+                                Text(getTranslated('app', context)!,
+                                    style: robotoMedium.copyWith(color: Theme.of(context).primaryColor,
+                                        fontSize: Dimensions.fontSizeExtraLargeTwenty)),
+                              ],
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],),
+
+                  Padding( padding: const EdgeInsets.symmetric(horizontal: Dimensions.paddingSizeDefault),
+                    child: Text(getTranslated('login', context)!,
+                      style: titilliumBold.copyWith(fontSize: Dimensions.fontSizeOverlarge, color: Theme.of(context).textTheme.bodyLarge?.color))),
+
+                  Padding( padding: const EdgeInsets.symmetric(horizontal: Dimensions.paddingSizeDefault,vertical: Dimensions.paddingSizeSmall),
+                    child: Text(getTranslated('manage_your_business_from_app', context)!,
+                      style: titilliumRegular.copyWith(fontSize: Dimensions.fontSizeDefault, color: Theme.of(context).hintColor)),
+                  ),
+
+                  const SizedBox(height: Dimensions.paddingSizeLarge),
+
+                  const LoginScreen(),
+
+                  Center(
+                    child: Padding(
+                      padding: const EdgeInsets.only(bottom: Dimensions.paddingSizeLarge),
+                      child: TextButton.icon(
+                        onPressed: () {
+                          if (Navigator.canPop(context)) {
+                            Navigator.pop(context);
+                          } else {
+                            Navigator.of(context).pushAndRemoveUntil(
+                              MaterialPageRoute(builder: (_) => const DashBoardScreen(pageIndex: 0)),
+                              (route) => false,
+                            );
+                          }
+                        },
+                        icon: const Icon(Icons.arrow_back, size: 16),
+                        label: Text(
+                          getTranslated('back_to_customer_space', context) ?? "Retour à l'espace acheteur",
+                          style: robotoMedium.copyWith(color: Theme.of(context).hintColor),
+                        ),
+                      ),
+                    ),
+                  ),
+
+                ],
+              ),
+            );
+          }
+        ),
       ),
     );
   }

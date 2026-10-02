@@ -18,7 +18,7 @@ class PriceReductionRepository {
   Future<ApiResponseModel> requestReduction(int orderId, double requestedReduction) async {
     try {
       final response = await dioClient!.post(
-        '/api/v1/orders/$orderId/request-reduction',
+        '/api/v1/customer/orders/$orderId/request-reduction',
         data: {'requested_reduction': requestedReduction},
       );
       return ApiResponseModel.withSuccess(response);
@@ -29,7 +29,7 @@ class PriceReductionRepository {
 
   Future<ApiResponseModel> getMyReductionRequests() async {
     try {
-      final response = await dioClient!.get('/api/v1/reduction-requests');
+      final response = await dioClient!.get('/api/v1/customer/reduction-requests');
       return ApiResponseModel.withSuccess(response);
     } catch (e) {
       return ApiResponseModel.withError(ApiErrorHandler.getMessage(e));
@@ -39,7 +39,7 @@ class PriceReductionRepository {
   Future<ApiResponseModel> respondToCounterOffer(int requestId, bool accept) async {
     try {
       final response = await dioClient!.put(
-        '/api/v1/reduction-requests/$requestId/respond',
+        '/api/v1/customer/reduction-requests/$requestId/respond',
         data: {'accept': accept},
       );
       return ApiResponseModel.withSuccess(response);

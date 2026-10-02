@@ -192,18 +192,16 @@ class CartController extends ChangeNotifier {
 
   bool _isNegotiationLoading = false;
   bool get isNegotiationLoading => _isNegotiationLoading;
+  String _lastNegotiationError = '';
+  String get lastNegotiationError => _lastNegotiationError;
 
   Future<bool> requestProductNegotiation(int cartId, double reductionAmount) async {
     _isNegotiationLoading = true;
+    _lastNegotiationError = '';
     notifyListeners();
     ApiResponseModel apiResponse = await cartServiceInterface!.requestCartNegotiation(cartId, reductionAmount);
     _isNegotiationLoading = false;
     if (apiResponse.response != null && (apiResponse.response!.statusCode == 200 || apiResponse.response!.statusCode == 201)) {
-      showCustomSnackBarWidget(
-        getTranslated('negotiation_sent_successfully', Get.context!) ?? 'Demande de négociation envoyée au vendeur !',
-        Get.context!,
-        snackBarType: SnackBarType.success,
-      );
       await getCartData(Get.context!, reload: false);
       notifyListeners();
       return true;
@@ -214,7 +212,7 @@ class CartController extends ChangeNotifier {
       } else if (apiResponse.response?.data != null && apiResponse.response?.data['message'] != null) {
         errorMessage = apiResponse.response?.data['message'].toString() ?? errorMessage;
       }
-      showCustomSnackBarWidget(errorMessage, Get.context!, snackBarType: SnackBarType.error);
+      _lastNegotiationError = errorMessage;
       notifyListeners();
       return false;
     }

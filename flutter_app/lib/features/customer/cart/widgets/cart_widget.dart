@@ -16,6 +16,9 @@ import 'package:multishop_tchad/core/constants/dimensions.dart';
 import 'package:multishop_tchad/core/widgets/base/custom_image_widget.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:multishop_tchad/features/customer/cart/widgets/cart_product_negotiation_bottom_sheet.dart';
+import 'package:multishop_tchad/features/auth/controllers/auth_controller.dart';
+import 'package:multishop_tchad/features/auth/screens/login_screen.dart';
+import 'package:multishop_tchad/core/widgets/base/custom_snackbar_widget.dart';
 import 'package:provider/provider.dart';
 
 class CartWidget extends StatelessWidget {
@@ -424,6 +427,16 @@ class _CartNegotiationSectionWidget extends StatelessWidget {
     if (status == 'none' || status.isEmpty) {
       return InkWell(
         onTap: () {
+          final bool isLoggedIn = Provider.of<AuthController>(context, listen: false).isLoggedIn();
+          if (!isLoggedIn) {
+            showCustomSnackBarWidget(
+              getTranslated('login_required_to_negotiate', context) ?? 'Veuillez vous connecter pour négocier le prix d\'un article.',
+              context,
+              sanckBarType: SnackBarType.warning,
+            );
+            Navigator.push(context, MaterialPageRoute(builder: (_) => const LoginScreen()));
+            return;
+          }
           showModalBottomSheet(
             context: context,
             isScrollControlled: true,
@@ -612,6 +625,16 @@ class _CartNegotiationSectionWidget extends StatelessWidget {
             const SizedBox(width: 6),
             InkWell(
               onTap: () {
+                final bool isLoggedIn = Provider.of<AuthController>(context, listen: false).isLoggedIn();
+                if (!isLoggedIn) {
+                  showCustomSnackBarWidget(
+                    getTranslated('login_required_to_negotiate', context) ?? 'Veuillez vous connecter pour négocier le prix d\'un article.',
+                    context,
+                    sanckBarType: SnackBarType.warning,
+                  );
+                  Navigator.push(context, MaterialPageRoute(builder: (_) => const LoginScreen()));
+                  return;
+                }
                 showModalBottomSheet(
                   context: context,
                   isScrollControlled: true,

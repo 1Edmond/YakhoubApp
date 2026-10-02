@@ -22,6 +22,7 @@ import 'package:multishop_tchad/core/constants/dimensions.dart';
 import 'package:multishop_tchad/core/constants/images.dart';
 import 'package:provider/provider.dart';
 import 'package:multishop_tchad/features/vendor/auth/screens/auth_screen.dart' as vendor_auth;
+import 'package:multishop_tchad/features/customer/home/screens/dashboard_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   final bool fromLogout;
@@ -104,10 +105,13 @@ class _LoginScreenState extends State<LoginScreen> {
       canPop: false,
       onPopInvokedWithResult: (didPop, result) async {
         if (!didPop) {
-          if (widget.fromLogout) {
+          if (widget.fromLogout || !Navigator.canPop(context)) {
             final authController = Provider.of<AuthController>(context, listen: false);
             if (!authController.isLoading) {
-              RouterHelper.getDashboardRoute(action: RouteAction.pushNamedAndRemoveUntil);
+              Navigator.of(context).pushAndRemoveUntil(
+                MaterialPageRoute(builder: (_) => const DashBoardScreen(pageIndex: 0)),
+                (route) => false,
+              );
             }
           } else {
             Navigator.pop(context);
@@ -130,8 +134,11 @@ class _LoginScreenState extends State<LoginScreen> {
                       child: IconButton(
                         icon: Icon(Icons.arrow_back_ios, size: 20, color: Theme.of(context).primaryColor),
                         onPressed: () {
-                          if(widget.fromLogout) {
-                            RouterHelper.getDashboardRoute(action: RouteAction.pushNamedAndRemoveUntil);
+                          if (widget.fromLogout || !Navigator.of(context).canPop()) {
+                            Navigator.of(context).pushAndRemoveUntil(
+                              MaterialPageRoute(builder: (_) => const DashBoardScreen(pageIndex: 0)),
+                              (route) => false,
+                            );
                           } else {
                             Navigator.of(context).pop();
                           }
@@ -161,8 +168,11 @@ class _LoginScreenState extends State<LoginScreen> {
                               ),
                                 child: Icon(Icons.close_rounded, size: 20, color: Theme.of(context).cardColor)),
                             onPressed: () {
-                              if(widget.fromLogout) {
-                                RouterHelper.getDashboardRoute(action: RouteAction.pushNamedAndRemoveUntil);
+                              if (widget.fromLogout || !Navigator.of(context).canPop()) {
+                                Navigator.of(context).pushAndRemoveUntil(
+                                  MaterialPageRoute(builder: (_) => const DashBoardScreen(pageIndex: 0)),
+                                  (route) => false,
+                                );
                               } else {
                                 Navigator.of(context).pop();
                               }
@@ -478,34 +488,44 @@ class _LoginScreenState extends State<LoginScreen> {
                                     ]),
                                     const SizedBox(height: Dimensions.paddingSizeLarge),
 
-                                    Center(
-                                      child: InkWell(
-                                        onTap: ()=> {
-                                          if (!authProvider.isLoading && widget.showBackButton) {
-                                            authProvider.getGuestIdUrl(),
-                                            RouterHelper.getDashboardRoute(page: 'home', action: RouteAction.pushReplacement)
-                                          },
-                                          if(!widget.showBackButton) {
-                                            Navigator.of(context).pop(),
-                                          }
-                                        },
-                                        child: RichText(text: TextSpan(children: [
-                                          TextSpan(text: '${getTranslated('continue_as', context)} ',
-                                            style: titilliumRegular.copyWith(
-                                              fontSize: Dimensions.fontSizeDefault,
-                                              color: Theme.of(context).hintColor,
-                                            ),
+                                    // Bouton Mode Invité (Guest)
+                                    Padding(
+                                      padding: const EdgeInsets.symmetric(horizontal: Dimensions.paddingSizeExtraSmall),
+                                      child: OutlinedButton.icon(
+                                        style: OutlinedButton.styleFrom(
+                                          minimumSize: const Size(double.infinity, 50),
+                                          side: BorderSide(
+                                            color: Theme.of(context).primaryColor,
+                                            width: 1.5,
                                           ),
-
-                                          TextSpan(text: getTranslated('guest', context),
-                                            style: titilliumRegular.copyWith(
-                                              fontSize: Dimensions.fontSizeDefault,
-                                              color: Theme.of(context).primaryColor,
-                                              fontWeight: FontWeight.w600,
-                                            ),
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius: BorderRadius.circular(Dimensions.radiusDefault),
                                           ),
-                                        ])
+                                          backgroundColor: Theme.of(context).primaryColor.withValues(alpha: 0.05),
                                         ),
+                                        icon: Icon(
+                                          Icons.person_outline_rounded,
+                                          color: Theme.of(context).primaryColor,
+                                          size: 22,
+                                        ),
+                                        label: Text(
+                                          '${getTranslated('continue_as', context) ?? 'Continuer en tant qu\''} ${getTranslated('guest', context) ?? 'Invité'}',
+                                          style: robotoBold.copyWith(
+                                            fontSize: Dimensions.fontSizeDefault,
+                                            color: Theme.of(context).primaryColor,
+                                          ),
+                                        ),
+                                        onPressed: authProvider.isLoading
+                                            ? null
+                                            : () async {
+                                                await authProvider.getGuestIdUrl();
+                                                if (context.mounted) {
+                                                  Navigator.of(context).pushAndRemoveUntil(
+                                                    MaterialPageRoute(builder: (_) => const DashBoardScreen(pageIndex: 0)),
+                                                    (route) => false,
+                                                  );
+                                                }
+                                              },
                                       ),
                                     ),
                                   

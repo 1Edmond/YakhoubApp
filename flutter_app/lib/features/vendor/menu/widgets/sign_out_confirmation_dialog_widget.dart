@@ -11,6 +11,7 @@ import 'package:multishop_tchad/core/constants/images.dart';
 import 'package:multishop_tchad/core/constants/styles.dart';
 import 'package:multishop_tchad/core/widgets/base/vendor_custom_button_widget.dart';
 import 'package:multishop_tchad/features/vendor/auth/screens/auth_screen.dart';
+import 'package:multishop_tchad/features/auth/screens/login_screen.dart' as customer_auth;
 
 import 'delete_account_warning_dialog.dart';
 
@@ -78,14 +79,20 @@ class SignOutConfirmationDialogWidget extends StatelessWidget {
                                   }else if(condition.response!.statusCode == 200){
                                     Navigator.pop(Get.context!);
                                     Provider.of<AuthController>(Get.context!,listen: false).clearSharedData();
-                                    Navigator.of(Get.context!).pushAndRemoveUntil(MaterialPageRoute(builder: (context) => const AuthScreen()), (route) => false);
+                                    Navigator.of(Get.context!).pushAndRemoveUntil(
+                                      MaterialPageRoute(builder: (context) => const customer_auth.LoginScreen(fromLogout: true, showBackButton: true)),
+                                      (route) => false,
+                                    );
                                   }
                                 });
                               }
                               else{
                                 Provider.of<ProductController>(context,listen: false).removeCookies();
                                 Provider.of<AuthController>(context, listen: false).clearSharedData();
-                                Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) => const AuthScreen()), (route) => false);
+                                Navigator.of(context).pushAndRemoveUntil(
+                                  MaterialPageRoute(builder: (context) => const customer_auth.LoginScreen(fromLogout: true, showBackButton: true)),
+                                  (route) => false,
+                                );
                               }
 
                             },

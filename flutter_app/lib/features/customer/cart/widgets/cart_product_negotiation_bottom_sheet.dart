@@ -322,12 +322,59 @@ class _CartProductNegotiationBottomSheetState
                       'Envoyer la proposition au vendeur',
                   onTap: (_selectedTier != null && !cartProvider.isNegotiationLoading)
                       ? () async {
+                          final double reductionValue = _selectedTier!.toDouble();
+                          final navContext = Navigator.of(context).context;
                           final success = await cartProvider.requestProductNegotiation(
                             widget.cartModel.id!,
-                            _selectedTier!.toDouble(),
+                            reductionValue,
                           );
-                          if (success && context.mounted) {
+                          if (context.mounted) {
                             Navigator.pop(context);
+                          }
+                          if (navContext.mounted) {
+                            showDialog(
+                              context: navContext,
+                              builder: (ctx) => AlertDialog(
+                                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+                                title: Row(
+                                  children: [
+                                    Icon(
+                                      success ? Icons.check_circle : Icons.error_outline,
+                                      color: success ? Colors.green : Theme.of(ctx).colorScheme.error,
+                                      size: 28,
+                                    ),
+                                    const SizedBox(width: 8),
+                                    Expanded(
+                                      child: Text(
+                                        success
+                                            ? (getTranslated('negotiation_sent_title', ctx) ?? 'Proposition envoyée !')
+                                            : (getTranslated('negotiation_failed_title', ctx) ?? 'Échec de la négociation'),
+                                        style: robotoBold.copyWith(fontSize: Dimensions.fontSizeLarge),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                content: Text(
+                                  success
+                                      ? '${getTranslated('negotiation_sent_msg_prefix', ctx) ?? 'Votre proposition de réduction de'} ${reductionValue.toStringAsFixed(0)} FCFA ${getTranslated('negotiation_sent_msg_suffix', ctx) ?? 'a bien été transmise au vendeur pour cet article. Vous recevrez une réponse dans votre panier ou par notification.'}'
+                                      : (cartProvider.lastNegotiationError.isNotEmpty
+                                          ? cartProvider.lastNegotiationError
+                                          : (getTranslated('negotiation_failed_msg', ctx) ?? 'Impossible d\'envoyer votre proposition. Veuillez vérifier votre connexion et réessayer.')),
+                                  style: robotoRegular.copyWith(fontSize: Dimensions.fontSizeDefault),
+                                ),
+                                actions: [
+                                  TextButton(
+                                    onPressed: () => Navigator.pop(ctx),
+                                    child: Text(
+                                      getTranslated('ok', ctx) ?? 'D\'accord',
+                                      style: robotoBold.copyWith(
+                                        color: success ? Theme.of(ctx).primaryColor : Theme.of(ctx).hintColor,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            );
                           }
                         }
                       : null,
