@@ -22,6 +22,20 @@ class AuthScreen extends StatelessWidget{
             child: Column(mainAxisAlignment: MainAxisAlignment.start,crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Stack(children: [
+                  Positioned(
+                    top: MediaQuery.of(context).padding.top + 8,
+                    left: 12,
+                    child: IconButton(
+                      icon: const Icon(Icons.arrow_back_ios_new_rounded, size: 22),
+                      color: Theme.of(context).primaryColor,
+                      tooltip: getTranslated('back', context) ?? 'Retour',
+                      onPressed: () {
+                        if (Navigator.canPop(context)) {
+                          Navigator.pop(context);
+                        }
+                      },
+                    ),
+                  ),
                   Align(alignment: Alignment.topCenter,
                     child: Padding(
                       padding:  EdgeInsets.only(top : MediaQuery.of(context).size.height/12,
@@ -59,7 +73,25 @@ class AuthScreen extends StatelessWidget{
 
                 const SizedBox(height: Dimensions.paddingSizeLarge),
 
-                const LoginScreen()
+                const LoginScreen(),
+
+                Center(
+                  child: Padding(
+                    padding: const EdgeInsets.only(bottom: Dimensions.paddingSizeLarge),
+                    child: TextButton.icon(
+                      onPressed: () {
+                        if (Navigator.canPop(context)) {
+                          Navigator.pop(context);
+                        }
+                      },
+                      icon: const Icon(Icons.arrow_back, size: 16),
+                      label: Text(
+                        getTranslated('back_to_customer_space', context) ?? "Retour à l'espace acheteur",
+                        style: robotoMedium.copyWith(color: Theme.of(context).hintColor),
+                      ),
+                    ),
+                  ),
+                ),
 
               ],
             ),

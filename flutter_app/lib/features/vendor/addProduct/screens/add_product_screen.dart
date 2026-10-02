@@ -148,8 +148,10 @@ class AddProductScreenState extends State<AddProductScreen> with TickerProviderS
     }else{
       Provider.of<AddProductController>(context,listen: false).productCode.text = _generateSKU();
       Provider.of<AddProductController>(context,listen: false).setValueForUnit('select_unit') ;
-      Provider.of<VariationController>(context, listen: false).setCurrentStock('1');
-      Provider.of<AddProductController>(context,listen: false).getTitleAndDescriptionList(Provider.of<SplashController>(context,listen: false).configModel!.languageList!, null);
+      final langList = Provider.of<SplashController>(context,listen: false).configModel?.languageList;
+      if (langList != null && langList.isNotEmpty) {
+        Provider.of<AddProductController>(context,listen: false).getTitleAndDescriptionList(langList, null);
+      }
       Provider.of<AddProductController>(context,listen: false).emptyDigitalProductData();
       Provider.of<AddProductImageController>(context,listen: false).removeProductImage();
     }
@@ -1301,8 +1303,9 @@ class AddProductScreenState extends State<AddProductScreen> with TickerProviderS
 
   List<Widget> _generateTabChildren() {
     List<Widget> tabs = [];
-    for(int index=0; index < Provider.of<SplashController>(context, listen: false).configModel!.languageList!.length; index++) {
-      tabs.add(Text(Provider.of<SplashController>(context, listen: false).configModel!.languageList![index].name!.capitalize(),
+    final languages = Provider.of<SplashController>(context, listen: false).configModel?.languageList ?? [];
+    for(int index=0; index < languages.length; index++) {
+      tabs.add(Text((languages[index].name ?? '').capitalize(),
           style: robotoBold.copyWith()));
     }
     return tabs;
@@ -1310,8 +1313,13 @@ class AddProductScreenState extends State<AddProductScreen> with TickerProviderS
 
   List<Widget> _generateTabPage(AddProductController resProvider, TabController? tabIndex) {
     List<Widget> tabView = [];
-    for(int index=0; index < Provider.of<SplashController>(context, listen: false).configModel!.languageList!.length; index++) {
-      tabView.add(TitleAndDescriptionWidget(resProvider: resProvider, index: index, langCode:  Provider.of<SplashController>(context, listen: false).configModel?.languageList?[tabIndex?.index ?? 0].code ?? 'en',));
+    final languages = Provider.of<SplashController>(context, listen: false).configModel?.languageList ?? [];
+    for(int index=0; index < languages.length; index++) {
+      tabView.add(TitleAndDescriptionWidget(
+        resProvider: resProvider, 
+        index: index, 
+        langCode: languages[index].code ?? 'en',
+      ));
     }
     return tabView;
   }

@@ -21,11 +21,7 @@ import 'package:multishop_tchad/core/constants/custom_themes.dart';
 import 'package:multishop_tchad/core/constants/dimensions.dart';
 import 'package:multishop_tchad/core/constants/images.dart';
 import 'package:provider/provider.dart';
-import 'package:multishop_tchad/features/vendor/auth/controllers/auth_controller.dart' as v_auth;
-import 'package:multishop_tchad/features/vendor/dashboard/screens/dashboard_screen.dart' as v_dash;
-import 'package:multishop_tchad/features/vendor/auth/screens/registration_screen.dart' as v_reg;
-import 'package:multishop_tchad/features/vendor/auth/screens/forget_password_screen.dart' as v_forgot;
-import 'package:multishop_tchad/features/vendor/splash/controllers/splash_controller.dart' as v_splash;
+import 'package:multishop_tchad/features/vendor/auth/screens/auth_screen.dart' as vendor_auth;
 
 class LoginScreen extends StatefulWidget {
   final bool fromLogout;
@@ -47,7 +43,6 @@ class _LoginScreenState extends State<LoginScreen> {
   TextEditingController? _passwordController;
   GlobalKey<FormState>? _formKeyLogin;
   String? countryCode;
-  bool _isVendor = false;
 
   @override
   void initState() {
@@ -208,101 +203,12 @@ class _LoginScreenState extends State<LoginScreen> {
 
                                   const SizedBox(height: 25),
 
-                                  // Role Selector Toggle (Client vs Vendeur)
-                                  Container(
-                                    margin: const EdgeInsets.only(bottom: Dimensions.paddingSizeLarge),
-                                    padding: const EdgeInsets.all(4),
-                                    decoration: BoxDecoration(
-                                      color: Theme.of(context).cardColor,
-                                      borderRadius: BorderRadius.circular(Dimensions.radiusDefault),
-                                      border: Border.all(color: Theme.of(context).primaryColor.withValues(alpha: 0.2)),
-                                      boxShadow: [
-                                        BoxShadow(
-                                          color: Theme.of(context).primaryColor.withValues(alpha: 0.06),
-                                          blurRadius: 8,
-                                          offset: const Offset(0, 2),
-                                        ),
-                                      ],
-                                    ),
-                                    child: Row(
-                                      children: [
-                                        Expanded(
-                                          child: InkWell(
-                                            onTap: () {
-                                              if (_isVendor) setState(() => _isVendor = false);
-                                            },
-                                            borderRadius: BorderRadius.circular(Dimensions.radiusSmall),
-                                            child: Container(
-                                              padding: const EdgeInsets.symmetric(vertical: 10),
-                                              decoration: BoxDecoration(
-                                                color: !_isVendor ? Theme.of(context).primaryColor : Colors.transparent,
-                                                borderRadius: BorderRadius.circular(Dimensions.radiusSmall),
-                                              ),
-                                              child: Row(
-                                                mainAxisAlignment: MainAxisAlignment.center,
-                                                children: [
-                                                  Icon(
-                                                    Icons.person_outline_rounded,
-                                                    size: 18,
-                                                    color: !_isVendor ? Colors.white : Theme.of(context).textTheme.bodyLarge?.color,
-                                                  ),
-                                                  const SizedBox(width: 8),
-                                                  Text(
-                                                    getTranslated('customer', context) ?? 'Client',
-                                                    style: titilliumSemiBold.copyWith(
-                                                      color: !_isVendor ? Colors.white : Theme.of(context).textTheme.bodyLarge?.color,
-                                                      fontSize: Dimensions.fontSizeDefault,
-                                                    ),
-                                                  ),
-                                                ],
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                        const SizedBox(width: 4),
-                                        Expanded(
-                                          child: InkWell(
-                                            onTap: () {
-                                              if (!_isVendor) setState(() => _isVendor = true);
-                                            },
-                                            borderRadius: BorderRadius.circular(Dimensions.radiusSmall),
-                                            child: Container(
-                                              padding: const EdgeInsets.symmetric(vertical: 10),
-                                              decoration: BoxDecoration(
-                                                color: _isVendor ? Theme.of(context).primaryColor : Colors.transparent,
-                                                borderRadius: BorderRadius.circular(Dimensions.radiusSmall),
-                                              ),
-                                              child: Row(
-                                                mainAxisAlignment: MainAxisAlignment.center,
-                                                children: [
-                                                  Icon(
-                                                    Icons.storefront_outlined,
-                                                    size: 18,
-                                                    color: _isVendor ? Colors.white : Theme.of(context).textTheme.bodyLarge?.color,
-                                                  ),
-                                                  const SizedBox(width: 8),
-                                                  Text(
-                                                    getTranslated('seller', context) ?? 'Vendeur',
-                                                    style: titilliumSemiBold.copyWith(
-                                                      color: _isVendor ? Colors.white : Theme.of(context).textTheme.bodyLarge?.color,
-                                                      fontSize: Dimensions.fontSizeDefault,
-                                                    ),
-                                                  ),
-                                                ],
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-
                                   Selector<AuthController, bool>(
                                     selector: (context, authProvider) => authProvider.isNumberLoginScreenText,
                                     builder: (_, isNumberLogin, ___) {
                                       return CustomTextFieldWidget(
-                                        countryDialCode: (!_isVendor && isNumberLogin) ? countryCode : null,
-                                        showCodePicker: !_isVendor && isNumberLogin,
+                                        countryDialCode: isNumberLogin ? countryCode : null,
+                                        showCodePicker: isNumberLogin,
                                         onCountryChanged: (CountryCode value) {
                                           countryCode = value.dialCode;
                                         },
@@ -328,7 +234,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                         nextFocus: _passwordFocus,
                                         controller: _emailPhoneController,
                                         inputType: TextInputType.name,
-                                        labelText: _isVendor ? (getTranslated('enter_email_address', context) ?? 'Email / Téléphone') : getTranslated('email/phone', context),
+                                        labelText: getTranslated('email/phone', context),
                                         required: true,
                                       );
                                     },
@@ -354,11 +260,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                   Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
                                     InkWell(
                                       onTap: () {
-                                        if (_isVendor) {
-                                          Provider.of<v_auth.AuthController>(context, listen: false).toggleRememberMe();
-                                        } else {
-                                          authProvider.toggleRememberMe();
-                                        }
+                                        authProvider.toggleRememberMe();
                                       },
                                       child: Row(children: [
                                         Container(width: 18, height: 18,
@@ -367,7 +269,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                             border: Border.all(color: Theme.of(context).primaryColor),
                                             borderRadius: BorderRadius.circular(3),
                                           ),
-                                          child: (_isVendor ? Provider.of<v_auth.AuthController>(context).isActiveRememberMe : authProvider.isActiveRememberMe)
+                                          child: authProvider.isActiveRememberMe
                                               ? Icon(Icons.done, color: Theme.of(context).primaryColor, size: 14)
                                               : const SizedBox.shrink(),
                                         ),
@@ -384,11 +286,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
                                     InkWell(
                                       onTap: () {
-                                        if (_isVendor) {
-                                          Navigator.push(context, MaterialPageRoute(builder: (_) => const v_forgot.ForgotPasswordScreen()));
-                                        } else {
-                                          RouterHelper.getForgetPasswordScreenRoute();
-                                        }
+                                        RouterHelper.getForgetPasswordScreenRoute();
                                       },
                                       child: Padding(
                                         padding: const EdgeInsets.all(8.0),
@@ -406,7 +304,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                   ]),
 
                                   Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                                    if (!_isVendor && (authProvider.loginErrorMessage?.isNotEmpty ?? false)) ...[
+                                    if (authProvider.loginErrorMessage?.isNotEmpty ?? false) ...[
                                       CircleAvatar(backgroundColor: Theme.of(context).primaryColor, radius: 5),
                                       const SizedBox(width: 8),
 
@@ -423,102 +321,62 @@ class _LoginScreenState extends State<LoginScreen> {
                                   ]),
                                   const SizedBox(height: 10),
 
-                                  Consumer<v_auth.AuthController>(
-                                    builder: (context, vAuth, _) {
-                                      final bool isLoggingIn = _isVendor ? vAuth.isLoading : authProvider.isLoading;
-                                      return !isLoggingIn ? CustomButton(
-                                        buttonText: getTranslated('sign_in', context),
-                                        onTap: () async {
-                                          String password = _passwordController!.text.trim();
-                                          String userInput = _emailPhoneController!.text.trim();
+                                  !authProvider.isLoading ? CustomButton(
+                                      buttonText: getTranslated('sign_in', context),
+                                      onTap: () async {
+                                        String password = _passwordController!.text.trim();
+                                        String userInput = _emailPhoneController!.text.trim();
 
-                                          if (userInput.isEmpty) {
-                                            showCustomSnackBarWidget(getTranslated('enter_email_or_phone', context), context, snackBarType: SnackBarType.warning);
-                                          } else if (password.isEmpty) {
-                                            showCustomSnackBarWidget(getTranslated('enter_password', context), context, snackBarType: SnackBarType.warning);
-                                          } else if (password.length < 6) {
-                                            showCustomSnackBarWidget(getTranslated('password_should_be', context), context, snackBarType: SnackBarType.warning);
-                                          } else if (_isVendor) {
-                                            final status = await vAuth.login(context, emailAddress: userInput, password: password);
-                                            if (status.response?.statusCode == 200) {
-                                              if (vAuth.isActiveRememberMe) {
-                                                vAuth.saveUserNumberAndPassword(userInput, password);
-                                              } else {
-                                                vAuth.clearUserEmailAndPassword();
-                                              }
-                                              await Provider.of<v_splash.SplashController>(Get.context!, listen: false).initConfig();
-                                              Navigator.pushAndRemoveUntil(Get.context!, MaterialPageRoute(builder: (_) => const v_dash.DashboardScreen()), (route) => false);
-                                            }
-                                          } else {
-                                            bool isNumber = NumberCheckerHelper.isNumber(userInput);
+                                        if (userInput.isEmpty) {
+                                          showCustomSnackBarWidget(getTranslated('enter_email_or_phone', context), context, snackBarType: SnackBarType.warning);
+                                        } else if (password.isEmpty) {
+                                          showCustomSnackBarWidget(getTranslated('enter_password', context), context, snackBarType: SnackBarType.warning);
+                                        } else if (password.length < 6) {
+                                          showCustomSnackBarWidget(getTranslated('password_should_be', context), context, snackBarType: SnackBarType.warning);
+                                        } else {
+                                          bool isNumber = NumberCheckerHelper.isNumber(userInput);
 
-                                            if (isNumber) {
-                                              userInput = (countryCode ?? '+235') + userInput;
-                                            }
-
-                                            String type = isNumber ? 'phone' : 'email';
-
-                                            await authProvider.login(userInput, password, type, FromPage.login,
-                                              toNavigateScreen: widget.fromPage,
-                                              onLoginSuccess: widget.onLoginSuccess
-                                            ).then((status) async {
-                                              if (status.isSuccess) {
-                                                if (authProvider.isActiveRememberMe) {
-                                                  authProvider.saveUserEmailAndPassword(UserLogData(
-                                                    countryCode:  countryCode,
-                                                    phoneNumber: isNumber ? userInput : null,
-                                                    email: isNumber ? null : userInput,
-                                                    password: password,
-                                                  ));
-                                                }
-                                                if(widget.fromPage == '/dashboard' && !widget.showBackButton) {
-                                                  Navigator.of(Get.context!).pop();
-                                                  if(Provider.of<SplashController>(Get.context!, listen: false).configModel!.activeTheme == "theme_aster") {
-                                                    AsterThemeHomeScreen.loadData(false);
-                                                  }else{
-                                                    HomePage.loadData(false);
-                                                  }
-                                                }
-                                                authProvider.navigateToHome(widget.fromPage, widget.onLoginSuccess);
-                                              }
-                                            });
+                                          if (isNumber) {
+                                            userInput = (countryCode ?? '+235') + userInput;
                                           }
-                                        },
-                                      ) :
-                                      Center(
-                                        child: CircularProgressIndicator(
-                                          valueColor: AlwaysStoppedAnimation<Color>(Theme.of(context).primaryColor),
-                                        ),
-                                      );
-                                    }
-                                  ),
+
+                                          String type = isNumber ? 'phone' : 'email';
+
+                                          await authProvider.login(userInput, password, type, FromPage.login,
+                                            toNavigateScreen: widget.fromPage,
+                                            onLoginSuccess: widget.onLoginSuccess
+                                          ).then((status) async {
+                                            if (status.isSuccess) {
+                                              if (authProvider.isActiveRememberMe) {
+                                                authProvider.saveUserEmailAndPassword(UserLogData(
+                                                  countryCode:  countryCode,
+                                                  phoneNumber: isNumber ? userInput : null,
+                                                  email: isNumber ? null : userInput,
+                                                  password: password,
+                                                ));
+                                              }
+                                              if(widget.fromPage == '/dashboard' && !widget.showBackButton) {
+                                                Navigator.of(Get.context!).pop();
+                                                if(Provider.of<SplashController>(Get.context!, listen: false).configModel!.activeTheme == 'theme_aster') {
+                                                  AsterThemeHomeScreen.loadData(false);
+                                                }else{
+                                                  HomePage.loadData(false);
+                                                }
+                                              }
+                                              authProvider.navigateToHome(widget.fromPage, widget.onLoginSuccess);
+                                            }
+                                          });
+                                        }
+                                      },
+                                    ) :
+                                    Center(
+                                      child: CircularProgressIndicator(
+                                        valueColor: AlwaysStoppedAnimation<Color>(Theme.of(context).primaryColor),
+                                      ),
+                                    ),
                                   const SizedBox(height: Dimensions.paddingSizeLarge),
 
-                                  if (_isVendor) ...[
-                                    Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                                      Text(getTranslated('dont_have_an_account', context) ?? 'Pas encore de boutique ?',
-                                        style: Theme.of(context).textTheme.displayMedium!.copyWith(
-                                          fontSize: Dimensions.fontSizeDefault,
-                                          color: Theme.of(context).textTheme.bodyLarge?.color,
-                                        ),
-                                      ),
-                                      const SizedBox(width: Dimensions.paddingSizeSmall),
-
-                                      InkWell(
-                                        onTap: () {
-                                          Navigator.of(context).push(MaterialPageRoute(builder: (_) => const v_reg.RegistrationScreen()));
-                                        },
-                                        child: Text(getTranslated('registration_here', context) ?? 'S\'inscrire comme vendeur',
-                                          style: Theme.of(context).textTheme.displaySmall!.copyWith(
-                                            fontSize: Dimensions.fontSizeDefault,
-                                            decoration: TextDecoration.underline,
-                                            decorationColor: Theme.of(context).primaryColor,
-                                            color: Theme.of(context).primaryColor,
-                                          ),
-                                        ),
-                                      ),
-                                    ]),
-                                  ] else ...[
+                                  
                                     if(configModel.customerLogin?.loginOption?.otpLogin == null)
                                       Row(
                                         children: [
@@ -650,7 +508,52 @@ class _LoginScreenState extends State<LoginScreen> {
                                         ),
                                       ),
                                     ),
-                                  ],
+                                  
+
+                                    const SizedBox(height: Dimensions.paddingSizeExtraLarge),
+
+                                    // Bouton Accès Espace Vendeur Dédié
+                                    InkWell(
+                                      onTap: () {
+                                        Navigator.push(context, MaterialPageRoute(
+                                          builder: (_) => const vendor_auth.AuthScreen(),
+                                        ));
+                                      },
+                                      borderRadius: BorderRadius.circular(Dimensions.radiusDefault),
+                                      child: Container(
+                                        padding: const EdgeInsets.symmetric(
+                                          horizontal: Dimensions.paddingSizeDefault,
+                                          vertical: Dimensions.paddingSizeSmall + 2,
+                                        ),
+                                        decoration: BoxDecoration(
+                                          color: Theme.of(context).primaryColor.withValues(alpha: 0.08),
+                                          borderRadius: BorderRadius.circular(Dimensions.radiusDefault),
+                                          border: Border.all(
+                                            color: Theme.of(context).primaryColor.withValues(alpha: 0.3),
+                                            width: 1,
+                                          ),
+                                        ),
+                                        child: Row(
+                                          mainAxisAlignment: MainAxisAlignment.center,
+                                          mainAxisSize: MainAxisSize.min,
+                                          children: [
+                                            Icon(
+                                              Icons.storefront_rounded,
+                                              size: 20,
+                                              color: Theme.of(context).primaryColor,
+                                            ),
+                                            const SizedBox(width: 8),
+                                            Text(
+                                              getTranslated('seller_login_or_open_shop', context) ?? 'Espace Vendeur • Ouvrir ma boutique →',
+                                              style: titilliumSemiBold.copyWith(
+                                                fontSize: Dimensions.fontSizeDefault,
+                                                color: Theme.of(context).primaryColor,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
 
                                 ]),
                               ),

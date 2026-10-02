@@ -131,6 +131,7 @@ class ScrollingFabAnimatedState extends State<ScrollingFabAnimated> {
         builder: (BuildContext _, double size, Widget? child) {
           double widthPercent = (widget.width - widget.height).abs() / 100;
           bool isFull = _endTween == 100;
+          bool showText = isFull && size > 60;
           double radius = widget.radius ?? (widget.height / 2);
           return Container(
             decoration: BoxDecoration(
@@ -138,39 +139,38 @@ class ScrollingFabAnimatedState extends State<ScrollingFabAnimated> {
                 color: widget.color ?? Theme.of(context).primaryColor),
             height: widget.height,
             width: widget.height + widthPercent * size,
-            child: InkWell(
-              onTap: widget.onPress,
-              child: Ink(
-                child: Row(
-                  mainAxisAlignment: isFull
-                      ? MainAxisAlignment.spaceEvenly
-                      : MainAxisAlignment.center,
-                  children: [
-
-                    ...(isFull
-                        ? [
-                      Expanded(
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 15),
-                          child: AnimatedOpacity(
-                            opacity: size > 90 ? 1 : 0,
-                            duration: const Duration(milliseconds: 100),
-                            child: widget.text,
+            child: ClipRRect(
+              borderRadius: BorderRadius.all(Radius.circular(radius)),
+              child: InkWell(
+                onTap: widget.onPress,
+                child: Ink(
+                  child: Row(
+                    mainAxisAlignment: isFull
+                        ? MainAxisAlignment.spaceEvenly
+                        : MainAxisAlignment.center,
+                    children: [
+                      if (showText)
+                        Expanded(
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 12, right: 6),
+                            child: AnimatedOpacity(
+                              opacity: size > 90 ? 1 : 0,
+                              duration: const Duration(milliseconds: 100),
+                              child: widget.text,
+                            ),
                           ),
                         ),
-                      )
-                    ]
-                        : []),
 
-                    Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 15),
-                        child: Transform.rotate(
-                          angle: widget.animateIcon
-                              ? (3.6 * math.pi / 180) * size
-                              : 0,
-                          child: widget.icon,
-                        )),
-                  ],
+                      Container(
+                          padding: EdgeInsets.symmetric(horizontal: showText ? 10 : 12),
+                          child: Transform.rotate(
+                            angle: widget.animateIcon
+                                ? (3.6 * math.pi / 180) * size
+                                : 0,
+                            child: widget.icon,
+                          )),
+                    ],
+                  ),
                 ),
               ),
             ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:multishop_tchad/core/widgets/base/custom_button_widget.dart';
+import 'package:multishop_tchad/core/widgets/base/custom_asset_image_widget.dart';
 import 'package:multishop_tchad/core/localization/language_constrants.dart';
 import 'package:multishop_tchad/core/constants/custom_themes.dart';
 import 'package:multishop_tchad/core/constants/dimensions.dart';
@@ -28,7 +29,7 @@ class ConfirmationDialogWidget extends StatelessWidget {
 
               Padding(
                 padding: const EdgeInsets.all(Dimensions.paddingSizeLarge),
-                child: Image.asset(icon, width: 35, height: 35),
+                child: CustomAssetImageWidget(icon, width: 35, height: 35),
               ),
 
               title != null ? Padding(

@@ -22,6 +22,7 @@ import 'package:multishop_tchad/core/constants/images.dart';
 import 'package:multishop_tchad/core/constants/styles.dart';
 import 'package:multishop_tchad/core/widgets/base/basewidgets/confirmation_dialog_widget.dart';
 import 'package:multishop_tchad/core/widgets/base/basewidgets/custom_image_widget.dart';
+import 'package:multishop_tchad/core/widgets/base/custom_asset_image_widget.dart';
 import 'package:multishop_tchad/features/vendor/product_details/screens/product_details_screen.dart';
 import 'package:multishop_tchad/features/vendor/barcode/screens/bar_code_generator_screen.dart';
 
@@ -381,7 +382,7 @@ class _ShopProductWidgetState extends State<ShopProductWidget> {
               ),
               SpeedDialChild(
                 elevation: 0,
-                child: Padding(padding: const EdgeInsets.all(8.0), child: Image.asset(Images.delete)),
+                child: const Padding(padding: EdgeInsets.all(8.0), child: CustomAssetImageWidget(Images.delete)),
                 onTap: () async {
                   setState(() { isDialOpen.value = false; extend = false; });
                   await Future.delayed(const Duration(milliseconds : 350));

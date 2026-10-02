@@ -22,6 +22,13 @@ class TitleAndDescriptionWidget extends StatefulWidget {
 class _TitleAndDescriptionWidgetState extends State<TitleAndDescriptionWidget> {
   @override
   Widget build(BuildContext context) {
+    while (widget.resProvider.titleControllerList.length <= widget.index) {
+      widget.resProvider.titleControllerList.add(TextEditingController());
+    }
+    while (widget.resProvider.descriptionControllerList.length <= widget.index) {
+      widget.resProvider.descriptionControllerList.add(TextEditingController());
+    }
+
     return Container(
       padding: const EdgeInsets.symmetric(horizontal : Dimensions.iconSizeSmall),
       // color: Colors.red,
@@ -78,7 +85,7 @@ class _TitleAndDescriptionWidgetState extends State<TitleAndDescriptionWidget> {
           CustomTextFieldWidget(
             formProduct: true,
             textInputAction: TextInputAction.next,
-            controller: TextEditingController(text: widget.resProvider.titleControllerList[widget.index].text),
+            controller: widget.resProvider.titleControllerList[widget.index],
             textInputType: TextInputType.name,
             required: true,
             hintText: getTranslated('product_name', context),
@@ -145,7 +152,7 @@ class _TitleAndDescriptionWidgetState extends State<TitleAndDescriptionWidget> {
             formProduct: true,
             required: true,
             isDescription: true,
-            controller: TextEditingController(text: widget.resProvider.descriptionControllerList[widget.index].text),
+            controller: widget.resProvider.descriptionControllerList[widget.index],
             onChanged: (String text) => widget.resProvider.setDescription(widget.index, text),
             textInputType: TextInputType.multiline,
             maxLine: 3,

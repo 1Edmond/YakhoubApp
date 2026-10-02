@@ -15,6 +15,7 @@ import 'package:multishop_tchad/features/customer/more/widgets/profile_info_sect
 import 'package:multishop_tchad/features/customer/more/widgets/more_horizontal_section_widget.dart';
 import 'package:provider/provider.dart';
 import 'package:multishop_tchad/features/customer/more/widgets/title_button_widget.dart';
+import 'package:multishop_tchad/features/vendor/auth/screens/auth_screen.dart' as vendor_auth;
 
 
 class MoreScreen extends StatefulWidget {
@@ -207,6 +208,12 @@ class _MoreScreenState extends State<MoreScreen> {
                             MenuButtonWidget(image: Images.preference, title: getTranslated('support_ticket', context),
                               onTap: () {
                                 RouterHelper.getSupportTicketRoute(action: RouteAction.push);
+                              },
+                            ),
+
+                            MenuButtonWidget(image: Images.storeIcon, title: getTranslated('seller_zone', context) ?? 'Espace Vendeur',
+                              onTap: () {
+                                Navigator.push(context, MaterialPageRoute(builder: (_) => const vendor_auth.AuthScreen()));
                               },
                             ),
 

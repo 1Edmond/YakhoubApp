@@ -20,6 +20,7 @@ import 'package:multishop_tchad/core/constants/dimensions.dart';
 import 'package:multishop_tchad/core/constants/images.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
+import 'package:multishop_tchad/features/vendor/auth/screens/auth_screen.dart' as vendor_auth;
 
 class MoreScreenView extends StatefulWidget {
   const MoreScreenView({super.key});
@@ -587,6 +588,14 @@ class _MoreScreenViewState extends State<MoreScreenView> {
                       iconImage: Images.supportTicketSvg,
                       label: getTranslated('support_ticket', context)!,
                       onTap: () => RouterHelper.getSupportTicketRoute(action: RouteAction.push),
+                    ),
+
+                    MenuItem(
+                      iconImage: Images.storeIcon,
+                      label: getTranslated('seller_zone', context) ?? 'Espace Vendeur',
+                      onTap: () {
+                        Navigator.push(context, MaterialPageRoute(builder: (_) => const vendor_auth.AuthScreen()));
+                      },
                     ),
 
                     if (splashController.defaultBusinessPages != null && splashController.defaultBusinessPages!.isNotEmpty) ...[

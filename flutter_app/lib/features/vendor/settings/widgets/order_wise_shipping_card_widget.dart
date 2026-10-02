@@ -9,6 +9,7 @@ import 'package:multishop_tchad/core/constants/dimensions.dart';
 import 'package:multishop_tchad/core/constants/images.dart';
 import 'package:multishop_tchad/core/constants/styles.dart';
 import 'package:multishop_tchad/core/widgets/base/basewidgets/confirmation_dialog_widget.dart';
+import 'package:multishop_tchad/core/widgets/base/custom_asset_image_widget.dart';
 import 'package:multishop_tchad/features/vendor/settings/screens/order_wise_shipping_add_screen.dart';
 
 
@@ -87,7 +88,7 @@ class OrderWiseShippingCardWidget extends StatelessWidget {
                       ),
                         child: Padding(
                           padding: const EdgeInsets.all(Dimensions.paddingSizeSmall),
-                          child: Image.asset(Images.delete,  width: Dimensions.iconSizeMedium),
+                          child: CustomAssetImageWidget(Images.delete, width: Dimensions.iconSizeMedium),
                         ))),
                 const SizedBox(width: Dimensions.paddingSizeDefault),
                 InkWell(
