@@ -30,6 +30,8 @@ class ThirdPartyDeliverymanController extends ChangeNotifier {
     if (response.response != null && response.response!.statusCode == 200) {
       final List<dynamic> providersJson = response.response!.data['providers'] ?? [];
       _providers = providersJson.map((provider) => CourierProviderModel.fromJson(provider)).toList();
+    } else if (response.response?.statusCode == 404) {
+      _providers = [];
     } else {
       ApiChecker.checkApi(response);
     }

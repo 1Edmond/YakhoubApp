@@ -38,6 +38,7 @@ class SettingsScreen extends StatelessWidget {
             onTap: () => showAnimatedDialogWidget(context, const ChooseShippingDialogWidget()),
           ),
 
+          if (Provider.of<SplashController>(context, listen: false).configModel?.deliveryPartnerSetupStatus == true)
           TitleButton(
             icon: Images.deliveryManIcon,
             title: getTranslated('third_party_delivery_partner', context),
