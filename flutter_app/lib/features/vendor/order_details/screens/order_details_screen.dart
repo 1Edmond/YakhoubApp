@@ -63,8 +63,10 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
 
   @override
   void initState() {
-    _loadData(context);
     super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _loadData(context);
+    });
   }
 
   @override

@@ -11,7 +11,8 @@ class CustomBottomSheetWidget extends StatelessWidget {
   final String? title;
   final bool isProfile;
   final Function? onTap;
-  const CustomBottomSheetWidget({super.key,  required this.image, required this.title, this.isProfile = false, this.onTap,});
+  final int unreadCount;
+  const CustomBottomSheetWidget({super.key,  required this.image, required this.title, this.isProfile = false, this.onTap, this.unreadCount = 0});
 
   @override
   Widget build(BuildContext context) {
@@ -29,12 +30,40 @@ class CustomBottomSheetWidget extends StatelessWidget {
         ),
         child: Column(
             mainAxisAlignment: MainAxisAlignment.center, children: [
-              SizedBox(width: MediaQuery.of(context).size.width/14,
-                height: MediaQuery.of(context).size.width/14,
-               child: isProfile ?
-                  ClipRRect( borderRadius: BorderRadius.circular(50),
-                      child: CustomImageWidget(image: image)):
-                Image.asset(image),),
+              Stack(
+                clipBehavior: Clip.none,
+                children: [
+                  SizedBox(width: MediaQuery.of(context).size.width/14,
+                    height: MediaQuery.of(context).size.width/14,
+                   child: isProfile ?
+                      ClipRRect( borderRadius: BorderRadius.circular(50),
+                          child: CustomImageWidget(image: image)):
+                    Image.asset(image),),
+                  if (unreadCount > 0)
+                    Positioned(
+                      top: -6,
+                      right: -8,
+                      child: Container(
+                        padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 1),
+                        decoration: BoxDecoration(
+                          color: Theme.of(context).colorScheme.error,
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        constraints: const BoxConstraints(minWidth: 16, minHeight: 16),
+                        child: Center(
+                          child: Text(
+                            unreadCount > 99 ? '99+' : unreadCount.toString(),
+                            style: const TextStyle(
+                              color: Colors.white,
+                              fontSize: 9,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                ],
+              ),
               const SizedBox(height: Dimensions.paddingSizeExtraSmall),
 
               Center(child: Text(title!,

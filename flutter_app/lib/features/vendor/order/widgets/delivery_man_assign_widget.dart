@@ -177,7 +177,9 @@ class _DeliveryManAssignWidgetState extends State<DeliveryManAssignWidget> {
                                   initialValue: deliveryMan.deliveryManIndex,
                                   isExpanded: true,
                                   decoration: const InputDecoration(
-                                      border: InputBorder.none),
+                                      border: InputBorder.none,
+                                      isDense: true,
+                                      contentPadding: EdgeInsets.zero),
                                   iconSize: 24,
                                   elevation: 16,
                                   style: titilliumRegular,

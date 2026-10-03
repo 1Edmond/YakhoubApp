@@ -11,23 +11,46 @@ import 'package:multishop_tchad/core/widgets/base/vendor_custom_app_bar_widget.d
 
 import 'package:multishop_tchad/features/vendor/bank_info/widgets/bank_info_widget.dart';
 
-class BankInfoScreen extends StatelessWidget {
+class BankInfoScreen extends StatefulWidget {
   const BankInfoScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    Provider.of<BankInfoController>(context, listen: false).setWarningValue(true,isUpdate: false);
-    return Scaffold(
-      appBar: CustomAppBarWidget(title:getTranslated('bank_info', context), isBackButtonExist: true,),
-        body: Consumer<BankInfoController>(
-          builder: (context, bankProvider, child) {
-            String name = bankProvider.bankInfo!.holderName?? '';
-            String bank = bankProvider.bankInfo!.bankName?? '';
-            String branch = bankProvider.bankInfo!.branch?? '';
-            String accountNo = bankProvider.bankInfo!.accountNo?? '';
-            return Column(children: [
+  State<BankInfoScreen> createState() => _BankInfoScreenState();
+}
 
-              bankProvider.showWarning?
+class _BankInfoScreenState extends State<BankInfoScreen> {
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      Provider.of<BankInfoController>(context, listen: false).setWarningValue(true, isUpdate: false);
+      Provider.of<BankInfoController>(context, listen: false).getBankInfo(context);
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: CustomAppBarWidget(title: getTranslated('bank_info', context), isBackButtonExist: true,),
+      body: Consumer<BankInfoController>(
+        builder: (context, bankProvider, child) {
+          if (bankProvider.bankInfo == null) {
+            return Center(
+              child: CircularProgressIndicator(
+                valueColor: AlwaysStoppedAnimation<Color>(Theme.of(context).primaryColor),
+              ),
+            );
+          }
+
+          String name = bankProvider.bankInfo?.holderName ?? '';
+          String bank = bankProvider.bankInfo?.bankName ?? '';
+          String branch = bankProvider.bankInfo?.branch ?? '';
+          String accountNo = bankProvider.bankInfo?.accountNo ?? '';
+
+          return SingleChildScrollView(
+            child: Column(children: [
+
+              bankProvider.showWarning ?
                 Padding(
                   padding:  const EdgeInsets.all(Dimensions.paddingSizeDefault),
                   child: Container(
@@ -58,7 +81,6 @@ class BankInfoScreen extends StatelessWidget {
                   ),
                 ) : const SizedBox(),
 
-
               !bankProvider.showWarning ?
                   const SizedBox(height: Dimensions.paddingSizeSmall) : const SizedBox(),
 
@@ -86,9 +108,11 @@ class BankInfoScreen extends StatelessWidget {
 
                 BankInfoWidget(name: name,bank: bank,branch: branch,accountNo: accountNo,),
               ],
-            );
-          }
-        ));
+            ),
+          );
+        }
+      ),
+    );
   }
 }
 

@@ -19,7 +19,6 @@ class VendorReductionController extends ChangeNotifier {
 
   Future<void> fetchRequests() async {
     _isLoading = true;
-    notifyListeners();
 
     ApiResponseModel response = await vendorReductionRepository.getReductionRequests();
     _isLoading = false;

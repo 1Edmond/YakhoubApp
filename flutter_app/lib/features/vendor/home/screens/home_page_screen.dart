@@ -22,6 +22,8 @@ import 'package:multishop_tchad/features/vendor/notification/screens/notificatio
 import 'package:multishop_tchad/features/vendor/product/screens/most_popular_product_screen.dart';
 import 'package:multishop_tchad/features/vendor/product/screens/top_selling_product_screen.dart';
 import 'package:multishop_tchad/features/vendor/delivery_man/widgets/top_delivery_man_view_widget.dart';
+import 'package:multishop_tchad/features/vendor/chat/controllers/chat_controller.dart';
+import 'package:multishop_tchad/features/vendor/chat/screens/inbox_screen.dart';
 
 
 class HomePageScreen extends StatefulWidget {
@@ -64,6 +66,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
     Provider.of<ProductController>(context,listen: false).getMostPopularProductList(1, context, 'en', reload: reload);
 
     Provider.of<ProductReviewController>(context, listen: false).getReviewList(context);
+    Provider.of<ChatController>(context, listen: false).fetchUnreadCount();
   }
 
   @override
@@ -118,6 +121,35 @@ class _HomePageScreenState extends State<HomePageScreen> {
                   snap: true,
                   title: Image.asset(Images.logoWithAppName, height: 35),
                   actions: [
+                    Consumer<ChatController>(
+                      builder: (context, chatController, _) {
+                        return InkWell(
+                          onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => const InboxScreen())),
+                          child: Stack(
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.fromLTRB(Dimensions.paddingSizeSmall, Dimensions.paddingSizeSmall, Dimensions.paddingSizeSmall, 0),
+                                child: Icon(CupertinoIcons.chat_bubble_2, color: Theme.of(context).primaryColor),
+                              ),
+                              if (chatController.totalUnreadCount > 0)
+                                Positioned(
+                                  top: 5, right: 6,
+                                  child: CircleAvatar(
+                                    backgroundColor: Theme.of(context).colorScheme.error,
+                                    radius: 8,
+                                    child: Center(
+                                      child: Text(
+                                        chatController.totalUnreadCount > 99 ? '99+' : '${chatController.totalUnreadCount}',
+                                        style: robotoRegular.copyWith(fontSize: Dimensions.fontSizeExtraSmall, color: Colors.white),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                            ],
+                          ),
+                        );
+                      }
+                    ),
                     Consumer<NotificationController>(
                       builder: (context, notificationController, _) {
                         return InkWell(onTap: ()=> Navigator.push(context, MaterialPageRoute(builder: (_)=> const NotificationScreen())),

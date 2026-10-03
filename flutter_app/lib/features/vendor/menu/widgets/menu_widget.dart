@@ -15,6 +15,7 @@ import 'package:multishop_tchad/core/constants/app_constants.dart';
 import 'package:multishop_tchad/core/constants/dimensions.dart';
 import 'package:multishop_tchad/core/constants/images.dart';
 import 'package:multishop_tchad/core/widgets/base/basewidgets/custom_bottom_sheet_widget.dart';
+import 'package:multishop_tchad/features/vendor/chat/controllers/chat_controller.dart';
 import 'package:multishop_tchad/features/vendor/chat/screens/inbox_screen.dart';
 import 'package:multishop_tchad/features/vendor/coupon/screens/coupon_list_screen.dart';
 import 'package:multishop_tchad/features/vendor/dashboard/screens/nav_bar_screen.dart';
@@ -44,7 +45,7 @@ class MenuBottomSheetWidget extends StatelessWidget {
     return Consumer<SplashController>(
       builder: (context, splashController, _) {
 
-        List<CustomBottomSheetWidget> activateMenu = [
+        List<Widget> activateMenu = [
           CustomBottomSheetWidget(image: '${Provider.of<ProfileController>(context, listen: false).userInfoModel?.imageFullUrl?.path}',
             isProfile: true, title: getTranslated('profile', context),
             onTap: () => _handleMenuTap(context, const ProfileScreenView())
@@ -106,8 +107,15 @@ class MenuBottomSheetWidget extends StatelessWidget {
           ),
 
 
-          CustomBottomSheetWidget(image: Images.message, title: getTranslated('inbox', context),
-            onTap: () => _handleMenuTap(context, const InboxScreen()),
+          Consumer<ChatController>(
+            builder: (context, chatController, _) {
+              return CustomBottomSheetWidget(
+                image: Images.message,
+                title: getTranslated('inbox', context),
+                unreadCount: chatController.totalUnreadCount,
+                onTap: () => _handleMenuTap(context, const InboxScreen()),
+              );
+            },
           ),
 
 

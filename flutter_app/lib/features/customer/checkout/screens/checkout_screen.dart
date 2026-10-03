@@ -414,8 +414,8 @@ class CheckoutScreenState extends State<CheckoutScreen> {
         bool isLoggedIn = Provider.of<AuthController>(context, listen: false).isLoggedIn();
         String? orderId = Provider.of<CheckoutController>(context, listen: false).getFirstOrderId(orderID);
 
-        if(isLoggedIn && orderId != null) {
-          RouterHelper.getOrderScreenRoute(isBackButtonExist: true, action: RouteAction.push, fromPlaceOrder: true);
+        if(isLoggedIn) {
+          RouterHelper.getOrderScreenRoute(isBackButtonExist: true, action: RouteAction.pushReplacement, fromPlaceOrder: true);
         } else {
           RouterHelper.getDashboardRoute(action: RouteAction.pushReplacement, page: 'home');
         }

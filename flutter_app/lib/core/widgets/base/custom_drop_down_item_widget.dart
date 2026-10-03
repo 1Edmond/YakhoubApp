@@ -23,9 +23,9 @@ class CustomDropDownItemWidget extends StatelessWidget {
         ):const SizedBox(),
 
         Padding(padding: const EdgeInsets.fromLTRB(Dimensions.paddingSizeDefault, Dimensions.paddingSizeSmall, Dimensions.paddingSizeDefault,0),
-          child: Container(height: 45,
-            padding: const EdgeInsets.only(left: Dimensions.paddingSizeSmall,
-                right: Dimensions.paddingSizeSmall),
+          child: Container(
+            height: 48,
+            padding: const EdgeInsets.symmetric(horizontal: Dimensions.paddingSizeSmall),
             decoration: BoxDecoration(color: Theme.of(context).highlightColor,
               borderRadius: BorderRadius.circular(borderRadius ?? 6),
               border: Border.all(width: .5, color: Theme.of(context).hintColor.withValues(alpha:.5))

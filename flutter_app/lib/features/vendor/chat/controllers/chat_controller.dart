@@ -50,6 +50,26 @@ class ChatController extends ChangeNotifier {
   ChatModel? _chatModel;
   ChatModel? get chatModel => _chatModel;
 
+  int get totalUnreadCount {
+    int count = 0;
+    if (_chatModel != null && _chatModel!.chat != null) {
+      for (var chat in _chatModel!.chat!) {
+        count += (chat.unseenMessageCount ?? 0);
+      }
+    }
+    return count;
+  }
+
+  Future<void> fetchUnreadCount() async {
+    try {
+      ApiResponse apiResponse = await chatServiceInterface.getChatList('customer', 1);
+      if (apiResponse.response != null && apiResponse.response!.statusCode == 200) {
+        _chatModel = ChatModel.fromJson(apiResponse.response!.data);
+        notifyListeners();
+      }
+    } catch (_) {}
+  }
+
   MessageModel? messageModel;
 
   bool _pickedFIleCrossMaxLimit = false;

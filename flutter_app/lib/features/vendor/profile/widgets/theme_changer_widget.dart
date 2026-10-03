@@ -13,6 +13,7 @@ import 'package:multishop_tchad/features/vendor/settings/screens/order_wise_ship
 import 'package:multishop_tchad/features/vendor/settings/screens/setting_screen.dart';
 import 'package:multishop_tchad/features/vendor/shipping/screens/category_wise_shipping_screen.dart';
 import 'package:multishop_tchad/features/vendor/shipping/widgets/product_wise_shipping_widget.dart';
+import 'package:multishop_tchad/core/widgets/base/custom_asset_image_widget.dart';
 
 class ThemeChangerWidget extends StatelessWidget {
   const ThemeChangerWidget({super.key});
@@ -79,7 +80,7 @@ class ThemeChangerWidget extends StatelessWidget {
 
         const SizedBox(height: Dimensions.paddingSizeExtraSmall,),
 
-        SectionItemWidget(icon: Images.delete, title: 'delete_account',
+        SectionItemWidget(icon: Images.deleteIcon, title: 'delete_account',
             onTap: () => showModalBottomSheet(context: context, builder: (_) => const SignOutConfirmationDialogWidget(isDelete: true))),
 
       ],
@@ -104,7 +105,9 @@ class SectionItemWidget extends StatelessWidget {
         height: Dimensions.profileCardHeight,
         child: Padding(padding: const EdgeInsets.symmetric(horizontal: Dimensions.paddingSizeDefault),
           child: Row(children: [SizedBox(width: Dimensions.iconSizeDefault, height: Dimensions.iconSizeDefault,
-              child: Image.asset(icon!)),
+              child: icon != null && icon!.endsWith('.svg')
+                  ? CustomAssetImageWidget(icon!)
+                  : Image.asset(icon!)),
             const SizedBox(width: Dimensions.paddingSizeSmall,),
 
             Expanded(child: Text(getTranslated(title, context)!,

@@ -1,9 +1,14 @@
 
+import 'dart:convert';
+import 'package:flutter/material.dart';
 import 'package:multishop_tchad/features/shared/push_notification/models/notification_body.dart';
-import 'package:flutter/foundation.dart';
-// import 'dart:io';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:provider/provider.dart';
+import 'package:multishop_tchad/main.dart';
+import 'package:multishop_tchad/core/helpers/route_helper.dart';
+import 'package:multishop_tchad/features/vendor/chat/controllers/chat_controller.dart';
+import 'package:multishop_tchad/features/vendor/chat/screens/inbox_screen.dart';
 
 final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin = FlutterLocalNotificationsPlugin();
 
@@ -19,7 +24,76 @@ class NotificationHelper {
       android: initializationSettingsAndroid,
       iOS: initializationSettingsIOS,
     );
-    await flutterLocalNotificationsPlugin.initialize(settings: initializationSettings, onDidReceiveNotificationResponse: (payload) {});
+    await flutterLocalNotificationsPlugin.initialize(
+      settings: initializationSettings,
+      onDidReceiveNotificationResponse: (NotificationResponse response) async {
+        try {
+          if (response.payload != null && response.payload!.isNotEmpty) {
+            final data = jsonDecode(response.payload!);
+            final payload = NotificationBody.fromJson(data);
+            if (payload.type == 'chatting' || payload.type == 'message') {
+              if (navigatorKey.currentContext != null) {
+                Navigator.of(navigatorKey.currentContext!).push(
+                  MaterialPageRoute(builder: (_) => const InboxScreen()),
+                );
+              }
+            } else if (payload.type == 'order' && payload.orderId != null) {
+              if (navigatorKey.currentContext != null) {
+                RouterHelper.getOrderDetailsScreenRoute(
+                  action: RouteAction.push,
+                  orderId: payload.orderId!,
+                  isNotification: true,
+                );
+              }
+            }
+          }
+        } catch (_) {}
+      },
+    );
+
+    FirebaseMessaging.onMessage.listen((RemoteMessage message) async {
+      try {
+        final title = message.notification?.title ?? message.data['title'];
+        final body = message.notification?.body ?? message.data['body'] ?? message.data['message'];
+        final notificationBody = convertNotification(message.data);
+
+        await showNotification(
+          notificationBody,
+          title: title,
+          body: body,
+          payload: jsonEncode(message.data),
+        );
+
+        if (message.data['type'] == 'chatting' || message.data['type'] == 'message') {
+          if (navigatorKey.currentContext != null) {
+            Provider.of<ChatController>(navigatorKey.currentContext!, listen: false).fetchUnreadCount();
+          }
+        }
+      } catch (e) {
+        debugPrint('Error in onMessage: $e');
+      }
+    });
+
+    FirebaseMessaging.onMessageOpenedApp.listen((RemoteMessage message) async {
+      try {
+        final payload = convertNotification(message.data);
+        if (payload.type == 'chatting' || payload.type == 'message') {
+          if (navigatorKey.currentContext != null) {
+            Navigator.of(navigatorKey.currentContext!).push(
+              MaterialPageRoute(builder: (_) => const InboxScreen()),
+            );
+          }
+        } else if (payload.type == 'order' && payload.orderId != null) {
+          if (navigatorKey.currentContext != null) {
+            RouterHelper.getOrderDetailsScreenRoute(
+              action: RouteAction.push,
+              orderId: payload.orderId!,
+              isNotification: true,
+            );
+          }
+        }
+      } catch (_) {}
+    });
   }
 
   static NotificationBody convertNotification(Map<String, dynamic> data) {

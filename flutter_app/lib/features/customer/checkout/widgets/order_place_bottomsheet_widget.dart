@@ -366,12 +366,13 @@ class _OrderPlaceBottomSheetWidgetState extends State<OrderPlaceBottomSheetWidge
           if(isLoggedIn)...[
             const SizedBox(height: Dimensions.paddingSizeExtraLarge),
             SizedBox(
-              height: 45, width: 200,
+              height: 45, width: 220,
               child: CustomButton(
                 radius: 5,
-                buttonText: getTranslated('explore_more_items', context),
+                buttonText: getTranslated('my_order', context) ?? 'Voir mes commandes',
                 onTap: () {
-                  RouterHelper.getDashboardRoute(action: RouteAction.pushReplacement, page: 'home');
+                  Navigator.pop(context);
+                  RouterHelper.getOrderScreenRoute(action: RouteAction.pushNamedAndRemoveUntil, isBackButtonExist: true, fromPlaceOrder: true);
                 },
               ),
             ),

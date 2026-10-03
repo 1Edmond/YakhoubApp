@@ -161,7 +161,9 @@ class _OrderSetupBottomSheetState extends State<OrderSetupBottomSheet> {
                               initialValue: widget.orderModel?.orderStatus,
                               isExpanded: true,
                               decoration: const InputDecoration(
-                                  border: InputBorder.none),
+                                  border: InputBorder.none,
+                                  isDense: true,
+                                  contentPadding: EdgeInsets.zero),
                               iconSize: 24,
                               elevation: 16,
                               style: robotoRegular,
@@ -192,8 +194,10 @@ class _OrderSetupBottomSheetState extends State<OrderSetupBottomSheet> {
                       widget: DropdownButtonFormField<String>(
                         initialValue: widget.orderModel?.paymentStatus,
                         isExpanded: true,
-                        decoration:
-                            const InputDecoration(border: InputBorder.none),
+                        decoration: const InputDecoration(
+                            border: InputBorder.none,
+                            isDense: true,
+                            contentPadding: EdgeInsets.zero),
                         iconSize: 24,
                         elevation: 16,
                         style: robotoRegular,

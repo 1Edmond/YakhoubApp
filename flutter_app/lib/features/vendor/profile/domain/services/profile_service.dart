@@ -17,7 +17,7 @@ class ProfileService implements ProfileServiceInterface{
     ApiResponse apiResponse = await profileRepoInterface.deleteUserAccount();
     if(apiResponse.error == 'ongoing_order_left' || apiResponse.error == 'admin_commission_not_paid' || apiResponse.error == 'delivery_man_transaction_left'){
       return apiResponse;
-    } else if (apiResponse.response!.statusCode == 200) {
+    } else if (apiResponse.response != null && apiResponse.response!.statusCode == 200) {
       Map map = apiResponse.response!.data;
       String? message = map ['message'];
       showCustomSnackBarWidget(message, Get.context!, isToaster: true, isError: false);
