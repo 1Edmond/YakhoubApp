@@ -196,7 +196,12 @@ Future<void> route(
   if (isRoute) {
     if (phone != null) {
 
-      await authProvider.sendVerificationCode(Provider.of<SplashController>(Get.context!, listen: false).configModel!,
+      final splashCtrl = Provider.of<SplashController>(Get.context!, listen: false);
+      if (splashCtrl.configModel == null && Get.context != null) {
+        await splashCtrl.initConfig(Get.context!, null, null);
+      }
+      await authProvider.sendVerificationCode(
+          splashCtrl.configModel ?? ConfigModel(),
           SignUpModel(email: null, phone: phone),
           type: 'phone', fromPage: FromPage.login, toNavigateScreen: fromPage, onLoginSuccess: onLoginSuccess
       );

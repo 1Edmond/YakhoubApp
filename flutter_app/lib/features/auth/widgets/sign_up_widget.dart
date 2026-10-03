@@ -56,7 +56,7 @@ class SignUpWidgetState extends State<SignUpWidget> {
     var profileController = Provider.of<ProfileController>(context, listen: false);
     String phone = authController.countryDialCode +_phoneController.text.trim();
     if (isRoute) {
-      if(splashController.configModel!.emailVerification!){
+      if(splashController.configModel?.emailVerification == true){
         authController.sendOtpToEmail(_emailController.text.toString(), tempToken!).then((value) async {
           if (value.response?.statusCode == 200) {
             authController.updateEmail(_emailController.text.toString());
@@ -65,7 +65,7 @@ class SignUpWidgetState extends State<SignUpWidget> {
 
           }
         });
-      }else if(splashController.configModel!.phoneVerification!){
+      }else if(splashController.configModel?.phoneVerification == true){
         authController.sendOtpToPhone(phone,tempToken!).then((value) async {
           if (value.isSuccess) {
             authController.updatePhone(phone);
@@ -97,7 +97,9 @@ class SignUpWidgetState extends State<SignUpWidget> {
   @override
   void initState() {
     super.initState();
-    Provider.of<AuthController>(context, listen: false).setCountryCode(CountryCode.fromCountryCode(Provider.of<SplashController>(context, listen: false).configModel!.countryCode!).dialCode!, notify: false);
+    final configCountryCode = Provider.of<SplashController>(context, listen: false).configModel?.countryCode;
+    final defaultDial = configCountryCode != null ? (CountryCode.fromCountryCode(configCountryCode).dialCode ?? '+235') : '+235';
+    Provider.of<AuthController>(context, listen: false).setCountryCode(defaultDial, notify: false);
 
     if(widget.referCode != null) {
       _referController.text = widget.referCode ?? '';

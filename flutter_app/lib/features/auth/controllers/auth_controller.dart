@@ -106,8 +106,8 @@ class AuthController with ChangeNotifier {
         apiResponse.response?.statusCode == 200) {
       final CustomerVerification? customerVerification =
           Provider.of<SplashController>(Get.context!, listen: false)
-              .configModel!
-              .customerVerification;
+              .configModel
+              ?.customerVerification;
 
       _isLoading = false;
       Map map = apiResponse.response!.data;
@@ -278,8 +278,8 @@ class AuthController with ChangeNotifier {
     Provider.of<WishListController>(context, listen: false).emptyWishList();
     Provider.of<AiShoppingController>(context, listen: false).clearSession();
     if (Provider.of<SplashController>(context, listen: false)
-            .configModel!
-            .activeTheme ==
+            .configModel
+            ?.activeTheme ==
         "theme_aster") {
       AsterThemeHomeScreen.loadData(false);
     } else {
@@ -321,9 +321,11 @@ class AuthController with ChangeNotifier {
     _isLoading = false;
     if (apiResponse.response != null &&
         apiResponse.response!.statusCode == 200) {
-      final ConfigModel config =
-          Provider.of<SplashController>(Get.context!, listen: false)
-              .configModel!;
+      final splashController = Provider.of<SplashController>(Get.context!, listen: false);
+      if (splashController.configModel == null && Get.context != null) {
+        await splashController.initConfig(Get.context!, null, null);
+      }
+      final ConfigModel? config = splashController.configModel;
       clearGuestId();
       Map map = apiResponse.response!.data;
 
@@ -347,8 +349,8 @@ class AuthController with ChangeNotifier {
 
       if (isPhoneVerified &&
           !isMailVerified &&
-          config.customerVerification?.phone == 0 &&
-          config.customerVerification?.email == 1 &&
+          config?.customerVerification?.phone == 0 &&
+          config?.customerVerification?.email == 1 &&
           email != null) {
         type0 = 'email';
         userInputData = email;
@@ -356,8 +358,8 @@ class AuthController with ChangeNotifier {
 
       if (!isPhoneVerified &&
           isMailVerified &&
-          config.customerVerification?.phone == 1 &&
-          config.customerVerification?.email == 0 &&
+          config?.customerVerification?.phone == 1 &&
+          config?.customerVerification?.email == 0 &&
           phone != null) {
         type0 = 'phone';
         userInputData = phone;
@@ -365,8 +367,8 @@ class AuthController with ChangeNotifier {
 
       if (!isPhoneVerified &&
           !isMailVerified &&
-          config.customerVerification?.phone == 0 &&
-          config.customerVerification?.email == 1 &&
+          config?.customerVerification?.phone == 0 &&
+          config?.customerVerification?.email == 1 &&
           email != null) {
         type0 = 'email';
         userInputData = email;
@@ -374,8 +376,8 @@ class AuthController with ChangeNotifier {
 
       if (!isPhoneVerified &&
           !isMailVerified &&
-          config.customerVerification?.phone == 1 &&
-          config.customerVerification?.email == 0 &&
+          config?.customerVerification?.phone == 1 &&
+          config?.customerVerification?.email == 0 &&
           phone != null) {
         type0 = 'phone';
         userInputData = phone;
@@ -388,8 +390,7 @@ class AuthController with ChangeNotifier {
             .clearSession();
       } else if (temporaryToken != null) {
         await sendVerificationCode(
-            Provider.of<SplashController>(Get.context!, listen: false)
-                .configModel!,
+            config ?? splashController.configModel ?? ConfigModel(),
             SignUpModel(email: userInputData, phone: userInputData),
             type: type0,
             fromPage: fromPage,
@@ -454,7 +455,7 @@ class AuthController with ChangeNotifier {
     _resendButtonLoading = true;
     _isPhoneNumberVerificationButtonLoading = false;
     notifyListeners();
-    if (config.customerVerification!.status == 1) {
+    if (config.customerVerification?.status == 1) {
       if (type == 'email' && config.customerVerification?.email == 1) {
         await checkEmail(signUpModel.email!, fromPage,
             toNavigateScreen: toNavigateScreen, onLoginSuccess: onLoginSuccess);

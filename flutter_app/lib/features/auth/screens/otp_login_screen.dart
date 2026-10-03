@@ -39,8 +39,10 @@ class _OtpLoginScreenState extends State<OtpLoginScreen> {
     super.initState();
     _phoneNumberController = TextEditingController();
 
-    final ConfigModel configModel = Provider.of<SplashController>(context, listen: false).configModel!;
-    countryCode ??= CountryCode.fromCountryCode(configModel.countryCode!).dialCode;
+    final ConfigModel configModel = Provider.of<SplashController>(context, listen: false).configModel ?? ConfigModel();
+    countryCode ??= configModel.countryCode != null
+        ? CountryCode.fromCountryCode(configModel.countryCode!).dialCode
+        : '+235';
   }
 
   @override
@@ -48,7 +50,7 @@ class _OtpLoginScreenState extends State<OtpLoginScreen> {
     final AuthController authProvider = Provider.of<AuthController>(context, listen: false);
     final double width = MediaQuery.of(context).size.width;
     final Size size = MediaQuery.of(context).size;
-    final ConfigModel configModel = Provider.of<SplashController>(context, listen: false).configModel!;
+    final ConfigModel configModel = Provider.of<SplashController>(context, listen: false).configModel ?? ConfigModel();
     final SocialMediaLoginOptions? socialStatus = configModel.customerLogin?.socialMediaLoginOptions;
 
     return PopScope(

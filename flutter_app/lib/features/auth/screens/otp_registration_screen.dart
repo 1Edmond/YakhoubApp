@@ -9,6 +9,7 @@ import 'package:multishop_tchad/features/auth/domain/models/signup_model.dart';
 import 'package:multishop_tchad/features/auth/domain/models/user_log_data.dart';
 import 'package:multishop_tchad/features/auth/enums/from_page.dart';
 import 'package:multishop_tchad/features/customer/splash/controllers/splash_controller.dart';
+import 'package:multishop_tchad/features/customer/splash/domain/models/config_model.dart';
 import 'package:multishop_tchad/core/helpers/number_checker_helper.dart';
 import 'package:multishop_tchad/core/helpers/responsive_helper.dart';
 import 'package:multishop_tchad/core/localization/language_constrants.dart';
@@ -44,8 +45,12 @@ class _OtpRegistrationScreenState extends State<OtpRegistrationScreen> {
     _nameController = TextEditingController();
     _phoneNumberController = TextEditingController();
 
-    final configModel = Provider.of<SplashController>(context, listen: false).configModel!;
-    countryCode ??= CountryCode.fromCountryCode(configModel.countryCode!).dialCode;
+    final configModel = Provider.of<SplashController>(context, listen: false).configModel;
+    if (configModel?.countryCode != null) {
+      countryCode ??= CountryCode.fromCountryCode(configModel!.countryCode!).dialCode;
+    } else {
+      countryCode ??= '+235';
+    }
 
     if(widget.userName != null && widget.userName!.isNotEmpty){
       _nameController?.text = widget.userName!;
@@ -61,7 +66,7 @@ class _OtpRegistrationScreenState extends State<OtpRegistrationScreen> {
     final Size size = MediaQuery.of(context).size;
 
     bool isNumber = NumberCheckerHelper.isNumber(widget.userInput.trim().replaceAll('+', ''));
-    final configModel = Provider.of<SplashController>(context, listen: false).configModel!;
+    final configModel = Provider.of<SplashController>(context, listen: false).configModel ?? ConfigModel();
 
 
     return Scaffold(

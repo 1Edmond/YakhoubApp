@@ -77,8 +77,8 @@ class _VerificationScreenState extends State<VerificationScreen> {
 
     final isPhone = EmailCheckerHelper.isNotValid(widget.userInput.toString());
     final Size size = MediaQuery.of(context).size;
-    final ConfigModel config = Provider.of<SplashController>(context, listen: false).configModel!;
-    final bool isFirebaseOTP = config.customerVerification!.status ==1 && config.customerVerification?.firebase == 1;
+    final ConfigModel config = Provider.of<SplashController>(context, listen: false).configModel ?? ConfigModel();
+    final bool isFirebaseOTP = config.customerVerification?.status == 1 && config.customerVerification?.firebase == 1;
 
     return Scaffold(
       appBar: CustomAppBar(title: getTranslated('otp_verification', context), isBackButtonExist: true),
