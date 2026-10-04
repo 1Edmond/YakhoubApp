@@ -64,7 +64,7 @@ class HomePage extends StatefulWidget {
     final splashController = Provider.of<SplashController>(Get.context!, listen: false);
 
     if(flashDealController.flashDealList.isEmpty || reload) {
-      // await flashDealController.getFlashDealList(reload, false);
+      flashDealController.getFlashDealList(reload, false);
     }
 
     splashController.initConfig(Get.context!, null, null);
@@ -188,8 +188,7 @@ class _HomePageState extends State<HomePage> {
               child: Column(
                 children: [
                   Consumer<FlashDealController>(builder: (context, megaDeal, child) {
-                    return  megaDeal.flashDeal == null ? const FlashDealShimmer()
-                      : megaDeal.flashDealList.isNotEmpty ? Column(children: [
+                    return (megaDeal.flashDeal != null && megaDeal.flashDealList.isNotEmpty) ? Column(children: [
 
                         Padding(
                         padding: EdgeInsets.symmetric(horizontal: Dimensions.paddingSizeDefault),
@@ -266,7 +265,7 @@ class _HomePageState extends State<HomePage> {
 
                         const SizedBox(height: Dimensions.paddingSizeDefault),
                       ],
-                    ) : const SizedBox.shrink() : const FindWhatYouNeedShimmer();}
+                    ) : const SizedBox.shrink() : const SizedBox.shrink();}
               ),
             ),
 

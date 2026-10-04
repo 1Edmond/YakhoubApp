@@ -1848,7 +1848,7 @@
   "first_name_field_is_required": "Le champ prénom est obligatoire",
   "last_name_field_is_required": "Le champ Nom de famille est obligatoire",
   "enter_valid_email_address": "Entrez une adresse e-mail valide",
-  "RUNNING": "Courir",
+  "RUNNING": "En cours",
   "no_internet_connection": "Pas de connexion Internet",
   "no_review": "Aucun avis",
   "sign_up_successfully_now_login": "inscrivez-vous avec succès maintenant connectez-vous",

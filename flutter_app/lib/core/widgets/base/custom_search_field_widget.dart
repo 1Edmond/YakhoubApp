@@ -4,6 +4,7 @@ import 'package:multishop_tchad/core/localization/controllers/localization_contr
 import 'package:multishop_tchad/core/constants/dimensions.dart';
 import 'package:multishop_tchad/core/constants/images.dart';
 import 'package:multishop_tchad/core/constants/styles.dart';
+import 'package:multishop_tchad/core/widgets/base/custom_asset_image_widget.dart';
 
 class CustomSearchFieldWidget extends StatefulWidget {
   final TextEditingController? controller;
@@ -94,7 +95,7 @@ class _CustomSearchFieldWidgetState extends State<CustomSearchFieldWidget> {
               borderRadius: BorderRadius.circular(Dimensions.radiusDefault),
             ),
             padding: const EdgeInsets.all(12),
-            child: Image.asset(Images.filterIcon, color: Colors.white), // Ensure icon is white
+            child: CustomAssetImageWidget(Images.filterIcon, color: Colors.white), // Ensure icon is white
           ),
         ),
       ) : const SizedBox(),

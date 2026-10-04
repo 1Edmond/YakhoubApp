@@ -7,6 +7,7 @@ import 'package:multishop_tchad/features/vendor/restock/widgets/product_filter_d
 import 'package:multishop_tchad/core/localization/language_constrants.dart';
 import 'package:multishop_tchad/core/constants/dimensions.dart';
 import 'package:multishop_tchad/core/constants/images.dart';
+import 'package:multishop_tchad/core/widgets/base/custom_asset_image_widget.dart';
 
 class SearchBarWidget extends StatefulWidget {
   final bool showFilter;
@@ -113,7 +114,7 @@ class _SearchBarWidgetState extends State<SearchBarWidget> {
                       builder: (c) =>  const ProductFilterDialog(fromShop: false)
                     );
                   },
-                  child: Image.asset(Images.filterIcon, color: Colors.white),
+                  child: CustomAssetImageWidget(Images.filterIcon, color: Colors.white),
                 )
               ))
             ],
