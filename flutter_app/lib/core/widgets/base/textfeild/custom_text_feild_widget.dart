@@ -212,7 +212,7 @@ class _CustomTextFieldWidgetState extends State<CustomTextFieldWidget> {
             Provider.of<LocalizationController>(context, listen: false).isLtr ? 0 : Dimensions.paddingSizeSmall, 0,
             Provider.of<LocalizationController>(context, listen: false).isLtr ? Dimensions.paddingSizeSmall : 0, 0),
             child: Container(padding: const EdgeInsets.all(Dimensions.paddingSizeSmall+3),
-              child: Image.asset(widget.suffixIconImage!, width: 20, height: 20))
+              child: CustomAssetImageWidget(widget.suffixIconImage!, width: 20, height: 20))
           ) :
 
           widget.isPassword? GestureDetector(onTap: _toggle,

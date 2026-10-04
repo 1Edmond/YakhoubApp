@@ -408,11 +408,12 @@ class CheckoutScreenState extends State<CheckoutScreen> {
     );
   }
 
-  void _callback(bool isSuccess, String message, String orderID, bool createAccount) async {
+  void _callback(bool isSuccess, String message, String? orderID, bool createAccount) async {
+    final safeOrderId = (orderID == null || orderID == 'null') ? '' : orderID;
     if(isSuccess) {
       WidgetsBinding.instance.addPostFrameCallback((_) {
         bool isLoggedIn = Provider.of<AuthController>(context, listen: false).isLoggedIn();
-        String? orderId = Provider.of<CheckoutController>(context, listen: false).getFirstOrderId(orderID);
+        String? orderId = Provider.of<CheckoutController>(context, listen: false).getFirstOrderId(safeOrderId);
 
         if(isLoggedIn) {
           RouterHelper.getOrderScreenRoute(isBackButtonExist: true, action: RouteAction.pushReplacement, fromPlaceOrder: true);
@@ -420,8 +421,7 @@ class CheckoutScreenState extends State<CheckoutScreen> {
           RouterHelper.getDashboardRoute(action: RouteAction.pushReplacement, page: 'home');
         }
 
-        
-        Future.delayed(Duration(milliseconds: 300), () {
+        Future.delayed(const Duration(milliseconds: 300), () {
           showModalBottomSheet(
             isDismissible: false,
             enableDrag: false,
@@ -438,7 +438,7 @@ class CheckoutScreenState extends State<CheckoutScreen> {
                   borderRadius: const BorderRadius.vertical(top: Radius.circular(20)),
                 ),
                 child: OrderPlaceBottomSheetWidget(
-                  orderID: orderID,
+                  orderID: safeOrderId,
                   icon: Icons.check,
                   title: getTranslated(
                     createAccount

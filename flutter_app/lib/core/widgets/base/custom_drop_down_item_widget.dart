@@ -19,7 +19,7 @@ class CustomDropDownItemWidget extends StatelessWidget {
         title != null?
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: Dimensions.paddingSizeDefault),
-          child: Text(getTranslated(title, context)!, style: robotoRegular.copyWith(color: Theme.of(context).textTheme.bodyLarge?.color),),
+          child: Text(getTranslated(title, context) ?? title!, style: robotoRegular.copyWith(color: Theme.of(context).textTheme.bodyLarge?.color),),
         ):const SizedBox(),
 
         Padding(padding: const EdgeInsets.fromLTRB(Dimensions.paddingSizeDefault, Dimensions.paddingSizeSmall, Dimensions.paddingSizeDefault,0),

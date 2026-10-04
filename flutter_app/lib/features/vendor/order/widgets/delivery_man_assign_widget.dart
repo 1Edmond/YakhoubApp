@@ -132,7 +132,7 @@ class _DeliveryManAssignWidgetState extends State<DeliveryManAssignWidget> {
                     .map<DropdownMenuItem<String>>((String value) {
                   return DropdownMenuItem<String>(
                     value: value,
-                    child: Text(getTranslated(value, context)!),
+                    child: Text(getTranslated(value, context) ?? value),
                   );
                 }).toList(),
               )),
@@ -148,7 +148,7 @@ class _DeliveryManAssignWidgetState extends State<DeliveryManAssignWidget> {
                         return Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(getTranslated('deliveryman', context)!,
+                            Text(getTranslated('deliveryman', context) ?? 'Deliveryman',
                                 style: robotoRegular.copyWith(
                                     color: Theme.of(context)
                                         .textTheme
@@ -174,7 +174,10 @@ class _DeliveryManAssignWidgetState extends State<DeliveryManAssignWidget> {
                                 ),
                                 alignment: Alignment.center,
                                 child: DropdownButtonFormField<int>(
-                                  initialValue: deliveryMan.deliveryManIndex,
+                                  value: (deliveryMan.deliveryManIndex != null &&
+                                          deliveryMan.deliveryManIndex! < deliveryMan.deliveryManIds.length)
+                                      ? deliveryMan.deliveryManIndex
+                                      : 0,
                                   isExpanded: true,
                                   decoration: const InputDecoration(
                                       border: InputBorder.none,
@@ -185,21 +188,23 @@ class _DeliveryManAssignWidgetState extends State<DeliveryManAssignWidget> {
                                   style: titilliumRegular,
                                   items: deliveryMan.deliveryManIds
                                       .map((int? value) {
+                                    int itemIndex = deliveryMan.deliveryManIds.indexOf(value);
+                                    String itemLabel = (value != 0 &&
+                                            deliveryMan.deliveryManList != null &&
+                                            (itemIndex - 1) < deliveryMan.deliveryManList!.length)
+                                        ? '${deliveryMan.deliveryManList![(itemIndex - 1)].fName ?? ''} '
+                                            '${deliveryMan.deliveryManList![(itemIndex - 1)].lName ?? ''}'
+                                        : getTranslated('select_delivery_man', context) ?? 'Select Delivery Man';
                                     return DropdownMenuItem<int>(
-                                      value: deliveryMan.deliveryManIds
-                                          .indexOf(value),
+                                      value: itemIndex,
                                       child: Text(
-                                        value != 0
-                                            ? '${deliveryMan.deliveryManList![(deliveryMan.deliveryManIds.indexOf(value) - 1)].fName} '
-                                                '${deliveryMan.deliveryManList![(deliveryMan.deliveryManIds.indexOf(value) - 1)].lName}'
-                                            : getTranslated(
-                                                'select_delivery_man',
-                                                context)!,
+                                        itemLabel,
                                         style: TextStyle(
                                             color: Theme.of(context)
                                                 .textTheme
                                                 .bodyLarge
                                                 ?.color),
+                                        overflow: TextOverflow.ellipsis,
                                       ),
                                     );
                                   }).toList(),

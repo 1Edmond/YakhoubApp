@@ -36,6 +36,8 @@ class _OrderSetupBottomSheetState extends State<OrderSetupBottomSheet> {
   bool isSellerWiseShipping = false;
   bool inHouseShipping = false;
   final List<String> paymentTypeList = ['paid', 'unpaid'];
+  String? _selectedOrderStatus;
+  String? _selectedPaymentStatus;
 
   void _clearAllTextField(DeliveryManController deliveryManController) {
     deliveryManController.deliveryManChargeTextEditingController.clear();
@@ -47,6 +49,9 @@ class _OrderSetupBottomSheetState extends State<OrderSetupBottomSheet> {
 
   @override
   void initState() {
+    _selectedOrderStatus = widget.orderModel?.orderStatus;
+    _selectedPaymentStatus = widget.orderModel?.paymentStatus;
+
     final DeliveryManController deliveryManController =
         Provider.of<DeliveryManController>(Get.context!, listen: false);
     deliveryManController.setDeliveryTypeIndex(
@@ -155,73 +160,97 @@ class _OrderSetupBottomSheetState extends State<OrderSetupBottomSheet> {
                               ),
                             ),
                           )
-                        : CustomDropDownItemWidget(
-                            title: 'order_status',
-                            widget: DropdownButtonFormField<String>(
-                              initialValue: widget.orderModel?.orderStatus,
-                              isExpanded: true,
-                              decoration: const InputDecoration(
-                                  border: InputBorder.none,
-                                  isDense: true,
-                                  contentPadding: EdgeInsets.zero),
-                              iconSize: 24,
-                              elevation: 16,
-                              style: robotoRegular,
-                              onChanged:
-                                  widget.orderModel?.orderStatus == 'delivered'
+                        : Builder(builder: (context) {
+                            final List<String> availableStatuses = List<String>.from(orderDetailsController.orderStatusList);
+                            if (_selectedOrderStatus != null && !availableStatuses.contains(_selectedOrderStatus)) {
+                              availableStatuses.insert(0, _selectedOrderStatus!);
+                            }
+                            final String? currentStatusValue = availableStatuses.contains(_selectedOrderStatus)
+                                ? _selectedOrderStatus
+                                : (availableStatuses.isNotEmpty ? availableStatuses.first : null);
+
+                            return CustomDropDownItemWidget(
+                              title: 'order_status',
+                              widget: DropdownButtonHideUnderline(
+                                child: DropdownButton<String>(
+                                  value: currentStatusValue,
+                                  isExpanded: true,
+                                  icon: Icon(Icons.keyboard_arrow_down, color: Theme.of(context).hintColor),
+                                  dropdownColor: Theme.of(context).cardColor,
+                                  borderRadius: BorderRadius.circular(Dimensions.radiusDefault),
+                                  menuMaxHeight: 280,
+                                  style: robotoRegular.copyWith(color: Theme.of(context).textTheme.bodyLarge?.color, fontSize: Dimensions.fontSizeDefault),
+                                  onChanged: widget.orderModel?.orderStatus == 'delivered'
                                       ? null
-                                      : (value) {
-                                          orderDetailsController.orderSetupModel
-                                              .orderStatus = value;
+                                      : (String? value) {
+                                          setState(() {
+                                            _selectedOrderStatus = value;
+                                          });
+                                          orderDetailsController.orderSetupModel.orderStatus = value;
                                         },
-                              items: orderDetailsController.orderStatusList
-                                  .map<DropdownMenuItem<String>>(
-                                      (String value) {
-                                return DropdownMenuItem<String>(
-                                  value: value,
-                                  child: Text(getTranslated(value, context)!,
-                                      style: robotoRegular.copyWith(
-                                          color: Theme.of(context)
-                                              .textTheme
-                                              .bodyLarge
-                                              ?.color)),
-                                );
-                              }).toList(),
-                            ),
+                                  items: availableStatuses.map<DropdownMenuItem<String>>((String value) {
+                                    return DropdownMenuItem<String>(
+                                      value: value,
+                                      child: Text(
+                                        getTranslated(value, context) ?? value,
+                                        style: robotoRegular.copyWith(
+                                          color: Theme.of(context).textTheme.bodyLarge?.color,
+                                          fontSize: Dimensions.fontSizeDefault,
+                                        ),
+                                        overflow: TextOverflow.ellipsis,
+                                      ),
+                                    );
+                                  }).toList(),
+                                ),
+                              ),
+                            );
+                          }),
+                    Builder(builder: (context) {
+                      final List<String> availablePayments = List<String>.from(paymentTypeList);
+                      if (_selectedPaymentStatus != null && !availablePayments.contains(_selectedPaymentStatus)) {
+                        availablePayments.insert(0, _selectedPaymentStatus!);
+                      }
+                      final String? currentPaymentValue = availablePayments.contains(_selectedPaymentStatus)
+                          ? _selectedPaymentStatus
+                          : (availablePayments.isNotEmpty ? availablePayments.first : null);
+
+                      return CustomDropDownItemWidget(
+                        title: 'payment_status',
+                        widget: DropdownButtonHideUnderline(
+                          child: DropdownButton<String>(
+                            value: currentPaymentValue,
+                            isExpanded: true,
+                            icon: Icon(Icons.keyboard_arrow_down, color: Theme.of(context).hintColor),
+                            dropdownColor: Theme.of(context).cardColor,
+                            borderRadius: BorderRadius.circular(Dimensions.radiusDefault),
+                            menuMaxHeight: 280,
+                            style: robotoRegular.copyWith(color: Theme.of(context).textTheme.bodyLarge?.color, fontSize: Dimensions.fontSizeDefault),
+                            onChanged: !paymentActive
+                                ? null
+                                : (String? value) {
+                                    setState(() {
+                                      _selectedPaymentStatus = value;
+                                    });
+                                    orderDetailsController.setPaymentMethodIndex(value == 'paid' ? 0 : 1);
+                                    orderDetailsController.orderSetupModel.paymentStatus = value;
+                                  },
+                            items: availablePayments.map<DropdownMenuItem<String>>((String value) {
+                              return DropdownMenuItem<String>(
+                                value: value,
+                                child: Text(
+                                  getTranslated(value, context) ?? value,
+                                  style: robotoRegular.copyWith(
+                                    color: Theme.of(context).textTheme.bodyLarge?.color,
+                                    fontSize: Dimensions.fontSizeDefault,
+                                  ),
+                                  overflow: TextOverflow.ellipsis,
+                                ),
+                              );
+                            }).toList(),
                           ),
-                    CustomDropDownItemWidget(
-                      title: 'payment_status',
-                      widget: DropdownButtonFormField<String>(
-                        initialValue: widget.orderModel?.paymentStatus,
-                        isExpanded: true,
-                        decoration: const InputDecoration(
-                            border: InputBorder.none,
-                            isDense: true,
-                            contentPadding: EdgeInsets.zero),
-                        iconSize: 24,
-                        elevation: 16,
-                        style: robotoRegular,
-                        onChanged: !paymentActive
-                            ? null
-                            : (value) {
-                                orderDetailsController.setPaymentMethodIndex(
-                                    value == 'paid' ? 0 : 1);
-                                orderDetailsController
-                                    .orderSetupModel.paymentStatus = value;
-                              },
-                        items: paymentTypeList.map((String value) {
-                          return DropdownMenuItem<String>(
-                            value: value,
-                            child: Text(getTranslated(value, context)!,
-                                style: robotoRegular.copyWith(
-                                    color: Theme.of(context)
-                                        .textTheme
-                                        .bodyLarge
-                                        ?.color)),
-                          );
-                        }).toList(),
-                      ),
-                    ),
+                        ),
+                      );
+                    }),
                     if (widget.orderModel?.shippingResponsibility ==
                         'inhouse_shipping') ...[
                       Container(
@@ -368,6 +397,12 @@ class _OrderSetupBottomSheetState extends State<OrderSetupBottomSheet> {
 
   void _populateOrderSetUpModel(OrderSetupModel orderSetUpModel,
       DeliveryManController deliveryManController) {
+    if (_selectedOrderStatus != null) {
+      orderSetUpModel.orderStatus = _selectedOrderStatus;
+    }
+    if (_selectedPaymentStatus != null) {
+      orderSetUpModel.paymentStatus = _selectedPaymentStatus;
+    }
     if (deliveryManController.deliveryManIndex != 0) {
       orderSetUpModel.deliveryManId = deliveryManController
           .deliveryManIds[deliveryManController.deliveryManIndex!];

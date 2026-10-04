@@ -44,47 +44,57 @@ class BannerController extends ChangeNotifier {
 
 
   Future<void> getBannerList() async {
+    try {
+      await DataSyncHelper.fetchAndSyncData(
+        fetchFromLocal: ()=> bannerServiceInterface!.getList(source: DataSourceEnum.local),
+        fetchFromClient: ()=> bannerServiceInterface!.getList(source: DataSourceEnum.client),
+        onResponse: (data, _){
+          _mainBannerList = [];
+          _footerBannerList = [];
 
-    DataSyncHelper.fetchAndSyncData(
-      fetchFromLocal: ()=> bannerServiceInterface!.getList(source: DataSourceEnum.local),
-      fetchFromClient: ()=> bannerServiceInterface!.getList(source: DataSourceEnum.client),
-      onResponse: (data, _){
+          if (data is List) {
+            for (var bannerModel in data) {
+              if(bannerModel['banner_type'] == 'Main Banner'){
+                _mainBannerList!.add(BannerModel.fromJson(bannerModel));
+              }
+              else if(bannerModel['banner_type'] == 'Promo Banner Middle Top'){
+                promoBannerMiddleTop = BannerModel.fromJson(bannerModel);
+              }
+              else if(bannerModel['banner_type'] == 'Promo Banner Right'){
+                promoBannerRight = BannerModel.fromJson(bannerModel);
+              }else if(bannerModel['banner_type'] == 'Promo Banner Middle Bottom'){
+                promoBannerMiddleBottom = BannerModel.fromJson(bannerModel);
+              }
+              else if(bannerModel['banner_type'] == 'Promo Banner Bottom'){
+                promoBannerBottom = BannerModel.fromJson(bannerModel);
+              }
+              else if(bannerModel['banner_type'] == 'Promo Banner Left'){
+                promoBannerLeft = BannerModel.fromJson(bannerModel);
+              }else if(bannerModel['banner_type'] == 'Sidebar Banner'){
+                sideBarBanner = BannerModel.fromJson(bannerModel);
+              }else if(bannerModel['banner_type'] == 'Top Side Banner'){
+                topSideBarBannerBottom = BannerModel.fromJson(bannerModel);
+              }else if(bannerModel['banner_type'] == 'Footer Banner'){
+                _footerBannerList?.add(BannerModel.fromJson(bannerModel));
+              }else if(bannerModel['banner_type'] == 'Main Section Banner'){
+                mainSectionBanner = BannerModel.fromJson(bannerModel);
+              }
+            }
+          }
+
+          _currentIndex = 0;
+          notifyListeners();
+        },
+      );
+    } catch (e) {
+      debugPrint('Error getting banner list: $e');
+    } finally {
+      if (_mainBannerList == null) {
         _mainBannerList = [];
         _footerBannerList = [];
-
-        data.forEach((bannerModel) {
-          if(bannerModel['banner_type'] == 'Main Banner'){
-            _mainBannerList!.add(BannerModel.fromJson(bannerModel));
-          }
-          else if(bannerModel['banner_type'] == 'Promo Banner Middle Top'){
-            promoBannerMiddleTop = BannerModel.fromJson(bannerModel);
-          }
-          else if(bannerModel['banner_type'] == 'Promo Banner Right'){
-            promoBannerRight = BannerModel.fromJson(bannerModel);
-          }else if(bannerModel['banner_type'] == 'Promo Banner Middle Bottom'){
-            promoBannerMiddleBottom = BannerModel.fromJson(bannerModel);
-          }
-          else if(bannerModel['banner_type'] == 'Promo Banner Bottom'){
-            promoBannerBottom = BannerModel.fromJson(bannerModel);
-          }
-          else if(bannerModel['banner_type'] == 'Promo Banner Left'){
-            promoBannerLeft = BannerModel.fromJson(bannerModel);
-          }else if(bannerModel['banner_type'] == 'Sidebar Banner'){
-            sideBarBanner = BannerModel.fromJson(bannerModel);
-          }else if(bannerModel['banner_type'] == 'Top Side Banner'){
-            topSideBarBannerBottom = BannerModel.fromJson(bannerModel);
-          }else if(bannerModel['banner_type'] == 'Footer Banner'){
-            _footerBannerList?.add(BannerModel.fromJson(bannerModel));
-          }else if(bannerModel['banner_type'] == 'Main Section Banner'){
-            mainSectionBanner = BannerModel.fromJson(bannerModel);
-          }
-        });
-
-        _currentIndex = 0;
-
         notifyListeners();
-      },
-    );
+      }
+    }
   }
 
   void setCurrentIndex(int index) {

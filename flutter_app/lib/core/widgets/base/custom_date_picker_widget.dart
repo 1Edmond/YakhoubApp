@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:multishop_tchad/core/widgets/base/dropdown_decorator_widget.dart';
 import 'package:multishop_tchad/core/constants/dimensions.dart';
 import 'package:multishop_tchad/core/constants/styles.dart';
+import 'package:multishop_tchad/core/widgets/base/custom_asset_image_widget.dart';
 
 
 class CustomDatePickerWidget extends StatefulWidget {
@@ -48,14 +49,14 @@ class _CustomDatePickerWidgetState extends State<CustomDatePickerWidget> {
               onTap: widget.selectDate as void Function()?,
               child: Row(mainAxisAlignment: widget.prefixIcon! ? MainAxisAlignment.spaceBetween : MainAxisAlignment.spaceBetween, children: [
                 if(widget.prefixIcon!)...[
-                  SizedBox(width: 20,height: 20,child: Image.asset(widget.image!, color: widget.fromClearance ? Theme.of(context).primaryColor : Theme.of(context).hintColor)),
+                  SizedBox(width: 20,height: 20,child: CustomAssetImageWidget(widget.image!, color: widget.fromClearance ? Theme.of(context).primaryColor : Theme.of(context).hintColor)),
                   const SizedBox(width: Dimensions.paddingSizeSmall),
                 ],
                 Text(widget.text!, style: robotoRegular.copyWith(fontSize: Dimensions.fontSizeExtraSmall, color: Theme.of(context).textTheme.bodyLarge!.color)),
             
                 if(!widget.prefixIcon!)...[
                   const SizedBox(width: Dimensions.paddingSizeSmall),
-                  SizedBox(width: 20,height: 20,child: Image.asset(widget.image!, color: widget.fromClearance  ? widget.iconHintColor! ? Theme.of(context).hintColor : Theme.of(context).primaryColor : Theme.of(context).hintColor))
+                  SizedBox(width: 20,height: 20,child: CustomAssetImageWidget(widget.image!, color: widget.fromClearance  ? widget.iconHintColor! ? Theme.of(context).hintColor : Theme.of(context).primaryColor : Theme.of(context).hintColor))
                 ],
               ]),
             ),

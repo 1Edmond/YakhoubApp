@@ -122,25 +122,35 @@ class CheckoutController with ChangeNotifier {
       }
 
       String message = apiResponse.response!.data.toString();
-      callback(true, message, extractId(apiResponse.response!.data['order_ids'].toString()), _newUser);
+      String orderIdStr = '';
+      if (apiResponse.response!.data is Map) {
+        final data = apiResponse.response!.data;
+        var rawIds = data['order_ids'] ?? data['order_id'];
+        orderIdStr = extractId(rawIds?.toString() ?? '');
+      }
+      try {
+        callback(true, message, orderIdStr, _newUser);
+      } catch (e) {
+        debugPrint('Error invoking placeOrder callback: $e');
+      }
     } else {
       _isLoading = false;
-     ApiChecker.checkApi(apiResponse);
+      ApiChecker.checkApi(apiResponse);
     }
     notifyListeners();
   }
 
 
-  String? extractId(String idsString) {
-
+  String extractId(String idsString) {
+    if (idsString == 'null' || idsString.trim().isEmpty) return '';
     String cleaned = idsString.replaceAll(RegExp(r'[\[\]\s]'), '');
-    return cleaned.isNotEmpty ? cleaned : null;
+    return cleaned;
   }
 
   String? getFirstOrderId(String idsString) {
-    if (idsString.trim().isEmpty) return null;
+    if (idsString.trim().isEmpty || idsString.trim() == 'null') return null;
 
-    List<String> ids = idsString.split(',').map((e) => e.trim()).toList();
+    List<String> ids = idsString.split(',').map((e) => e.trim()).where((e) => e.isNotEmpty && e != 'null').toList();
 
     return ids.isNotEmpty ? ids.first : null;
   }
