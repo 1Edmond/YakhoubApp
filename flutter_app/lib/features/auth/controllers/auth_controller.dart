@@ -402,9 +402,13 @@ class AuthController with ChangeNotifier {
       // callback(true, token, temporaryToken, message);
       notifyListeners();
     } else {
+      _loginErrorMessage = ApiChecker.getError(apiResponse).errors?[0].message ?? apiResponse.error?.toString() ?? '';
+      if (_loginErrorMessage != null && _loginErrorMessage!.isNotEmpty && Get.context != null) {
+        showCustomSnackBarWidget(_loginErrorMessage, Get.context!, snackBarType: SnackBarType.error);
+      }
       notifyListeners();
-      responseModel = ResponseModel(apiResponse.error, false);
-      ApiChecker.checkApi(apiResponse);
+      responseModel = ResponseModel(_loginErrorMessage, false);
+      ApiChecker.checkApi(apiResponse, Get.context);
     }
 
     _isLoading = false;
