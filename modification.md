@@ -411,5 +411,46 @@
 - **Validation** :
   - `flutter analyze` : **No issues found!** (0 avertissement, 0 erreur sur tous les fichiers modifiés et créés).
 
+---
+
+### [04/10/2026 - V2] — Refonte Complète UI Négociations Vendeur, Prise en Compte Frais de Livraison & Fix Logique Prix Négocié à la Commande
+- **Problèmes Identifiés** :
+  1. *UI Négociations Vendeur à revoir* : L'icône dans le menu vendeur utilisait celle des coupons (`Images.couponIcon`), l'affichage des informations financières n'était pas assez explicite et les boutons d'action (accepter, contre-offre, refuser) étaient petits, entassés et peu ergonomiques.
+  2. *Frais de livraison non comptabilisés au Checkout* : Dans `CheckoutScreen`, le montant des frais de livraison était forcé en dur à `0.0 /* Tchad Free Delivery */`, écrasant la méthode de livraison choisie par le client et faussant le total payable, le paiement par portefeuille (Wallet) et le paiement hors-ligne.
+  3. *Perte de la réduction négociée lors de la création de la commande (Bug Backend Critique)* :
+     - Lorsque le client passait commande (`place_order`), `CartManager::cart_grand_total()` et `OrderManager::processOrderGenerateData()` écrasaient `$item->discount` par `getProductPriceByType()` (remise catalogue uniquement), éliminant ainsi toute réduction négociée et acceptée par le vendeur.
+     - `OrderManager::addOrderDetailsData()` recalculait lui aussi le discount avec `getProductPriceByType()`, insérant 0 FCFA ou le discount catalogue dans `order_details.discount` au lieu de la réduction négociée.
+     - Les demandes de réduction de panier (`price_reduction_requests` avec `cart_id`) n'étaient jamais rattachées à la commande créée (`order_id = null`), empêchant la traçabilité de la négociation dans la commande.
+- **Corrections Appliquées** :
+  - **Backend Laravel (`C:\laragon\www\admin`)** :
+    - `app/Utils/CartManager.php` :
+      - Dans `getCartListQuery`, `getCartListQueryAPI`, `getCartListGroupQuery`, `cart_grand_total`, `getOnlyCartProductPriceGrandTotal` et `getCartListTotalAppliedDiscount` : remplacement du discount par `max(floatval($item->discount), floatval($productDiscount))`. Les réductions négociées et enregistrées sur le panier sont désormais rigoureusement conservées et intégrées au total de la commande.
+    - `app/Utils/OrderManager.php` :
+      - Dans `addOrderDetailsData()` : conservation de la réduction négociée via `$finalItemDiscount = max(floatval($cartSingleItem['discount'] ?? 0), floatval($productDiscount));` et sauvegarde du montant remisé réel dans `order_details.discount`.
+      - Dans `generateOrder()` : rattachement automatique et immédiat des requêtes de négociation (`PriceReductionRequest`) associées aux articles du panier à la commande générée (`order_id`) avant le nettoyage du panier.
+  - **Application Flutter Client (`multishop_tchad/flutter_app`)** :
+    - `lib/features/customer/checkout/screens/checkout_screen.dart` :
+      - Remplacement des valeurs 0.0 par `widget.shippingFee` dans le résumé de commande (`shipping_fee`), dans le calcul du montant total payable (`total_payable`), dans le montant facturé hors-ligne (`OfflinePaymentScreen`) et dans la déduction du portefeuille (`WalletPaymentWidget`).
+  - **Application Flutter Vendeur (`multishop_tchad/flutter_app`)** :
+    - `lib/features/vendor/menu/widgets/menu_widget.dart` :
+      - Remplacement de l'icône de négociation par `Images.dealOfTheDay` (icône poignée de main / deal commercial adaptée).
+    - `lib/features/vendor/negotiation/screens/vendor_negotiations_screen.dart` :
+      - **Refonte UI Intégrale** :
+        * En-tête avec onglets modernes pill/capsule et badges d'effectif dynamiques.
+        * Carte de négociation restructurée : avatar client, horodatage, bouton d'appel direct téléphone (`tel:`), badge de statut en pilule colorée avec icônes distinctes.
+        * Bloc financier dédié : affichage clair du *Prix catalogue*, de la *Réduction demandée* (rouge vif), et du *Prix final proposé par le client* (vert émeraude en gros caractères).
+        * Affichage du tour réglementaire CDC 3.4.7 (`Tour 1/2` ou `Tour 2/2 (Dernier)`).
+        * **Refonte complète des boutons d'action** :
+          - Bouton pleine largeur *"Accepter la réduction"* vert avec icône de validation.
+          - Bouton *"Contre-offre"* bleu moderne avec icône d'échange (si Tour < 2).
+          - Bouton *"Refuser"* rouge borduré élégant avec icône de fermeture.
+        * Dialogue/Modal de contre-proposition transformé en BottomSheet moderne avec sélection des 11 paliers officiels (250 à 10000 FCFA) et calcul dynamique en temps réel du prix que paiera le client.
+    - `lib/features/vendor/order_details/widgets/vendor_reduction_card_widget.dart` :
+      - Mise à niveau des boutons de la carte de réduction dans la commande avec la même ergonomie moderne.
+- **Validation** :
+  - `php -l` sur `CartManager.php` et `OrderManager.php` : **0 erreur de syntaxe**.
+  - `flutter analyze` : **No issues found!** (0 avertissement, 0 erreur).
+
+
 
 

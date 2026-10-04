@@ -133,50 +133,63 @@ class VendorReductionCardWidget extends StatelessWidget {
 
               if (status == 'pending') ...[
                 const SizedBox(height: Dimensions.paddingSizeDefault),
+                SizedBox(
+                  width: double.infinity,
+                  height: 44,
+                  child: ElevatedButton.icon(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color(0xFF2E7D32),
+                      foregroundColor: Colors.white,
+                      elevation: 0,
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                    ),
+                    icon: const Icon(Icons.check_circle_outline_rounded, size: 18),
+                    label: const Text('Accepter la réduction', style: TextStyle(fontWeight: FontWeight.bold)),
+                    onPressed: controller.isLoading
+                        ? null
+                        : () => controller.acceptReduction(reduction.id!, context, orderId: orderId),
+                  ),
+                ),
+                const SizedBox(height: 8),
                 Row(
                   children: [
-                    Expanded(
-                      child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.green,
-                          foregroundColor: Colors.white,
-                          padding: const EdgeInsets.symmetric(vertical: 10),
-                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+                    if ((reduction.round ?? 1) < 2) ...[
+                      Expanded(
+                        child: SizedBox(
+                          height: 40,
+                          child: ElevatedButton.icon(
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: const Color(0xFF1976D2),
+                              foregroundColor: Colors.white,
+                              elevation: 0,
+                              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                            ),
+                            icon: const Icon(Icons.swap_horiz_rounded, size: 18),
+                            label: const Text('Contre-offre', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12)),
+                            onPressed: controller.isLoading
+                                ? null
+                                : () => _showCounterOfferDialog(context, controller, reduction.id!, orderId),
+                          ),
                         ),
-                        onPressed: controller.isLoading
-                            ? null
-                            : () => controller.acceptReduction(reduction.id!, context, orderId: orderId),
-                        child: const Text('Accepter'),
                       ),
-                    ),
-                    const SizedBox(width: Dimensions.paddingSizeSmall),
+                      const SizedBox(width: 8),
+                    ],
                     Expanded(
-                      child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.red,
-                          foregroundColor: Colors.white,
-                          padding: const EdgeInsets.symmetric(vertical: 10),
-                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+                      child: SizedBox(
+                        height: 40,
+                        child: OutlinedButton.icon(
+                          style: OutlinedButton.styleFrom(
+                            foregroundColor: const Color(0xFFC62828),
+                            backgroundColor: const Color(0xFFFFEBEE),
+                            side: const BorderSide(color: Color(0xFFEF9A9A)),
+                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                          ),
+                          icon: const Icon(Icons.close_rounded, size: 18),
+                          label: const Text('Refuser', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12)),
+                          onPressed: controller.isLoading
+                              ? null
+                              : () => controller.refuseReduction(reduction.id!, context, orderId: orderId),
                         ),
-                        onPressed: controller.isLoading
-                            ? null
-                            : () => controller.refuseReduction(reduction.id!, context, orderId: orderId),
-                        child: const Text('Refuser'),
-                      ),
-                    ),
-                    const SizedBox(width: Dimensions.paddingSizeSmall),
-                    Expanded(
-                      child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.blue,
-                          foregroundColor: Colors.white,
-                          padding: const EdgeInsets.symmetric(vertical: 10),
-                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-                        ),
-                        onPressed: controller.isLoading
-                            ? null
-                            : () => _showCounterOfferDialog(context, controller, reduction.id!, orderId),
-                        child: const Text('Contre-offre'),
                       ),
                     ),
                   ],

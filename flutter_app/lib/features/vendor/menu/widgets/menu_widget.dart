@@ -77,7 +77,7 @@ class MenuBottomSheetWidget extends StatelessWidget {
             builder: (context, reductionController, _) {
               final pendingCount = reductionController.pendingCount;
               return CustomBottomSheetWidget(
-                image: Images.couponIcon,
+                image: Images.dealOfTheDay,
                 title: getTranslated('price_negotiations', context) ?? 'Négociations',
                 unreadCount: pendingCount,
                 onTap: () => _handleMenuTap(context, const VendorNegotiationsScreen()),

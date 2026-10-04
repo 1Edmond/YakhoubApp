@@ -186,15 +186,15 @@ class CheckoutScreenState extends State<CheckoutScreen> {
 
                                       else if(orderProvider.isOfflineChecked){
                                         // Navigator.of(context).push(MaterialPageRoute(builder: (_)=> OfflinePaymentScreen(payableAmount: _order + 0.0 /* Tchad Free Delivery */ - widget.discount - _referralDiscount - _couponDiscount + _tax, callback: _callback)));
-                                        RouterHelper.getOfflinePaymentScreen(payableAmount: (_order + 0.0 /* Tchad Free Delivery */ - widget.discount - _referralDiscount - _couponDiscount + _tax), callback: _callback);
+                                        RouterHelper.getOfflinePaymentScreen(payableAmount: (_order + widget.shippingFee - widget.discount - _referralDiscount - _couponDiscount + _tax), callback: _callback);
                                       }
 
                                       else if(orderProvider.isWalletChecked) {
                                         showAnimatedDialog(context, WalletPaymentWidget(
                                           currentBalance: profileProvider.balance ?? 0,
-                                          orderAmount: _order + 0.0 /* Tchad Free Delivery */ - widget.discount - _referralDiscount - _couponDiscount + _tax,
+                                          orderAmount: _order + widget.shippingFee - widget.discount - _referralDiscount - _couponDiscount + _tax,
                                           onTap: (){if(profileProvider.balance! <
-                                              (_order + 0.0 /* Tchad Free Delivery */ - widget.discount - _referralDiscount - _couponDiscount + _tax)) {
+                                              (_order + widget.shippingFee - widget.discount - _referralDiscount - _couponDiscount + _tax)) {
                                             showCustomSnackBarWidget(getTranslated('insufficient_balance', context), context, snackBarType: SnackBarType.warning);
                                           }else{
                                             Navigator.pop(context);
@@ -317,7 +317,7 @@ class CheckoutScreenState extends State<CheckoutScreen> {
                                     ),
                                   AmountWidget(
                                     title: getTranslated('shipping_fee', context),
-                                    amount: PriceConverter.convertPrice(context, 0.0 /* Tchad Free Delivery */),
+                                    amount: PriceConverter.convertPrice(context, widget.shippingFee),
                                   ),
                                   AmountWidget(
                                     title: getTranslated('discount', context),
@@ -345,7 +345,7 @@ class CheckoutScreenState extends State<CheckoutScreen> {
                                     fontSize: Dimensions.fontSizeLarge, isTitleBlack: true,
                                     title: '${getTranslated('total_payable', context)} ${Provider.of<SplashController>(Get.context!, listen: false).configModel?.systemTaxIncludeStatus == 1 ? getTranslated('inc_vat_tax', context) : ''} ',
                                     amount: PriceConverter.convertPrice(context,
-                                      (_order + 0.0 /* Tchad Free Delivery */ - _referralDiscount - widget.discount - _couponDiscount + _tax),
+                                      (_order + widget.shippingFee - _referralDiscount - widget.discount - _couponDiscount + _tax),
                                     ),
                                   ),
 
