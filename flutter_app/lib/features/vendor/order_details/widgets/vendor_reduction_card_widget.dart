@@ -145,7 +145,7 @@ class VendorReductionCardWidget extends StatelessWidget {
                         ),
                         onPressed: controller.isLoading
                             ? null
-                            : () => controller.acceptReduction(reduction.id!, orderId, context),
+                            : () => controller.acceptReduction(reduction.id!, context, orderId: orderId),
                         child: const Text('Accepter'),
                       ),
                     ),
@@ -160,7 +160,7 @@ class VendorReductionCardWidget extends StatelessWidget {
                         ),
                         onPressed: controller.isLoading
                             ? null
-                            : () => controller.refuseReduction(reduction.id!, orderId, context),
+                            : () => controller.refuseReduction(reduction.id!, context, orderId: orderId),
                         child: const Text('Refuser'),
                       ),
                     ),
@@ -235,9 +235,9 @@ class VendorReductionCardWidget extends StatelessWidget {
                           Navigator.pop(ctx);
                           await controller.sendCounterOffer(
                             requestId,
-                            orderId,
                             selectedTier!.toDouble(),
                             context,
+                            orderId: orderId,
                           );
                         },
                   child: const Text('Proposer'),

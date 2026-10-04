@@ -376,4 +376,40 @@
 - **Validation** :
   - `dart analyze` : **No issues found!**
 
+---
+
+### [04/10/2026] — Refonte Négociations CDC 3.4.7, Panier Client, Écran Vendeur & Correctifs UI
+- **Problèmes Identifiés** :
+  1. *Skeleton bannière fantôme* : Le placeholder de shimmer de la bannière principale restait visible en permanence sur l'accueil lorsqu'aucune bannière n'était configurée en base de données.
+  2. *Bouton Connexion Vendeur décentré* : Sur la page de connexion client (`LoginScreen`), le bouton menant vers l'espace vendeur était aligné à gauche.
+  3. *Manque de visibilité des négociations dans le panier* : L'utilisateur ne pouvait pas visualiser l'état de ses négociations directement dans son panier d'achat.
+  4. *Boîte de dialogue de négociation non multilingue* : Le message de confirmation de la négociation était incomplet et non traduit.
+  5. *Absence d'interface dédiée Vendeur pour les négociations (CDC 3.4.7)* : Le vendeur ne disposait d'aucune interface pour voir les négociations reçues (panier ou commande), ni pour tracer l'historique de ses négociations, ni pour appliquer les actions autorisées (accepter, refuser, contre-proposition sur les 11 paliers de 250 à 10000 FCFA avec limite de 2 tours).
+  6. *Select du filtre des commandes déformé* : Le menu déroulant du filtre de dates dans `OrderListFilterBottomSheet` utilisait `DropdownButtonFormField` dans un conteneur rigide de 48px, causant une troncature du texte et un mauvais rendu visuel.
+- **Corrections Appliquées** :
+  - **Bannières & Accueil** :
+    - `lib/features/customer/banner/widgets/banners_widget.dart`, `fashion_banner_widget.dart` et `banner_slider_widget.dart` : Remplacement du fallback de shimmer par `const SizedBox.shrink()` lorsque la liste des bannières est vide ou nulle.
+    - `lib/features/customer/banner/controllers/banner_controller.dart` : Initialisation sécurisée de `_mainBannerList` et `_footerBannerList` à `[]`.
+  - **Authentification & Bouton Vendeur** :
+    - `lib/features/auth/screens/login_screen.dart` : Centrage horizontal propre du bouton "Espace Vendeur" via `Center(...)`.
+  - **Internationalisation (FR, AR, EN)** :
+    - `assets/language/fr.json`, `assets/language/ar.json`, `assets/language/en.json` : Ajout des clés multilingues complètes pour la négociation (`negotiation_sent_title`, `negotiation_sent_msg_prefix`, `negotiation_sent_msg_suffix`, `my_negotiations`, `ongoing_negotiations`, `price_negotiations`, `waiting_for_vendor`, `counter_offer_received`, `negotiation_accepted`, `negotiation_refused`, `round`, `all_negotiations`, `pending_negotiations`, `history_negotiations`, `accept_reduction`, `refuse_reduction`, `make_counter_offer`, `select_counter_tier`, `no_negotiations_found`, `all_time`, `date_type`).
+  - **Module Client (Panier & Négociations)** :
+    - `lib/features/customer/cart/widgets/cart_negotiations_overview_widget.dart` : Nouveau widget repliable/dépliable affiché en tête du panier, listant les négociations en cours avec statut en temps réel (badges colorés) et boutons d'acceptation/refus direct de contre-offre.
+    - `lib/features/customer/cart/screens/cart_screen.dart` : Intégration du composant au-dessus de la liste des articles.
+    - `lib/features/customer/order_details/domain/models/price_reduction_model.dart` : Enrichissement du modèle avec `cartId`, `productId`, `productName`, `productThumbnail`, `customerName`, `customerPhone`, `customerEmail`, `customerImage`, et alias de getter `round`.
+  - **Module Vendeur (Gestion & Traçabilité Complète des Négociations)** :
+    - `lib/features/vendor/order_details/controllers/vendor_reduction_controller.dart` :
+      - Intégration des 11 paliers du CDC 3.4.7 : `[250, 500, 1000, 1500, 2000, 2500, 3000, 3500, 4000, 5000, 10000]`.
+      - Prise en charge des requêtes liées au panier (`cart_id`) et aux commandes (`order_id`).
+      - Séparation des flux en `pendingRequests`, `historyRequests`, et `pendingCount`.
+      - Méthodes `acceptReduction`, `refuseReduction`, `sendCounterOffer` acceptant `requestId` et mettant à jour l'état réactif local sans rechargement.
+    - `lib/features/vendor/negotiation/screens/vendor_negotiations_screen.dart` : Nouvel écran complet avec onglets "En attente ([N])" et "Historique", cartes détaillées avec nom client, bouton d'appel direct téléphone (`url_launcher: tel:`), miniature et nom produit/commande, montant initial, réduction sollicitée, indicateur de tour (`Tour 1/2` ou `Tour 2/2`), et boutons d'action (Accepter, Refuser, Contre-proposition par sélecteur de palier).
+    - `lib/features/vendor/menu/widgets/menu_widget.dart` : Ajout d'une entrée directe vers `VendorNegotiationsScreen` avec badge dynamique affichant le nombre de négociations en attente.
+  - **Filtres de Commandes Vendeur** :
+    - `lib/features/vendor/order_details/widgets/order_list_filter_bottomsheet_widget.dart` : Remplacement du `DropdownButtonFormField` par `DropdownButtonHideUnderline` + `DropdownButton<String>` avec `isDense: true`, `isExpanded: true`, `dropdownColor: Theme.of(context).cardColor`, `borderRadius`, `menuMaxHeight: 280`, et flèche stylisée, éliminant tout débordement ou coupure de texte.
+- **Validation** :
+  - `flutter analyze` : **No issues found!** (0 avertissement, 0 erreur sur tous les fichiers modifiés et créés).
+
+
 

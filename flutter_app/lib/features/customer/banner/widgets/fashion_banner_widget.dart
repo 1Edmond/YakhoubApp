@@ -18,7 +18,7 @@ class FashionBannersWidget extends StatelessWidget {
     return Column(children: [
         Consumer<BannerController>(
           builder: (context, bannerController, child) {
-            if (bannerController.mainBannerList != null && bannerController.mainBannerList!.isEmpty) {
+            if (bannerController.mainBannerList == null || bannerController.mainBannerList!.isEmpty) {
               return const SizedBox.shrink();
             }
             double width = MediaQuery.of(context).size.width;

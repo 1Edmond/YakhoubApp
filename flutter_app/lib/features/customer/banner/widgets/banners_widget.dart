@@ -16,7 +16,7 @@ class BannersWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<BannerController>(
         builder: (context, bannerProvider, child) {
-        if (bannerProvider.mainBannerList != null && bannerProvider.mainBannerList!.isEmpty) {
+        if (bannerProvider.mainBannerList == null || bannerProvider.mainBannerList!.isEmpty) {
           return const SizedBox.shrink();
         }
         double width = MediaQuery.of(context).size.width;

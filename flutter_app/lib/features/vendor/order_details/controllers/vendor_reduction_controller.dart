@@ -8,7 +8,7 @@ class VendorReductionController extends ChangeNotifier {
   final VendorReductionRepository vendorReductionRepository;
   VendorReductionController({required this.vendorReductionRepository});
 
-  final List<int> _tiers = [250, 500, 1000, 1500, 2000, 2500, 3000, 3500];
+  final List<int> _tiers = [250, 500, 1000, 1500, 2000, 2500, 3000, 3500, 4000, 5000, 10000];
   List<int> get tiers => _tiers;
 
   bool _isLoading = false;
@@ -17,6 +17,17 @@ class VendorReductionController extends ChangeNotifier {
   final Map<int, PriceReductionModel> _orderReductions = {};
   Map<int, PriceReductionModel> get orderReductions => _orderReductions;
 
+  List<PriceReductionModel> _allRequests = [];
+  List<PriceReductionModel> get allRequests => _allRequests;
+
+  List<PriceReductionModel> get pendingRequests =>
+      _allRequests.where((r) => r.status == 'pending').toList();
+
+  List<PriceReductionModel> get historyRequests =>
+      _allRequests.where((r) => r.status != 'pending').toList();
+
+  int get pendingCount => pendingRequests.length;
+
   Future<void> fetchRequests() async {
     _isLoading = true;
 
@@ -24,9 +35,12 @@ class VendorReductionController extends ChangeNotifier {
     _isLoading = false;
 
     if (response.response != null && response.response!.statusCode == 200) {
+      _allRequests = [];
+      _orderReductions.clear();
       if (response.response!.data is List) {
         for (var item in response.response!.data) {
           final model = PriceReductionModel.fromJson(item);
+          _allRequests.add(model);
           if (model.orderId != null) {
             _orderReductions[model.orderId!] = model;
           }
@@ -40,7 +54,7 @@ class VendorReductionController extends ChangeNotifier {
     return _orderReductions[orderId];
   }
 
-  Future<bool> acceptReduction(int requestId, int orderId, BuildContext context) async {
+  Future<bool> acceptReduction(int requestId, BuildContext context, {int? orderId}) async {
     _isLoading = true;
     notifyListeners();
 
@@ -48,8 +62,12 @@ class VendorReductionController extends ChangeNotifier {
     _isLoading = false;
 
     if (response.response != null && response.response!.statusCode == 200) {
-      if (_orderReductions.containsKey(orderId)) {
+      if (orderId != null && _orderReductions.containsKey(orderId)) {
         _orderReductions[orderId]!.status = 'accepted';
+      }
+      final index = _allRequests.indexWhere((r) => r.id == requestId);
+      if (index != -1) {
+        _allRequests[index].status = 'accepted';
       }
       showCustomSnackBarWidget('Réduction acceptée avec succès', context, isError: false);
       notifyListeners();
@@ -61,7 +79,7 @@ class VendorReductionController extends ChangeNotifier {
     }
   }
 
-  Future<bool> refuseReduction(int requestId, int orderId, BuildContext context) async {
+  Future<bool> refuseReduction(int requestId, BuildContext context, {int? orderId}) async {
     _isLoading = true;
     notifyListeners();
 
@@ -69,8 +87,12 @@ class VendorReductionController extends ChangeNotifier {
     _isLoading = false;
 
     if (response.response != null && response.response!.statusCode == 200) {
-      if (_orderReductions.containsKey(orderId)) {
+      if (orderId != null && _orderReductions.containsKey(orderId)) {
         _orderReductions[orderId]!.status = 'refused';
+      }
+      final index = _allRequests.indexWhere((r) => r.id == requestId);
+      if (index != -1) {
+        _allRequests[index].status = 'refused';
       }
       showCustomSnackBarWidget('Réduction refusée', context, isError: false);
       notifyListeners();
@@ -82,7 +104,7 @@ class VendorReductionController extends ChangeNotifier {
     }
   }
 
-  Future<bool> sendCounterOffer(int requestId, int orderId, double counterAmount, BuildContext context) async {
+  Future<bool> sendCounterOffer(int requestId, double counterAmount, BuildContext context, {int? orderId}) async {
     _isLoading = true;
     notifyListeners();
 
@@ -90,9 +112,14 @@ class VendorReductionController extends ChangeNotifier {
     _isLoading = false;
 
     if (response.response != null && response.response!.statusCode == 200) {
-      if (_orderReductions.containsKey(orderId)) {
+      if (orderId != null && _orderReductions.containsKey(orderId)) {
         _orderReductions[orderId]!.status = 'counter_offer';
         _orderReductions[orderId]!.counterOfferAmount = counterAmount;
+      }
+      final index = _allRequests.indexWhere((r) => r.id == requestId);
+      if (index != -1) {
+        _allRequests[index].status = 'counter_offer';
+        _allRequests[index].counterOfferAmount = counterAmount;
       }
       showCustomSnackBarWidget('Contre-proposition envoyée au client', context, isError: false);
       notifyListeners();

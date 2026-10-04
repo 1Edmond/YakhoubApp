@@ -15,8 +15,8 @@ class BannerController extends ChangeNotifier {
   final BannerServiceInterface? bannerServiceInterface;
   BannerController({required this.bannerServiceInterface});
 
-  List<BannerModel>? _mainBannerList;
-  List<BannerModel>? _footerBannerList;
+  List<BannerModel>? _mainBannerList = [];
+  List<BannerModel>? _footerBannerList = [];
   BannerModel? mainSectionBanner;
   BannerModel? sideBarBanner;
   Product? _product;

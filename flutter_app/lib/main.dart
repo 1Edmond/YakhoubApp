@@ -138,7 +138,7 @@ class _MyAppState extends State<MyApp> {
   }
 
   void _loadData() async {
-    if (widget.initialRoute != null) {  
+    if (widget.initialRoute != null) {
       final AuthController authProvider =
           Provider.of<AuthController>(context, listen: false);
 

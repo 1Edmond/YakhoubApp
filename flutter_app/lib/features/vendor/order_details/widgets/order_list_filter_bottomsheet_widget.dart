@@ -124,24 +124,37 @@ class _OrderListFilterBottomSheetState extends State<OrderListFilterBottomSheet>
                             CustomDropDownItemWidget(
                               title: 'date_type',
                               borderRadius: Dimensions.radiusDefault,
-                              widget: DropdownButtonFormField<String>(
-                                initialValue: orderController.filterModel.filterDateType ?? filterDateType[0],
-                                isExpanded: true,
-                                decoration: const InputDecoration(border: InputBorder.none),
-                                iconSize: 24, elevation: 16, style: robotoRegular,
-                                onChanged:  (value) {
-                                  orderController.filterModel.filterDateType = value;
-                                  setState(() {});
-                                },
-                                items: filterDateType.map<DropdownMenuItem<String>>((String value) {
-                                  return DropdownMenuItem<String>(
-                                    value: value,
-                                    child: Text(
-                                    getTranslated(value, context)!,
-                                    style: robotoRegular.copyWith(color: Theme.of(context).textTheme.bodyLarge?.color)
-                                    ),
-                                  );
-                                }).toList(),
+                              widget: DropdownButtonHideUnderline(
+                                child: DropdownButton<String>(
+                                  value: orderController.filterModel.filterDateType ?? filterDateType[0],
+                                  isExpanded: true,
+                                  isDense: true,
+                                  icon: Icon(Icons.keyboard_arrow_down, color: Theme.of(context).hintColor),
+                                  dropdownColor: Theme.of(context).cardColor,
+                                  borderRadius: BorderRadius.circular(Dimensions.radiusDefault),
+                                  menuMaxHeight: 280,
+                                  style: robotoRegular.copyWith(
+                                    color: Theme.of(context).textTheme.bodyLarge?.color,
+                                    fontSize: Dimensions.fontSizeDefault,
+                                  ),
+                                  onChanged: (value) {
+                                    orderController.filterModel.filterDateType = value;
+                                    setState(() {});
+                                  },
+                                  items: filterDateType.map<DropdownMenuItem<String>>((String value) {
+                                    return DropdownMenuItem<String>(
+                                      value: value,
+                                      child: Text(
+                                        getTranslated(value, context) ?? value,
+                                        style: robotoRegular.copyWith(
+                                          color: Theme.of(context).textTheme.bodyLarge?.color,
+                                          fontSize: Dimensions.fontSizeDefault,
+                                        ),
+                                        overflow: TextOverflow.ellipsis,
+                                      ),
+                                    );
+                                  }).toList(),
+                                ),
                               ),
                             ),
 

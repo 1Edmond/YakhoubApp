@@ -25,6 +25,7 @@ import 'package:multishop_tchad/core/widgets/base/not_logged_in_bottom_sheet_wid
 import 'package:multishop_tchad/core/widgets/base/show_custom_snakbar_widget.dart';
 import 'package:multishop_tchad/features/customer/cart/widgets/cart_page_shimmer_widget.dart';
 import 'package:multishop_tchad/features/customer/cart/widgets/cart_widget.dart';
+import 'package:multishop_tchad/features/customer/cart/widgets/cart_negotiations_overview_widget.dart';
 import 'package:multishop_tchad/features/vault/shipping/widgets/shipping_method_bottom_sheet_widget.dart';
 import 'package:just_the_tooltip/just_the_tooltip.dart';
 import 'package:provider/provider.dart';
@@ -499,6 +500,7 @@ class CartScreenState extends State<CartScreen> {
                             },
                             child: ListView(
                               children: [
+                                const CartNegotiationsOverviewWidget(),
                                 ListView.separated(
                                   shrinkWrap: true,
                                   padding: const EdgeInsets.only(bottom: Dimensions.paddingSizeSmall),

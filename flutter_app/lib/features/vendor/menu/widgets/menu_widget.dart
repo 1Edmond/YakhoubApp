@@ -30,6 +30,8 @@ import 'package:multishop_tchad/features/vendor/shop/screens/shop_screen.dart';
 import 'package:multishop_tchad/features/vendor/wallet/screens/wallet_screen.dart';
 import 'package:multishop_tchad/features/vendor/bank_info/screens/bank_info_screen.dart';
 import 'package:multishop_tchad/features/vendor/refund/screens/refund_screen.dart';
+import 'package:multishop_tchad/features/vendor/negotiation/screens/vendor_negotiations_screen.dart';
+import 'package:multishop_tchad/features/vendor/order_details/controllers/vendor_reduction_controller.dart';
 
 import 'package:multishop_tchad/main.dart';
 
@@ -69,6 +71,18 @@ class MenuBottomSheetWidget extends StatelessWidget {
 
           CustomBottomSheetWidget(image: Images.couponIcon, title: getTranslated('coupons', context),
             onTap: () => _handleMenuTap(context, const CouponListScreen()),
+          ),
+
+          Consumer<VendorReductionController>(
+            builder: (context, reductionController, _) {
+              final pendingCount = reductionController.pendingCount;
+              return CustomBottomSheetWidget(
+                image: Images.couponIcon,
+                title: getTranslated('price_negotiations', context) ?? 'Négociations',
+                unreadCount: pendingCount,
+                onTap: () => _handleMenuTap(context, const VendorNegotiationsScreen()),
+              );
+            },
           ),
 
 

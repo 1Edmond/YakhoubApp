@@ -532,45 +532,47 @@ class _LoginScreenState extends State<LoginScreen> {
 
                                     const SizedBox(height: Dimensions.paddingSizeExtraLarge),
 
-                                    // Bouton Accès Espace Vendeur Dédié
-                                    InkWell(
-                                      onTap: () {
-                                        Navigator.push(context, MaterialPageRoute(
-                                          builder: (_) => const vendor_auth.AuthScreen(),
-                                        ));
-                                      },
-                                      borderRadius: BorderRadius.circular(Dimensions.radiusDefault),
-                                      child: Container(
-                                        padding: const EdgeInsets.symmetric(
-                                          horizontal: Dimensions.paddingSizeDefault,
-                                          vertical: Dimensions.paddingSizeSmall + 2,
-                                        ),
-                                        decoration: BoxDecoration(
-                                          color: Theme.of(context).primaryColor.withValues(alpha: 0.08),
-                                          borderRadius: BorderRadius.circular(Dimensions.radiusDefault),
-                                          border: Border.all(
-                                            color: Theme.of(context).primaryColor.withValues(alpha: 0.3),
-                                            width: 1,
+                                    // Bouton Accès Espace Vendeur Dédié (Centré)
+                                    Center(
+                                      child: InkWell(
+                                        onTap: () {
+                                          Navigator.push(context, MaterialPageRoute(
+                                            builder: (_) => const vendor_auth.AuthScreen(),
+                                          ));
+                                        },
+                                        borderRadius: BorderRadius.circular(Dimensions.radiusDefault),
+                                        child: Container(
+                                          padding: const EdgeInsets.symmetric(
+                                            horizontal: Dimensions.paddingSizeDefault,
+                                            vertical: Dimensions.paddingSizeSmall + 2,
                                           ),
-                                        ),
-                                        child: Row(
-                                          mainAxisAlignment: MainAxisAlignment.center,
-                                          mainAxisSize: MainAxisSize.min,
-                                          children: [
-                                            Icon(
-                                              Icons.storefront_rounded,
-                                              size: 20,
-                                              color: Theme.of(context).primaryColor,
+                                          decoration: BoxDecoration(
+                                            color: Theme.of(context).primaryColor.withValues(alpha: 0.08),
+                                            borderRadius: BorderRadius.circular(Dimensions.radiusDefault),
+                                            border: Border.all(
+                                              color: Theme.of(context).primaryColor.withValues(alpha: 0.3),
+                                              width: 1,
                                             ),
-                                            const SizedBox(width: 8),
-                                            Text(
-                                              getTranslated('seller_login_or_open_shop', context) ?? 'Espace Vendeur • Ouvrir ma boutique →',
-                                              style: titilliumSemiBold.copyWith(
-                                                fontSize: Dimensions.fontSizeDefault,
+                                          ),
+                                          child: Row(
+                                            mainAxisAlignment: MainAxisAlignment.center,
+                                            mainAxisSize: MainAxisSize.min,
+                                            children: [
+                                              Icon(
+                                                Icons.storefront_rounded,
+                                                size: 20,
                                                 color: Theme.of(context).primaryColor,
                                               ),
-                                            ),
-                                          ],
+                                              const SizedBox(width: 8),
+                                              Text(
+                                                getTranslated('seller_login_or_open_shop', context) ?? 'Espace Vendeur • Ouvrir ma boutique →',
+                                                style: titilliumSemiBold.copyWith(
+                                                  fontSize: Dimensions.fontSizeDefault,
+                                                  color: Theme.of(context).primaryColor,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
                                         ),
                                       ),
                                     ),

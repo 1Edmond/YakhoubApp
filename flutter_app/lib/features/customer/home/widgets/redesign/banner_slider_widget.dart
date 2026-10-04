@@ -31,8 +31,8 @@ class _BannersSliderWidgetState extends State<BannersSliderWidget> {
         final List<BannerModel>? activeBanners = widget.bannerList
             ?? (widget.useFooterBanners ? bannerProvider.footerBannerList : bannerProvider.mainBannerList);
 
-        // Collapse entirely (no residual gap) when banners are loaded but empty.
-        if (activeBanners != null && activeBanners.isEmpty) {
+        // Collapse entirely (no residual gap) when banners are empty or null.
+        if (activeBanners == null || activeBanners.isEmpty) {
           return const SizedBox.shrink();
         }
 
