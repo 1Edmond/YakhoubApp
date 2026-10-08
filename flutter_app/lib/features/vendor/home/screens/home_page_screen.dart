@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:multishop_tchad/features/vendor/order_details/controllers/vendor_reduction_controller.dart';
 import 'package:multishop_tchad/features/vendor/notification/controllers/notification_controller.dart';
 import 'package:multishop_tchad/features/vendor/product/domain/models/product_model.dart';
 import 'package:multishop_tchad/features/vendor/bank_info/controllers/bank_info_controller.dart';
@@ -16,6 +17,7 @@ import 'package:multishop_tchad/core/constants/images.dart';
 import 'package:multishop_tchad/core/constants/styles.dart';
 import 'package:multishop_tchad/features/vendor/home/widgets/chart_widget.dart';
 import 'package:multishop_tchad/features/vendor/home/widgets/completed_order_widget.dart';
+import 'package:multishop_tchad/features/vendor/home/widgets/negotiation_stats_widget.dart';
 import 'package:multishop_tchad/features/vendor/home/widgets/on_going_order_widget.dart';
 import 'package:multishop_tchad/features/vendor/product/widgets/stock_out_product_widget.dart';
 import 'package:multishop_tchad/features/vendor/notification/screens/notification_screen.dart';
@@ -39,6 +41,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
   Future<void> _loadData(BuildContext context, bool reload) async {
     Provider.of<ProfileController>(context, listen: false).getSellerInfo();
     Provider.of<BankInfoController>(context, listen: false).getBankInfo(context);
+    Provider.of<VendorReductionController>(context, listen: false).fetchRequests();
     if(Provider.of<OrderController>(context, listen: false).orderModel == null || reload) {
       Provider.of<OrderController>(context, listen: false).getOrderList(context,1,'all', null, reload: reload);
     }
@@ -194,6 +197,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
                       OngoingOrderWidget(callback: widget.callback),
 
                       CompletedOrderWidget(callback: widget.callback),
+                      const NegotiationStatsWidget(),
                       const SizedBox(height: Dimensions.paddingSizeSmall),
 
                       Consumer<ProductController>(

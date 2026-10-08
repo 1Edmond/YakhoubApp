@@ -61,7 +61,7 @@ class AuctionProductSummaryWidget extends StatelessWidget {
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(Dimensions.radiusDefault),
                       child: Image.network(
-                        imageUrl,
+                        imageUrl, headers: const {'ngrok-skip-browser-warning': 'true'},
                         fit: BoxFit.contain,
                         errorBuilder: (_, __, ___) => CustomAssetImageWidget(Images.placeholder)
                       ),

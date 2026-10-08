@@ -412,28 +412,29 @@ class CheckoutScreenState extends State<CheckoutScreen> {
     final safeOrderId = (orderID == null || orderID == 'null') ? '' : orderID;
     if(isSuccess) {
       WidgetsBinding.instance.addPostFrameCallback((_) {
-        bool isLoggedIn = Provider.of<AuthController>(context, listen: false).isLoggedIn();
-        String? orderId = Provider.of<CheckoutController>(context, listen: false).getFirstOrderId(safeOrderId);
+        try {
+          bool isLoggedIn = Provider.of<AuthController>(context, listen: false).isLoggedIn();
+          String? orderId = Provider.of<CheckoutController>(context, listen: false).getFirstOrderId(safeOrderId);
 
-        if(isLoggedIn) {
-          RouterHelper.getOrderScreenRoute(isBackButtonExist: true, action: RouteAction.pushReplacement, fromPlaceOrder: true);
-        } else {
-          RouterHelper.getDashboardRoute(action: RouteAction.pushReplacement, page: 'home');
-        }
+          if(isLoggedIn) {
+            RouterHelper.getOrderScreenRoute(isBackButtonExist: true, action: RouteAction.pushReplacement, fromPlaceOrder: true);
+          } else {
+            RouterHelper.getDashboardRoute(action: RouteAction.pushReplacement, page: 'home');
+          }
 
-        Future.delayed(const Duration(milliseconds: 300), () {
-          showModalBottomSheet(
-            isDismissible: false,
-            enableDrag: false,
-            context: Get.context!,
-            isScrollControlled: true,
-            backgroundColor: Colors.transparent,
-            shape: const RoundedRectangleBorder(
-              borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
-            ),
-            builder: (context) {
-              return Container(
-                decoration: BoxDecoration(
+          Future.delayed(const Duration(milliseconds: 300), () {
+            showModalBottomSheet(
+              isDismissible: false,
+              enableDrag: false,
+              context: Get.context!,
+              isScrollControlled: true,
+              backgroundColor: Colors.transparent,
+              shape: const RoundedRectangleBorder(
+                borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+              ),
+              builder: (context) {
+                return Container(
+                  decoration: BoxDecoration(
                   color: Theme.of(context).cardColor,
                   borderRadius: const BorderRadius.vertical(top: Radius.circular(20)),
                 ),
@@ -453,7 +454,9 @@ class CheckoutScreenState extends State<CheckoutScreen> {
             },
           );
         });
-
+        } catch (e, s) {
+          debugPrint("Error in checkout callback navigation: $e\n$s");
+        }
       });
     }else {
       showCustomSnackBarWidget(message, context, snackBarType: SnackBarType.error);

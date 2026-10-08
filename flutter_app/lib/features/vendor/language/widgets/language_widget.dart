@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:multishop_tchad/core/localization/models/language_model.dart';
 import 'package:multishop_tchad/features/vendor/localization/controllers/localization_controller.dart';
-import 'package:multishop_tchad/features/vendor/theme/controllers/theme_controller.dart';
+import 'package:multishop_tchad/core/theme/controllers/theme_controller.dart';
 import 'package:multishop_tchad/core/constants/app_constants.dart';
 import 'package:multishop_tchad/core/constants/dimensions.dart';
 import 'package:multishop_tchad/core/constants/styles.dart';

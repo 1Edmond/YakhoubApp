@@ -19,6 +19,8 @@ import 'package:multishop_tchad/features/vendor/localization/language_constrants
 import 'package:multishop_tchad/features/vendor/profile/controllers/profile_controller.dart';
 import 'package:multishop_tchad/main.dart';
 import 'package:multishop_tchad/core/constants/dimensions.dart';
+import 'package:multishop_tchad/features/vendor/order_details/controllers/vendor_reduction_controller.dart';
+import 'package:provider/provider.dart';
 import 'package:multishop_tchad/core/constants/images.dart';
 import 'package:multishop_tchad/core/constants/styles.dart';
 import 'package:multishop_tchad/features/vendor/home/screens/home_page_screen.dart';
@@ -115,7 +117,7 @@ class DashboardScreenState extends State<DashboardScreen> {
             _barItem(Images.home, getTranslated('home', context), 0),
             _barItem(Images.order, getTranslated('my_order', context), 1),
             _barItem(Images.refund, getTranslated('refund', context), 2),
-            _barItem(Images.menu, getTranslated('menu', context), 3)
+            _barItem(Images.menu, getTranslated('menu', context), 3, hasBadge: Provider.of<VendorReductionController>(context).pendingCount > 0)
           ],
           onTap: (int index) {
             if (index != 3) {
@@ -144,7 +146,7 @@ class DashboardScreenState extends State<DashboardScreen> {
     );
   }
 
-  BottomNavigationBarItem _barItem(String icon, String? label, int index) {
+  BottomNavigationBarItem _barItem(String icon, String? label, int index, {bool hasBadge = false}) {
     return BottomNavigationBarItem(
       icon: Padding(
         padding: const EdgeInsets.only(bottom : Dimensions.paddingSizeExtraSmall),

@@ -42,7 +42,7 @@ class _VendorNegotiationsScreenState extends State<VendorNegotiationsScreen>
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.surface,
       appBar: CustomAppBarWidget(
-        title: getTranslated('price_negotiations', context) ?? 'Négociations de prix',
+        title: getTranslated('price_negotiations', context) ?? 'NÃ©gociations de prix',
       ),
       body: Consumer<VendorReductionController>(
         builder: (context, controller, child) {
@@ -51,7 +51,7 @@ class _VendorNegotiationsScreenState extends State<VendorNegotiationsScreen>
 
           return Column(
             children: [
-              // Onglets supérieurs stylisés
+              // Onglets supÃ©rieurs stylisÃ©s
               Container(
                 margin: const EdgeInsets.fromLTRB(16, 12, 16, 8),
                 padding: const EdgeInsets.all(4),
@@ -83,7 +83,12 @@ class _VendorNegotiationsScreenState extends State<VendorNegotiationsScreen>
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text(getTranslated('pending_negotiations', context) ?? 'En attente'),
+                          Flexible(
+                            child: Text(
+                              getTranslated('pending_negotiations', context) ?? 'En attente',
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          ),
                           if (pending.isNotEmpty) ...[
                             const SizedBox(width: 8),
                             Container(
@@ -109,7 +114,12 @@ class _VendorNegotiationsScreenState extends State<VendorNegotiationsScreen>
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text(getTranslated('history_negotiations', context) ?? 'Historique'),
+                          Flexible(
+                            child: Text(
+                              getTranslated('history_negotiations', context) ?? 'Historique',
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          ),
                           if (history.isNotEmpty) ...[
                             const SizedBox(width: 8),
                             Container(
@@ -213,25 +223,25 @@ class _VendorNegotiationsScreenState extends State<VendorNegotiationsScreen>
         badgeBg = const Color(0xFFE8F5E9);
         badgeText = const Color(0xFF2E7D32);
         badgeIcon = Icons.check_circle_rounded;
-        statusTitle = getTranslated('negotiation_accepted', context) ?? 'Acceptée';
+        statusTitle = getTranslated('negotiation_accepted', context) ?? 'AcceptÃ©e';
         break;
       case 'refused':
         badgeBg = const Color(0xFFFFEBEE);
         badgeText = const Color(0xFFC62828);
         badgeIcon = Icons.cancel_rounded;
-        statusTitle = getTranslated('negotiation_refused', context) ?? 'Refusée';
+        statusTitle = getTranslated('negotiation_refused', context) ?? 'RefusÃ©e';
         break;
       case 'counter_offer':
         badgeBg = const Color(0xFFE3F2FD);
         badgeText = const Color(0xFF1565C0);
         badgeIcon = Icons.sync_alt_rounded;
-        statusTitle = getTranslated('counter_offer_received', context) ?? 'Contre-offre envoyée';
+        statusTitle = getTranslated('counter_offer_received', context) ?? 'Contre-offre envoyÃ©e';
         break;
       default:
         badgeBg = const Color(0xFFFFF3E0);
         badgeText = const Color(0xFFE65100);
         badgeIcon = Icons.hourglass_top_rounded;
-        statusTitle = getTranslated('waiting_for_vendor', context) ?? 'En attente de réponse';
+        statusTitle = getTranslated('waiting_for_vendor', context) ?? 'En attente de rÃ©ponse';
     }
 
     return Container(
@@ -255,7 +265,7 @@ class _VendorNegotiationsScreenState extends State<VendorNegotiationsScreen>
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // 1. En-tête de la carte : Profil Client + Badge de Statut
+          // 1. En-tÃªte de la carte : Profil Client + Badge de Statut
           Padding(
             padding: const EdgeInsets.fromLTRB(16, 14, 16, 12),
             child: Row(
@@ -305,7 +315,7 @@ class _VendorNegotiationsScreenState extends State<VendorNegotiationsScreen>
                           const SizedBox(width: 4),
                           Expanded(
                             child: Text(
-                              item.createdAt ?? 'Récemment',
+                              item.createdAt ?? 'RÃ©cemment',
                               style: robotoRegular.copyWith(
                                 fontSize: Dimensions.fontSizeExtraSmall,
                                 color: Theme.of(context).hintColor,
@@ -320,7 +330,7 @@ class _VendorNegotiationsScreenState extends State<VendorNegotiationsScreen>
                   ),
                 ),
 
-                // Bouton Appel direct si téléphone présent
+                // Bouton Appel direct si tÃ©lÃ©phone prÃ©sent
                 if (item.customerPhone != null && item.customerPhone!.trim().isNotEmpty) ...[
                   InkWell(
                     onTap: () async {
@@ -457,7 +467,7 @@ class _VendorNegotiationsScreenState extends State<VendorNegotiationsScreen>
             ),
           ),
 
-          // 3. Bloc Financier : Clarté absolue des chiffres
+          // 3. Bloc Financier : ClartÃ© absolue des chiffres
           Container(
             margin: const EdgeInsets.symmetric(horizontal: 16),
             padding: const EdgeInsets.all(12),
@@ -497,7 +507,7 @@ class _VendorNegotiationsScreenState extends State<VendorNegotiationsScreen>
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      'Réduction demandée :',
+                      'RÃ©duction demandÃ©e :',
                       style: robotoMedium.copyWith(
                         fontSize: Dimensions.fontSizeSmall,
                         color: Colors.red.shade700,
@@ -520,7 +530,7 @@ class _VendorNegotiationsScreenState extends State<VendorNegotiationsScreen>
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      'Prix final proposé par le client :',
+                      'Prix final proposÃ© par le client :',
                       style: robotoBold.copyWith(
                         fontSize: Dimensions.fontSizeSmall,
                         color: Theme.of(context).textTheme.bodyLarge?.color,
@@ -539,7 +549,7 @@ class _VendorNegotiationsScreenState extends State<VendorNegotiationsScreen>
             ),
           ),
 
-          // Si contre-offre émise
+          // Si contre-offre Ã©mise
           if (status == 'counter_offer' && item.counterOfferAmount != null) ...[
             Container(
               margin: const EdgeInsets.fromLTRB(16, 10, 16, 0),
@@ -586,14 +596,12 @@ class _VendorNegotiationsScreenState extends State<VendorNegotiationsScreen>
                           borderRadius: BorderRadius.circular(12),
                         ),
                       ),
-                      icon: const Icon(Icons.check_circle_outline_rounded, size: 20),
+                      icon: controller.isProcessing(item.id!, 'accept') ? const SizedBox(width: 20, height: 20, child: CircularProgressIndicator(color: Colors.white, strokeWidth: 2)) : const Icon(Icons.check_circle_outline_rounded, size: 20),
                       label: Text(
-                        getTranslated('accept_reduction', context) ?? 'Accepter la réduction',
+                        controller.isProcessing(item.id!, 'accept') ? (getTranslated('processing', context) ?? 'Chargement...') : (getTranslated('accept_reduction', context) ?? 'Accepter'),
                         style: robotoBold.copyWith(fontSize: Dimensions.fontSizeDefault),
                       ),
-                      onPressed: controller.isLoading
-                          ? null
-                          : () => controller.acceptReduction(item.id!, context, orderId: item.orderId),
+                      onPressed: controller.isAnyProcessing(item.id!) ? null : () => controller.acceptReduction(item.id!, context, orderId: item.orderId),
                     ),
                   ),
                   const SizedBox(height: 10),
@@ -616,18 +624,12 @@ class _VendorNegotiationsScreenState extends State<VendorNegotiationsScreen>
                                   borderRadius: BorderRadius.circular(12),
                                 ),
                               ),
-                              icon: const Icon(Icons.swap_horiz_rounded, size: 20),
+                              icon: controller.isProcessing(item.id!, 'counter') ? const SizedBox(width: 20, height: 20, child: CircularProgressIndicator(color: Colors.white, strokeWidth: 2)) : const Icon(Icons.swap_horiz_rounded, size: 20),
                               label: Text(
-                                getTranslated('make_counter_offer', context) ?? 'Contre-offre',
+                                controller.isProcessing(item.id!, 'counter') ? (getTranslated('processing', context) ?? 'Chargement...') : (getTranslated('make_counter_offer', context) ?? 'Contre-offre'),
                                 style: robotoBold.copyWith(fontSize: Dimensions.fontSizeSmall + 1),
                               ),
-                              onPressed: controller.isLoading
-                                  ? null
-                                  : () => _showCounterOfferBottomSheet(
-                                        context,
-                                        controller,
-                                        item,
-                                      ),
+                              onPressed: controller.isAnyProcessing(item.id!) ? null : () => _showCounterOfferBottomSheet(context, controller, item),
                             ),
                           ),
                         ),
@@ -648,14 +650,12 @@ class _VendorNegotiationsScreenState extends State<VendorNegotiationsScreen>
                                 borderRadius: BorderRadius.circular(12),
                               ),
                             ),
-                            icon: const Icon(Icons.close_rounded, size: 18),
+                            icon: controller.isProcessing(item.id!, 'refuse') ? const SizedBox(width: 20, height: 20, child: CircularProgressIndicator(color: Color(0xFFC62828), strokeWidth: 2)) : const Icon(Icons.close_rounded, size: 18),
                             label: Text(
-                              getTranslated('refuse_reduction', context) ?? 'Refuser',
+                              controller.isProcessing(item.id!, 'refuse') ? (getTranslated('processing', context) ?? 'Chargement...') : (getTranslated('refuse_reduction', context) ?? 'Refuser'),
                               style: robotoBold.copyWith(fontSize: Dimensions.fontSizeSmall + 1),
                             ),
-                            onPressed: controller.isLoading
-                                ? null
-                                : () => controller.refuseReduction(item.id!, context, orderId: item.orderId),
+                            onPressed: controller.isAnyProcessing(item.id!) ? null : () => controller.refuseReduction(item.id!, context, orderId: item.orderId),
                           ),
                         ),
                       ),
@@ -707,7 +707,7 @@ class _VendorNegotiationsScreenState extends State<VendorNegotiationsScreen>
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  // Poignée de glissement
+                  // PoignÃ©e de glissement
                   Center(
                     child: Container(
                       width: 44,
@@ -745,7 +745,7 @@ class _VendorNegotiationsScreenState extends State<VendorNegotiationsScreen>
                               style: robotoBold.copyWith(fontSize: Dimensions.fontSizeLarge),
                             ),
                             Text(
-                              'Paliers réglementaires CDC 3.4.7',
+                              'Paliers rÃ©glementaires CDC 3.4.7',
                               style: robotoRegular.copyWith(
                                 fontSize: Dimensions.fontSizeSmall,
                                 color: Theme.of(modalContext).hintColor,
@@ -760,7 +760,7 @@ class _VendorNegotiationsScreenState extends State<VendorNegotiationsScreen>
 
                   Text(
                     getTranslated('select_counter_tier', modalContext) ??
-                        'Sélectionnez le montant de réduction à proposer au client :',
+                        'SÃ©lectionnez le montant de rÃ©duction Ã  proposer au client :',
                     style: robotoMedium.copyWith(fontSize: Dimensions.fontSizeDefault),
                   ),
                   const SizedBox(height: 12),
@@ -801,7 +801,7 @@ class _VendorNegotiationsScreenState extends State<VendorNegotiationsScreen>
                   ),
                   const SizedBox(height: 16),
 
-                  // Résumé en temps réel si palier sélectionné
+                  // RÃ©sumÃ© en temps rÃ©el si palier sÃ©lectionnÃ©
                   if (selectedTier != null && originalPrice > 0) ...[
                     Container(
                       padding: const EdgeInsets.all(12),

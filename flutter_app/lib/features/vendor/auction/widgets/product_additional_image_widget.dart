@@ -206,7 +206,7 @@ class NetworkImageTile extends StatelessWidget {
       children: [
         ClipRRect(
           borderRadius: BorderRadius.circular(Dimensions.radiusDefault),
-          child: Image.network(url, width: 80, height: 80, fit: BoxFit.cover, errorBuilder: (c,s,e) => Container(
+          child: Image.network(url, headers: const {'ngrok-skip-browser-warning': 'true'}, width: 80, height: 80, fit: BoxFit.cover, errorBuilder: (c,s,e) => Container(
             width: 80, height: 80, color: Theme.of(context).hintColor.withValues(alpha: .05),
             child: Icon(Icons.broken_image, color: Theme.of(context).hintColor),
           )),

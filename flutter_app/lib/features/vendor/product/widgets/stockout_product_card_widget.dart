@@ -14,7 +14,7 @@ import 'package:multishop_tchad/features/vendor/localization/controllers/localiz
 import 'package:multishop_tchad/features/vendor/product/controllers/product_controller.dart';
 import 'package:multishop_tchad/features/vendor/profile/controllers/profile_controller.dart';
 import 'package:multishop_tchad/main.dart';
-import 'package:multishop_tchad/features/vendor/theme/controllers/theme_controller.dart';
+import 'package:multishop_tchad/core/theme/controllers/theme_controller.dart';
 import 'package:multishop_tchad/core/constants/dimensions.dart';
 import 'package:multishop_tchad/core/constants/images.dart';
 import 'package:multishop_tchad/core/constants/styles.dart';

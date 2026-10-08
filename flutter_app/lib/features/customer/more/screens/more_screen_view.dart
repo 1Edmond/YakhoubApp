@@ -262,14 +262,15 @@ class _MoreScreenState extends State<MoreScreen> {
 
                             if(splashController.businessPages != null && splashController.businessPages!.isNotEmpty)
                               ListView.builder(
-                                  itemCount: splashController.businessPages?.length,
+                                  itemCount: splashController.businessPages?.where((page) => splashController.defaultBusinessPages == null || !splashController.defaultBusinessPages!.any((dp) => dp.slug == page.slug)).length ?? 0,
                                   shrinkWrap: true,
                                   padding: EdgeInsets.zero,
                                   physics: const NeverScrollableScrollPhysics(),
                                   itemBuilder: (context, index) {
-                                    return MenuButtonWidget(image: Images.termCondition, title: splashController.businessPages?[index].title,
+                                    final page = splashController.businessPages!.where((page) => splashController.defaultBusinessPages == null || !splashController.defaultBusinessPages!.any((dp) => dp.slug == page.slug)).toList()[index];
+                                    return MenuButtonWidget(image: Images.termCondition, title: page.title,
                                       onTap: () {
-                                        RouterHelper.getHtmlViewRoute(page: splashController.businessPages![index]);
+                                        RouterHelper.getHtmlViewRoute(page: page);
                                       },
                                     );
                                   }

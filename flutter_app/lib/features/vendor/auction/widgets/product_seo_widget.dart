@@ -283,7 +283,7 @@ class RemoteImagePreview extends StatelessWidget {
         ClipRRect(
           borderRadius: BorderRadius.circular(Dimensions.radiusDefault),
           child: Image.network(
-            url,
+            url, headers: const {'ngrok-skip-browser-warning': 'true'},
             width: double.infinity,
             height: 150,
             fit: BoxFit.cover,

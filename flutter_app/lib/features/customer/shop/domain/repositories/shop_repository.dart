@@ -13,7 +13,7 @@ class ShopRepository extends DataSyncService implements ShopRepositoryInterface 
   @override
   Future<ApiResponseModel> get(String sellerId) async {
     try {
-      final response = await dioClient.get("${AppConstants.sellerUri}$sellerId");
+      final response = await dioClient.get("${AppConstants.customerSellerInfoUri}$sellerId");
       return ApiResponseModel.withSuccess(response);
     } catch (e) {
       return ApiResponseModel.withError(ApiErrorHandler.getMessage(e));

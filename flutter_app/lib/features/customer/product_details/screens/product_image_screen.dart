@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:multishop_tchad/core/models/image_full_url.dart';
 import 'package:multishop_tchad/features/customer/product_details/controllers/product_details_controller.dart';
@@ -40,7 +41,7 @@ class ProductImageScreenState extends State<ProductImageScreen> {
                 scrollPhysics: const BouncingScrollPhysics(),
                 builder: (BuildContext context, int index) {
                   return PhotoViewGalleryPageOptions(
-                    imageProvider: NetworkImage('${widget.imageList![index].path}'),
+                    imageProvider: CachedNetworkImageProvider('${widget.imageList![index].path}', headers: const {'ngrok-skip-browser-warning': 'true'}),
                     initialScale: PhotoViewComputedScale.contained,
                     heroAttributes: PhotoViewHeroAttributes(tag: index.toString()),
                   );

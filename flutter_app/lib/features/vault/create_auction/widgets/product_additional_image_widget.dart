@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'dart:io';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
@@ -28,7 +29,7 @@ class ProductAdditionalImageWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final allImages = <ImageProvider>[
-      ...?existingImageUrls?.map((url) => NetworkImage(url)),
+      ...?existingImageUrls?.map((url) => CachedNetworkImageProvider(url, headers: const {'ngrok-skip-browser-warning': 'true'})),
       ...images.map((file) => FileImage(File(file.path))),
     ];
     return Container(

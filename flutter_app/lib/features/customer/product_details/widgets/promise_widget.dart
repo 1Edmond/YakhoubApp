@@ -79,7 +79,7 @@ class PromiseItem extends StatelessWidget {
     final imageWidget = entry.networkImageUrl != null &&
         entry.networkImageUrl!.isNotEmpty
         ? Image.network(
-      entry.networkImageUrl!,
+      entry.networkImageUrl!, headers: const {'ngrok-skip-browser-warning': 'true'},
       width: iconSize,
       height: iconSize,
       fit: BoxFit.contain,

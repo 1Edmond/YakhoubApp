@@ -327,7 +327,7 @@ class _BasicSetupWidgetState extends State<BasicSetupWidget>  with SingleTickerP
                                       ClipRRect(
                                         borderRadius: BorderRadius.circular(Dimensions.radiusDefault),
                                         child: Image.network(
-                                          widget.existingThumbnailUrl!,
+                                          widget.existingThumbnailUrl!, headers: const {'ngrok-skip-browser-warning': 'true'},
                                           width: double.infinity,
                                           height: 150,
                                           fit: BoxFit.cover,

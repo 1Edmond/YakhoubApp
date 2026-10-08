@@ -110,12 +110,18 @@ class _OrderScreenState extends State<OrderScreen> {
 
 
                 Padding(padding: const EdgeInsets.symmetric(horizontal: Dimensions.paddingSizeLarge, vertical: Dimensions.paddingSizeSmall),
-                  child: Row(children: [
-                    OrderTypeButton(text: getTranslated('RUNNING', context), index: 0),
-                    const SizedBox(width: Dimensions.paddingSizeSmall),
-                    OrderTypeButton(text: getTranslated('DELIVERED', context), index: 1),
-                    const SizedBox(width: Dimensions.paddingSizeSmall),
-                    OrderTypeButton(text: getTranslated('CANCELED', context), index: 2)])),
+                  child: SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(children: [
+                      OrderTypeButton(text: getTranslated('ALL', context) ?? 'Tout', index: 0),
+                      const SizedBox(width: Dimensions.paddingSizeSmall),
+                      OrderTypeButton(text: getTranslated('RUNNING', context) ?? 'En cours', index: 1),
+                      const SizedBox(width: Dimensions.paddingSizeSmall),
+                      OrderTypeButton(text: getTranslated('DELIVERED', context), index: 2),
+                      const SizedBox(width: Dimensions.paddingSizeSmall),
+                      OrderTypeButton(text: getTranslated('CANCELED', context), index: 3)
+                    ]),
+                  )),
 
 
 

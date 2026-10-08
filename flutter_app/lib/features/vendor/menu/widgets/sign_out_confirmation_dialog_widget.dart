@@ -5,7 +5,7 @@ import 'package:multishop_tchad/features/vendor/localization/language_constrants
 import 'package:multishop_tchad/features/vendor/auth/controllers/auth_controller.dart';
 import 'package:multishop_tchad/features/vendor/profile/controllers/profile_controller.dart';
 import 'package:multishop_tchad/main.dart';
-import 'package:multishop_tchad/features/vendor/theme/controllers/theme_controller.dart';
+import 'package:multishop_tchad/core/theme/controllers/theme_controller.dart';
 import 'package:multishop_tchad/core/constants/dimensions.dart';
 import 'package:multishop_tchad/core/constants/images.dart';
 import 'package:multishop_tchad/core/constants/styles.dart';

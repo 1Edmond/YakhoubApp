@@ -4,7 +4,7 @@ import 'package:multishop_tchad/core/constants/images.dart';
 
 class AppConstants {
   static const String baseUrl =
-      'https://35da-194-71-130-44.ngrok-free.app/admin';
+      'https://ff10-194-71-130-44.ngrok-free.app/admin';
   static const String appName = 'MultiShop Tchad';
   static const String packageName = 'com.multishop.tchad';
 
@@ -634,6 +634,12 @@ class AppConstants {
       '/api/v1/customer/order/offline-payment-method-list';
   static const String sellerWiseCategoryList = '/api/v1/categories?shop_slug=';
   static const String sellerWiseBrandList = '/api/v1/brands?shop_slug=';
+  // Customer-side endpoints (v1). Do not confuse with the vendor (v3/seller)
+  // constants sellerUri / sellerProductUri / productReviewUri / brandUri.
+  static const String customerSellerInfoUri = '/api/v1/seller?slug=';
+  static const String customerSellerProductUri = '/api/v1/seller/';
+  static const String customerProductReviewUri = '/api/v1/products/reviews/';
+  static const String customerBrandUri = '/api/v1/brands?guest_id=1';
   static const String getDigitalAuthorList =
       '/api/v1/products/digital-author-list?guest_id=1';
   static const String getDigitalPublishingHouse =
@@ -913,5 +919,5 @@ class AppConstants {
   static const String imageUrl = 'assets/images/image_url.png';
   static const String auctionGenerateInvoice =
       'assets/images/auction_generate_invoice.png';
-  static const String dealOfTheDay = 'assets/images/deal_of_the_day.png';
+  static const String dealOfTheDay = '/api/v1/dealsoftheday/deal-of-the-day';
 }

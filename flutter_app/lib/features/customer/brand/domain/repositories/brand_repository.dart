@@ -14,7 +14,7 @@ class BrandRepository extends DataSyncService implements BrandRepoInterface {
   @override
   Future<ApiResponseModel<T>> getBrandList<T>({int offset = 1, required DataSourceEnum source}) async {
     return await fetchData<T>(
-        '${AppConstants.brandUri}&limit=24&offset=$offset', source);
+        '${AppConstants.customerBrandUri}&limit=24&offset=$offset', source);
   }
 
   @override

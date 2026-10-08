@@ -58,7 +58,7 @@ class ChatCardWidget extends StatelessWidget {
           child: Row(crossAxisAlignment: CrossAxisAlignment.center,mainAxisAlignment: MainAxisAlignment.center,children: [
 
             ClipRRect(borderRadius: BorderRadius.circular(100),
-              child: CachedNetworkImage(
+              child: CachedNetworkImage(httpHeaders: const {'ngrok-skip-browser-warning': 'true'},
                 errorWidget: (ctx, url ,err )=>Image.asset(Images.placeholderImage,
                   height: Dimensions.chatImage, width: Dimensions.chatImage, fit: BoxFit.cover,),
                 placeholder: (ctx, url )=>Image.asset(Images.placeholderImage),

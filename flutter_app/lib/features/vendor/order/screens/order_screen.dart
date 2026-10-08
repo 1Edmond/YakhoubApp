@@ -8,7 +8,7 @@ import 'package:multishop_tchad/features/vendor/pos/controllers/customer_control
 import 'package:multishop_tchad/core/helpers/color_helper.dart';
 import 'package:multishop_tchad/features/vendor/localization/language_constrants.dart';
 import 'package:multishop_tchad/features/vendor/order/controllers/order_controller.dart';
-import 'package:multishop_tchad/features/vendor/theme/controllers/theme_controller.dart';
+import 'package:multishop_tchad/core/theme/controllers/theme_controller.dart';
 import 'package:multishop_tchad/core/constants/dimensions.dart';
 import 'package:multishop_tchad/core/constants/images.dart';
 import 'package:multishop_tchad/core/constants/styles.dart';

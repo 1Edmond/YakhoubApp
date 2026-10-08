@@ -13,7 +13,7 @@ import 'package:multishop_tchad/core/helpers/price_converter.dart';
 import 'package:multishop_tchad/core/helpers/product_helper.dart';
 import 'package:multishop_tchad/features/vendor/localization/controllers/localization_controller.dart';
 import 'package:multishop_tchad/features/vendor/localization/language_constrants.dart';
-import 'package:multishop_tchad/features/vendor/theme/controllers/theme_controller.dart';
+import 'package:multishop_tchad/core/theme/controllers/theme_controller.dart';
 import 'package:multishop_tchad/core/constants/dimensions.dart';
 import 'package:multishop_tchad/core/constants/styles.dart';
 import 'package:multishop_tchad/core/localization/app_localization.dart';

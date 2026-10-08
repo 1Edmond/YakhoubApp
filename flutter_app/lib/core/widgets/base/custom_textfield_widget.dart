@@ -300,9 +300,8 @@ class _CustomTextFieldWidgetState extends State<CustomTextFieldWidget> {
             Row(mainAxisSize: MainAxisSize.min, children: [
               widget.suffixIcon2 != null ? SizedBox(width: 30, height: 30, child: Padding(
                 padding: const EdgeInsets.all(Dimensions.paddingSizeExtraSmall),
-                child: InkWell(onTap: widget.suffix2OnTap, child: Image.asset(widget.suffixIcon2!),
-                ))
-              ) : const SizedBox.shrink(),
+                child: InkWell(onTap: widget.suffix2OnTap, child: CustomAssetImageWidget(widget.suffixIcon2!)),
+              )) : const SizedBox.shrink(),
 
 
                 widget.isPassword ? IconButton(
@@ -319,7 +318,7 @@ class _CustomTextFieldWidgetState extends State<CustomTextFieldWidget> {
                            bottom: Dimensions.paddingSizeExtraExtraSmall,
                            right: Dimensions.paddingSizeSmall,
                          ),
-                         child: InkWell(onTap: widget.suffixOnTap, child: Image.asset(widget.suffixIcon!, color: widget.suffixColor ?? Theme.of(context).hintColor)),
+                         child: InkWell(onTap: widget.suffixOnTap, child: CustomAssetImageWidget(widget.suffixIcon!, color: widget.suffixColor ?? Theme.of(context).hintColor)),
                        )),
 
                        const SizedBox(width: Dimensions.paddingSizeExtraSmall),

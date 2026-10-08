@@ -69,7 +69,7 @@ class _ChatScreenState extends State<ChatScreen> {
                 ),
                 height: 40,
                 width: 40,
-                child: CachedNetworkImage(imageUrl: image ?? '', fit: BoxFit.cover,
+                child: CachedNetworkImage(httpHeaders: const {'ngrok-skip-browser-warning': 'true'}, imageUrl: image ?? '', fit: BoxFit.cover,
                   placeholder: (context, url) => Image.asset(Images.placeholderImage, fit: BoxFit.cover),
                   errorWidget: (context, url, error) => Image.asset(Images.placeholderImage, fit: BoxFit.cover),
                 ),

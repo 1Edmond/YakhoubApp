@@ -88,56 +88,64 @@ class CheckoutController with ChangeNotifier {
     _newUser = false;
     notifyListeners();
     ApiResponseModel apiResponse;
-    isfOffline?
-    apiResponse = await checkoutServiceInterface.offlinePaymentPlaceOrder(addressID, couponCode, couponAmount, billingAddressId, orderNote, keyList, inputValueList, offlineMethodSelectedId, offlineMethodSelectedName, paymentNote, _isCheckCreateAccount, passwordController.text.trim()):
-    wallet?
-    apiResponse = await checkoutServiceInterface.walletPaymentPlaceOrder(addressID, couponCode, couponAmount, billingAddressId, orderNote, _isCheckCreateAccount, passwordController.text.trim()):
+    try {
+      isfOffline?
+      apiResponse = await checkoutServiceInterface.offlinePaymentPlaceOrder(addressID, couponCode, couponAmount, billingAddressId, orderNote, keyList, inputValueList, offlineMethodSelectedId, offlineMethodSelectedName, paymentNote, _isCheckCreateAccount, passwordController.text.trim()):
+      wallet?
+      apiResponse = await checkoutServiceInterface.walletPaymentPlaceOrder(addressID, couponCode, couponAmount, billingAddressId, orderNote, _isCheckCreateAccount, passwordController.text.trim()):
+  
+      apiResponse = await checkoutServiceInterface.cashOnDeliveryPlaceOrder(
+        addressID: addressID,
+        couponCode: couponCode,
+        couponDiscountAmount: couponAmount,
+        billingAddressId: billingAddressId,
+        orderNote: orderNote,
+        isCheckCreateAccount: _isCheckCreateAccount,
+        password: passwordController.text.trim(),
+        cashChangeAmount: _cashChangesAmount,
+        currentCurrencyCode: Provider.of<SplashController>(Get.context!, listen: false).myCurrency?.code,
+        doorPhoto: doorPhoto,
+        doorLatitude: doorPosition?.latitude,
+        doorLongitude: doorPosition?.longitude,
+        deliveryQuarter: deliveryQuarterController.text,
+        deliveryStreet: deliveryStreetController.text,
+        deliveryDescription: deliveryDescriptionController.text,
+      );
 
-    apiResponse = await checkoutServiceInterface.cashOnDeliveryPlaceOrder(
-      addressID: addressID,
-      couponCode: couponCode,
-      couponDiscountAmount: couponAmount,
-      billingAddressId: billingAddressId,
-      orderNote: orderNote,
-      isCheckCreateAccount: _isCheckCreateAccount,
-      password: passwordController.text.trim(),
-      cashChangeAmount: _cashChangesAmount,
-      currentCurrencyCode: Provider.of<SplashController>(Get.context!, listen: false).myCurrency?.code,
-      doorPhoto: doorPhoto,
-      doorLatitude: doorPosition?.latitude,
-      doorLongitude: doorPosition?.longitude,
-      deliveryQuarter: deliveryQuarterController.text,
-      deliveryStreet: deliveryStreetController.text,
-      deliveryDescription: deliveryDescriptionController.text,
-    );
+      if (apiResponse.response != null && apiResponse.response!.statusCode == 200) {
+        _isCheckCreateAccount = false;
+        _isLoading = false;
+        _addressIndex = null;
+        _billingAddressIndex = null;
+        sameAsBilling = false;
+        if(!Provider.of<AuthController>(Get.context!, listen: false).isLoggedIn()){
+          _newUser = apiResponse.response!.data['new_user'];
+        }
+  
+        String message = apiResponse.response!.data.toString();
+        String orderIdStr = '';
+        if (apiResponse.response!.data is Map) {
+          final data = apiResponse.response!.data;
+          var rawIds = data['order_ids'] ?? data['order_id'];
+          orderIdStr = extractId(rawIds?.toString() ?? '');
+        }
 
-    if (apiResponse.response != null && apiResponse.response!.statusCode == 200) {
-      _isCheckCreateAccount = false;
+        try {
+          callback(true, message, orderIdStr, _newUser);
+        } catch (e, stackTrace) {
+          debugPrint('Error invoking placeOrder callback: $e\n$stackTrace');
+        }
+      } else {
+        _isLoading = false;
+        ApiChecker.checkApi(apiResponse);
+      }
+    } catch (e, stackTrace) {
+      debugPrint('Unexpected error in placeOrder: $e\n$stackTrace');
       _isLoading = false;
-      _addressIndex = null;
-      _billingAddressIndex = null;
-      sameAsBilling = false;
-      if(!Provider.of<AuthController>(Get.context!, listen: false).isLoggedIn()){
-        _newUser = apiResponse.response!.data['new_user'];
-      }
-
-      String message = apiResponse.response!.data.toString();
-      String orderIdStr = '';
-      if (apiResponse.response!.data is Map) {
-        final data = apiResponse.response!.data;
-        var rawIds = data['order_ids'] ?? data['order_id'];
-        orderIdStr = extractId(rawIds?.toString() ?? '');
-      }
-      try {
-        callback(true, message, orderIdStr, _newUser);
-      } catch (e) {
-        debugPrint('Error invoking placeOrder callback: $e');
-      }
-    } else {
+    } finally {
       _isLoading = false;
-      ApiChecker.checkApi(apiResponse);
+      notifyListeners();
     }
-    notifyListeners();
   }
 
 

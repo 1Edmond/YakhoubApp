@@ -6,7 +6,7 @@ import 'package:multishop_tchad/features/vendor/product/domain/models/product_mo
 import 'package:multishop_tchad/core/helpers/price_converter.dart';
 import 'package:multishop_tchad/features/vendor/localization/controllers/localization_controller.dart';
 import 'package:multishop_tchad/features/vendor/localization/language_constrants.dart';
-import 'package:multishop_tchad/features/vendor/theme/controllers/theme_controller.dart';
+import 'package:multishop_tchad/core/theme/controllers/theme_controller.dart';
 import 'package:multishop_tchad/core/constants/dimensions.dart';
 import 'package:multishop_tchad/core/constants/images.dart';
 import 'package:multishop_tchad/core/constants/styles.dart';
@@ -49,7 +49,7 @@ class TopMostProductWidget extends StatelessWidget{
                       topLeft: Radius.circular(Dimensions.paddingSizeExtraSmall),
                       topRight: Radius.circular(Dimensions.paddingSizeExtraSmall),
                     ),
-                    child: CachedNetworkImage(
+                    child: CachedNetworkImage(httpHeaders: const {'ngrok-skip-browser-warning': 'true'},
                       placeholder: (ctx, url) => Image.asset(Images.placeholderImage,
                         height: Dimensions.imageSize,width: Dimensions.imageSize,fit: BoxFit.cover,),
                       fit: BoxFit.cover,

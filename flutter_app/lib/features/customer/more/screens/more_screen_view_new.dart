@@ -670,7 +670,9 @@ class _MoreScreenViewState extends State<MoreScreenView> {
                       ),
 
                     if (splashController.businessPages != null && splashController.businessPages!.isNotEmpty)
-                      ...splashController.businessPages!.map((page) => MenuItem(
+                      ...splashController.businessPages!
+                        .where((page) => splashController.defaultBusinessPages == null || !splashController.defaultBusinessPages!.any((dp) => dp.slug == page.slug))
+                        .map((page) => MenuItem(
                         iconImage: Images.loyaltyPointsIcon,
                         label: page.title ?? '',
                         onTap: () => RouterHelper.getHtmlViewRoute(page: page),

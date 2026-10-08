@@ -375,10 +375,17 @@ class _HomeExploreScreenState extends State<HomeExploreScreen> with TickerProvid
                                         )),
                                         GestureDetector(
                                           onTap: () => RouterHelper.getMoreScreenRoute(action: RouteAction.push),
-                                          child: ClipOval(
-                                            child: CustomImageWidget(
-                                                image: profileController.userInfoModel?.imageFullUrl?.path ?? '',
-                                                width: 40, height: 40, placeholder: Images.guestProfile),
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.min,
+                                            children: [
+                                              Text(getTranslated('menu', context) ?? 'Menu', style: titilliumRegular.copyWith(color: Colors.white, fontSize: Dimensions.fontSizeSmall)),
+                                              const SizedBox(width: Dimensions.paddingSizeExtraSmall),
+                                              ClipOval(
+                                                child: CustomImageWidget(
+                                                    image: profileController.userInfoModel?.imageFullUrl?.path ?? '',
+                                                    width: 40, height: 40, placeholder: Images.guestProfile),
+                                              ),
+                                            ],
                                           ),
                                         ),
                                       ],

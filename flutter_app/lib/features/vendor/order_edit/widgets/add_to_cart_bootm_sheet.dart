@@ -4,7 +4,7 @@ import 'package:multishop_tchad/core/widgets/base/basewidgets/custom_snackbar_wi
 import 'package:multishop_tchad/features/vendor/order_details/domain/models/order_details_model.dart';
 import 'package:multishop_tchad/features/vendor/pos/controllers/cart_controller.dart';
 import 'package:multishop_tchad/features/vendor/localization/language_constrants.dart';
-import 'package:multishop_tchad/features/vendor/theme/controllers/theme_controller.dart';
+import 'package:multishop_tchad/core/theme/controllers/theme_controller.dart';
 import 'package:multishop_tchad/core/constants/dimensions.dart';
 import 'package:multishop_tchad/core/constants/images.dart';
 import 'package:multishop_tchad/core/constants/styles.dart';

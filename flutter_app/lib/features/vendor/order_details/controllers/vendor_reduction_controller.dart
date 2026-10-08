@@ -11,7 +11,7 @@ class VendorReductionController extends ChangeNotifier {
   final List<int> _tiers = [250, 500, 1000, 1500, 2000, 2500, 3000, 3500, 4000, 5000, 10000];
   List<int> get tiers => _tiers;
 
-  bool _isLoading = false;
+  int? _processingId; String? _processingAction; bool isProcessing(int id, String action) => _processingId == id && _processingAction == action; bool isAnyProcessing(int id) => _processingId == id; bool _isLoading = false;
   bool get isLoading => _isLoading;
 
   final Map<int, PriceReductionModel> _orderReductions = {};
@@ -55,11 +55,14 @@ class VendorReductionController extends ChangeNotifier {
   }
 
   Future<bool> acceptReduction(int requestId, BuildContext context, {int? orderId}) async {
-    _isLoading = true;
+    _processingId = requestId;
+    _processingAction = 'accept';
     notifyListeners();
 
     ApiResponseModel response = await vendorReductionRepository.acceptReduction(requestId);
-    _isLoading = false;
+    
+    _processingId = null;
+    _processingAction = null;
 
     if (response.response != null && response.response!.statusCode == 200) {
       if (orderId != null && _orderReductions.containsKey(orderId)) {
@@ -80,11 +83,14 @@ class VendorReductionController extends ChangeNotifier {
   }
 
   Future<bool> refuseReduction(int requestId, BuildContext context, {int? orderId}) async {
-    _isLoading = true;
+    _processingId = requestId;
+    _processingAction = 'refuse';
     notifyListeners();
 
     ApiResponseModel response = await vendorReductionRepository.refuseReduction(requestId);
-    _isLoading = false;
+    
+    _processingId = null;
+    _processingAction = null;
 
     if (response.response != null && response.response!.statusCode == 200) {
       if (orderId != null && _orderReductions.containsKey(orderId)) {
@@ -105,11 +111,14 @@ class VendorReductionController extends ChangeNotifier {
   }
 
   Future<bool> sendCounterOffer(int requestId, double counterAmount, BuildContext context, {int? orderId}) async {
-    _isLoading = true;
+    _processingId = requestId;
+    _processingAction = 'counter';
     notifyListeners();
 
     ApiResponseModel response = await vendorReductionRepository.counterOffer(requestId, counterAmount);
-    _isLoading = false;
+    
+    _processingId = null;
+    _processingAction = null;
 
     if (response.response != null && response.response!.statusCode == 200) {
       if (orderId != null && _orderReductions.containsKey(orderId)) {

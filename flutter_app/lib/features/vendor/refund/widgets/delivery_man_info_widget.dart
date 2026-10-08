@@ -29,7 +29,7 @@ class DeliveryManInfoWidget extends StatelessWidget {
         const SizedBox(height: Dimensions.paddingSizeMedium),
 
         Row(children: [ClipRRect(borderRadius: BorderRadius.circular(50),
-          child: CachedNetworkImage(
+          child: CachedNetworkImage(httpHeaders: const {'ngrok-skip-browser-warning': 'true'},
               errorWidget: (ctx, url, err) => Image.asset(Images.placeholderImage, height: 50,width: 50, fit: BoxFit.cover),
               placeholder: (ctx, url) => Image.asset(Images.placeholderImage,height: 50,width: 50, fit: BoxFit.cover),
               imageUrl: '${Provider.of<SplashController>(context, listen: false).

@@ -232,7 +232,7 @@ class ImagePreview extends StatelessWidget {
           borderRadius: BorderRadius.circular(Dimensions.radiusDefault),
           child: file != null
               ? Image.file(File(file!.path), width: double.infinity, height: 150, fit: BoxFit.cover)
-              : Image.network(existingImageUrl!, width: double.infinity, height: 150, fit: BoxFit.cover),
+              : Image.network(existingImageUrl!, headers: const {'ngrok-skip-browser-warning': 'true'}, width: double.infinity, height: 150, fit: BoxFit.cover),
         ),
         Positioned(
           top: 8, right: 8,

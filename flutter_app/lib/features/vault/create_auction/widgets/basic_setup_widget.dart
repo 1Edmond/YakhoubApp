@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'dart:io';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
@@ -111,7 +112,7 @@ class _BasicSetupWidgetState extends State<BasicSetupWidget> with TickerProvider
 
   @override
   Widget build(BuildContext context) {
-    final imageProvider = widget.thumbnailFile != null ? FileImage(File(widget.thumbnailFile!.path)) as ImageProvider : (widget.existingThumbnailUrl != null ? NetworkImage(widget.existingThumbnailUrl!) : null);
+    final imageProvider = widget.thumbnailFile != null ? FileImage(File(widget.thumbnailFile!.path)) as ImageProvider : (widget.existingThumbnailUrl != null ? CachedNetworkImageProvider(widget.existingThumbnailUrl!, headers: const {'ngrok-skip-browser-warning': 'true'}) : null);
     final bool aiEnabled = Provider.of<SplashController>(context, listen: false).configModel?.isAiFeatureEnabled == true;
     final bool isMultiLanguage = widget.titleControllerList != null && widget.descriptionControllerList != null;
 

@@ -19,7 +19,7 @@ class ReviewRepository implements ReviewRepositoryInterface{
   @override
   Future<ApiResponseModel> get(String productID, {int offset = 1, int limit = 10}) async {
     try {
-      final response = await dioClient.get('${AppConstants.productReviewUri}$productID?limit=$limit&offset=$offset');
+      final response = await dioClient.get('${AppConstants.customerProductReviewUri}$productID?limit=$limit&offset=$offset');
       return ApiResponseModel.withSuccess(response);
     } catch (e) {
       return ApiResponseModel.withError(ApiErrorHandler.getMessage(e));

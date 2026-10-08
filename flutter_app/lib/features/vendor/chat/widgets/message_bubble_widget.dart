@@ -10,7 +10,7 @@ import 'package:multishop_tchad/features/vendor/chat/domain/models/message_model
 import 'package:multishop_tchad/features/vendor/chat/screens/media_viewer_screen.dart';
 import 'package:multishop_tchad/features/vendor/chat/controllers/chat_controller.dart';
 import 'package:multishop_tchad/features/vendor/localization/controllers/localization_controller.dart';
-import 'package:multishop_tchad/features/vendor/theme/controllers/theme_controller.dart';
+import 'package:multishop_tchad/core/theme/controllers/theme_controller.dart';
 import 'package:multishop_tchad/core/constants/dimensions.dart';
 import 'package:multishop_tchad/core/constants/images.dart';
 import 'package:multishop_tchad/core/constants/styles.dart';
