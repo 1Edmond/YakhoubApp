@@ -43,7 +43,7 @@ class _BannersSliderWidgetState extends State<BannersSliderWidget> {
             bottom: Dimensions.homePagePadding,
           ),
           child: Column(mainAxisSize: MainAxisSize.min, children: [
-            activeBanners != null ? activeBanners.isNotEmpty ?
+            
             CarouselSlider.builder(
               options: CarouselOptions(
                   initialPage: _currentIndex,
@@ -81,11 +81,10 @@ class _BannersSliderWidgetState extends State<BannersSliderWidget> {
                   ),
                 ),
               ),
-            ) : const SizedBox() : const BannerShimmer(),
+            ),
             const SizedBox(height: Dimensions.paddingSizeSmall),
 
-            if(activeBanners != null && activeBanners.isNotEmpty)
-              SizedBox(
+            SizedBox(
                 height: Dimensions.paddingSizeExtraSmall,
                 child: ListView.separated(
                   separatorBuilder: (_, index){

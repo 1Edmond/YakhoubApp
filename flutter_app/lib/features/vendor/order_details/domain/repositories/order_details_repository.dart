@@ -154,4 +154,13 @@ class OrderDetailsRepository implements OrderDetailsRepositoryInterface{
   }
 
 
+  @override
+  Future<ApiResponse> validateTransfer(String orderId, String status) async {
+    try {
+      final response = await dioClient!.post('/api/v3/seller/orders/$orderId/validate-transfer', data: {'status': status});
+      return ApiResponse.withSuccess(response);
+    } catch (e) {
+      return ApiResponse.withError(ApiErrorHandler.getMessage(e));
+    }
+  }
 }

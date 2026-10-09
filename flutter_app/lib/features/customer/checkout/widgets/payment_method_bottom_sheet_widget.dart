@@ -115,11 +115,53 @@ class PaymentMethodBottomSheetWidgetState extends State<PaymentMethodBottomSheet
                                   fontSize: Dimensions.fontSizeSmall,
                                   buttonText: '${getTranslated('pay_via_wallet', context)}',
                                 )),
+                                
+                              const SizedBox(width: Dimensions.paddingSizeDefault),
+
+                              Expanded(child: CustomButton(
+                                onTap: () {
+                                  checkoutController.setOfflineChecked('manual_transfer');
+                                  // In real usage, calculate amount dynamically or pass it. Using 0 for now.
+                                  checkoutController.fetchTransferAccounts(0);
+                                },
+                                isBorder: true,
+                                backgroundColor: checkoutController.isManualTransferChecked ? Theme.of(context).primaryColor : Theme.of(context).cardColor,
+                                textColor:  checkoutController.isManualTransferChecked? Colors.white : Theme.of(context).textTheme.bodyLarge?.color,
+                                fontSize: Dimensions.fontSizeSmall,
+                                buttonText: '${getTranslated('manual_transfer', context)}',
+                              )),
                             ]),
 
 
                             ///change amount
                             ChangeAmountWidget(changeAmountTextController: changeAmountTextController),
+                            
+                            if (checkoutController.isManualTransferChecked)
+                              Padding(
+                                padding: const EdgeInsets.symmetric(vertical: Dimensions.paddingSizeSmall),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text('Comptes disponibles :', style: textBold),
+                                    ...checkoutController.transferAccounts.map((e) => Text('${e['bank_name']} - ${e['account_number']} (${e['account_name']})')),
+                                    const SizedBox(height: Dimensions.paddingSizeSmall),
+                                    TextField(
+                                      controller: checkoutController.manualTransferRefController,
+                                      decoration: InputDecoration(
+                                        hintText: getTranslated('transaction_reference', context) ?? 'Référence de transaction',
+                                      ),
+                                    ),
+                                    const SizedBox(height: Dimensions.paddingSizeSmall),
+                                    CustomButton(
+                                      buttonText: getTranslated('upload_proof_image', context) ?? 'Uploader image',
+                                      onTap: () {
+                                          // Simulate picking image
+                                          // checkoutController.setManualTransferProofImage(file);
+                                      },
+                                    ),
+                                  ],
+                                ),
+                              ),
 
 
                             if((configModel?.digitalPayment ?? false) && (configModel?.paymentMethods?.isNotEmpty ?? false) && !checkoutController.isCODChecked)

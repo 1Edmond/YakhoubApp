@@ -465,8 +465,7 @@ import 'package:multishop_tchad/features/vendor/shop/controllers/shop_controller
 // import 'package:multishop_tchad/features/vendor/shop/domain/services/shop_service_interface.dart'
 import 'package:multishop_tchad/features/vendor/splash/controllers/splash_controller.dart'
     as v_splash_controller;
-import 'package:multishop_tchad/features/vendor/theme/controllers/theme_controller.dart'
-    as v_theme_controller;
+
 import 'package:multishop_tchad/features/vendor/localization/controllers/localization_controller.dart'
     as v_localization_controller;
 import 'package:multishop_tchad/features/vendor/dashboard/controllers/bottom_menu_controller.dart'
@@ -603,7 +602,7 @@ List<SingleChildWidget> getProviders() {
     ChangeNotifierProvider(create: (_) => di.sl<PriceReductionController>()),
     ChangeNotifierProvider(create: (_) => di.sl<VendorReductionController>()),
     ChangeNotifierProvider(create: (_) => di.sl<v_splash_controller.SplashController>()),
-    ChangeNotifierProvider(create: (_) => di.sl<v_theme_controller.ThemeController>()),
+    
     ChangeNotifierProvider(create: (_) => di.sl<v_localization_controller.LocalizationController>()),
     ChangeNotifierProvider(create: (_) => di.sl<v_bottom_menu_controller.BottomMenuController>()),
     ChangeNotifierProvider(create: (_) => di.sl<v_tutorial_controller.TutorialController>()),

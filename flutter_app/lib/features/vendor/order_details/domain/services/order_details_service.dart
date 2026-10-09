@@ -38,4 +38,12 @@ class OrderDetailsService implements OrderDetailsServiceInterface {
     return await orderDetailsRepositoryInterface.getOrderInvoice(orderID);
   }
 
+  @override
+  Future validateTransfer(String orderId, String status) async {
+    return orderDetailsRepositoryInterface.validateTransfer(orderId, status);
+  }
+
+
+
 }
+

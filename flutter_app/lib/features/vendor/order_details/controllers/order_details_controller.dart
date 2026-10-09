@@ -323,4 +323,17 @@ class OrderDetailsController extends ChangeNotifier{
   }
 
 
+  Future<void> validateTransfer(String orderId, String status) async {
+    _isLoading = true;
+    notifyListeners();
+    ApiResponse apiResponse = await orderDetailsServiceInterface.validateTransfer(orderId, status);
+    if (apiResponse.response != null && apiResponse.response!.statusCode == 200) {
+      showCustomSnackBarWidget(getTranslated('transfer_validated_successfully', Get.context!), Get.context!, isError: false);
+      await getOrderDetails(orderId);
+    } else {
+      ApiChecker.checkApi(apiResponse);
+    }
+    _isLoading = false;
+    notifyListeners();
+  }
 }

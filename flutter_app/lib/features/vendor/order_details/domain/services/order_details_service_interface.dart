@@ -10,5 +10,6 @@ abstract class OrderDetailsServiceInterface{
   Future<HttpClientResponse> productDownload(String url);
 
   Future <dynamic> getOrderInvoice(String orderID);
+  Future<dynamic> validateTransfer(String orderId, String status);
 
 }

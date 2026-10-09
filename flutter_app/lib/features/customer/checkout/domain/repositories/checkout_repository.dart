@@ -139,6 +139,62 @@ class CheckoutRepository implements CheckoutRepositoryInterface{
   }
 
   @override
+  Future<ApiResponseModel> manualTransferAccounts(double amount) async {
+    try {
+      final response = await dioClient!.get('${AppConstants.manualTransferAccounts}?amount=$amount');
+      return ApiResponseModel.withSuccess(response);
+    } catch (e) {
+      return ApiResponseModel.withError(ApiErrorHandler.getMessage(e));
+    }
+  }
+
+  @override
+  Future<ApiResponseModel> manualTransferPlaceOrder(
+      String? addressID,
+      String? couponCode,
+      String? couponDiscountAmount,
+      String? billingAddressId,
+      String? orderNote,
+      bool? isCheckCreateAccount,
+      String? password,
+      String transactionReference,
+      dynamic proofImage,
+      ) async {
+    try {
+      final Map<String, dynamic> data = {
+        'address_id': addressID,
+        'coupon_code': couponCode,
+        'coupon_discount': couponDiscountAmount.toString(),
+        'billing_address_id': billingAddressId,
+        'order_note': orderNote,
+        'guest_id': Provider.of<AuthController>(Get.context!, listen: false).getGuestToken(),
+        'is_guest': '${Provider.of<AuthController>(Get.context!, listen: false).isLoggedIn() ? 0 : 1}',
+        'is_check_create_account': (isCheckCreateAccount ?? false) ? 1 : 0,
+        'password': password,
+        'payment_method': 'manual_transfer',
+        'transaction_reference': transactionReference,
+      };
+
+      data.removeWhere((key, value) => value == null || value.toString().isEmpty);
+
+      List<MultipartWithKey> files = [];
+      files.add(MultipartWithKey(
+        key: 'proof_image',
+        multipartFile: await MultipartFile.fromFile(proofImage.path),
+      ));
+
+      final response = await dioClient!.postMultipart(
+        AppConstants.orderPlaceUri,
+        data: data,
+        files: files,
+      );
+      return ApiResponseModel.withSuccess(response);
+    } catch (e) {
+      return ApiResponseModel.withError(ApiErrorHandler.getMessage(e));
+    }
+  }
+
+  @override
   Future<ApiResponseModel> digitalPaymentPlaceOrder(
       String? orderNote,
       String? customerId,

@@ -89,6 +89,10 @@ class CheckoutController with ChangeNotifier {
     notifyListeners();
     ApiResponseModel apiResponse;
     try {
+      isManualTransferChecked?
+      apiResponse = await checkoutServiceInterface.manualTransferPlaceOrder(
+        addressID, couponCode, couponAmount, billingAddressId, orderNote, _isCheckCreateAccount, passwordController.text.trim(), manualTransferRefController.text.trim(), manualTransferProofImage
+      ):
       isfOffline?
       apiResponse = await checkoutServiceInterface.offlinePaymentPlaceOrder(addressID, couponCode, couponAmount, billingAddressId, orderNote, keyList, inputValueList, offlineMethodSelectedId, offlineMethodSelectedName, paymentNote, _isCheckCreateAccount, passwordController.text.trim()):
       wallet?
@@ -212,23 +216,57 @@ class CheckoutController with ChangeNotifier {
       isOfflineChecked = !isOfflineChecked;
       isCODChecked = false;
       isWalletChecked = false;
+      isManualTransferChecked = false;
       _paymentMethodIndex = -1;
       setOfflinePaymentMethodSelectedIndex(0);
     }else if(type == 'cod'){
       isCODChecked = !isCODChecked;
       isOfflineChecked = false;
       isWalletChecked = false;
+      isManualTransferChecked = false;
       _paymentMethodIndex = -1;
     }else if(type == 'wallet'){
       isWalletChecked = !isWalletChecked;
       isOfflineChecked = false;
       isCODChecked = false;
+      isManualTransferChecked = false;
+      _paymentMethodIndex = -1;
+    }else if(type == 'manual_transfer'){
+      isManualTransferChecked = !isManualTransferChecked;
+      isOfflineChecked = false;
+      isCODChecked = false;
+      isWalletChecked = false;
       _paymentMethodIndex = -1;
     }
 
     if(notify) {
       notifyListeners();
     }
+  }
+
+  bool isManualTransferChecked = false;
+  File? manualTransferProofImage;
+  final TextEditingController manualTransferRefController = TextEditingController();
+  List<dynamic> transferAccounts = [];
+  double transferFee = 0.0;
+
+  Future<void> fetchTransferAccounts(double amount) async {
+    ApiResponseModel apiResponse = await checkoutServiceInterface.manualTransferAccounts(amount);
+    if (apiResponse.response != null && apiResponse.response!.statusCode == 200) {
+      if (apiResponse.response!.data is Map) {
+        transferAccounts = apiResponse.response!.data['accounts'] ?? [];
+        transferFee = double.tryParse(apiResponse.response!.data['transfer_fee'].toString()) ?? 0.0;
+      } else {
+        transferAccounts = apiResponse.response!.data ?? [];
+        transferFee = 0.0;
+      }
+    }
+    notifyListeners();
+  }
+
+  void setManualTransferProofImage(File file) {
+    manualTransferProofImage = file;
+    notifyListeners();
   }
 
 

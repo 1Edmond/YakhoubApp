@@ -54,6 +54,16 @@ class CheckoutService implements CheckoutServiceInterface{
   }
 
   @override
+  Future manualTransferAccounts(double amount) async {
+    return await checkoutRepositoryInterface.manualTransferAccounts(amount);
+  }
+
+  @override
+  Future manualTransferPlaceOrder(String? addressID, String? couponCode, String? couponDiscountAmount, String? billingAddressId, String? orderNote, bool? isCheckCreateAccount, String? password, String transactionReference, dynamic proofImage) async {
+    return await checkoutRepositoryInterface.manualTransferPlaceOrder(addressID, couponCode, couponDiscountAmount, billingAddressId, orderNote, isCheckCreateAccount, password, transactionReference, proofImage);
+  }
+
+  @override
   Future offlinePaymentPlaceOrder(String? addressID, String? couponCode, String? couponDiscountAmount, String? billingAddressId, String? orderNote, List<String?> typeKey, List<String> typeValue, int? id, String name, String? paymentNote,bool? isCheckCreateAccount, String? password) async{
     return await checkoutRepositoryInterface.offlinePaymentPlaceOrder(addressID, couponCode, couponDiscountAmount, billingAddressId, orderNote, typeKey, typeValue, id, name, paymentNote, isCheckCreateAccount, password);
   }

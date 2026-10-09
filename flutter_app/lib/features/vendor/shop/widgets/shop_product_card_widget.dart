@@ -9,8 +9,8 @@ import 'package:multishop_tchad/features/vendor/product_details/enums/preview_ty
 import 'package:multishop_tchad/features/vendor/product_details/widgets/audio_preview.dart';
 import 'package:multishop_tchad/features/vendor/product_details/widgets/download_preview_file.dart';
 import 'package:multishop_tchad/features/vendor/product_details/widgets/image_preview.dart';
-import 'package:multishop_tchad/features/vendor/product_details/widgets/pdf_preview_flutter.dart';
-import 'package:multishop_tchad/features/vendor/product_details/widgets/video_preview.dart';
+import 'package:multishop_tchad/features/customer/product_details/widgets/pdf_preview_flutter.dart';
+import 'package:multishop_tchad/features/customer/product_details/widgets/video_preview.dart';
 import 'package:multishop_tchad/core/helpers/price_converter.dart';
 import 'package:multishop_tchad/core/helpers/product_helper.dart';
 import 'package:multishop_tchad/features/vendor/localization/language_constrants.dart';

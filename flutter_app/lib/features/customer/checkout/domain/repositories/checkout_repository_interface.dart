@@ -27,6 +27,8 @@ abstract class CheckoutRepositoryInterface implements RepositoryInterface{
   Future<dynamic> digitalPaymentPlaceOrder(String? orderNote, String? customerId, String? addressId, String? billingAddressId, String? couponCode, String? couponDiscount, String? paymentMethod, bool? isCheckCreateAccount, String? password, {String? paymentPhone});
 
   Future<dynamic> offlinePaymentList();
+  Future<dynamic> manualTransferAccounts(double amount);
+  Future<dynamic> manualTransferPlaceOrder(String? addressID, String? couponCode, String? couponDiscountAmount, String? billingAddressId, String? orderNote, bool? isCheckCreateAccount, String? password, String transactionReference, dynamic proofImage);
 
   Future<dynamic> getReferralAmount(String? amount);
 

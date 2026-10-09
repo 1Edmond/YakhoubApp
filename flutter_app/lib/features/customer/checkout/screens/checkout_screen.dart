@@ -207,6 +207,14 @@ class CheckoutScreenState extends State<CheckoutScreen> {
                                           }}), dismissible: false, willFlip: true
                                         );
                                       }
+                                      else if (orderProvider.isManualTransferChecked) {
+                                        orderProvider.placeOrder(callback: _callback,
+                                            addressID : addressId,
+                                            couponCode : couponCode,
+                                            couponAmount : couponCodeAmount,
+                                            billingAddressId : billingAddressId,
+                                            orderNote : orderNote);
+                                      }
                                       else {
                                         showModalBottomSheet(
                                           context: context, isScrollControlled: true, backgroundColor: Colors.transparent,
@@ -303,6 +311,7 @@ class CheckoutScreenState extends State<CheckoutScreen> {
                             builder: (context, checkoutController, child) {
                               _couponDiscount = Provider.of<CouponController>(context).discount ?? 0;
                               _referralDiscount = Provider.of<CheckoutController>(context).referralAmount?.amount ?? 0;
+                              double transferFee = checkoutController.isManualTransferChecked ? checkoutController.transferFee : 0.0;
                               return Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
@@ -340,12 +349,18 @@ class CheckoutScreenState extends State<CheckoutScreen> {
                                     amount: PriceConverter.convertPrice(context, _referralDiscount),
                                   ),
 
+                                  if (checkoutController.isManualTransferChecked)
+                                  AmountWidget(
+                                    title: 'Frais de transfert',
+                                    amount: PriceConverter.convertPrice(context, transferFee),
+                                  ),
+
                                   Divider(height: 5, color: Theme.of(context).hintColor),
                                   AmountWidget(
                                     fontSize: Dimensions.fontSizeLarge, isTitleBlack: true,
                                     title: '${getTranslated('total_payable', context)} ${Provider.of<SplashController>(Get.context!, listen: false).configModel?.systemTaxIncludeStatus == 1 ? getTranslated('inc_vat_tax', context) : ''} ',
                                     amount: PriceConverter.convertPrice(context,
-                                      (_order + widget.shippingFee - _referralDiscount - widget.discount - _couponDiscount + _tax),
+                                      (_order + widget.shippingFee - _referralDiscount - widget.discount - _couponDiscount + _tax + transferFee),
                                     ),
                                   ),
 

@@ -626,8 +626,7 @@ import 'package:multishop_tchad/features/vendor/shop/controllers/shop_controller
     as v_shop_controller;
 import 'package:multishop_tchad/features/vendor/splash/controllers/splash_controller.dart'
     as v_splash_controller;
-import 'package:multishop_tchad/features/vendor/theme/controllers/theme_controller.dart'
-    as v_theme_controller;
+
 import 'package:multishop_tchad/features/vendor/bank_info/controllers/bank_info_controller.dart'
     as v_bank_info_controller;
 import 'package:multishop_tchad/features/vendor/transaction/controllers/transaction_controller.dart'
@@ -1644,8 +1643,7 @@ Future<void> init() async {
   sl.registerFactory(() =>
       v_product_details_controller.ProductDetailsController(
           productDetailsServiceInterface: sl()));
-  sl.registerFactory(
-      () => v_theme_controller.ThemeController(sharedPreferences: sl()));
+  
   sl.registerFactory(() => v_localization_controller.LocalizationController(
       sharedPreferences: sl()));
   sl.registerFactory(() => v_language_controller.LanguageController());
