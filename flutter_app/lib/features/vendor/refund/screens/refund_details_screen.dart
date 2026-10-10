@@ -48,7 +48,7 @@ class _RefundDetailsScreenState extends State<RefundDetailsScreen> with TickerPr
 
     _tabController?.addListener((){
       if (kDebugMode) {
-        print('my index is${_tabController!.index}');
+        debugPrint('my index is${_tabController!.index}');
       }
     });
   }

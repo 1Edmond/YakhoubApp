@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:multishop_tchad/core/feature_vault/vault_tap_detector.dart';
 import 'package:provider/provider.dart';
 import 'package:multishop_tchad/features/vendor/addProduct/screens/add_product_tab_view_screen.dart';
 import 'package:multishop_tchad/features/vendor/auction/screens/auction_menu_screen.dart';

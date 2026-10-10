@@ -330,7 +330,7 @@ class DeliveryManController extends ChangeNotifier {
 
   void setIdentityType (String? setValue){
     if (kDebugMode) {
-      print('------$setValue====$_identityType');
+      debugPrint('------$setValue====$_identityType');
     }
     _identityType = setValue;
 
@@ -340,7 +340,7 @@ class DeliveryManController extends ChangeNotifier {
 
   void setCountryDialCode (String? setValue){
     if (kDebugMode) {
-      print('------$setValue====$_identityType');
+      debugPrint('------$setValue====$_identityType');
     }
     _countryDialCode = setValue;
 

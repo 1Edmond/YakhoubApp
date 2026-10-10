@@ -115,7 +115,7 @@ class _HoldOrderSearchBarWidgetState extends State<HoldOrderSearchBarWidget> {
 
               onSelected: (selectedString) {
                 if (kDebugMode) {
-                  print(selectedString);
+                  debugPrint(selectedString.toString());
                 }
               },
 

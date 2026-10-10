@@ -153,7 +153,7 @@ class AuthController with ChangeNotifier {
               null, socialLogin.email, socialLogin.name);
         } catch (e) {
           if (kDebugMode) {
-            print('----------$e------------');
+            debugPrint('----------$e------------');
           }
         }
       }

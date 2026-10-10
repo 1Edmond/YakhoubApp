@@ -122,7 +122,7 @@ class ProductReviewController extends ChangeNotifier{
         _isOn.add(review.status == 1? true:false);
       }
       if (kDebugMode) {
-        print(reviewList);
+        debugPrint(reviewList.toString());
       }
     }else {
       _isLoading = false;
@@ -147,7 +147,7 @@ class ProductReviewController extends ChangeNotifier{
         _isOn.add(review.status == 1? true:false);
       }
       if (kDebugMode) {
-        print(reviewList);
+        debugPrint(reviewList.toString());
       }
       if(search.trim().isNotEmpty) {
         _isSearching = false;

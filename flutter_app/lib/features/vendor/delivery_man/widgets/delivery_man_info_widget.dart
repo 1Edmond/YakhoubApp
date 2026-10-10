@@ -254,7 +254,7 @@ class _DeliveryManInfoWidgetState extends State<DeliveryManInfoWidget> {
 
                               itemBuilder: (BuildContext context, index){
                                 if (kDebugMode) {
-                                  // print('==>image path==$baseUrl/${widget.deliveryMan!.identityImage![index]}');
+                                  // debugPrint('==>image path==$baseUrl/${widget.deliveryMan!.identityImage![index]}');
                                 }
                                 return Stack(children: [
                                   Container(

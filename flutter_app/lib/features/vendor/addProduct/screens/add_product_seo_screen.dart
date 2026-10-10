@@ -240,7 +240,7 @@ class AddProductSeoScreenState extends State<AddProductSeoScreen>  with Automati
   //   // Check if the product/unitPrice changed
   //   if (widget.unitPrice != oldWidget.unitPrice) {
   //     // Force update your local controllers or variables here
-  //     print("SEO Screen Updated with Price: ${widget.unitPrice}");
+  //     debugPrint("SEO Screen Updated with Price: ${widget.unitPrice}");
   //
   //     // Example: if you have a controller
   //     // _unitPriceController.text = widget.unitPrice ?? '';

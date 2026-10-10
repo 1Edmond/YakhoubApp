@@ -189,7 +189,7 @@ class AuthController with ChangeNotifier {
   Future<bool> clearSharedData({bool fromUnAuthorizationError = false}) async {
     if(fromUnAuthorizationError){
       if (kDebugMode) {
-        print("===Inside==fromUnAuthorizationError");
+        debugPrint("===Inside==fromUnAuthorizationError");
       }
     }
     Provider.of<ShopController>(Get.context!, listen: false).clearShopModel();

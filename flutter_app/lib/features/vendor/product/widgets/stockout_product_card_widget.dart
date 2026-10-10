@@ -260,7 +260,7 @@ class _StockOutProductWidgetState extends State<StockOutProductWidget> {
                                       } else if(_stockQuantityController.text.toString().isEmpty){
                                         showCustomSnackBarWidget('product_quantity_is_required', context);
                                         if (kDebugMode) {
-                                          print(widget.productModel.id);
+                                          debugPrint(widget.productModel.id.toString());
                                         }
                                       }else{
                                         productProvider.updateProductQuantity(context, widget.productModel.id, int.parse(_stockQuantityController.text.toString()), widget.productModel.variation!);

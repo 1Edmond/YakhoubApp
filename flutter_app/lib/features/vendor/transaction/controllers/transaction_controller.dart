@@ -114,7 +114,7 @@ class TransactionController extends ChangeNotifier {
       notifyListeners();
     } else {
       if (kDebugMode) {
-        print(apiResponse.error.toString());
+        debugPrint(apiResponse.error.toString());
       }
     }
   }
@@ -133,7 +133,7 @@ class TransactionController extends ChangeNotifier {
       notifyListeners();
     } else {
       if (kDebugMode) {
-        print(apiResponse.error.toString());
+        debugPrint(apiResponse.error.toString());
       }
     }
   }

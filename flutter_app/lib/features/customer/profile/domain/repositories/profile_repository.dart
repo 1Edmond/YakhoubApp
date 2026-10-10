@@ -59,7 +59,7 @@ class ProfileRepository implements ProfileRepositoryInterface{
     }
     request.fields.addAll(fields);
     if (kDebugMode) {
-      print('========>${fields.toString()}');
+      debugPrint('========>${fields.toString()}');
     }
     http.StreamedResponse response = await request.send();
     return response;

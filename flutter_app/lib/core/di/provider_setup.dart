@@ -22,6 +22,7 @@ import 'package:multishop_tchad/core/localization/controllers/localization_contr
 import 'package:multishop_tchad/core/theme/controllers/theme_controller.dart';
 import 'package:multishop_tchad/features/customer/order_details/controllers/price_reduction_controller.dart';
 import 'package:multishop_tchad/features/vendor/order_details/controllers/vendor_reduction_controller.dart';
+import 'package:multishop_tchad/features/vendor/transfer_account/controllers/transfer_account_controller.dart';
 import 'package:multishop_tchad/features/customer/address/controllers/address_controller.dart';
 // import 'package:multishop_tchad/features/customer/address/domain/repositories/address_repository.dart';
 // import 'package:multishop_tchad/features/customer/address/domain/repositories/address_repository_interface.dart';
@@ -55,6 +56,7 @@ import 'package:multishop_tchad/features/customer/checkout/controllers/checkout_
 // import 'package:multishop_tchad/features/customer/checkout/domain/services/checkout_service.dart';
 // import 'package:multishop_tchad/features/customer/checkout/domain/services/checkout_service_interface.dart';
 import 'package:multishop_tchad/features/customer/location/controllers/location_controller.dart';
+import 'package:multishop_tchad/core/feature_vault/vault_controller.dart';
 // import 'package:multishop_tchad/features/customer/location/domain/repositories/location_repository.dart';
 // import 'package:multishop_tchad/features/customer/location/domain/repositories/location_repository_interface.dart';
 // import 'package:multishop_tchad/features/customer/location/domain/services/location_service.dart';
@@ -534,6 +536,7 @@ List<SingleChildWidget> getProviders() {
     ChangeNotifierProvider(create: (_) => di.sl<GoogleSignInController>()),
     ChangeNotifierProvider(create: (_) => di.sl<LocalizationController>()),
     ChangeNotifierProvider(create: (_) => di.sl<LocationController>()),
+    ChangeNotifierProvider<VaultController>.value(value: di.sl<VaultController>()),
     ChangeNotifierProvider(create: (_) => di.sl<LoyaltyPointController>()),
     ChangeNotifierProvider(create: (_) => di.sl<NotificationController>()),
     ChangeNotifierProvider(create: (_) => di.sl<OnBoardingController>()),

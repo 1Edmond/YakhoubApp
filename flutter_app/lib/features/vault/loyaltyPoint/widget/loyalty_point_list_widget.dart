@@ -26,7 +26,7 @@
 //         if(offset < pageSize!) {
 //           offset++;
 //           if (kDebugMode) {
-//             print('end of the page');
+//             debugPrint('end of the page');
 //           }
 //           Provider.of<LoyaltyPointController>(context, listen: false).showBottomLoader();
 //           Provider.of<LoyaltyPointController>(context, listen: false).getLoyaltyPointList(context, offset);

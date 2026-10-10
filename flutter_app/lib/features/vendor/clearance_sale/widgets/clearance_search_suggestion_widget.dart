@@ -304,7 +304,7 @@ class _SearchSuggestionState extends State<SearchSuggestion> with WidgetsBinding
 
                 onSelected: (selectedString) {
                   if (kDebugMode) {
-                    print(selectedString);
+                    debugPrint(selectedString.toString());
                   }
                 },
 

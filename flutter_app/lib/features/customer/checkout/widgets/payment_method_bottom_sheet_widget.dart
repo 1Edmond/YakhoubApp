@@ -1,5 +1,9 @@
 
 import 'package:flutter/material.dart';
+import 'package:multishop_tchad/core/feature_vault/vault_controller.dart';
+import 'package:multishop_tchad/core/feature_vault/vault_feature.dart';
+import 'package:multishop_tchad/features/customer/checkout/widgets/manual_transfer_section_widget.dart';
+
 import 'package:multishop_tchad/core/widgets/base/no_internet_screen_widget.dart';
 import 'package:multishop_tchad/features/customer/checkout/controllers/checkout_controller.dart';
 import 'package:multishop_tchad/features/customer/checkout/widgets/change_amount_widget.dart';
@@ -19,7 +23,8 @@ import 'package:provider/provider.dart';
 
 class PaymentMethodBottomSheetWidget extends StatefulWidget {
   final bool onlyDigital;
-  const PaymentMethodBottomSheetWidget({super.key, required this.onlyDigital,});
+  final double orderAmount;
+  const PaymentMethodBottomSheetWidget({super.key, required this.onlyDigital, required this.orderAmount,});
   @override
   PaymentMethodBottomSheetWidgetState createState() => PaymentMethodBottomSheetWidgetState();
 }
@@ -105,7 +110,7 @@ class PaymentMethodBottomSheetWidgetState extends State<PaymentMethodBottomSheet
                               )),
                               const SizedBox(width: Dimensions.paddingSizeDefault),
 
-                              if(configModel?.walletStatus == 1 && Provider.of<AuthController>(context, listen: false).isLoggedIn())
+                              if(Provider.of<VaultController>(context, listen: false).isFeatureEnabled(VaultFeature.walletPayment) && configModel?.walletStatus == 1 && Provider.of<AuthController>(context, listen: false).isLoggedIn())
                                 Expanded(child: CustomButton(
                                   onTap: () => checkoutController.setOfflineChecked('wallet'),
                                   isBorder: true,
@@ -137,31 +142,7 @@ class PaymentMethodBottomSheetWidgetState extends State<PaymentMethodBottomSheet
                             ChangeAmountWidget(changeAmountTextController: changeAmountTextController),
                             
                             if (checkoutController.isManualTransferChecked)
-                              Padding(
-                                padding: const EdgeInsets.symmetric(vertical: Dimensions.paddingSizeSmall),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text('Comptes disponibles :', style: textBold),
-                                    ...checkoutController.transferAccounts.map((e) => Text('${e['bank_name']} - ${e['account_number']} (${e['account_name']})')),
-                                    const SizedBox(height: Dimensions.paddingSizeSmall),
-                                    TextField(
-                                      controller: checkoutController.manualTransferRefController,
-                                      decoration: InputDecoration(
-                                        hintText: getTranslated('transaction_reference', context) ?? 'Référence de transaction',
-                                      ),
-                                    ),
-                                    const SizedBox(height: Dimensions.paddingSizeSmall),
-                                    CustomButton(
-                                      buttonText: getTranslated('upload_proof_image', context) ?? 'Uploader image',
-                                      onTap: () {
-                                          // Simulate picking image
-                                          // checkoutController.setManualTransferProofImage(file);
-                                      },
-                                    ),
-                                  ],
-                                ),
-                              ),
+                          ManualTransferSectionWidget(orderAmount: widget.orderAmount),
 
 
                             if((configModel?.digitalPayment ?? false) && (configModel?.paymentMethods?.isNotEmpty ?? false) && !checkoutController.isCODChecked)
@@ -221,7 +202,7 @@ class PaymentMethodBottomSheetWidgetState extends State<PaymentMethodBottomSheet
 
 
 
-                            if(configModel?.offlinePayment != null && (checkoutController.offlinePaymentModel?.offlineMethods?.isNotEmpty ?? false))
+                            if(Provider.of<VaultController>(context, listen: false).isFeatureEnabled(VaultFeature.offlinePayment) && configModel?.offlinePayment != null && (checkoutController.offlinePaymentModel?.offlineMethods?.isNotEmpty ?? false))
                               Container(
                                   decoration: BoxDecoration(
                                     color: checkoutController.isOfflineChecked?Theme.of(context).primaryColor.withValues(alpha:.15): null,

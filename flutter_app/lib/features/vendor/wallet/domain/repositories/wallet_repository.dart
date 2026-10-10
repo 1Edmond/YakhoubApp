@@ -35,7 +35,7 @@ class WalletRepository implements WalletRepositoryInterface{
         'withdraw_method_id': id.toString()
       });
       if (kDebugMode) {
-        print('--here is type key =$id');
+        debugPrint('--here is type key =$id');
       }
 
       Response response = await dioClient.post(AppConstants.balanceWithdraw, data: fields);
@@ -79,7 +79,7 @@ class WalletRepository implements WalletRepositoryInterface{
         'id': id.toString()
       });
       if (kDebugMode) {
-        print('--here is type key =$id');
+        debugPrint('--here is type key =$id');
       }
 
       Response response = await dioClient.post(AppConstants.cancelBalanceRequest, data: fields);

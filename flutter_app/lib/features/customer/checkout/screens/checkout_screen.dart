@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:multishop_tchad/core/constants/app_constants.dart';
 import 'package:multishop_tchad/features/customer/address/controllers/address_controller.dart';
 import 'package:multishop_tchad/features/customer/cart/domain/models/cart_model.dart';
 import 'package:multishop_tchad/features/customer/checkout/controllers/checkout_controller.dart';
@@ -61,7 +62,10 @@ class CheckoutScreenState extends State<CheckoutScreen> {
 
   final FocusNode _orderNoteNode = FocusNode();
   double _order = 0;
-  double _tax = 0;
+    double _discount = 0;
+    double _tax = 0;
+    double get _shipping => false ? 0.0 : widget.shippingFee;
+    double get _payable => _order + _shipping - widget.discount - _referralDiscount - _couponDiscount + _tax;
   late bool _billingAddress;
   double _couponDiscount = 0;
   double _referralDiscount = 0;
@@ -163,7 +167,11 @@ class CheckoutScreenState extends State<CheckoutScreen> {
 
 
 
-                                      if(orderProvider.paymentMethodIndex != -1) {
+                                      if (orderProvider.isManualTransferChecked && !orderProvider.isManualTransferReady) {
+                              showCustomSnackBarWidget(getTranslated('manual_transfer_incomplete', context), context);
+                              return;
+                            }
+                            if(orderProvider.paymentMethodIndex != -1) {
                                         orderProvider.digitalPaymentPlaceOrder(
                                             orderNote: orderNote,
                                             customerId: Provider.of<AuthController>(context, listen: false).isLoggedIn() ?
@@ -186,15 +194,15 @@ class CheckoutScreenState extends State<CheckoutScreen> {
 
                                       else if(orderProvider.isOfflineChecked){
                                         // Navigator.of(context).push(MaterialPageRoute(builder: (_)=> OfflinePaymentScreen(payableAmount: _order + 0.0 /* Tchad Free Delivery */ - widget.discount - _referralDiscount - _couponDiscount + _tax, callback: _callback)));
-                                        RouterHelper.getOfflinePaymentScreen(payableAmount: (_order + widget.shippingFee - widget.discount - _referralDiscount - _couponDiscount + _tax), callback: _callback);
+                                        RouterHelper.getOfflinePaymentScreen(payableAmount: (_order + _shipping - widget.discount - _referralDiscount - _couponDiscount + _tax), callback: _callback);
                                       }
 
                                       else if(orderProvider.isWalletChecked) {
                                         showAnimatedDialog(context, WalletPaymentWidget(
                                           currentBalance: profileProvider.balance ?? 0,
-                                          orderAmount: _order + widget.shippingFee - widget.discount - _referralDiscount - _couponDiscount + _tax,
+                                          orderAmount: _order + _shipping - widget.discount - _referralDiscount - _couponDiscount + _tax,
                                           onTap: (){if(profileProvider.balance! <
-                                              (_order + widget.shippingFee - widget.discount - _referralDiscount - _couponDiscount + _tax)) {
+                                              (_order + _shipping - widget.discount - _referralDiscount - _couponDiscount + _tax)) {
                                             showCustomSnackBarWidget(getTranslated('insufficient_balance', context), context, snackBarType: SnackBarType.warning);
                                           }else{
                                             Navigator.pop(context);
@@ -219,7 +227,7 @@ class CheckoutScreenState extends State<CheckoutScreen> {
                                         showModalBottomSheet(
                                           context: context, isScrollControlled: true, backgroundColor: Colors.transparent,
                                           builder: (c) {
-                                            return PaymentMethodBottomSheetWidget(onlyDigital: widget.onlyDigital);
+                                            return PaymentMethodBottomSheetWidget(onlyDigital: widget.onlyDigital, orderAmount: _payable);
                                           },
                                         );
                                       }
@@ -326,7 +334,7 @@ class CheckoutScreenState extends State<CheckoutScreen> {
                                     ),
                                   AmountWidget(
                                     title: getTranslated('shipping_fee', context),
-                                    amount: PriceConverter.convertPrice(context, widget.shippingFee),
+                                    amount: PriceConverter.convertPrice(context, _shipping),
                                   ),
                                   AmountWidget(
                                     title: getTranslated('discount', context),
@@ -360,7 +368,7 @@ class CheckoutScreenState extends State<CheckoutScreen> {
                                     fontSize: Dimensions.fontSizeLarge, isTitleBlack: true,
                                     title: '${getTranslated('total_payable', context)} ${Provider.of<SplashController>(Get.context!, listen: false).configModel?.systemTaxIncludeStatus == 1 ? getTranslated('inc_vat_tax', context) : ''} ',
                                     amount: PriceConverter.convertPrice(context,
-                                      (_order + widget.shippingFee - _referralDiscount - widget.discount - _couponDiscount + _tax + transferFee),
+                                      (_order + _shipping - _referralDiscount - widget.discount - _couponDiscount + _tax + transferFee),
                                     ),
                                   ),
 

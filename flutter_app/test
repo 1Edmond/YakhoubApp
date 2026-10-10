@@ -1,0 +1,61 @@
+import 'package:flutter_test/flutter_test.dart';
+import 'package:multishop_tchad/core/feature_vault/vault_controller.dart';
+import 'package:multishop_tchad/core/feature_vault/vault_feature.dart';
+import 'package:multishop_tchad/core/feature_vault/vault_guard.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+void main() {
+  late SharedPreferences prefs;
+
+  setUp(() async {
+    SharedPreferences.setMockInitialValues({});
+    prefs = await SharedPreferences.getInstance();
+  });
+
+  test('un PIN enregistré ne déverrouille pas le coffre après redémarrage', () async {
+    final v = VaultController(sharedPreferences: prefs);
+    expect(await v.setPin('123456'), isTrue);
+
+    final restarted = VaultController(sharedPreferences: prefs);
+    expect(restarted.hasPin, isTrue);
+    expect(restarted.isUnlocked, isFalse);
+    expect(restarted.verifyPin('000000'), isFalse);
+    expect(restarted.verifyPin('123456'), isTrue);
+    expect(restarted.isUnlocked, isTrue);
+  });
+
+  test('verrouillage temporaire après 5 échecs', () async {
+    var clock = DateTime(2026, 1, 1, 12);
+    final v = VaultController(sharedPreferences: prefs, now: () => clock);
+    await v.setPin('123456');
+    v.lock();
+
+    for (var i = 0; i < VaultController.maxAttempts; i++) {
+      expect(v.verifyPin('999999'), isFalse);
+    }
+    expect(v.isLockedOut, isTrue);
+    expect(v.verifyPin('123456'), isFalse);
+
+    clock = clock.add(const Duration(minutes: 6));
+    expect(v.verifyPin('123456'), isTrue);
+  });
+
+  test('activer une fonctionnalité exige le déverrouillage', () async {
+    final v = VaultController(sharedPreferences: prefs);
+    await v.setPin('123456');
+    v.lock();
+    await expectLater(() => v.toggleFeature(VaultFeature.auction, true), throwsStateError);
+
+    v.verifyPin('123456');
+    await v.toggleFeature(VaultFeature.auction, true);
+    expect(VaultController(sharedPreferences: prefs).isFeatureEnabled(VaultFeature.auction), isTrue);
+  });
+
+  test('le guard redirige les routes du vault tant que la fonctionnalité est désactivée', () {
+    final guard = VaultGuard(VaultController(sharedPreferences: prefs));
+    expect(guard.redirectFor('/auction-home-screen', fallback: '/'), '/');
+    expect(guard.redirectFor('/auction/product/abc', fallback: '/'), '/');
+    expect(guard.redirectFor('/wallet', fallback: '/'), '/');
+    expect(guard.redirectFor('/product-details', fallback: '/'), isNull);
+  });
+}

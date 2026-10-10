@@ -174,8 +174,8 @@ class _ShopInfoWidgetState extends State<ShopInfoWidget> {
 
   void _openShop(BuildContext context, sellerData, SplashController splash) {
     if (sellerData.seller != null) {
-      // print("---if");
-      // print("---if--->>${sellerData.seller?.shop?.rating?.toString()}");
+      // debugPrint("---if");
+      // debugPrint("---if--->>${sellerData.seller?.shop?.rating?.toString()}");
       RouterHelper.getTopSellerRoute(
         action: RouteAction.push,
         slug: sellerData.seller?.shop?.slug,

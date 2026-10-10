@@ -166,7 +166,7 @@ class _TrackingResultScreenState extends State<TrackingResultScreen> {
                     child: CustomButton(
                       buttonText: getTranslated('view_order_details', context),
                       onTap: () {
-                        // print('----OrderDetails------>>${tracking.orderDetails![0].courierShipment}');
+                        // debugPrint('----OrderDetails------>>${tracking.orderDetails![0].courierShipment}');
 
 
                         final String phone = widget.phone ?? Provider.of<OrderController>(context, listen: false).trackingModel?.shippingAddressData?.phone ?? '';

@@ -40,7 +40,7 @@ class ProfileRepository implements ProfileRepositoryInterface{
       fields.addAll({'password': password});
     }
     if (kDebugMode) {
-      print(fields.toString());
+      debugPrint(fields.toString());
     }
     request.fields.addAll(fields);
     http.StreamedResponse response = await request.send();

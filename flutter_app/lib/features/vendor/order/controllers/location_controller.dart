@@ -70,7 +70,7 @@ class LocationController with ChangeNotifier {
         }
       } catch (e) {
         if (kDebugMode) {
-          // print(e);
+          // debugPrint(e);
         }
       }
       _loading = false;
@@ -132,7 +132,7 @@ class LocationController with ChangeNotifier {
     _position = _pickPosition;
     _address = _pickAddress!;
     if(_pickAddress != null && _pickAddress!.isNotEmpty) {
-      // print("Save Address Data: $_pickAddress");
+      // debugPrint("Save Address Data: $_pickAddress");
       _locationTextEditingController.text = _address ?? '';
     }
     _updateAddAddressData = false;

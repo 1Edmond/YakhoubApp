@@ -7,7 +7,7 @@ import 'package:multishop_tchad/core/di/data_sources/dio/dio_client.dart';
 import 'package:multishop_tchad/core/di/data_sources/exception/api_error_handler.dart';
 import 'package:multishop_tchad/core/di/local/cache_response.dart';
 import 'package:multishop_tchad/core/models/api_response.dart';
-import 'package:multishop_tchad/data/reposotories/data_sync_repo_interface.dart';
+import 'package:multishop_tchad/core/di/reposotories/data_sync_repo_interface.dart';
 import 'package:multishop_tchad/core/helpers/db_helper.dart';
 import 'package:multishop_tchad/main.dart';
 import 'package:multishop_tchad/core/constants/app_constants.dart';

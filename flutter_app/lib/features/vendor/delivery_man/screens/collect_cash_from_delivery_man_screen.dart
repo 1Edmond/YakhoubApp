@@ -41,7 +41,7 @@ class _CollectedCashFromDeliveryManScreenState extends State<CollectedCashFromDe
                 offset: collectedCashController.collectedCashModel != null ? int.parse(collectedCashController.collectedCashModel!.offset.toString()) : null,
                 onPaginate: (int? offset) async {
                   if (kDebugMode) {
-                    print('==========offset========>$offset');
+                    debugPrint('==========offset========>$offset');
                   }
                   await collectedCashController.getDeliveryCollectedCashList(context, widget.deliveryMan!.id, offset!);
                 },

@@ -22,6 +22,8 @@ import 'package:multishop_tchad/features/customer/order_details/domain/repositor
 import 'package:multishop_tchad/features/customer/order_details/controllers/price_reduction_controller.dart';
 import 'package:multishop_tchad/features/vendor/order_details/domain/repositories/vendor_reduction_repository.dart';
 import 'package:multishop_tchad/features/vendor/order_details/controllers/vendor_reduction_controller.dart';
+import 'package:multishop_tchad/features/vendor/transfer_account/controllers/transfer_account_controller.dart';
+import 'package:multishop_tchad/features/vendor/transfer_account/domain/repositories/transfer_account_repository.dart';
 import 'package:multishop_tchad/features/shared/chat/domain/services/chat_service_interface.dart';
 import 'package:multishop_tchad/features/vault/support/domain/services/support_ticket_service_interface.dart';
 import 'package:multishop_tchad/features/customer/profile/domain/services/profile_service.dart';
@@ -251,6 +253,7 @@ import 'package:multishop_tchad/features/vault/banner/domain/repositories/banner
 import 'package:multishop_tchad/features/customer/order/domain/services/order_service_interface.dart';
 import 'package:multishop_tchad/core/di/datasource/remote/dio/dio_client.dart';
 import 'package:multishop_tchad/features/customer/location/domain/repositories/location_repository.dart';
+import 'package:multishop_tchad/core/feature_vault/vault_controller.dart';
 import 'package:multishop_tchad/features/vault/user_created_auction_list/domain/services/user_created_auction_list_service_interface.dart';
 import 'package:multishop_tchad/features/vault/auction_search/domain/services/auction_search_service_interface.dart';
 import 'package:multishop_tchad/features/vault/create_auction/domain/repository/add_auction_product_repository_interface.dart';
@@ -703,6 +706,7 @@ Future<void> init() async {
   sl.registerLazySingleton(() => LoyaltyPointRepository(dioClient: sl()));
   sl.registerLazySingleton(() => CheckoutRepository(dioClient: sl()));
   sl.registerLazySingleton(() => LocationRepository(dioClient: sl()));
+  sl.registerLazySingleton(() => VaultController(sharedPreferences: sl()));
   sl.registerLazySingleton(() => ShippingRepository(dioClient: sl()));
   sl.registerLazySingleton(() => ContactUsRepository(dioClient: sl()));
   sl.registerLazySingleton(() =>
@@ -1718,4 +1722,6 @@ Future<void> init() async {
   sl.registerFactory(() => PriceReductionController(priceReductionRepository: sl()));
   sl.registerLazySingleton(() => VendorReductionRepository(dioClient: sl()));
   sl.registerFactory(() => VendorReductionController(vendorReductionRepository: sl()));
+  sl.registerLazySingleton(() => TransferAccountRepository(dioClient: sl()));
+  sl.registerFactory(() => TransferAccountController(transferAccountRepository: sl()));
 }

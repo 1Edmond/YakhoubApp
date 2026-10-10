@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:multishop_tchad/main.dart';
-import 'package:multishop_tchad/utill/custom_themes.dart';
-import 'package:multishop_tchad/utill/dimensions.dart';
-import 'package:multishop_tchad/utill/images.dart';
+import 'package:multishop_tchad/core/constants/custom_themes.dart';
+import 'package:multishop_tchad/core/constants/dimensions.dart';
+import 'package:multishop_tchad/core/constants/images.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String? title;

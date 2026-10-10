@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:multishop_tchad/core/widgets/base/custom_asset_image_widget.dart';
 import 'package:provider/provider.dart';
 import 'package:multishop_tchad/features/vendor/bank_info/screens/bank_editing_screen.dart';
 import 'package:multishop_tchad/features/vendor/localization/language_constrants.dart';

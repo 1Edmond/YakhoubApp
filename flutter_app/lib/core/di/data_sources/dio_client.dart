@@ -24,7 +24,7 @@ class DioClient {
     token = sharedPreferences.getString(AppConstants.userLoginToken);
     countryCode = sharedPreferences.getString(AppConstants.countryCodeKey) ?? AppConstants.languages[0].countryCode;
     if (kDebugMode) {
-      // print("NNNN $token");
+      // debugPrint("NNNN $token");
     }
     dio = dioC ?? Dio();
     dio
@@ -43,7 +43,7 @@ class DioClient {
 
       };
     dio!.interceptors.add(loggingInterceptor);
-    // print('===============> DIO TIMEOUT SET TO : ${dio!.options.receiveTimeout} <===============');
+    // debugPrint('===============> DIO TIMEOUT SET TO : ${dio!.options.receiveTimeout} <===============');
   }
 
   void updateHeader(String? token, String? countryCode) {

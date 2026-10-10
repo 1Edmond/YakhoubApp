@@ -80,7 +80,7 @@ class FlashDealController extends ChangeNotifier {
       if (apiResponse.response != null && apiResponse.response!.statusCode == 200) {
         _flashDeal = FlashDealModel.fromJson(apiResponse.response!.data);
 
-        // print("----12234----00>>${apiResponse.response!.data}");
+        // debugPrint("----12234----00>>${apiResponse.response!.data}");
 
         if(localData != null) {
           await database.updateCacheResponse(AppConstants.flashDealUri, CacheResponseCompanion(

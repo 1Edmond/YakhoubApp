@@ -492,9 +492,9 @@ class AddProductController extends ChangeNotifier {
       }
 
 
-      // print('---UnitValue---${generalSetupModel?.data?.unitName}--');
+      // debugPrint('---UnitValue---${generalSetupModel?.data?.unitName}--');
 
-      //print('---UnitValue--01--${generalSetupModel != null && generalSetupModel.data?.unitName != null && generalSetupModel.data!.unitName!.isNotEmpty}--');
+      //debugPrint('---UnitValue--01--${generalSetupModel != null && generalSetupModel.data?.unitName != null && generalSetupModel.data!.unitName!.isNotEmpty}--');
 
       if(generalSetupModel != null && generalSetupModel.data?.unitName != null && generalSetupModel.data!.unitName!.isNotEmpty ) {
         _unitValue = generalSetupModel.data?.unitName;

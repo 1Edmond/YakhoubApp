@@ -74,7 +74,7 @@ class RestockController with ChangeNotifier {
   //       restockProductModel!.offset = RestockProductModel.fromJson(apiResponse.response?.data).offset;
   //       restockProductModel!.totalSize = RestockProductModel.fromJson(apiResponse.response?.data).totalSize;
   //     }
-  //     print("====AAAA===>>${restockProductModel?.toJson()}");
+  //     debugPrint("====AAAA===>>${restockProductModel?.toJson()}");
   //   _isLoading = false;
   //   notifyListeners();
   // }}
@@ -260,7 +260,7 @@ class RestockController with ChangeNotifier {
 
   Future<void> updateRestockProductQuantity(BuildContext context, int? productId, int currentStock, List<Variation> variations, {int? index}) async {
     if(kDebugMode){
-      print("variation======>${variations.length}/${variations.toList()}");
+      debugPrint("variation======>${variations.length}/${variations.toList()}");
     }
     List<Variation> updatedVariations = [];
     for(int i=0; i<variations.length; i++){
@@ -292,7 +292,7 @@ class RestockController with ChangeNotifier {
 
   Future<void> updateProductQuantity(BuildContext context, int? productId, int currentStock, List<Variation> variations) async {
     if(kDebugMode){
-      print("variation======>${variations.length}/${variations.toList()}");
+      debugPrint("variation======>${variations.length}/${variations.toList()}");
     }
     List<Variation> updatedVariations = [];
     for(int i=0; i<variations.length; i++){

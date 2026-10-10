@@ -1,1 +1,0 @@
-export 'package:multishop_tchad/core/di/services/data_sync_service_interface.dart';

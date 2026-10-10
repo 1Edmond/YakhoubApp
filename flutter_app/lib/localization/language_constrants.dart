@@ -1,1 +1,0 @@
-export 'package:multishop_tchad/core/localization/language_constrants.dart';

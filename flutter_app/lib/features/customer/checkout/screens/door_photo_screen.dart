@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:geolocator/geolocator.dart';
 
-import 'package:multishop_tchad/localization/language_constrants.dart';
+import 'package:multishop_tchad/core/localization/language_constrants.dart';
 
 class DoorPhotoScreen extends StatefulWidget {
   final Function(File photo, Position position)? onSave;

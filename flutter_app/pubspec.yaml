@@ -105,6 +105,7 @@ dependencies:
   collection: any
   typed_data: ^1.4.0
   animated_floating_buttons: ^0.0.2
+  crypto: ^3.0.7
 
 dependency_overrides:
   syncfusion_flutter_core: ^33.2.8

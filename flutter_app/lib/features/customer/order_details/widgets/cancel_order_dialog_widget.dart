@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:multishop_tchad/features/customer/order/controllers/order_controller.dart';
-import 'package:multishop_tchad/localization/language_constrants.dart';
+import 'package:multishop_tchad/core/localization/language_constrants.dart';
 import 'package:multishop_tchad/core/constants/custom_themes.dart';
 import 'package:multishop_tchad/core/constants/dimensions.dart';
 import 'package:multishop_tchad/core/constants/images.dart';

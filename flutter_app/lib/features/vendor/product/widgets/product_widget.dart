@@ -39,7 +39,7 @@ class _ProductViewWidgetState extends State<ProductViewWidget> {
         endScroll = true;
         message = "bottom";
         if (kDebugMode) {
-          print('=========$message=========');
+          debugPrint('=========$message=========');
         }
       });
     }else{

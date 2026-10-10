@@ -145,7 +145,7 @@ class AddAuctionProductRepository implements AddAuctionProductRepositoryInterfac
       }
 
       if (kDebugMode) {
-        print('---Fields for add/update Auction--> $fields');
+        debugPrint('---Fields for add/update Auction--> $fields');
       }
 
       List<MultipartWithKey> multipartFiles = [];
@@ -206,7 +206,7 @@ class AddAuctionProductRepository implements AddAuctionProductRepositoryInterfac
               : '${AppConstants.baseUrl}${AppConstants.addAuctionProductUri}';
 
       if (kDebugMode) {
-        print('===Add/Update Auction Request URL==> $url');
+        debugPrint('===Add/Update Auction Request URL==> $url');
       }
 
       Response response = await dioClient!.postMultipart(

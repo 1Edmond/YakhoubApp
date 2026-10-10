@@ -50,7 +50,7 @@ class CouponDialogWidget extends StatelessWidget {
 
                       if(couponDiscountController.couponController.text.trim().isNotEmpty){
                         if (kDebugMode) {
-                          print('${couponDiscountController.couponController.text.trim()}/'
+                          debugPrint('${couponDiscountController.couponController.text.trim()}/'
                             '${customerController.customerId}/'
                             '${cartController.amount}');
                         }

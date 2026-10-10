@@ -26,7 +26,7 @@ abstract class CheckoutServiceInterface{
 
   Future<dynamic> offlinePaymentList();
   Future<dynamic> manualTransferAccounts(double amount);
-  Future<dynamic> manualTransferPlaceOrder(String? addressID, String? couponCode, String? couponDiscountAmount, String? billingAddressId, String? orderNote, bool? isCheckCreateAccount, String? password, String transactionReference, dynamic proofImage);
+  Future<dynamic> manualTransferPlaceOrder(String? addressID, String? couponCode, String? couponDiscountAmount, String? billingAddressId, String? orderNote, bool? isCheckCreateAccount, String? password, String transactionReference, dynamic proofImage, int transferAccountId);
 
   Future<dynamic> getReferralAmount(String? amount);
 

@@ -47,7 +47,7 @@ class BankInfoService implements BankInfoServiceInterface{
       return ResponseModel('', true);
     } else {
       if (kDebugMode) {
-        print('${response.statusCode} ${response.reasonPhrase}');
+        debugPrint('${response.statusCode} ${response.reasonPhrase}');
       }
       return ResponseModel('${response.statusCode} ${response.reasonPhrase}', false);
     }

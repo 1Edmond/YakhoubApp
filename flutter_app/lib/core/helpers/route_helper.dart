@@ -11,6 +11,9 @@ import 'package:multishop_tchad/features/vendor/dashboard/screens/dashboard_scre
 import 'package:multishop_tchad/features/customer/checkout/screens/door_photo_screen.dart';
 
 import 'package:flutter/material.dart';
+import 'package:multishop_tchad/core/feature_vault/vault_controller.dart';
+import 'package:multishop_tchad/core/feature_vault/vault_guard.dart';
+import 'package:provider/provider.dart';
 import 'package:multishop_tchad/core/enums/auction_enum.dart';
 import 'package:multishop_tchad/core/models/image_full_url.dart';
 import 'package:multishop_tchad/features/customer/address/domain/models/address_model.dart';
@@ -1293,40 +1296,24 @@ class RouterHelper {
   static final goRoutes = GoRouter(
       
       redirect: (BuildContext context, GoRouterState state) {
-        final isCustomerLoggedIn = _isUserLoggedIn(context);
-        final isVendorLoggedIn = _isVendorLoggedIn(context);
-        final String? referralCode = state.uri.queryParameters['referral_code'];
-        final location = state.matchedLocation;
+      final location = state.matchedLocation;
 
-        // Si vendeur connecté et essaie d'aller sur splash/accueil client -> dashboard vendeur
-        if (isVendorLoggedIn && (location == initial || location == splashScreen || location == loginScreen || location == signUpAuth)) {
-            return vendorDashboard;
-        }
+      final vault = Provider.of<VaultController>(context, listen: false);
+      final vaultRedirect = VaultGuard(vault).redirectFor(location, fallback: initial);
+      if (vaultRedirect != null) return vaultRedirect;
 
-        // Si client connecté
-        if (isCustomerLoggedIn && location == initial) {
-          return null; // Fixed redirect loop
-        }
+      final isCustomerLoggedIn = _isUserLoggedIn(context);
+      final isVendorLoggedIn = _isVendorLoggedIn(context);
 
-        // Parrainage client
-        if (!isCustomerLoggedIn &&
-            location == initial &&
-            referralCode != null &&
-            referralCode.isNotEmpty) {
-          return '=';
-        }
+      if (isVendorLoggedIn && (location == initial || location == splashScreen || location == loginScreen || location == signUpAuth)) {
+        return vendorDashboard;
+      }
 
-        // Blocage croisé : Client essaie d'aller sur Vendeur
-        if (location.startsWith('/vendor') && location != vendorLogin && location != vendorRegister && !isVendorLoggedIn) {
-            return vendorLogin; // ou pending-approval
-        }
-
-        // Blocage croisé : Vendeur essaie d'aller sur Client (les routes client sont tout sauf /vendor)
-        // C'est complexe car on a beaucoup de routes, mais on peut rediriger vers Dashboard s'il est déjà connecté
-        // et qu'il essaie de se connecter.
-        
-        return null;
-      },
+      if (location.startsWith('/vendor/') && location != vendorLogin && location != vendorRegister && !isVendorLoggedIn) {
+        return vendorLogin;
+      }
+      return null;
+    },
 
       navigatorKey: navigatorKey,
       initialLocation: getSplashRoute(),

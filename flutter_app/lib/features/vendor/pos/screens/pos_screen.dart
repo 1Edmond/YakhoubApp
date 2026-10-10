@@ -143,11 +143,11 @@ class PosScreenState extends State<PosScreen> {
                   payable = total;
 
                   // debugPrint("<<====InitCall=====>>${cartController.currentCartModel?.toJson()}");
-                  // print('----01---${PriceConverter.convertPrice(context, subTotal)}');
-                  // print('----02---${PriceConverter.convertPrice(context, couponAmount)}');
-                  // print('----03---${PriceConverter.convertPrice(context, (subTotal - couponAmount))}');
+                  // debugPrint('----01---${PriceConverter.convertPrice(context, subTotal)}');
+                  // debugPrint('----02---${PriceConverter.convertPrice(context, couponAmount)}');
+                  // debugPrint('----03---${PriceConverter.convertPrice(context, (subTotal - couponAmount))}');
                   //
-                  // print('----TYPE---${Provider.of<CouponDiscountController>(context, listen: false).selectedDiscountType}');
+                  // debugPrint('----TYPE---${Provider.of<CouponDiscountController>(context, listen: false).selectedDiscountType}');
 
 
                   if(isNotSet || cartController.updatePaidAmount) {

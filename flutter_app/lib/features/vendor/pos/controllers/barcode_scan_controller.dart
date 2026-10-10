@@ -56,7 +56,7 @@ class BarcodeScanController extends ChangeNotifier{
     }
     on PlatformException{
       if (kDebugMode) {
-        print('object');
+        debugPrint('object');
       }
     }
     getProductFromScan(Get.context!, scannedProductBarCode);

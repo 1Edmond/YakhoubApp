@@ -35,7 +35,7 @@ class CartRepository implements CartRepositoryInterface{
   @override
   Future<ApiResponse> placeOrder(PlaceOrderBody placeOrderBody) async {
     if (kDebugMode) {
-      print('order place===>${placeOrderBody.toJson()}');
+      debugPrint('order place===>${placeOrderBody.toJson()}');
     }
     try {
       final response = await dioClient!.post(AppConstants.placeOrderUri, data: placeOrderBody.toJson());

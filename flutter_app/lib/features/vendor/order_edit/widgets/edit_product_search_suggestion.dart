@@ -329,7 +329,7 @@ class _EditProductSearchSuggestionState extends State<EditProductSearchSuggestio
 
                 onSelected: (selectedString) {
                   if (kDebugMode) {
-                    print(selectedString);
+                    debugPrint(selectedString.toString());
                   }
                 },
 

@@ -140,7 +140,7 @@ class DeliveryManRepository implements DeliveryManRepositoryInterface{
   Future<ApiResponse> collectCashFromDeliveryMan(int? deliveryManId, String amount) async {
     try {
       if (kDebugMode) {
-        print('====>id==$deliveryManId== and amount ===$amount');
+        debugPrint('====>id==$deliveryManId== and amount ===$amount');
       }
       final response = await dioClient!.post(AppConstants.collectCashFromDeliveryMan,
           data: {'deliveryman_id' : deliveryManId, 'amount': amount});
@@ -185,7 +185,7 @@ class DeliveryManRepository implements DeliveryManRepositoryInterface{
       request.files.add(part);
     } if(identityImage.isNotEmpty) {
       if (kDebugMode) {
-        print('========Identity image========>${identityImage.length}');
+        debugPrint('========Identity image========>${identityImage.length}');
       }
 
 
@@ -219,13 +219,13 @@ class DeliveryManRepository implements DeliveryManRepositoryInterface{
 
     request.fields.addAll(fields);
     if (kDebugMode) {
-      print('=====> ${request.url.path}\n${request.fields}');
+      debugPrint('=====> ${request.url.path}\n${request.fields}');
     }
 
     http.StreamedResponse response = await request.send();
     var res = await http.Response.fromStream(response);
     if (kDebugMode) {
-      print('=====Response body is here==>${res.body}');
+      debugPrint('=====Response body is here==>${res.body}');
     }
 
     try {

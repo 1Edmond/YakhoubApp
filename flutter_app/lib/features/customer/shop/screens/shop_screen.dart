@@ -82,8 +82,8 @@ class _TopSellerProductScreenState extends State<TopSellerProductScreen> with Ti
   void initState() {
     super.initState();
 
-    // print("--------->>${widget.totalReview}");
-    // print("--------->>${widget.rating}");
+    // debugPrint("--------->>${widget.totalReview}");
+    // debugPrint("--------->>${widget.rating}");
 
 
     vacationIsOn = ShopHelper.isVacationActive(
@@ -142,8 +142,8 @@ class _TopSellerProductScreenState extends State<TopSellerProductScreen> with Ti
           builder: (context, sellerProvider, _) {
 
 
-            // print("=====1324=====>>${sellerProvider.sellerInfoModel?.totalReview ?? 0}");
-            // print("=====1324=====>>${sellerProvider.sellerInfoModel?.avgRating ?? 0}");
+            // debugPrint("=====1324=====>>${sellerProvider.sellerInfoModel?.totalReview ?? 0}");
+            // debugPrint("=====1324=====>>${sellerProvider.sellerInfoModel?.avgRating ?? 0}");
 
 
             vacationIsOn = ShopHelper.isVacationActive(

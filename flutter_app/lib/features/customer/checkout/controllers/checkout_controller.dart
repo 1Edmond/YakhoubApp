@@ -11,6 +11,9 @@ import 'package:multishop_tchad/main.dart';
 import 'dart:async';
 import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:multishop_tchad/features/customer/checkout/domain/models/transfer_account_option.dart';
+
 import 'package:multishop_tchad/core/widgets/base/show_custom_snakbar_widget.dart';
 import 'package:provider/provider.dart';
 import 'package:geolocator/geolocator.dart';
@@ -91,7 +94,7 @@ class CheckoutController with ChangeNotifier {
     try {
       isManualTransferChecked?
       apiResponse = await checkoutServiceInterface.manualTransferPlaceOrder(
-        addressID, couponCode, couponAmount, billingAddressId, orderNote, _isCheckCreateAccount, passwordController.text.trim(), manualTransferRefController.text.trim(), manualTransferProofImage
+        addressID, couponCode, couponAmount, billingAddressId, orderNote, _isCheckCreateAccount, passwordController.text.trim(), manualTransferRefController.text.trim(), manualTransferProofImage, selectedTransferAccount!.id
       ):
       isfOffline?
       apiResponse = await checkoutServiceInterface.offlinePaymentPlaceOrder(addressID, couponCode, couponAmount, billingAddressId, orderNote, keyList, inputValueList, offlineMethodSelectedId, offlineMethodSelectedName, paymentNote, _isCheckCreateAccount, passwordController.text.trim()):
@@ -180,6 +183,7 @@ class CheckoutController with ChangeNotifier {
 
 
   void resetPaymentMethod(){
+    resetManualTransfer();
     _paymentMethodIndex = -1;
     isCODChecked = false;
     isWalletChecked = false;
@@ -244,29 +248,66 @@ class CheckoutController with ChangeNotifier {
     }
   }
 
-  bool isManualTransferChecked = false;
+    bool isManualTransferChecked = false;
   File? manualTransferProofImage;
   final TextEditingController manualTransferRefController = TextEditingController();
-  List<dynamic> transferAccounts = [];
+  List<TransferAccountOption> transferAccounts = [];
+  TransferAccountOption? selectedTransferAccount;
+  bool isLoadingTransferAccounts = false;
   double transferFee = 0.0;
 
+  bool get isManualTransferReady =>
+      selectedTransferAccount != null &&
+      manualTransferRefController.text.trim().length >= 4 &&
+      manualTransferProofImage != null;
+
   Future<void> fetchTransferAccounts(double amount) async {
-    ApiResponseModel apiResponse = await checkoutServiceInterface.manualTransferAccounts(amount);
-    if (apiResponse.response != null && apiResponse.response!.statusCode == 200) {
-      if (apiResponse.response!.data is Map) {
-        transferAccounts = apiResponse.response!.data['accounts'] ?? [];
-        transferFee = double.tryParse(apiResponse.response!.data['transfer_fee'].toString()) ?? 0.0;
-      } else {
-        transferAccounts = apiResponse.response!.data ?? [];
-        transferFee = 0.0;
-      }
+    isLoadingTransferAccounts = true;
+    notifyListeners();
+
+    final ApiResponseModel apiResponse = await checkoutServiceInterface.manualTransferAccounts(amount);
+    transferAccounts = [];
+    final data = apiResponse.response?.data;
+    if (apiResponse.response?.statusCode == 200 && data is Map) {
+      final list = (data['accounts'] as List?) ?? const [];
+      transferAccounts = list
+          .map((e) => TransferAccountOption.fromJson(Map<String, dynamic>.from(e as Map)))
+          .toList();
     }
+
+    selectedTransferAccount =
+        transferAccounts.where((a) => a.id == selectedTransferAccount?.id).firstOrNull;
+    transferFee = selectedTransferAccount?.transferFee ?? 0.0;
+    isLoadingTransferAccounts = false;
     notifyListeners();
   }
 
-  void setManualTransferProofImage(File file) {
-    manualTransferProofImage = file;
+  void selectTransferAccount(TransferAccountOption account) {
+    selectedTransferAccount = account;
+    transferFee = account.transferFee;
     notifyListeners();
+  }
+
+  Future<void> pickManualTransferProof(ImageSource source) async {
+    final picked = await ImagePicker().pickImage(source: source, maxWidth: 1600, imageQuality: 80);
+    if (picked == null) return;
+    manualTransferProofImage = File(picked.path);
+    notifyListeners();
+  }
+
+  void clearManualTransferProof() {
+    manualTransferProofImage = null;
+    notifyListeners();
+  }
+
+  void refreshManualTransfer() => notifyListeners();
+
+  void resetManualTransfer() {
+    manualTransferProofImage = null;
+    manualTransferRefController.clear();
+    selectedTransferAccount = null;
+    transferAccounts = [];
+    transferFee = 0.0;
   }
 
 

@@ -49,7 +49,7 @@ class ChoosePaymentWidget extends StatelessWidget {
                         context: context,
                         isScrollControlled: true,
                         backgroundColor: Colors.transparent,
-                        builder: (c) => PaymentMethodBottomSheetWidget(onlyDigital: onlyDigital),
+                        builder: (c) => PaymentMethodBottomSheetWidget(onlyDigital: onlyDigital, orderAmount: 0.0),
                       ),
                       child: SizedBox(width: 20, child: Image.asset(Images.edit, scale: 3)),
                     ),
@@ -106,7 +106,7 @@ class ChoosePaymentWidget extends StatelessWidget {
 
                       InkWell(onTap: () => showModalBottomSheet(context: context,
                           isScrollControlled: true, backgroundColor: Colors.transparent,
-                          builder: (c) =>   PaymentMethodBottomSheetWidget(onlyDigital: onlyDigital,)),
+                          builder: (c) =>   PaymentMethodBottomSheetWidget(onlyDigital: onlyDigital, orderAmount: 0.0)),
                           child: Row(children: [
                             Padding(padding: const EdgeInsets.only(right: Dimensions.paddingSizeSmall),
                               child: Icon(Icons.add_circle_outline_outlined, size: 20, color: Theme.of(context).primaryColor),),

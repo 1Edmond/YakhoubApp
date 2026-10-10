@@ -80,7 +80,7 @@ class ShippingRepository implements ShippingRepositoryInterface{
     Map<String,dynamic> data = {'ids' : ids, 'cost' : cost, 'multiply_qty' : multiPly};
 
     if (kDebugMode) {
-      print("===010203===>>$data===");
+      debugPrint("===010203===>>$data===");
     }
 
 

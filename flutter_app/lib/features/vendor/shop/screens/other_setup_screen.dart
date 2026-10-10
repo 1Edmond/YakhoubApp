@@ -216,7 +216,7 @@ class _OtherSetupScreenState extends State<OtherSetupScreen> {
 
                               // InkWell(
                               //   onTap: () {
-                              //     print(shopController.tinExpireDate);
+                              //     debugPrint(shopController.tinExpireDate);
                               //   },
                               //   child: Text('${shopController.tinExpireDate}')
                               // ),

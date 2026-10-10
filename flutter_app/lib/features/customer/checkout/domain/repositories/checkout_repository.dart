@@ -159,8 +159,13 @@ class CheckoutRepository implements CheckoutRepositoryInterface{
       String? password,
       String transactionReference,
       dynamic proofImage,
+      int transferAccountId,
       ) async {
     try {
+      if (proofImage == null) {
+        return ApiResponseModel.withError(ApiErrorHandler.getMessage('proof_image_required'));
+      }
+
       final Map<String, dynamic> data = {
         'address_id': addressID,
         'coupon_code': couponCode,
@@ -173,20 +178,14 @@ class CheckoutRepository implements CheckoutRepositoryInterface{
         'password': password,
         'payment_method': 'manual_transfer',
         'transaction_reference': transactionReference,
+        'transfer_account_id': transferAccountId,
       };
-
       data.removeWhere((key, value) => value == null || value.toString().isEmpty);
-
-      List<MultipartWithKey> files = [];
-      files.add(MultipartWithKey(
-        key: 'proof_image',
-        multipartFile: await MultipartFile.fromFile(proofImage.path),
-      ));
 
       final response = await dioClient!.postMultipart(
         AppConstants.orderPlaceUri,
         data: data,
-        files: files,
+        files: [MultipartWithKey(key: 'proof_image', multipartFile: await MultipartFile.fromFile(proofImage.path))],
       );
       return ApiResponseModel.withSuccess(response);
     } catch (e) {

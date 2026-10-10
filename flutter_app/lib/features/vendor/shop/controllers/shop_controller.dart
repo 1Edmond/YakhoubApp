@@ -116,7 +116,7 @@ class ShopController extends ChangeNotifier {
       _file = File(pickedFile.path);
     } else {
       if (kDebugMode) {
-        print('No image selected.');
+        debugPrint('No image selected.');
       }
     }
     notifyListeners();
@@ -154,7 +154,7 @@ class ShopController extends ChangeNotifier {
         errorMessage = apiResponse.error.errors[0].message;
       }
       if (kDebugMode) {
-        print(errorMessage);
+        debugPrint(errorMessage);
       }
       responseModel = ResponseModel(errorMessage, false);
       ApiChecker.checkApi(apiResponse);
@@ -367,7 +367,7 @@ class ShopController extends ChangeNotifier {
         errorMessage = apiResponse.error.errors[0].message;
       }
       if (kDebugMode) {
-        print(errorMessage);
+        debugPrint(errorMessage);
       }
       responseModel = ResponseModel(errorMessage, false);
       ApiChecker.checkApi(apiResponse);

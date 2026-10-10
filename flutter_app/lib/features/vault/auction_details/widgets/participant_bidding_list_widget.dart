@@ -72,7 +72,7 @@ class _ParticipantBiddingListWidgetState extends State<ParticipantBiddingListWid
   Widget build(BuildContext context) {
     return Consumer<ParticipationAuctionDetailsController>(
       builder: (context, detailsController, _) {
-        // print('myBidsOnly: ${detailsController.allBids}');
+        // debugPrint('myBidsOnly: ${detailsController.allBids}');
         final bids = detailsController.allBids;
         final hasMore = detailsController.hasMoreBids;
         final isCollapsed = detailsController.isCollapsed;

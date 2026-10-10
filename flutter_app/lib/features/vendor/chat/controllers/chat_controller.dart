@@ -163,7 +163,7 @@ class ChatController extends ChangeNotifier {
 
   Future<http.StreamedResponse> sendMessage(MessageBody messageBody,) async {
     if(kDebugMode){
-      print("===api call===id = ${messageBody.userId}");
+      debugPrint("===api call===id = ${messageBody.userId}");
     }
     _isLoading = true;
     notifyListeners();
@@ -473,7 +473,7 @@ class ChatController extends ChangeNotifier {
       previousConversationDateTime =
           DateConverter.isoUtcStringToLocalTimeOnly(previousChat!.createdAt!);
       if (kDebugMode) {
-        print("The Difference is ${previousConversationDateTime.difference(todayConversationDateTime) < const Duration(minutes: 30)}");
+        debugPrint("The Difference is ${previousConversationDateTime.difference(todayConversationDateTime) < const Duration(minutes: 30)}");
       }
       if (previousConversationDateTime.difference(todayConversationDateTime) <
           const Duration(minutes: 30) &&

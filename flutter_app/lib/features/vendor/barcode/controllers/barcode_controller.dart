@@ -24,7 +24,7 @@ class BarcodeController extends ChangeNotifier{
   void setBarCodeQuantity(int quantity){
     _barCodeQuantity = quantity;
     if (kDebugMode) {
-      print('Quantity is ==>$_barCodeQuantity');
+      debugPrint('Quantity is ==>$_barCodeQuantity');
     }
     notifyListeners();
   }

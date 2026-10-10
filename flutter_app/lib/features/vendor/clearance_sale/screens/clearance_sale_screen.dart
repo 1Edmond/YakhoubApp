@@ -179,7 +179,7 @@ class _ClearanceSaleScreenState extends State<ClearanceSaleScreen> {
                       onPaginate: (int? offset) async {
                         clearanceController.getClearanceSaleProductList(offset!);
                         if (kDebugMode) {
-                          print('========offset======>$offset');
+                          debugPrint('========offset======>$offset');
                         }
                       },
                       itemView: ListView.builder(

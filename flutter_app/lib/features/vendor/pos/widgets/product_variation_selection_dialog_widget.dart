@@ -129,7 +129,7 @@ class CartBottomSheetWidgetState extends State<CartBottomSheetWidget> {
                 productProvider.updateQuantity(false, isUpdate: false);
                 isNotSetQty = false;
               } else if (productProvider.isUpdateQuantity) {
-                // print('---Inside-Else----');
+                // debugPrint('---Inside-Else----');
                 // productProvider.setQuantity(1, isUpdate: false);
                 // productProvider.updateQuantity(true, isUpdate : false);
                 // isNotSetQty = false;

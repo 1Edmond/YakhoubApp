@@ -60,7 +60,7 @@ class OrderDetailsRepository implements OrderDetailsRepositoryInterface{
     http.MultipartRequest request = http.MultipartRequest('POST', Uri.parse('${AppConstants.baseUrl}${AppConstants.digitalProductUploadAfterSell}'));
     request.headers.addAll(<String,String>{'Authorization': 'Bearer $token'});
     if (kDebugMode) {
-      print('Here is ===>$filePath');
+      debugPrint('Here is ===>$filePath');
     }
     if(filePath != null) {
       Uint8List list = await filePath.readAsBytes();
@@ -76,13 +76,13 @@ class OrderDetailsRepository implements OrderDetailsRepositoryInterface{
 
     request.fields.addAll(fields);
     if (kDebugMode) {
-      print('=====> ${request.url.path}\n${request.fields}');
+      debugPrint('=====> ${request.url.path}\n${request.fields}');
     }
 
     http.StreamedResponse response = await request.send();
     var res = await http.Response.fromStream(response);
     if (kDebugMode) {
-      print('=====Response body is here==>${res.body}');
+      debugPrint('=====Response body is here==>${res.body}');
     }
 
     try {

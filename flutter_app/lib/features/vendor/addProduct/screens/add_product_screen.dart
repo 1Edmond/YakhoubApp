@@ -1204,7 +1204,7 @@ class AddProductScreenState extends State<AddProductScreen> with TickerProviderS
                                               titleList.add(textEditingController.text.trim());
                                             }
 
-                                            //  print('----UnitValue--->>${resProvider.unitValue}---');
+                                            //  debugPrint('----UnitValue--->>${resProvider.unitValue}---');
                                             // if(resProvider.productTypeIndex == 1 &&resProvider.digitalProductTypeIndex == 1 &&
                                             //     resProvider.selectedFileForImport != null ) {
                                             //   resProvider.uploadDigitalProduct(Provider.of<AuthController>(context,listen: false).getUserToken());

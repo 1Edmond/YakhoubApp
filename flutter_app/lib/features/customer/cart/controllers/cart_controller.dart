@@ -144,7 +144,7 @@ class CartController extends ChangeNotifier {
     ApiResponseModel apiResponse = await cartServiceInterface!.delete(key!);
     if (apiResponse.response != null && apiResponse.response!.statusCode == 200) {
       cartList[index].decrement = false;
-      getCartData(context);
+      getCartData(Get.context!);
     } else {
       cartList[index].decrement = false;
       ApiChecker.checkApi(apiResponse);
@@ -162,8 +162,8 @@ class CartController extends ChangeNotifier {
     ApiResponseModel apiResponse = await cartServiceInterface!.addRemoveCartSelectedItem(data);
     if (apiResponse.response != null && apiResponse.response!.statusCode == 200) {
       await Future.wait([
-        Provider.of<ShippingController>(context, listen: false).getChosenShippingMethod(context),
-        getCartData(context, reload: false),
+        Provider.of<ShippingController>(Get.context!, listen: false).getChosenShippingMethod(Get.context!),
+        getCartData(Get.context!, reload: false),
       ]);
     } else {
       ApiChecker.checkApi(apiResponse);
@@ -202,7 +202,7 @@ class CartController extends ChangeNotifier {
     ApiResponseModel apiResponse = await cartServiceInterface!.requestCartNegotiation(cartId, reductionAmount);
     _isNegotiationLoading = false;
     if (apiResponse.response != null && (apiResponse.response!.statusCode == 200 || apiResponse.response!.statusCode == 201)) {
-      await getCartData(context, reload: false);
+      await getCartData(Get.context!, reload: false);
       notifyListeners();
       return true;
     } else {
@@ -226,12 +226,12 @@ class CartController extends ChangeNotifier {
     if (apiResponse.response != null && apiResponse.response!.statusCode == 200) {
       showCustomSnackBarWidget(
         accept 
-          ? (getTranslated('negotiation_accepted', context) ?? 'Offre acceptée ! Nouveau prix appliqué.')
-          : (getTranslated('negotiation_refused', context) ?? 'Offre refusée.'),
-        context,
+          ? (getTranslated('negotiation_accepted', Get.context!) ?? 'Offre acceptée ! Nouveau prix appliqué.')
+          : (getTranslated('negotiation_refused', Get.context!) ?? 'Offre refusée.'),
+        Get.context!,
         snackBarType: SnackBarType.success,
       );
-      await getCartData(context, reload: false);
+      await getCartData(Get.context!, reload: false);
       notifyListeners();
       return true;
     } else {

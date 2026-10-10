@@ -369,7 +369,7 @@ class _FileItem extends StatelessWidget {
       onTap: () async {
         final status = await Permission.notification.request();
         if (kDebugMode) {
-          print("Status is $status");
+          debugPrint("Status is $status");
         }
         if (status.isGranted) {
           Directory? directory = Directory('/storage/emulated/0/Download');

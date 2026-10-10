@@ -1,1 +1,0 @@
-export 'package:multishop_tchad/core/di/reposotories/data_sync_repo_interface.dart';

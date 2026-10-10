@@ -69,8 +69,8 @@ class ShopRepository implements ShopRepositoryInterface{
     request.fields.addAll(fields);
     http.StreamedResponse response = await request.send();
     if(kDebugMode){
-      print("======>response body==> ${fields.toString()}");
-      print("======>response body==> ${response.stream}");
+      debugPrint("======>response body==> ${fields.toString()}");
+      debugPrint("======>response body==> ${response.stream}");
     }
     return response;
   }

@@ -239,7 +239,7 @@ class _ChatScreenState extends State<ChatScreen> {
                             itemBuilder: (context,index){
 
                               if (kDebugMode) {
-                                print('--------path: ${chatController.pickedMediaStored?[index].thumbnailPath}');
+                                debugPrint('--------path: ${chatController.pickedMediaStored?[index].thumbnailPath}');
                               }
 
                               return  Padding(

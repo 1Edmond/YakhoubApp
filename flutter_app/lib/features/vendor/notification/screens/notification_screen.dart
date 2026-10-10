@@ -281,7 +281,7 @@ class NotificationDialog extends StatelessWidget {
 
 Future<void> _launchUrl(String url) async {
   if(kDebugMode){
-    print("=====>Url is $url");
+    debugPrint("=====>Url is $url");
   }
   if (!await launchUrl(Uri.parse(url),
       mode: LaunchMode.externalApplication)) {

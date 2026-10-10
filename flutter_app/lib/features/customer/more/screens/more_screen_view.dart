@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:multishop_tchad/core/feature_vault/vault_tap_detector.dart';
 import 'package:multishop_tchad/features/customer/profile/controllers/profile_contrroller.dart';
 import 'package:multishop_tchad/features/customer/splash/domain/models/business_pages_model.dart';
 import 'package:multishop_tchad/core/helpers/route_helper.dart';

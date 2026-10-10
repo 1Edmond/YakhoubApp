@@ -1,1 +1,0 @@
-export 'package:multishop_tchad/core/localization/app_localization.dart';

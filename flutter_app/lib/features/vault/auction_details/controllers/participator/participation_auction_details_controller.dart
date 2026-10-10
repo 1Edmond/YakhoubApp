@@ -125,11 +125,11 @@ class ParticipationAuctionDetailsController extends ChangeNotifier {
           .getAuctionBidList(auctionProductId: productId, isMyBid: isMyBid, offset: 1, limit: _bidLimit);
       if (response?.response?.statusCode == 200) {
         final data = response?.response?.data;
-        // print("--->> bid list response: $data");
+        // debugPrint("--->> bid list response: $data");
         if (data != null) {
-          // print("--->> bid list response 1: $data");
+          // debugPrint("--->> bid list response 1: $data");
           final model = AuctionBidListModel.fromJson(data);
-          // print("--->> bid list response 2: $data");
+          // debugPrint("--->> bid list response 2: $data");
           _bidTotalSize = model.totalSize;
           _allBids = model.bids ?? [];
           _bidListModel = model;

@@ -1,1 +1,0 @@
-export 'package:multishop_tchad/core/constants/app_constants.dart';

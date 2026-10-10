@@ -87,7 +87,7 @@ class AddProductRepository implements AddProductRepositoryInterface{
         'POST', Uri.parse('${AppConstants.baseUrl}${AppConstants.uploadProductImageUri}',
     ));
     if (kDebugMode) {
-      print('==image is exist or not=${imageForUpload.image!.path}');
+      debugPrint('==image is exist or not=${imageForUpload.image!.path}');
     }
     request.headers.addAll(<String, String>{'Authorization': 'Bearer ${Provider.of<AuthController>(context,listen: false).getUserToken()}'});
     if(Platform.isAndroid || Platform.isIOS && imageForUpload.image != null) {
@@ -102,7 +102,7 @@ class AddProductRepository implements AddProductRepositoryInterface{
     });
     request.fields.addAll(fields);
     if (kDebugMode) {
-      print('=====> ${request.url.path}\n${request.fields}');
+      debugPrint('=====> ${request.url.path}\n${request.fields}');
     }
 
 
@@ -110,7 +110,7 @@ class AddProductRepository implements AddProductRepositoryInterface{
     await request.send();
     var res = await http.Response.fromStream(response);
     if (kDebugMode) {
-      print('=====Response body is here==>${res.body}');
+      debugPrint('=====Response body is here==>${res.body}');
     }
 
     try {
@@ -381,13 +381,13 @@ class AddProductRepository implements AddProductRepositoryInterface{
 
     request.fields.addAll(fields);
     if (kDebugMode) {
-      print('=====> ${request.url.path}\n${request.fields}');
+      debugPrint('=====> ${request.url.path}\n${request.fields}');
     }
 
     http.StreamedResponse response = await request.send();
     var res = await http.Response.fromStream(response);
     if (kDebugMode) {
-      print('=====Response body is here==>${res.body}');
+      debugPrint('=====Response body is here==>${res.body}');
     }
 
     try {

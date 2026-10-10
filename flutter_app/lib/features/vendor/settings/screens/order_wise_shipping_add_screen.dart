@@ -155,7 +155,7 @@ class OrderWiseShippingAddScreenState extends State<OrderWiseShippingAddScreen> 
                         shipping!.cost = PriceConverter.systemCurrencyToDefaultCurrency(double.parse(cost), context);
                         shipping!.duration = duration;
                         if (kDebugMode) {
-                          print('-------${shipping!.cost}');
+                          debugPrint('-------${shipping!.cost}');
                         }
                         if(widget.shipping == null){
                           Provider.of<ShippingController>(context,listen: false).addShippingMethod(shipping, callback);

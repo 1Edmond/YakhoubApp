@@ -66,7 +66,7 @@ class _SearchSuggestionState extends State<SearchSuggestion> {
                                   ?.firstWhere((product) => product.name == option.toString(),
                                   orElse: () => Products());
 
-                              // print("--1234-->>${selectedProduct?.slug}");
+                              // debugPrint("--1234-->>${selectedProduct?.slug}");
                               if(selectedProduct?.slug != null){
                                 searchProvider.searchFocusNode.unfocus();
                                 RouterHelper.getProductDetailsRoute(
@@ -98,7 +98,7 @@ class _SearchSuggestionState extends State<SearchSuggestion> {
                 },
                 onSelected: (selectedString) {
                   if (kDebugMode) {
-                    // print(selectedString);
+                    // debugPrint(selectedString);
                   }
                 },
                 fieldViewBuilder: (context, controller, focusNode, onEditingComplete) {

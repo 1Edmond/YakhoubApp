@@ -15,7 +15,7 @@ class EmergencyContactRepository implements EmergencyContractRepositoryInterface
   Future<ApiResponse> addNewEmergencyContact(String name, String phone,int? id, {bool isUpdate = false}) async {
     try {
       if (kDebugMode) {
-        print('==id=$id, name=$name, phone = $phone, isUpdate=$isUpdate');
+        debugPrint('==id=$id, name=$name, phone = $phone, isUpdate=$isUpdate');
       }
       final response = await dioClient!.post(isUpdate? AppConstants.emergencyContactUpdate : AppConstants.emergencyContactAdd,
           data: {

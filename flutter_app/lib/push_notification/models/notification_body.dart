@@ -1,1 +1,0 @@
-export 'package:multishop_tchad/features/shared/push_notification/models/notification_body.dart';

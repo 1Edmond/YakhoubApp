@@ -49,7 +49,7 @@ class ProfileController with ChangeNotifier {
         errorMessage = apiResponse.error.errors[0].message;
       }
       if (kDebugMode) {
-        print(errorMessage);
+        debugPrint(errorMessage);
       }
       responseModel = ResponseModel(errorMessage, false);
       ApiChecker.checkApi(apiResponse);

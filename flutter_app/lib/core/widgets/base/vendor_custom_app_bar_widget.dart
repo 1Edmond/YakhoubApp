@@ -7,8 +7,8 @@ import 'package:multishop_tchad/features/vendor/dashboard/controllers/bottom_men
 import 'package:multishop_tchad/features/vendor/product_details/controllers/product_details_controller.dart';
 import 'package:multishop_tchad/features/vendor/review/controllers/product_review_controller.dart';
 import 'package:multishop_tchad/core/theme/controllers/theme_controller.dart';
-import 'package:multishop_tchad/utill/dimensions.dart';
-import 'package:multishop_tchad/utill/images.dart';
+import 'package:multishop_tchad/core/constants/dimensions.dart';
+import 'package:multishop_tchad/core/constants/images.dart';
 import 'package:multishop_tchad/core/constants/custom_themes.dart';
 
 class CustomAppBarWidget extends StatelessWidget implements PreferredSizeWidget {

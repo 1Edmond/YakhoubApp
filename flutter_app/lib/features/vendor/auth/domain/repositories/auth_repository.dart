@@ -99,7 +99,7 @@ class AuthRepository implements AuthRepositoryInterface{
 
     if (deviceToken != null) {
       if (kDebugMode) {
-        print('--------Device Token---------- $deviceToken');
+        debugPrint('--------Device Token---------- $deviceToken');
       }
     }
     return deviceToken;
@@ -136,7 +136,7 @@ class AuthRepository implements AuthRepositoryInterface{
       await FirebaseMessaging.instance.unsubscribeFromTopic(AppConstants.maintenanceModeTopic);
     }catch(e) {
       if (kDebugMode) {
-        print("====Execption====>>$e");
+        debugPrint("====Execption====>>$e");
       }
     }
     await sharedPreferences!.remove(AppConstants.userLoginToken);
@@ -212,13 +212,13 @@ class AuthRepository implements AuthRepositoryInterface{
 
     request.fields.addAll(fields);
     if (kDebugMode) {
-      print('=====> ${request.url.path}\n${request.fields}');
+      debugPrint('=====> ${request.url.path}\n${request.fields}');
     }
 
     http.StreamedResponse response = await request.send();
     var res = await http.Response.fromStream(response);
     if (kDebugMode) {
-      print('=====Response body is here==>${res.body}');
+      debugPrint('=====Response body is here==>${res.body}');
     }
 
     try {

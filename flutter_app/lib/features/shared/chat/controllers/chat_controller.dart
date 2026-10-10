@@ -530,7 +530,7 @@ class ChatController extends ChangeNotifier {
     );
 
     if (kDebugMode) {
-      print('-----task-----${task != null} || $openFileUrl');
+      debugPrint('-----task-----${task != null} || $openFileUrl');
     }
 
     if(task !=null){
@@ -614,7 +614,7 @@ class ChatController extends ChangeNotifier {
       previousConversationDateTime =
           DateConverter.isoUtcStringToLocalTimeOnly(previousChat!.createdAt!);
       if (kDebugMode) {
-        print("The Difference is ${previousConversationDateTime.difference(todayConversationDateTime) < const Duration(minutes: 30)}");
+        debugPrint("The Difference is ${previousConversationDateTime.difference(todayConversationDateTime) < const Duration(minutes: 30)}");
       }
       if (previousConversationDateTime.difference(todayConversationDateTime) <
           const Duration(minutes: 30) &&

@@ -36,7 +36,7 @@ class AppConstants {
       '/api/v1/customer/cart/negotiations/{requestId}/respond';
 
   // Order Cancellation
-  static const String orderCancelEndpoint = 'customer/order/{orderId}/cancel';
+  static const String cancelOrderUri = '/api/v1/customer/order/cancel';
 
   // Door Photo
   static const String doorPhotoUploadEndpoint =
@@ -610,8 +610,7 @@ class AppConstants {
   static const String refundRequestUri = '/api/v1/customer/order/refund-store';
   static const String refundRequestPreReqUri = '/api/v1/customer/order/refund';
   static const String refundResultUri = '/api/v1/customer/order/refund-details';
-  static const String cancelOrderUri = '/api/v1/order/cancel-order';
-  static const String getSelectedShippingTypeUri =
+    static const String getSelectedShippingTypeUri =
       '/api/v1/shipping-method/check-shipping-type';
   static const String walletTransactionUri = '/api/v1/customer/wallet/list';
   static const String loyaltyPointUri = '/api/v1/customer/loyalty/list';

@@ -124,7 +124,7 @@ class LocationController with ChangeNotifier {
         }
       } catch (e) {
         if (kDebugMode) {
-          print(e);
+          debugPrint(e.toString());
         }
       }
       _loading = false;

@@ -55,7 +55,7 @@ class _InVoicePrintScreenState extends State<InVoicePrintScreen> {
 
     final List<BluetoothInfo> bluetoothDevices = await PrintBluetoothThermal.pairedBluetooths;
     if (kDebugMode) {
-      print("Bluetooth list: $bluetoothDevices");
+      debugPrint("Bluetooth list: $bluetoothDevices");
     }
     connected = await PrintBluetoothThermal.connectionStatus;
 
@@ -101,7 +101,7 @@ class _InVoicePrintScreenState extends State<InVoicePrintScreen> {
       List<int> ticket = await testTicket(screenshot);
       final result = await PrintBluetoothThermal.writeBytes(ticket);
       if (kDebugMode) {
-        print("print result: $result");
+        debugPrint("print result: $result");
       }
     } else {
       showCustomSnackBarWidget(getTranslated('no_thermal_printer_connected',  Get.context!,)!, Get.context!, sanckBarType: SnackBarType.warning);
@@ -246,13 +246,13 @@ class _InVoicePrintScreenState extends State<InVoicePrintScreen> {
               screenshotController.capture(delay: const Duration(milliseconds: 10)).then((Uint8List? capturedImage) {
                 //Capture Done
                 if (kDebugMode) {
-                  print('its calling :  $capturedImage');
+                  debugPrint('its calling :  $capturedImage');
                 }
                 _printReceipt(capturedImage!);
 
               }).catchError((onError) {
                 if (kDebugMode) {
-                  print(onError);
+                  debugPrint(onError);
                 }
               });
             },
