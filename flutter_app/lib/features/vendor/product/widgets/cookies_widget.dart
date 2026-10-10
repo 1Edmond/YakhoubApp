@@ -120,10 +120,7 @@ class CookiesWidget extends StatelessWidget {
                               left: Dimensions.paddingSizeSmall,
                               right: Dimensions.paddingSizeSmall
                             ),
-                            child: Image.asset(
-                              height: 20, width: 20,
-                              Images.crossIcon,
-                            ),
+                            child: CustomAssetImageWidget(Images.crossIcon),
                           ),
                         ),
                       ],

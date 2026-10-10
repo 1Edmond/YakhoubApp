@@ -29,6 +29,7 @@ import 'package:multishop_tchad/features/vendor/settings/screens/setting_screen.
 import 'package:multishop_tchad/features/vendor/shop/screens/shop_screen.dart';
 import 'package:multishop_tchad/features/vendor/wallet/screens/wallet_screen.dart';
 import 'package:multishop_tchad/features/vendor/bank_info/screens/bank_info_screen.dart';
+import 'package:multishop_tchad/features/vendor/transfer_account/screens/transfer_account_list_screen.dart';
 import 'package:multishop_tchad/features/vendor/refund/screens/refund_screen.dart';
 import 'package:multishop_tchad/features/vendor/negotiation/screens/vendor_negotiations_screen.dart';
 import 'package:multishop_tchad/features/vendor/order_details/controllers/vendor_reduction_controller.dart';
@@ -144,6 +145,10 @@ class MenuBottomSheetWidget extends StatelessWidget {
 
           CustomBottomSheetWidget(image: Images.bankingInfo, title: getTranslated('bank_info', context),
             onTap: () => _handleMenuTap(context, const BankInfoScreen()),
+          ),
+
+          CustomBottomSheetWidget(image: Images.bankingInfo, title: getTranslated('transfer_accounts', context) ?? 'Comptes de transfert',
+            onTap: () => _handleMenuTap(context, const TransferAccountListScreen()),
           ),
 
 

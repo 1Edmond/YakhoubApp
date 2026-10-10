@@ -75,7 +75,7 @@ class _BankInfoScreenState extends State<BankInfoScreen> {
                         onTap: () {
                           bankProvider.setWarningValue(false, isUpdate: true);
                         },
-                        child: SizedBox(width: 20, height: 20, child: Image.asset(Images.crossIcon))),
+                        child: SizedBox(width: 20, height: 20, child: CustomAssetImageWidget(Images.crossIcon))),
                       ],
                     ),
                   ),

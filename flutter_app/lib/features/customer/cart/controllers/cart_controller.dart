@@ -82,8 +82,8 @@ class CartController extends ChangeNotifier {
       cartList[index].increment  = false;
       cartList[index].decrement = false;
       String message = apiResponse.response!.data['message'].toString();
-      showCustomSnackBarWidget(message, Get.context!, snackBarType: SnackBarType.success);
-      await getCartData(Get.context!);
+      showCustomSnackBarWidget(message, context, snackBarType: SnackBarType.success);
+      await getCartData(context);
     } else {
       cartList[index].increment  = false;
       cartList[index].decrement = false;
@@ -102,10 +102,10 @@ class CartController extends ChangeNotifier {
     ApiResponseModel apiResponse = await cartServiceInterface!.addToCartListData(cart, choices, variationIndexes, buyNow, shippingMethodExist, shippingMethodId);
     _addToCartLoading = false;
     if (apiResponse.response != null && apiResponse.response!.statusCode == 200) {
-      if (shouldPop) Navigator.of(Get.context!).pop();
       _addToCartLoading = false;
-      if (showSuccessToast) showCustomSnackBarWidget(apiResponse.response!.data['message'], Get.context!, snackBarType: SnackBarType.success);
-      getCartData(Get.context!);
+      if (showSuccessToast) showCustomSnackBarWidget(apiResponse.response!.data['message'], context, snackBarType: SnackBarType.success);
+      getCartData(context);
+      if (shouldPop) Navigator.of(context).pop();
     } else {
       _addToCartLoading = false;
       ApiChecker.checkApi(apiResponse);
@@ -122,13 +122,13 @@ class CartController extends ChangeNotifier {
 
     _addToCartLoading = false;
     if (apiResponse.response != null && apiResponse.response!.statusCode == 200) {
-      Navigator.of(Get.context!).pop();
+      Navigator.of(context).pop();
       _addToCartLoading = false;
       if(context.mounted) {
         Provider.of<ProductDetailsController>(context, listen: false).updateProductRestock(variantKey: variationType);
       }
       await FirebaseMessaging.instance.subscribeToTopic(apiResponse.response!.data['topic']);
-      showCustomSnackBarWidget(apiResponse.response!.data['message'], Get.context!, snackBarType: apiResponse.response!.data['status'] == 0 ? SnackBarType.error : SnackBarType.success);
+      showCustomSnackBarWidget(apiResponse.response!.data['message'], context, snackBarType: apiResponse.response!.data['status'] == 0 ? SnackBarType.error : SnackBarType.success);
     } else {
       _addToCartLoading = false;
       ApiChecker.checkApi(apiResponse);
@@ -144,7 +144,7 @@ class CartController extends ChangeNotifier {
     ApiResponseModel apiResponse = await cartServiceInterface!.delete(key!);
     if (apiResponse.response != null && apiResponse.response!.statusCode == 200) {
       cartList[index].decrement = false;
-      getCartData(Get.context!);
+      getCartData(context);
     } else {
       cartList[index].decrement = false;
       ApiChecker.checkApi(apiResponse);
@@ -162,8 +162,8 @@ class CartController extends ChangeNotifier {
     ApiResponseModel apiResponse = await cartServiceInterface!.addRemoveCartSelectedItem(data);
     if (apiResponse.response != null && apiResponse.response!.statusCode == 200) {
       await Future.wait([
-        Provider.of<ShippingController>(Get.context!, listen: false).getChosenShippingMethod(Get.context!),
-        getCartData(Get.context!, reload: false),
+        Provider.of<ShippingController>(context, listen: false).getChosenShippingMethod(context),
+        getCartData(context, reload: false),
       ]);
     } else {
       ApiChecker.checkApi(apiResponse);
@@ -202,7 +202,7 @@ class CartController extends ChangeNotifier {
     ApiResponseModel apiResponse = await cartServiceInterface!.requestCartNegotiation(cartId, reductionAmount);
     _isNegotiationLoading = false;
     if (apiResponse.response != null && (apiResponse.response!.statusCode == 200 || apiResponse.response!.statusCode == 201)) {
-      await getCartData(Get.context!, reload: false);
+      await getCartData(context, reload: false);
       notifyListeners();
       return true;
     } else {
@@ -226,12 +226,12 @@ class CartController extends ChangeNotifier {
     if (apiResponse.response != null && apiResponse.response!.statusCode == 200) {
       showCustomSnackBarWidget(
         accept 
-          ? (getTranslated('negotiation_accepted', Get.context!) ?? 'Offre acceptée ! Nouveau prix appliqué.')
-          : (getTranslated('negotiation_refused', Get.context!) ?? 'Offre refusée.'),
-        Get.context!,
+          ? (getTranslated('negotiation_accepted', context) ?? 'Offre acceptée ! Nouveau prix appliqué.')
+          : (getTranslated('negotiation_refused', context) ?? 'Offre refusée.'),
+        context,
         snackBarType: SnackBarType.success,
       );
-      await getCartData(Get.context!, reload: false);
+      await getCartData(context, reload: false);
       notifyListeners();
       return true;
     } else {

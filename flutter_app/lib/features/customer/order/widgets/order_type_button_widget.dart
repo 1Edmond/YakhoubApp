@@ -11,8 +11,7 @@ class OrderTypeButton extends StatelessWidget {
   const OrderTypeButton({super.key, required this.text, required this.index});
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Consumer<OrderController>(
+    return Consumer<OrderController>(
         builder: (context, orderController,_) {
           return TextButton(onPressed: () => orderController.setIndex(index),
             style: TextButton.styleFrom(padding: const EdgeInsets.all(0)),
@@ -31,7 +30,6 @@ class OrderTypeButton extends StatelessWidget {
             ),
           );
         }
-      ),
-    );
+      );
   }
 }
